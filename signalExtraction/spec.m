@@ -83,7 +83,7 @@ else
     W = linspace(-fs/2,fs/2,nfft+1);
     W = W(1:end-1);
 end;
-
+size(H)
 % plot if no output variables specified
 if nargout==0,
     if db==0,
