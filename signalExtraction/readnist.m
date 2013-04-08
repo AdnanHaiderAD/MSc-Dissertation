@@ -172,14 +172,14 @@ if 1 == useshorten
   
   tmpfilename = ['uncompressed_' filename];
 
-  cmd = ['./shorten -x -d' num2str(headerlen) ' ' filename ' ' tmpfilename ';'];
+  cmd = ['./signalExtraction/shorten/shorten.1 -x -d' num2str(headerlen) ' ' filename ' ' tmpfilename ';'];
   unix (cmd);
 
   fid=fopen(tmpfilename,'r',['ieee-' endian] );
 else
   fid=fopen(filename,'r',['ieee-' endian] );
 end;
-  
+ 
 junk=fread(fid,headerlen,'short');
 ts=fread(fid,Inf, 'short');
 fclose(fid);

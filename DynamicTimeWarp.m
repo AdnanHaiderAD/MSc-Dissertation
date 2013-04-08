@@ -1,27 +1,30 @@
 
 function distance = DynamicTimeWarp(pathname1,pathname2)
+tic
 %pathnames correponds to the local directory path of the speech files
 
 %convert speech files to samples;
-%cd signalExtraction/
+%for sph files%
+[sample1, fs]= readsph(pathname1);
+[sample2, fs2] =readsph(pathname2);
 
-%[sample1, fs]= readsph(pathname1);
-%[sample2, fs2] =readsph(pathname2);
-[sample1, fs]= wavread(pathname1);
-[sample2, fs2] =wavread(pathname2);
+% for wav files
+%[sample1, fs]= wavread(pathname1);
+%[sample2, fs2] =wavread(pathname2);
 
 
 %extract MFCC vectors 
-
-%cd MFCC/
 seq1 = melfcc(sample1,fs);
-size(seq1)
-
 seq2= melfcc(sample2,fs2);
-size(seq2)
+
+clearvars sample1 sample2 pathname1 pathname2  fs fs2 
+
+%perform dyanamic timewarping
 distance = log(DTWalgorithm(seq1,seq2)+1);
 
 
+clearvars seq1 seq2
+toc
 end
 
 function distortion = DTWalgorithm(seq1,seq2)
@@ -47,6 +50,7 @@ for i=2:n+1
         DTW(i,j)= sum((seq1(:,i)-seq2(:,j)).^2) + min ([DTW(i-1,j),DTW(i-1,j-1),DTW(i,j-1)]);
     end
 end
-distortion=DTW(n+1,m+1);
 
+distortion=DTW(n+1,m+1);
+clearvars DTW seq1 seq2 
 end

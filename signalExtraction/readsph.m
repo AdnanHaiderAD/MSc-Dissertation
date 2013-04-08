@@ -220,24 +220,34 @@ if nargout
         if icode>=10 && isempty(ffx{5}) %#ok<AND2>
             fclose(fid);
             dirt=voicebox('dir_temp');
-            [fnp,fnn,fne,fnv]=fileparts(filename);
+            [fnn,fne,fnv]=fileparts(filename);
             filetemp=fullfile(dirt,[fnn fne fnv]);
-            cmdtemp=fullfile(dirt,'shorten.bat');               % batch file needed to convert to short filenames
-            % if ~exist(cmdtemp,'file')                   % write out the batch file if it doesn't exist
+            cmdtemp=fullfile(dirt,'shorten.1');               % batch file needed to convert to short filenames
+             if ~exist(cmdtemp,'file')                   % write out the batch file if it doesn't exist
                 cmdfid=fopen(cmdtemp,'wt');
                 fprintf(cmdfid,'@"%s" -x -a %%1 "%%~s2" "%%~s3"\n',voicebox('shorten'));
                 fclose(cmdfid);
-            % end
-            if exist(filetemp,'file')                          % need to explicitly delete old file since shorten makes read-only
+             end
+            
+            if exist(filetemp,'file') % need to explicitly delete old file since shorten makes read-only
                 doscom=['del /f "' filetemp '"'];
-                if dos(doscom) % run the program
-                    error('Error running DOS command: %s',doscom);
+               
+                %delete(filetmp);
+                
+                if system(doscom) % run the program
+                   error('Error running DOS command: %s',doscom);
                 end
             end
             if floor(icode/10)==1               % shorten
+                
+                %system('chmod 777 'cmdtemp');
                 doscom=['"' cmdtemp '" ' num2str(info(3)) ' "' filename '" "' filetemp '"'];
-                %                     fprintf(1,'Executing: %s\n',doscom);
-                if dos(doscom) % run the program
+                %   fprintf(1,'Executing: %s\n',doscom);
+               
+                cmd = ['./signalExtraction/shorten/shorten.1 -x -d' num2str(info(3)) ' ' filename ' ' filetemp  ';'];
+ 
+
+                if system(cmd) % run the program
                     error('Error running DOS command: %s',doscom);
                 end
             else
