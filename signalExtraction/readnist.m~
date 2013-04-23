@@ -172,7 +172,7 @@ if 1 == useshorten
   
   tmpfilename = ['uncompressed_' filename];
 
-  cmd = ['./shorten -x -d ' num2str(headerlen) ' ' filename ' ' tmpfilename ]
+  cmd = ['shorten -x -d ' num2str(headerlen) ' ' filename ' ' tmpfilename ]
   unix (cmd);
 
   fid=fopen(tmpfilename,'r',['ieee-' endian] )

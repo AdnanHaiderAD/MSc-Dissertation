@@ -1,0 +1,12 @@
+/afs/inf.ed.ac.uk/user/s08/s0840844/MSc-Dissertation/signalExtraction/shorten: line 1: syntax error near unexpected token `('
+/afs/inf.ed.ac.uk/user/s08/s0840844/MSc-Dissertation/signalExtraction/shorten: line 1: ` Error using ==> fread
+Invalid file identifier.  Use fopen to generate a valid file identifier.
+
+
+/bin/bash: ./afs/inf.ed.ac.uk/user/s08/s0840844/MSc-Dissertation/signalExtraction/shorten: No such file or directory
+??? Error using ==> fread
+Invalid file identifier.  Use fopen to generate a valid file identifier.
+
+Error in ==> readnist at 183
+junk=fread(fid,headerlen,'short');
+ 
