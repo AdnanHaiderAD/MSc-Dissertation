@@ -172,7 +172,7 @@ if 1 == useshorten
   
   tmpfilename = ['uncompressed_' filename];
 
-  cmd = ['./signalExtraction/shorten/shorten.1 -x -d' num2str(headerlen) ' ' filename ' ' tmpfilename ';'];
+  cmd = ['/Users/Tanguero/Documents/MSC/MSc-Dissertation/signalExtraction/shorten -x -d' num2str(headerlen) ' ' filename ' ' tmpfilename ';'];
   unix (cmd);
 
   fid=fopen(tmpfilename,'r',['ieee-' endian] );
