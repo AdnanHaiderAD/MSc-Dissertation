@@ -168,14 +168,16 @@ if 1 == useshorten
 	     ' shorten program. Please installit from' ...
 	     ' http://www.hornig.net/shorten/ and add its'...
 	     ' directory to the Matlab path.']);
-  end		      
-  
-  tmpfilename = ['uncompressed_' filename];
-
-  cmd = ['./shorten -x -d ' num2str(headerlen) ' ' filename ' ' tmpfilename ]
-  unix (cmd);
-
-  fid=fopen(tmpfilename,'r',['ieee-' endian] )
+  end	
+  %creating temporary file
+  fnam=strsplit(filename,'/');
+  fname=fnam(length(fnam))
+  tmpfilename = strcat('uncompressed_', fname);
+ % running shorten for decompression
+  cmd = ['./signalExtraction/shorten -x -d ' num2str(headerlen) ' ' filename ' ' tmpfilename{1} ';']
+  unix (cmd)
+ % tmpfilename=strcat('signalExtraction/',tmpfilename{1})
+  fid=fopen(tmpfilename{1},'r',['ieee-' endian] )
 else
   fid=fopen(filename,'r',['ieee-' endian] );
 end;
@@ -185,7 +187,7 @@ ts=fread(fid,Inf, 'short');
 fclose(fid);
 
 if (1 == useshorten) & isunix
-  unix (['rm ' tmpfilename]);
+  unix (['rm ' tmpfilename{1}]);
 else
   warning (['temporary file ' tmpfilename ' still exists!']);
 end  
