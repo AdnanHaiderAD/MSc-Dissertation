@@ -1,100 +1,109 @@
-function splittedstring = strsplit(inpstr,delimiter)
-%FUNCTION strsplit
+function terms = strsplit(s, delimiter)
+%STRSPLIT Splits a string into multiple terms
 %
-%-USE:
+%   terms = strsplit(s)
+%       splits the string s into multiple terms that are separated by
+%       white spaces (white spaces also include tab and newline).
 %
-%This function should be used to split a string of delimiter separated
-%values.  If all values are numerical values the returned matrix is a
-%double array but if there is one non numerical value a cell array is
-%returned.  You can check this with the iscell() function.
+%       The extracted terms are returned in form of a cell array of
+%       strings.
 %
-%-SYNTAX
-%output = strsplit(inpstr[,delimiter])
+%   terms = strsplit(s, delimiter)
+%       splits the string s into multiple terms that are separated by
+%       the specified delimiter. 
+%   
+%   Remarks
+%   -------
+%       - Note that the spaces surrounding the delimiter are considered
+%         part of the delimiter, and thus removed from the extracted
+%         terms.
 %
-%inpstr:    string containing delimiter separatede numerical values, eg
-%           3498,48869,23908,34.67
-%delimiter: optional, if omitted the delimiter is , (comma)
+%       - If there are two consecutive non-whitespace delimiters, it is
+%         regarded that there is an empty-string term between them.         
 %
-%-OUTPUT
+%   Examples
+%   --------
+%       % extract the words delimited by white spaces
+%       ts = strsplit('I am using MATLAB');
+%       ts <- {'I', 'am', 'using', 'MATLAB'}
 %
-%An x by 1 matrix containing the splitted values
+%       % split operands delimited by '+'
+%       ts = strsplit('1+2+3+4', '+');
+%       ts <- {'1', '2', '3', '4'}
 %
-%-INFO
+%       % It still works if there are spaces surrounding the delimiter
+%       ts = strsplit('1 + 2 + 3 + 4', '+');
+%       ts <- {'1', '2', '3', '4'}
 %
-%mailto:    gie.spaepen@ua.ac.be
+%       % Consecutive delimiters results in empty terms
+%       ts = strsplit('C,Java, C++ ,, Python, MATLAB', ',');
+%       ts <- {'C', 'Java', 'C++', '', 'Python', 'MATLAB'}
 %
-%--------------------------------------------------------------------------
+%       % When no delimiter is presented, the entire string is considered
+%       % as a single term
+%       ts = strsplit('YouAndMe');
+%       ts <- {'YouAndMe'}
+%
 
-% modified for delimiters with size > 1
-% by Matthias Pospiech 2009
+%   History
+%   -------
+%       - Created by Dahua Lin, on Oct 9, 2008
+%
 
-%Check input arguments
-if(nargin < 1)
-    error('There is no argument defined');
+%% parse and verify input arguments
+
+assert(ischar(s) && ndims(s) == 2 && size(s,1) <= 1, ...
+    'strsplit:invalidarg', ...
+    'The first input argument should be a char string.');
+
+if nargin < 2
+    by_space = true;
 else
-    if(nargin == 1)
-        strdelim = ',';
-        %Verbose off!! disp 'Delimiter set to ,';
-    else
-        strdelim = delimiter;
-    end
+    d = delimiter;
+    assert(ischar(d) && ndims(d) == 2 && size(d,1) == 1 && ~isempty(d), ...
+        'strsplit:invalidarg', ...
+        'The delimiter should be a non-empty char string.');
+    
+    d = strtrim(d);
+    by_space = isempty(d);
 end
+    
+%% main
 
-%deblank string
-deblank(inpstr);
+s = strtrim(s);
 
-%Get number of substrings
-idx  = strfind(inpstr,strdelim);
-sizedelimiter = size(delimiter,2);
-if size(idx) == 0
-    disp 'No delimiter in string, inputString is returned';
-    splittedstring = inpstr;
-else
-    %Define size of the indices
-    sz = size(idx,2);
-    %Define splittedstring
-    tempsplit = {};
-    %Loop through string and itinerate from delimiter to delimiter
-    for i = 1:sz
-        %Define standard start and stop positions for the start position,
-        %choose 1 as startup position because otherwise you get an array
-        %overflow, for the endposition you can detemine it from the
-        %delimiter position
-        strtpos = 1;
-        endpos = idx(i)-1;
-        %If i is not the beginning of the string get it from the delimiter
-        %position
-        if (i ~= 1)
-            strtpos = idx(i-1) + sizedelimiter;
-        end      
-        %If i is equal to the number of delimiters get the last element
-        %first by determining the lengt of the string and then replace the
-        %endpos back to a standard position
-        if (i == sz)
-            endpos = size(inpstr,2); 
-            tempsplit(i+1) = {inpstr(idx(i) + sizedelimiter : endpos)};
-            endpos = idx(i)-1;
-        end
-        %Add substring to output: splittedstring a cell array
-        tempsplit(i) = {inpstr(strtpos : endpos)};   
-    end
-    %Flag 
-    isallnums = 1;
-    %Check is there are NaN values if matrix elements are converted to
-    %doubles
-    for i = 1:size(tempsplit,2)
-        tempdouble = str2double(tempsplit(i));
-        if(isnan(tempdouble))
-            isallnums = 0;
-        end
-    end
-    %If isallnums = 1 then return a double array otherwise return a cell
-    %array
-    if(isallnums == 1)
-        for i = 1:size(tempsplit,2)
-            splittedstring(i) = str2double(tempsplit(i));
-        end
+if by_space
+    w = isspace(s);            
+    if any(w)
+        % decide the positions of terms        
+        dw = diff(w);
+        sp = [1, find(dw == -1) + 1];     % start positions of terms
+        ep = [find(dw == 1), length(s)];  % end positions of terms
+        
+        % extract the terms        
+        nt = numel(sp);
+        terms = cell(1, nt);
+        for i = 1 : nt
+            terms{i} = s(sp(i):ep(i));
+        end                
     else
-        splittedstring = tempsplit;
+        terms = {s};
     end
+    
+else    
+    p = strfind(s, d);
+    if ~isempty(p)        
+        % extract the terms        
+        nt = numel(p) + 1;
+        terms = cell(1, nt);
+        sp = 1;
+        dl = length(delimiter);
+        for i = 1 : nt-1
+            terms{i} = strtrim(s(sp:p(i)-1));
+            sp = p(i) + dl;
+        end         
+        terms{nt} = strtrim(s(sp:end));
+    else
+        terms = {s};
+    end        
 end

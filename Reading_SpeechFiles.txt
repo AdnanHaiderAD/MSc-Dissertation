@@ -1,0 +1,18 @@
+Steps taken so far to read speech files:
+1)
+Add paths : 
+addpath('/afs/inf.ed.ac.uk/user/s08/s0840844/MSc-Dissertation/MFCC/')
+addpath('/afs/inf.ed.ac.uk/user/s08/s0840844/MSc-Dissertation/speech_signals/')
+addpath('/afs/inf.ed.ac.uk/user/s08/s0840844/MSc-Dissertation/signalExtraction/')
+addpath('/afs/inf.ed.ac.uk/user/s08/s0840844/MSc-Dissertation/signalExtraction/scripts/')
+
+To read timit data:
+Use readsph as follows 
+ [Y fs] =readsph('speech_signals/fcjf0/sa1.wav');
+
+To read TIDIGITS data, use
+use readnist as follows
+Note:I have edited the parser of the readnist function to make the function compatible with unix commands
+ Y= readnist('speech_signals/tidigits/ae/1a.wav');
+
+Also if the path names are not added then one needs to specify the full path names of the file

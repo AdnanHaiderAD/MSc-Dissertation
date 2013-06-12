@@ -169,15 +169,16 @@ if 1 == useshorten
 	     ' http://www.hornig.net/shorten/ and add its'...
 	     ' directory to the Matlab path.']);
   end	
+  %My own code%
   %creating temporary file
   fnam=strsplit(filename,'/');
-  fname=fnam(length(fnam))
+  fname=fnam(length(fnam));
   tmpfilename = strcat('uncompressed_', fname);
  % running shorten for decompression
-  cmd = ['./signalExtraction/shorten -x -d ' num2str(headerlen) ' ' filename ' ' tmpfilename{1} ';']
+  cmd = ['./signalExtraction/shorten -x -d ' num2str(headerlen) ' ' filename ' ' tmpfilename{1} ';'];
   unix (cmd)
  % tmpfilename=strcat('signalExtraction/',tmpfilename{1})
-  fid=fopen(tmpfilename{1},'r',['ieee-' endian] )
+  fid=fopen(tmpfilename{1},'r',['ieee-' endian] );
 else
   fid=fopen(filename,'r',['ieee-' endian] );
 end;
