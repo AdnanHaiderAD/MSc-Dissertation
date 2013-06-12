@@ -1,6 +1,7 @@
 function DATA_ALL= read_data(data_type)
 if strcmp(data_type,'tidigits')
-        pathname='/group/corpora/public/tidigits/tidigits/train/';
+     %   pathname='/group/corpora/public/tidigits/tidigits/train/';
+        pathname='/group/corpora/public/tidigits/tidigits/test/';
         dir ={'/boy' , '/girl', '/man', '/woman'};
         
          for   i=1 : length(dir) 
