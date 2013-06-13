@@ -20,6 +20,11 @@ for i =1 : regions
                     for q=1 : classesT
                         for v=1 : versionsT
                             seq2= data{r,q,v};
+                            if (toc>=18000)
+                                toc
+                                save ('output1.mat','output','i','j','k');
+                                tic
+                            end
                             distortion= log(DTWalgorithm(seq1,seq2)+1);
                             if distortion <min_dist
                                 min_dist=distortion;
