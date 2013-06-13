@@ -20,7 +20,7 @@ for i =1 : regions
                     for q=1 : classesT
                         for v=1 : versionsT
                             seq2= data{r,q,v};
-                            if (toc>=18000)
+                            if (toc>=600)
                                 toc
                                 [L,host]= unix('hostname');
                                 filename = strcat('output',host,'.mat');
@@ -45,7 +45,9 @@ for i =1 : regions
         end
     end
 end
-               
+ [L,host]= unix('hostname');
+ filename = strcat('output',host,'.mat');
+ save (filename,'output','i','j','k');              
 
 
 %perform dyanamic timewarping
