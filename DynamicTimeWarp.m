@@ -1,26 +1,47 @@
 
-function distance = DynamicTimeWarp(pathname1,pathname2)
+function output = DynamicTimeWarp(test_data,training_data)
 tic
-%pathnames correponds to the local directory path of the speech files
+[regions classes versions]= size(test_data);
+[gender b] =size(training_data);
 
-%convert speech files to samples;
-%for sph files%
-[sample1, fs]= readsph(pathname1);
-[sample2, fs2] =readsph(pathname2);
-
-% for wav files
-%[sample1, fs]= wavread(pathname1);
-%[sample2, fs2] =wavread(pathname2);
-
-
-%extract MFCC vectors 
-seq1 = melfcc(sample1,fs);
-seq2= melfcc(sample2,fs2);
-
-clearvars sample1 sample2 pathname1 pathname2  fs fs2 
+output= zeros (regions*classes*versions ,1);
+dim=1;
+for i =1 : regions
+    for j=1 :classes
+        current_type = j;
+        min_dist=Inf;
+        closest_match =0;
+        for k=1 :versions
+            seq1= test_data{i,j,k};
+            for g=1 :gender
+                data =training_data{g};
+                [regionsT classesT versionsT]=size(data);
+                for r=1 : regionsT
+                    for q=1 : classesT
+                        for v=1 : versionsT
+                            seq2= data{r,q,v};
+                            distortion= log(DTWalgorithm(seq1,seq2)+1);
+                            if distortion <min_dist
+                                min_dist=distortion;
+                                closest_match= q;
+                            end
+                        end
+                    end
+                end
+            end
+            if current_type==closest_match
+                output(dim)=1;
+            else
+                output(dim)=0;
+            end
+            dim=dim+1;
+        end
+    end
+end
+               
+            
 
 %perform dyanamic timewarping
-distance = log(DTWalgorithm(seq1,seq2)+1);
 
 
 clearvars seq1 seq2
@@ -32,7 +53,7 @@ function distortion = DTWalgorithm(seq1,seq2)
 % and n and m denote the length of the sequences
 
 [r,n]=size(seq1);
-[r m]= size(seq2);
+[r, m]= size(seq2);
 seq1=[zeros(r,1) seq1];
 seq2=[zeros(r,1),seq2];
 %Initialize the DTW cost matrix
@@ -47,10 +68,11 @@ DTW(1,1)=0;
 
 for i=2:n+1
     for j=2:m+1
+        %using euclidean distance 
         DTW(i,j)= sum((seq1(:,i)-seq2(:,j)).^2) + min ([DTW(i-1,j),DTW(i-1,j-1),DTW(i,j-1)]);
     end
 end
 
-distortion=DTW(n+1,m+1);
+distortion=DTW(n+1,m+1)/(n+m);
 clearvars DTW seq1 seq2 
 end
