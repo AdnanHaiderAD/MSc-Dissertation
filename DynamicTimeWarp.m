@@ -22,7 +22,9 @@ for i =1 : regions
                             seq2= data{r,q,v};
                             if (toc>=18000)
                                 toc
-                                save ('output3.mat','output','i','j','k');
+                                [L,host]= unix('hostname');
+                                filename = strcat('output',host,'.mat');
+                                save (filename,'output','i','j','k');
                                 tic
                             end
                             distortion= log(DTWalgorithm(seq1,seq2)+1);
