@@ -22,7 +22,7 @@ for i =1 : regions
                             seq2= data{r,q,v};
                             if (toc>=18000)
                                 toc
-                                save ('output1.mat','output','i','j','k');
+                                save ('output3.mat','output','i','j','k');
                                 tic
                             end
                             distortion= log(DTWalgorithm(seq1,seq2)+1);
@@ -44,7 +44,7 @@ for i =1 : regions
     end
 end
                
-            
+
 
 %perform dyanamic timewarping
 
