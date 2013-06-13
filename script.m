@@ -1,7 +1,7 @@
 load ('MFCCtest.mat')
 T1=MFCC{4};
 if exist('iterator.mat','file')==2
-    j=i+1;
+    j=real(i)+1;
     i=i+5;
     i=real(i);
     save('iterator.mat','i')
