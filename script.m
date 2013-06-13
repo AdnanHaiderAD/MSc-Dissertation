@@ -3,6 +3,7 @@ T1=MFCC{4};
 if exist('iterator.mat','file')==2
     j=i+1;
     i=i+5;
+    i=real(i);
     save('iterator.mat','i')
     part=T1(j:i,:,:);
     clear T1 MFCC
