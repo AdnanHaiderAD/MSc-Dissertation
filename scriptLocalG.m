@@ -9,10 +9,17 @@ if exist('iterator.mat','file')==2
     clear DATA
     save('iterator.mat','i')
     localGlobalfeatures =extractLocalGlobalFeat(data);
+    [L,host]= unix('hostname');
+    filename = strcat('output',host,'.mat');
+    save (filename,'localGlobalfeatures');              
+
 else
     i=1;
     data=DATA{i};
     clear DATA
     save('iterator.mat','i')
     localGlobalfeatures =extractLocalGlobalFeat(data);
+    [L,host]= unix('hostname');
+    filename = strcat('output',host,'.mat');
+    save (filename,'localGlobalfeatures');    
 end
