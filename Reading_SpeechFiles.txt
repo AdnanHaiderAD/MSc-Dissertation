@@ -1,3 +1,5 @@
+
+READING DATA:
 Steps taken so far to read speech files:
 1)
 Add paths : 
@@ -16,3 +18,24 @@ Note:I have edited the parser of the readnist function to make the function comp
  Y= readnist('speech_signals/tidigits/ae/1a.wav');
 
 Also if the path names are not added then one needs to specify the full path names of the file
+
+
+
+RUNNING EXPERIMENTS:
+No of Male test speakers used :50
+No of female test speakers used : 55
+
+
+ No of test samples : (50 +55)* 9(distinct numbers) *2(no of versions)
+ 
+Training Data:
+Samples from 
+boy 
+girl
+men 
+women
+
+Techniques used:
+Algorithm								Classification method
+DTW equipped with MFCC features and euclidean metric     		1 nearest neighbour
+DTW equipped with MFCC features and euclidean metric                    K nearest neighbour
