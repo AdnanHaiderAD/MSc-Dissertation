@@ -9,8 +9,12 @@ dim=1;
 for i =1 : regions
     for j=1 :classes
         current_type = j;
-        min_dist=Inf;
-        closest_match =0;
+        %using 1 nearest neighbour
+        %min=Inf
+        %closest_match =0;
+        %using 11 nearest neigbours 
+        min_dist=ones(11,1)*Inf;
+        closest_match =zeros(11,1);
         for k=1 :versions
             seq1= test_data{i,j,k};
             for g=1 :gender
@@ -28,15 +32,17 @@ for i =1 : regions
                                 tic
                             end
                             distortion= log(DTWalgorithm(seq1,seq2)+1);
-                            if distortion <min_dist
-                                min_dist=distortion;
-                                closest_match= q;
+                           % if distortion <min_dist
+                           if distortion<max(min_dist)
+                                min_dist(min_dist==max(min_dist))=distortion;
+                                closest_match(min_dist==max(min_dist))= q;
                             end
                         end
                     end
                 end
             end
-            if current_type==closest_match
+            %if current_type==closest_match
+            if current_type==mode(closest_match)
                 output(dim)=1;
             else
                 output(dim)=0;
