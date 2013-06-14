@@ -39,3 +39,9 @@ Techniques used:
 Algorithm								Classification method
 DTW equipped with MFCC features and euclidean metric     		1 nearest neighbour
 DTW equipped with MFCC features and euclidean metric                    K nearest neighbour
+
+
+Things to try:
+Dynamic time Warping  and euclidean method + K nearest neighbour
+
+Dynamic time wapring equipped with local and global features + K nearest neighbour
