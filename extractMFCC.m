@@ -1,5 +1,5 @@
 function MFCC = extractMFCC(DATA)
-% data is 1 by 4 cell where each cell represents data corresponding to a gender
+% extratcs MFCC features. Output data is 1 by 4 cell where each cell represents data corresponding to a gender
 MFCC= cell(1,4);
 for g=1: length(DATA)
     data= DATA{g};
