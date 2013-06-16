@@ -1,6 +1,6 @@
 
 %script that extracts local and global features from the entire training time series data set 
-load   Rawdata
+load   RawdataTest
 DATA=Y;
 if exist('iterator.mat','file')==2
     i= real(i)+1;
