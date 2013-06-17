@@ -1,5 +1,5 @@
-load ('orignalTestExp')
-T1=Y{1};
+load ('orignalTestMFCCExp')
+T1=MFCC{1};
 if exist('iterator1.mat','file')==2
     j=real(i)+1;
     i=i+5;
@@ -9,8 +9,8 @@ if exist('iterator1.mat','file')==2
     end
     save('iterator1.mat','i')
     part=T1(j:i,:,:);
-    clear T1 Y
-    load ('MFCCtraining.mat')
+    clear T1 MFCC
+    load MFCCTraining
     output = DynamicTimeWarp(part,MFCC);
     
     
@@ -19,6 +19,6 @@ else
     save('iterator1.mat','i');
     part=T1(1:i,:,:);
     clear T1 MFCC
-    load ('MFCCtraining.mat')
+    load MFCCTraining
     output = DynamicTimeWarp(part,MFCC);
 end
