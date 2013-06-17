@@ -72,6 +72,8 @@ function distortion = DTWalgorithm(seq1,seq2)
 [r,n]=size(seq1);
 [r, m]= size(seq2);
 
+
+
 %the following conditional branch is for value-based DTW
 if n==1 && m==1
      seq1=seq1';
