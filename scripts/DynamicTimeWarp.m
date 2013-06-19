@@ -4,7 +4,7 @@ tic
 noOftestsamp= length(test_data);
 [r genders]=size(training_data);
 
-output=cell(noOftestsamp);
+output=cell(1,noOftestsamp);
 
 for samp=1:noOftestsamp
      testSamp=test_data{samp};
@@ -12,7 +12,7 @@ for samp=1:noOftestsamp
      class=testSamp{1};
      seq= testSamp{2};
      
-     %keeping ecord of K nearest neighbours
+     %keeping record of K nearest neighbours
      min_dist=ones(11,1)*Inf;
      closest_match =zeros(11,1);
      
@@ -22,7 +22,7 @@ for samp=1:noOftestsamp
             trainSamp=data{i};
             trainClass =trainSamp{1};
             seq2= trainSamp{2};
-            if (toc>=600)
+            if (toc>=300)
                 toc
                 [L,host]= unix('hostname');
                 filename = strcat('output',host,'.mat');
@@ -64,17 +64,6 @@ function distortion = DTW1(seq1,seq2)
 
 [r,n]=size(seq1);
 [r, m]= size(seq2);
-
-
-
-%the following conditional branch is for value-based DTW
-if n==1 && m==1
-     seq1=seq1';
-     seq2=seq2';
-     [r,n]=size(seq1);
-     [r, m]= size(seq2);
-
-end
 
 seq1=[zeros(r,1) seq1];
 seq2=[zeros(r,1),seq2];

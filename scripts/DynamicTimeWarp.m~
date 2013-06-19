@@ -4,7 +4,7 @@ tic
 noOftestsamp= length(test_data);
 [r genders]=size(training_data);
 
-output=zeros(1, noOftestsamp);
+output=cell(1,noOftestsamp);
 
 for samp=1:noOftestsamp
      testSamp=test_data{samp};
@@ -12,7 +12,7 @@ for samp=1:noOftestsamp
      class=testSamp{1};
      seq= testSamp{2};
      
-     %keeping ecord of K nearest neighbours
+     %keeping record of K nearest neighbours
      min_dist=ones(11,1)*Inf;
      closest_match =zeros(11,1);
      
@@ -26,10 +26,10 @@ for samp=1:noOftestsamp
                 toc
                 [L,host]= unix('hostname');
                 filename = strcat('output',host,'.mat');
-                save (filename,'output','i','j','k');
+                save (filename,'output','samp');
                 tic
             end
-             distortion= log(DTWalgorithm(seq,seq2)+1);
+             distortion= log(DTW1(seq,seq2)+1);
              if distortion<max(min_dist)
                 min_dist(min_dist==max(min_dist))=distortion;
                 closest_match(min_dist==max(min_dist))= trainClass;
@@ -37,15 +37,18 @@ for samp=1:noOftestsamp
         end
     end
     if closest_match(min_dist==min(min_dist))==class
-        output(samp)=0;
+        entry{1}=0;
     else
-        output(samp)=1;
+        entry{1}=1;
     end
+    entry{2}=closest_match;
+    output{samp}=entry;
+    clear closest_match entry min_dist
 end
 
  [L,host]= unix('hostname');
  filename = strcat('output',host,'.mat');
- save (filename,'output','i','j','k');              
+ save (filename,'output','samp');              
 
 
 %perform dyanamic timewarping
@@ -55,23 +58,12 @@ clearvars seq1 seq2
 toc
 end
 
-function distortion = DTWalgorithm(seq1,seq2)
+function distortion = DTW1(seq1,seq2)
 % seq1 is r by n matrix and seq2 is an r by m matrix where r denote dimension of each feature vector(frame) 
 % and n and m denote the length of the sequences
 
 [r,n]=size(seq1);
 [r, m]= size(seq2);
-
-
-
-%the following conditional branch is for value-based DTW
-if n==1 && m==1
-     seq1=seq1';
-     seq2=seq2';
-     [r,n]=size(seq1);
-     [r, m]= size(seq2);
-
-end
 
 seq1=[zeros(r,1) seq1];
 seq2=[zeros(r,1),seq2];
