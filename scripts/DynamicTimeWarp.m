@@ -81,8 +81,7 @@ for i=2:n+1
     for j=2:m+1
         %using euclidean distance where each frame is a vector
         DTW(i,j)= sum((seq1(:,i)-seq2(:,j)).^2) + min ([DTW(i-1,j),DTW(i-1,j-1),DTW(i,j-1)]);
-        %using euclidean metric where each frame is a value.
-        %DTW(i,j)= (seq1(i)-seq2(j)).^2 + min ([DTW(i-1,j),DTW(i-1,j-1),DTW(i,j-1)]);
+        
     end
 end
 
