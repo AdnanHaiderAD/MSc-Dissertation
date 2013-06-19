@@ -9,7 +9,7 @@ boy = data{1};
 girl=data{2};
 men= data{3};
 women=data{4};
-
+clear data
 LocGLoDataboy =extractLG(boy);
 LocGLoDatagirl=extractLG(girl);
 LocGLoDatamen = extractLG(men);
@@ -29,6 +29,8 @@ for i=1:length(data)
     dataPoint = entry{2};
     localFeat = zeros(2,length(dataPoint)-2);
     globalFeat = zeros(2,length(dataPoint)-2);
+    
+    %extracting local and global features seperately
     for j=2:length(dataPoint)-1
         globalFeat(:,j-1)= [(dataPoint(j)-sum(dataPoint(1:j-1))) (dataPoint(j)-sum(dataPoint(j+1:end)))];
         localFeat(:,j-1) =[ (dataPoint(j) -dataPoint(j-1))  (dataPoint(j)- dataPoint(j+1))];
@@ -37,7 +39,7 @@ for i=1:length(data)
     new_data{1}=localFeat;
     new_data{2}=globalFeat;
     clear entry dataPoint
-    entry = cell(2,1);
+   
     entry{1} =class;
     entry{2} = new_data;
     localGLo{i} =entry;
