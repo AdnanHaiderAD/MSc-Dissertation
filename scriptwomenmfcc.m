@@ -2,4 +2,4 @@ load MFCCExpTest
 women=MFCC{4};
 clear MFCC
 load MFFCTrainingSampled
-output =DynamicTimeWarp(women(122:end),MFCC);
+output =DynamicTimeWarp(women(121),MFCC);
