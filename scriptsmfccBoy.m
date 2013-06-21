@@ -1,5 +1,5 @@
-load MFCCExpTestwhiten
-boy=MFCC{1};
-clear MFCC
-load MFCCExpTrainingwhiten
-output =DynamicTimeWarp(boy(61:end),MFCC);
+load RawdataCleanedExp
+boy=RawdataC{1};
+clear RawdataC
+load RawTrainingCleanedSamp
+output =DynamicTimeWarp(boy,RawdataC);

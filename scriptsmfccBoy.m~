@@ -1,0 +1,5 @@
+load RawdataCleanedExp
+boy=MFCC{1};
+clear MFCC
+load RawTrainingCleanedSamp
+output =DynamicTimeWarp(boy,MFCC);
