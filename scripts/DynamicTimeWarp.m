@@ -125,7 +125,7 @@ end
 
 function distortion = DTW3(sq1,sq2)
 %DTW algorithm for Local+Global features
-tic
+
 %for local +global features
 seq1= sq1{1};
 seqs2 =sq2{1};
@@ -162,6 +162,6 @@ end
 distortion=DTW(n+1,m+1)/(n+m);
 
 clearvars DTW seq1 seq2 
-toc
+
 end
 end
