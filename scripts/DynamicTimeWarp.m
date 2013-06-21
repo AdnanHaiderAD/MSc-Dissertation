@@ -91,7 +91,7 @@ end
 
 function distortion = DTW2(seq1,seq2)
 %DTW algorithm for Local+Global features
-tic
+
 % seq1 now is a r by n matrix and seq2 is an r by m matrix where r denote dimension of each feature vector(frame) 
 % and n and m denote the length of the sequences
 [r2,n]=size(seq1);
@@ -118,7 +118,7 @@ for l=2:n+1
 end
 distortion=DTW(n+1,m+1)/(n+m);
 clearvars DTW seq1 seq2 
-toc
+
 end
 
 
