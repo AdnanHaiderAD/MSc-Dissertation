@@ -1,5 +1,5 @@
-load MFCCExpTest
+load MFCCExpTestwhiten
 men=MFCC{3};
 clear MFCC
-load MFFCTrainingSampled
-output =DynamicTimeWarp(men(183:184),MFCC);
+load MFCCExpTrainingwhiten
+output =DynamicTimeWarp(men(95:end),MFCC);
