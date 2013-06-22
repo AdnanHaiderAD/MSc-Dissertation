@@ -4,4 +4,4 @@ clear RawdataC
 load ReducedCleanedRawTrain
 i=fix(length(men)/4);
 
-output =DynamicTimeWarp(men(1:i),RawdataC);
+output =DynamicTimeWarp(men(i+1:2*i),RawdataC);
