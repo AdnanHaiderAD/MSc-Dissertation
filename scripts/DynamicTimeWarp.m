@@ -97,7 +97,7 @@ function distortion = DTW2(seq1,seq2)
 [r2,n]=size(seq1);
 [r2, m]= size(seq2);
 %adding a warping window to speed up computation
-w = max(fix (0.1*n),abs(n-m));
+w = min(fix (0.1*max(m,n)),abs(n-m));
 
 seq1=[zeros(r2,1) seq1];
 seq2=[zeros(r2,1) seq2];
@@ -116,7 +116,12 @@ for l=2:n+1
       DTW(l,j)= sum((seq1(:,l)-seq2(:,j)).^2) + min ([DTW(l-1,j),DTW(l-1,j-1),DTW(l,j-1)]);
     end
 end
-distortion=DTW(n+1,m+1)/(n+m);
+%Making more adjustments to reduce time complexity
+DTW=DTW(2:end,2:end);
+distortion =DTW(find(DTW,1,'last'))/(n+m);
+%distortion=DTW(n+1,m+1)/(n+m);
+
+
 clearvars DTW seq1 seq2 
 
 end
@@ -158,6 +163,7 @@ for s=2:n+1
         
     end
 end
+
 
 distortion=DTW(n+1,m+1)/(n+m);
 

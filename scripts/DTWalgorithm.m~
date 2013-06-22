@@ -40,8 +40,7 @@ for l=2:n+1
 end
 
 %Making more adjustments to reduce time complexity
-DTW=DTW(2:end,2:end);
-distortion =DTW(find(DTW,1,'last'))/(n+m);
+DTW=(2:end
 %distortion=DTW(n+1,m+1)/(n+m);
 
 clearvars DTW seq1 seq2 
