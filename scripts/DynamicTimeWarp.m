@@ -71,6 +71,15 @@ function distortion = DTW(seq1,seq2)
 % and n and m denote the length of the sequences
 [r2,n]=size(seq1);
 [r2, m]= size(seq2);
+
+if n==1 && m==1
+    seq1=seq1';
+    seq2=seq2';
+    [r2,n]=size(seq1);
+    [r2, m]= size(seq2);
+end
+
+
 %adding a warping window to speed up computation
 w = min(fix (0.1*max(m,n)),abs(n-m));
 
