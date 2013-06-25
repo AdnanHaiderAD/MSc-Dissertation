@@ -4,4 +4,4 @@ clear MFCC;
 load MFFCTrainingSampled
 
 
-output =DynamicTimeWarp(men(289:end),MFCC);
+output =DynamicTimeWarp(men(66:169),MFCC);
