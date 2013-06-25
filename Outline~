@@ -55,7 +55,7 @@ Steps taken to speed up DTW:
 
 1) adding a adaptive warping window of size      max(0.1* longestsignal, abs (length (signal 1)-length(signal2))) 
 Smaller warping windows speed up the DTW calculations simply because there is less area of the warping matrix to be searched but at the expense of accuracy!
-
+Potential containment:
 
 Test
 Two classes:"8" and "9"
@@ -66,7 +66,7 @@ samples for "9" : 1 sample from boy category and 1 sample from men category
 Tests conducted
 let n be size of one utterance and m be the size of the second utternace
 
-using window max(o.1*max(n.m),abs (n-m)):
+using window abs (n-m):
 		comparing 8 and 8:
 		distortion=0.049
 		Time= 7.5s
@@ -88,19 +88,52 @@ confusion matrix :
         T   1 1       
         F   1 1
 
+boy  40.0000
+         0
+         0
+   31.5789
+         0
+         0
+   47.0588
+         0
+         0
 
-Time Taken :
-Baseline DTW :
+girl
+ 35.7143
+         0
+         0
+   16.6667
+         0
+         0
+   56.2500
+         0
+         0
 
-Test Sets:
- Boy :43201s
- Girl: 44030s
- Men :64803s
-Women:66532s  
 
-DTW +MFCC:
-Boy:2819s
-Girl:3121s
-Men: 4817s
-Women:5658s
+men
+30.7692
+         0
+         0
+   28.0000
+    5.8824
+         0
+   60.0000
+         0
+         0
+
+
+women 
+ 34.2857
+         0
+    3.7037
+   32.1429
+         0
+    4.3478
+   47.3684
+         0
+         0
+
+
+
+
 

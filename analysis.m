@@ -1,28 +1,45 @@
-function accuracy = analysis(data)
+function [indVaccuracy,accuracy]=  analysis(data,refdata)
+%%plot an histogram  and a grapgh
+%the histogram corresponds to the number of in-correct 
+% classifications performed by the algorithm for each class
+%The graph correpsponds to the accuracy
+count=0;
+MisClassCount =zeros(9,1);
+Counter=zeros(9,1);
 
-boysR=data{1};
-girlsR =data{2};
-menR=data{3};
-womenR=data{4};
-
-resultb=extract(boysR);
-sum(resultb)
-resultg=extract(girlsR);
-sum(resultg)
-resultm=extract(menR);
-sum(resultm)
-resultwom=extract(womenR);
-sum(resultwom)
-accuracy= (sum(resultb) +sum(resultg)+sum(resultm)+sum(resultwom))/(length(resultb)+length(resultg)+length(resultm)+length(resultwom)) *100;
-
-    function result =extract(dat)
-        result=zeros(length(dat),1);
-        for i=1 :length(dat)
-            entry=dat{i};
-            if entry{1}~=0 && entry{1}~=1
-                entry{1}
-            end
-            result(i)=entry{1};
+for i=1:length(refdata)
+    entry =refdata{i};
+    class =entry{1};
+    if isempty(data{i})
+        continue;
+    else
+     
+        outentry=data{i};
+        Counter(class)=Counter(class)+1;
+        
+        if outentry{1}
+            count=count+1;
+            %%records the number of misclassifications seen for the class so
+            %far
+            histogram(count)=class;
+            MisClassCount(class)=MisClassCount(class)+1;
         end
     end
+end
+
+%% misclassification rate
+figure(1)
+
+hist(histogram,[1:9]);
+h = findobj(gca,'Type','patch');
+set(h,'FaceColor',[1 0.5 0],'EdgeColor','w')
+xlabel('Classes'); 
+ylabel('Number of Mis-Classifications'); 
+ title('Results for the women category');
+
+%%accuracy
+output= MisClassCount./Counter*100;
+indVaccuracy = 100*ones(9,1) -output;
+accuracy =100-count/sum(Counter) *100;
+
 end
