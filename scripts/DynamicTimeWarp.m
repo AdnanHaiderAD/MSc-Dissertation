@@ -118,7 +118,7 @@ DTW(1,1)=0;
 
 %% if no window constraints are specified
 if (isnan(w))
-   p='yes'
+  
 for l=2:n+1
     for j=2:m+1
      %using  normal DTW with warping window
@@ -129,7 +129,7 @@ distortion =DTW(n+1,m+1)/(n+m);
 
 %% if window constraints are specified
 else
-    p='no'
+   
   for l=2:n+1
     for j=max(2,l-w) :min(m+1,l+w+1)
      %using  normal DTW with warping window

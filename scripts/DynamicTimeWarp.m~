@@ -10,7 +10,7 @@ if length(varargin)<2
     error('No enough arguments')
 end
 %if window is not specified then
-if length(varagin)==2
+if length(varargin)==2
     w=nan;
 end
 %%
@@ -58,7 +58,7 @@ for samp=1:noOftestsamp
              end
         end
     end
-    %%The classifier is a 1 vs rest classifier where correct classifiaction denotes 0
+    %% The classifier is a 1 vs rest classifier where correct classifiaction denotes 0
     %and misclassifaction denotes 1
     if closest_match(min_dist==min(min_dist))==class
         entry{1}=0;
@@ -86,7 +86,7 @@ time=time+toc
 
 
 function distortion = DTW(seq1,seq2,w)
-%%DTW algorithm for MFCC + baseline featues
+%% DTW algorithm for MFCC + baseline featues
 % seq1 now is a r by n matrix and seq2 is an r by m matrix where r denote dimension of each feature vector(frame) 
 % and n and m denote the length of the sequences
 
@@ -100,11 +100,11 @@ if n==1 && m==1
     [r2, m]= size(seq2);
 end
 
-if isnan(w)
+if ~isnan(w)
 w = max(w,abs(n-m));
 end
 
-%%Initializing The DTW cost matrix
+%% Initializing The DTW cost matrix
 seq1=[zeros(r2,1) seq1];
 seq2=[zeros(r2,1) seq2];
 DTW = zeros (n+1,m+1);
@@ -116,8 +116,9 @@ for l =2 :n+1
 end
 DTW(1,1)=0;
 
-%
+%% if no window constraints are specified
 if (isnan(w))
+  
 for l=2:n+1
     for j=2:m+1
      %using  normal DTW with warping window
@@ -126,8 +127,9 @@ for l=2:n+1
 end
 distortion =DTW(n+1,m+1)/(n+m);
 
-
+%% if window constraints are specified
 else
+   
   for l=2:n+1
     for j=max(2,l-w) :min(m+1,l+w+1)
      %using  normal DTW with warping window
@@ -136,7 +138,7 @@ else
   end  
 DTW=DTW(2:end,2:end);
 distortion =DTW(find(DTW,1,'last'))/(n+m);
-
+end
 
 clearvars DTW seq1 seq2 
 
