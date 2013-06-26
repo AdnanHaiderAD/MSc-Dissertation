@@ -1,7 +1,0 @@
-load RawdataCleanedExp
-boy=RawdataC{1};
-clear RawdataC
-load RawTrainingCleanedSamp
-i=fix(length(boy)/4);
-
-output =DynamicTimeWarp(boy(1:i),RawdataC);

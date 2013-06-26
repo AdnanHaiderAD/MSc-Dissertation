@@ -1,0 +1,21 @@
+
+The folder MFFCraw contains :
+
+(MFCCTEST,MFCCtest)--- both files consist of the entire raw test data set tranformed using MFCCs.
+
+(MFCCTraining,MFCCtraining)--both files consist of the entire raw training data set tranformed using MFCCs.
+
+MFCCExpTest: random sampling has been performed on samples from each category under the constraint that we have enough samples from each class. The resultant test set is equivalent to 1/3 the size of the MFCCTEST. 
+
+162 random samples from boys
+162 random samples from girls
+326 random samples from men
+326 random samples from women
+
+
+MFCCTrainingSampled: random sampling has been performed on samples from each category under the constraint that we have enough  training samples from each class. The resultant test set is equivalent to 1/2 the size of the MFCCTra‌ining. 
+
+ 
+
+
+
