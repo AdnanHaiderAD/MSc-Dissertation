@@ -1,4 +1,5 @@
 function [Eigenmatrix mu]= whitening()
+%% whitens MFCC vectors in both the test and training set
 load MFCCExpTest
 boys=MFCC{1};
 girls=MFCC{2};

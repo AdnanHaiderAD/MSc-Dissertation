@@ -1,0 +1,24 @@
+
+Documentation:
+
+
+reextract(data) ---only keep samples from one production
+
+read_data(data_type)--read raw data from the corpus
+
+whitening()--whitens MFCC vectors in both the test and training set
+
+filterSignal(signal)-- removes segments corresponding to silence and performs downsampling on the result
+
+extractMFCC(data)---extracts MFCC features. 
+data: The raw training/test set
+%Output: data is 4 by 1 cell where each cell represents data corresponding to a gender.
+
+ DynamicTimeWarp(test_data,training_data)---Runs the DTW algorithm augmented with the euclidean metric to perform Knearest neighbours classification for each test sample in the test set using the training data.
+
+createtestSubset()-- subsamples the tescleanRawData(data)
+
+
+cleanRawData(data)-- passes filterSignal to each time-series data. `data' is cell where each entry contains samples of a specific gender.t set using a random generator, The algorithm is designed to ensure we have enough sufficient samples from all classes.
+
+

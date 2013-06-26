@@ -6,7 +6,7 @@ For Training : The entire training data is used
 
 
 For the training set : 
-To reduce the average mean time , I am using half of the training data set:
+To reduce the average mean time , I am using half of the training data set by choosing samples from one production:
 I have chosen:
  225 samples from the boy category
  234 samples from the girl category
@@ -103,4 +103,20 @@ Boy:2819s
 Girl:3121s
 Men: 4817s
 Women:5658s
+
+
+						STAGE 2:
+1:
+Removing Silence segments from each raw utterance and then extract MFCC features.
+Using the extracting MFCC features perform DTW without the aid of windows
+
+Steps :
+RawdataTest data ---(Apply filter)--> cleanedData---(Reextract i.e select samples from only one production)-->CleanedUniqueSamples---(Subsample :size reduced to 1/3)--->ExtractMFCCs
+
+
+For the raw samples corresponding with the training set, I have performed the same methodolody as above except for the 'Subsample step" . The training set now contains MFCC  vectors corresponding to :
+		225 samples from the boy category
+ 		234 samples from the girl category
+ 		495 samples from the men category
+ 		513 samples from the women category
 

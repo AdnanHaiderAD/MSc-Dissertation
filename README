@@ -1,5 +1,5 @@
 
-The folder MFFCraw contains :
+The folder "MFFCraw" contains :
 
 (MFCCTEST,MFCCtest)--- both files consist of the entire raw test data set tranformed using MFCCs.
 
@@ -18,4 +18,22 @@ MFCCTrainingSampled: random sampling has been performed on samples from each cat
  
 
 
+The folder "Rawdata" contains:
+Rawdata -- file containing the entire  training data set of raw utterances
+
+RawdataTestExp-- Similar to the MFCCEXpTest, the same subset of test samples are chosen. This was done to measure the performance of a baseline DTW algorithm while containing the time complexity    
+
+RawdataTest-- file containing the raw test data
+
+
+The folder RawdataCleaned contains:
+
+RawTestCleaned--The utterances in the test set are cleaned using the filter I created. The filter removes segments corresponding to silence and performs downsampling on the result.
+
+RawdataCleanedExp---The same subset of test samples are chosen equivalent to RawdataTestExp and  MFCCExpTest.
+
+
+RawTrainingCleanedSamp---The same subset of samples from the training set is chosen similar to MFCCTrainingSampled but the raw utterances are cleaned using the my signal filter. 
+
+In the experiments conducted so far: I have been measuring the performance of the baseline DTW using raw 'cleaned' utteranaces against DTW being augmented with MFCC features. Thus within each experiment, the training and test set used by the rwo version of the algorithm are the same. To prevent overfitting to the test set, I have augmented different test sets for each experiment.
 

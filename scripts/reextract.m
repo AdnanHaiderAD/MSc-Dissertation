@@ -1,5 +1,5 @@
 function Data =reextract(data)
-%only keep samples from one production
+%%only keep samples from one production
 boy =data{1};
 girl= data{2};
 men =data{3};

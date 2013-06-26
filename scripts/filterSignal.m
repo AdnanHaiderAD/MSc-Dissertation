@@ -1,5 +1,5 @@
 function outputSignal = filterSignal(signal)
-% removes segments corresponding to silence and performs downsampling on
+%% removes segments corresponding to silence and performs downsampling on
 % the result
 
 threshold=0;
