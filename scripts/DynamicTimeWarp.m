@@ -54,6 +54,7 @@ for samp=1:noOftestsamp
             % distortion= log(DTW(seq,seq2,w)+1); 
              %% applying DTW using local and global features and a polynomial kernel. 
               distortion=DTW2(seq,seq2);
+              %% keeping a record of K nearest matches
             if distortion<max(min_dist)
                 min_dist(min_dist==max(min_dist))=distortion;
                 closest_match(min_dist==max(min_dist))= trainClass;
@@ -62,8 +63,12 @@ for samp=1:noOftestsamp
     end
     %% The classifier is a 1 vs rest classifier where correct classifiaction denotes 0
     %and misclassifaction denotes 1
-    if closest_match(min_dist==min(min_dist))==class
-        entry{1}=0;
+    
+    %% 1 nearest neigbour
+   % if closest_match(min_dist==min(min_dist))==class
+   %% k nearest neighbour
+   if mode(closest_match)==class
+      entry{1}=0;
     else
         entry{1}=1;
     end
@@ -71,16 +76,16 @@ for samp=1:noOftestsamp
     output{samp}=entry;
     clear closest_match entry min_dist
 end
+  time=time+toc;
 
  [L,host]= unix('hostname');
  filename = strcat('output',host,'.mat');
- save (filename,'output','samp');              
+ save (filename,'output','samp','time');              
 
 
 
 
 clearvars seq1 seq2
-time=time+toc
 
 
 
