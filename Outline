@@ -120,3 +120,32 @@ For the raw samples corresponding with the training set, I have performed the sa
  		495 samples from the men category
  		513 samples from the women category
 
+
+2. Adaptive DTW to take use a polynomial kernel:
+Steps:
+a) construct a polynomial kernel that two slices of time series data of width W and computes the sum of all possible products of W points in the first input slice with W points in the second input slice.
+
+
+b) Changes to DTW:
+Segment the sequences into frames (default value:10ms):
+choices Overlapping frames vs non-overlapping frames
+Criticism of overlapping windows: If the size of the window is K , we end decreasing the size of the sequence by K-1 dimensions only.
+
+--Non-overlapping frames have been used.
+
+Feature extraction process:
+
+Goal : Each point of time is mapped to a 4-d vector where the first two features record local information while the other half records information regarding  global trends.
+
+
+To extract 4d features I used the same methodology as that of that MFCC extraction procedure:
+
+To transform the test set:
+Steps :
+RawdataTest data ---(Apply filter)--> cleanedData---(Reextract i.e select samples from only one production)-->CleanedUniqueSamples---(Subsample :size reduced to 1/3)--->Extract Local+Global features
+
+However in the Subsample step : To ensure proper comparison, I am using the same test subset selected during the extraction of MFCCs.
+
+To transform, the training set, I performed all the steps as above except for the subsample step.
+
+

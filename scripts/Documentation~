@@ -10,15 +10,25 @@ whitening()--whitens MFCC vectors in both the test and training set
 
 filterSignal(signal)-- removes segments corresponding to silence and performs downsampling on the result
 
+silencefilter(signal)-detects and removes segments of silence
+
 extractMFCC(data)---extracts MFCC features. 
 data: The raw training/test set
 %Output: data is 4 by 1 cell where each cell represents data corresponding to a gender.
+
+extractLocalGlobalFeat(data)-- extracts Local and Global features. 
+%data: The raw training/test set
+%LocGLo: data is 4 by 1 cell where each cell represents data corresponding to extracted local+global features from a particular category.
 
  DynamicTimeWarp(test_data,training_data)---Runs the DTW algorithm augmented with the euclidean metric to perform Knearest neighbours classification for each test sample in the test set using the training data.
 
 createtestSubset()-- subsamples the tescleanRawData(data)
 
 
-cleanRawData(data)-- passes filterSignal to each time-series data. `data' is cell where each entry contains samples of a specific gender.t set using a random generator, The algorithm is designed to ensure we have enough sufficient samples from all classes.
+cleanRawData(data)-- passes filterSignal/silencefilter to each time-series data. `data' is cell where each entry contains samples of a specific gender.t set using a random generator, The algorithm is designed to ensure we have enough sufficient samples from all classes.
+
+
+polynomialKernel(InputA,InputB,M) ----computes a particular weighted sum of all possible products of M time points
+ --in the first slice with M time in the second slice
 
 

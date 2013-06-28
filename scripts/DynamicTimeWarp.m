@@ -1,6 +1,6 @@
 
 function output = DynamicTimeWarp(varargin)
-%%Runs the DTW algorithm augmented with the euclidean metric to perform K
+%%Runs the DTW algorithm augmented with the kernel metric to perform K
 %nearest neighbours classification for each test sample in the test set
 %using the training data.
 tic 
@@ -50,8 +50,10 @@ for samp=1:noOftestsamp
                 save (filename,'output','samp');
                 tic
             end
-            %% applying DTW+MFCC
-             distortion= log(DTW(seq,seq2,w)+1); 
+            %% applying DTW+MFCC +euclidean metric
+            % distortion= log(DTW(seq,seq2,w)+1); 
+             %% applying DTW using local and global features and a polynomial kernel. 
+              distortion=DTW2(seq,seq2);
             if distortion<max(min_dist)
                 min_dist(min_dist==max(min_dist))=distortion;
                 closest_match(min_dist==max(min_dist))= trainClass;
@@ -145,7 +147,7 @@ clearvars DTW seq1 seq2
 end
 
 function distortion= DTW2(varargin)
-tic
+
 %% segments the utterances into frames of 20ms long and applies DTW
 % augmented with a polynomial kernel 
 
@@ -159,8 +161,6 @@ else
 end
 seq1= varargin{1};
 seq3=varargin{2};
-
-
 
 %% To achieve perfect segmentation some end points are removed.
 [num1 dim]=size(seq1);
@@ -202,7 +202,7 @@ for l=2:n+1
 end
 distortion =DTW(n+1,m+1)/(n+m);
 
-toc
+
 end
 
 end

@@ -1,4 +1,7 @@
 
+Note: To compare models in the best possible manner, I used a different test set at each experiment. This reduces/prevents overfitting to the test data set.
+
+
 The folder "MFFCraw" contains :
 
 (MFCCTEST,MFCCtest)--- both files consist of the entire raw test data set tranformed using MFCCs.
@@ -13,36 +16,36 @@ MFCCExpTest: random sampling has been performed on samples from each category un
 326 random samples from women
 
 
-MFCCTrainingSampled: random sampling has been performed on samples from each category under the constraint that we have enough  training samples from each class. The resultant test set is equivalent to 1/2 the size of the MFCCTra‌ining. 
+MFCCTrainingSampled: only samples from one production is kept. This reduces the size of the overall training set
 
  
 
 
 The folder "Rawdata" contains:
 Rawdata -- file containing the entire  training data set of raw utterances
+RawdataTest-- file containing the raw test data samples.
+RawdataTestExp-- Sampled subset of raw utterances from the test set. The size of this set is 1/3 the size of the original.  
 
-RawdataTestExp-- Similar to the MFCCEXpTest, the same subset of test samples are chosen. This was done to measure the performance of a baseline DTW algorithm while containing the time complexity    
 
-RawdataTest-- file containing the raw test data
 
 
 The folder RawdataCleaned contains:
 
 RawTestCleaned--The utterances in the test set are cleaned using the filter I created. The filter removes segments corresponding to silence and performs downsampling on the result.
-
 RawdataCleanedExp---The same subset of test samples are chosen equivalent to RawdataTestExp and  MFCCExpTest.
+RawTrainingCleanedSamp---All training samples corresponding to a particular production are chosen and filtered.
 
 
-RawTrainingCleanedSamp---The same subset of samples from the training set is chosen similar to MFCCTrainingSampled but the raw utterances are cleaned using the my signal filter. 
-
-In the experiments conducted so far: I have been measuring the performance of the baseline DTW using raw 'cleaned' utteranaces against DTW being augmented with MFCC features. Thus within each experiment, the training and test set used by the rwo version of the algorithm are the same. To prevent overfitting to the test set, I have augmented different test sets for each experiment.
 
 
+The folder LocalGlobalFeat contains:
+
+localglobafTraining-- All training samples corresponding to a particular production are chosen and filtered before being converted to 4 dimensional representation that captures information about local and global trends.
 
 
 The folder MFCC_silRem contains:
-MFCC_silRem: a subset of test utterances which have been converted to MFCC vecotrs after regions of silence have been removed from the utterances.
 
-MFCCtraining_silRem: All training samples corresponding to a particular production are chosen and filtered before being converted to MFCC vectors.
+MFCC_silRem-- a subset of test utterances which have been converted to MFCC vectors after regions of silence have been removed from the utterances.
+MFCCtraining_silRem--All training samples corresponding to a particular production are chosen and filtered before being converted to MFCC vectors.
 
 

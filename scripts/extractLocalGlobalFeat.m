@@ -1,54 +1,48 @@
-function LocGlob =extractLocalGlobalFeat(data)
-% alternative to MFCC, extracts local +global features from the tim-series
-% data.
+function LocGLo =extractLocalGlobalFeat(data)
 
-tic
-
-LocGlob= cell(1,4);
+%% extracts Local and Global features. 
+%data: The raw training/test set
+%LocGLo: data is 4 by 1 cell where each cell represents data corresponding to
+%extracted local+global features from a particular category.
 boy = data{1};
 girl=data{2};
 men= data{3};
 women=data{4};
-clear data
-LocGLoDataboy =extractLG(boy);
-LocGLoDatagirl=extractLG(girl);
-LocGLoDatamen = extractLG(men);
-LocGLoDatawomen =extractLG(women);
 
-LocGlob{1} =LocGLoDataboy;
-LocGlob{2} =LocGLoDatagirl;
-LocGlob{3} =LocGLoDatamen;
-LocGlob{4} =LocGLoDatawomen;
+LocGLoDataboy =extract(boy);
+LocGLoDatagirl=extract(girl);
+LocGLoDatamen = extract(men);
+LocGLoDatawomen =extract(women);
 
-function  localGLo =extractLG(data)
+LocGLo{1} =LocGLoDataboy;
+LocGLo{2} =LocGLoDatagirl;
+LocGLo{3} =LocGLoDatamen;
+LocGLo{4} =LocGLoDatawomen;
 
-localGLo=cell(length(data),1);
+function  locGLo =extract(data)
+ %% extracts local+global features
+locGLo=cell(length(data),1);
 for i=1:length(data)
     entry =data{i};
     class=entry{1};
     dataPoint = entry{2};
-    localFeat = zeros(2,length(dataPoint)-2);
-    globalFeat = zeros(2,length(dataPoint)-2);
+    localFeat = zeros(length(dataPoint)-2,2);
+    globalFeat = zeros(length(dataPoint)-2,2);
     
-    %extracting local and global features seperately
+    %% extracting local and global features seperately
     for j=2:length(dataPoint)-1
-        globalFeat(:,j-1)= [(dataPoint(j)-sum(dataPoint(1:j-1))) (dataPoint(j)-sum(dataPoint(j+1:end)))];
-        localFeat(:,j-1) =[ (dataPoint(j) -dataPoint(j-1))  (dataPoint(j)- dataPoint(j+1))];
+        globalFeat(j-1,:)= [(dataPoint(j)-sum(dataPoint(1:j-1))) (dataPoint(j)-sum(dataPoint(j+1:end)))];
+        localFeat(j-1,:) =[ (dataPoint(j) -dataPoint(j-1))  (dataPoint(j)- dataPoint(j+1))];
     end
-    new_data =cell(2,1);
-    new_data{1}=localFeat;
-    new_data{2}=globalFeat;
+    featMatrix =[localFeat globalFeat];
     clear entry dataPoint
    
     entry{1} =class;
-    entry{2} = new_data;
-    localGLo{i} =entry;
+    entry{2} = featMatrix;
+    locGLo{i} =entry;
     
-    if toc>300
-       toc
-       tic
-    end
 end
+
 end
 end
     
