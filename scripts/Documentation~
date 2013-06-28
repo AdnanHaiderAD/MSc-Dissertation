@@ -22,7 +22,3 @@ createtestSubset()-- subsamples the tescleanRawData(data)
 cleanRawData(data)-- passes filterSignal to each time-series data. `data' is cell where each entry contains samples of a specific gender.t set using a random generator, The algorithm is designed to ensure we have enough sufficient samples from all classes.
 
 
-polynomialKernel(InputA,InputB,M) ----computes a particular weighted sum of all possible products of M time points
- --in the first slice with M time in the second slice
-
-

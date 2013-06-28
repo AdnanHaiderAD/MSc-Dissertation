@@ -37,3 +37,12 @@ RawTrainingCleanedSamp---The same subset of samples from the training set is cho
 
 In the experiments conducted so far: I have been measuring the performance of the baseline DTW using raw 'cleaned' utteranaces against DTW being augmented with MFCC features. Thus within each experiment, the training and test set used by the rwo version of the algorithm are the same. To prevent overfitting to the test set, I have augmented different test sets for each experiment.
 
+
+
+
+The folder MFCC_silRem contains:
+MFCC_silRem: a subset of test utterances which have been converted to MFCC vecotrs after regions of silence have been removed from the utterances.
+
+MFCCtraining_silRem: All training samples corresponding to a particular production are chosen and filtered before being converted to MFCC vectors.
+
+
