@@ -57,10 +57,7 @@ Using this as motivation,  the time series of 4d vectors extracted in the previo
 
 The problem now can be shifted to finding  an appropriate kernel that can be used to compute the similarity between two subsequences  of feature vectors while adjusting to the temporal skewness present within the subsequences. Intuitively speaking , we need a kernel that behaves like a DTW on pairs of  subsequences.
 
-\begin{itemize}
-\item Proposed Kernel
 
-\end{itemize}
 The motivation behind the kernel proposed for this problem comes from the polynomial kernel. 
 Lets consider the following example.
 Let $x$ and $z$ be two dimensional vectors.
@@ -72,7 +69,7 @@ k(x,z) &= &(x^{T}x')^2\\
 &=& (x_1^2, Ã2x_1x_2, x_2^2)(z_1^2, Ã2z_1z_2, z_2^2)^{T}\\
 &=& \phi(x)^{T}\phi(z)\\
 \end{eqnarray*}
-Hence the 2nd order polynomial kernel is equivalent to a corresponding feature mapping $\phi$  that contains terms of order 2. Now, if we generalise this notion then $k(x,x') = (x^{T}z)^M$ contains all monomials of order M. For instance, if x and z are two images, then the kernel represents a particular weighted sum of all possible products of M pixels in the first image with M pixels in the second image.
+Hence the 2nd order polynomial kernel is equivalent to a corresponding feature mapping $\phi$  that contains terms of order 2. Now, if we generalise this notion then $k(x,z) = (x^{T}z)^M$ contains all monomials of order M. For instance, if x and z are two images, then the kernel represents a particular weighted sum of all possible products of M pixels in the first image with M pixels in the second image.
 
 Now consider the following signals:
 \begin{figure}[h!]
@@ -84,13 +81,34 @@ Now consider the following signals:
 \end{figure}
 The signal denoted by the `blue' color is a translation of the signal denoted by the `red' color . From our methodology constructed  so far, each time series point is replaced by a 4-dimensional vector and the resultant  time series sequence of  vectors is segmented using windows of size 10ms. In the example above, lets consider the window spanned by the arrows. 
 
-Using a euclidean metric in this scenario is inappropriate. The  metric is analogous to using linear time warping where the  two subsequences will be matched based on a linear match of the two temporal dimensions.  In our context, we need a kernel that computes the similarity/distance between two sub-sequences by warping the time axis.  In the polynomial kernel discussed above, in the generalised case $k(x,x') = (x^{T}z)^M$  represents a particular weighted sum of all possible products of M time series points in the first sub-sequence with M time series points in the second subsequence here $x$ and $z$ represent respective subsequences. Using this a s motivation I propose the following metric :
+\begin{figure}[h!]
+  \centering
+   
+     \includegraphics[scale=0.6]{Cross-section.jpg}
+  \caption{Two identical subsequences varying in time }
+  
+\end{figure}
+Ideally, we want a metric that takes into account that two similar subsequences may vary in time and speed. We will want to compare the global and local properties at a point in one subsequence with the global and local properties of different regions in the second sub-sequence.  Using a euclidean metric in this scenario is inappropriate. The euclidean metric  in this context is identical  linear time warping where the  two subsequences will be matched based on a linear match of the two temporal dimensions.  In our context, we need a kernel that computes the similarity/distance between two sub-sequences by warping the time axis.  From the discussion of the polynomial kernel we have seen that if we consider the generalised case then $k(x,z) = (x^{T}z)^M$  represents a particular weighted sum of all possible products of M time series points in the first sub-sequence with M time series points in the second subsequence here $x$ and $z$ represent respective subsequences. Using this as motivation I propose the following metric:.
+\[ k(x,z) = <\sum_{i=1}^{n}x_i, \sum_{j=1}^{m}z_i>\]
+For a windows of size 3, this kernel can be expressed as :
+ \begin{eqnarray*}
+k(x,z) &= &<\sum_{i=1}^{3}x_i, \sum_{j=1}^{3}z_i>\\
+&  =& (x_1+x_2+x_3)(z_1+z_2+z_3)\\
+&= & x_1z_1+x_1z_2+x_1z_2+x_2z_1+x_2z_2+x_2z_3+x_3z_1+x_3z_2+x_3z_3\\ 
+\end{eqnarray*}
+From the expansion of the above expression, it can be seen that the proposed kernel corresponds to a sum of all possible products of each time series points in the first subsequence with each time series point in the second subsequence. Thus  we match each feature vector in 1 subsequence with all feature vectors in the 2nd sequence.
 
-This corresponds to a sum of all possible products of each time series points in the first subsequence with each time series point in the second subsequence.
+It is easy to check that the kernel I propose here is in fact a valid kernel:
+\begin{itemize}
+\item K(x,z)= K(z,x)
+\item The kernel satisfies Mercer's theorem : K(x,z) =$\phi(x)^T\phi(x)$
+where  the feature mapping $\phi(y) = \sum_{i=1}^{3}y_i$. 
+\end{itemize}
+Note: If $x_i$  and $z_i$ are 1-dimensional, the proposed kernel is no longer a valid kernel and corresponds to the Cauchy product of two finite series.
 
 
 
-Kernel functions must be continuous, symmetric, and most preferably should have a positive (semi-) definite Gram matrix. Kernels which are said to satisfy the Mercer's theorem are positive semi-definite, meaning their kernel matrices have no non-negative Eigen values. The use of a positive definite kernel insures that the optimization problem will be convex and solution will be unique.
+%Kernel functions must be continuous, symmetric, and most preferably should have a positive (semi-) definite Gram matrix. Kernels which are said to satisfy the Mercer's theorem are positive semi-definite, meaning their kernel matrices have no non-negative Eigen values. The use of a positive definite kernel insures that the optimization problem will be convex and solution will be unique.
 
 
 \end{spacing}

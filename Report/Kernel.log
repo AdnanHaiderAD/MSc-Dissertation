@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  1 JUL 2013 19:29
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  1 JUL 2013 20:28
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -328,33 +328,45 @@ Missing character: There is no Ã in font cmr10!
  [3] <Example1.jpg, id=22, 603.25375pt x 608.2725pt>
 File: Example1.jpg Graphic file (type jpg)
  <use Example1.jpg>
-Package pdftex.def Info: Example1.jpg used on input line 81.
+Package pdftex.def Info: Example1.jpg used on input line 78.
 (pdftex.def)             Requested size: 361.95503pt x 364.96632pt.
 
-[4 <./Example1.jpg>] [5] (./Kernel.aux) ) 
+<Cross-section.jpg, id=23, 562.1pt x 420.57124pt>
+File: Cross-section.jpg Graphic file (type jpg)
+ <use Cross-section.jpg>
+Package pdftex.def Info: Cross-section.jpg used on input line 87.
+(pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <./Example1.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <./Cross-section.jpg>] [6] (./Kernel.aux) ) 
 Here is how much of TeX's memory you used:
- 3336 strings out of 493633
- 43907 string characters out of 3143377
+ 3341 strings out of 493633
+ 44011 string characters out of 3143377
  107520 words of memory out of 3000000
- 6429 multiletter control sequences out of 15000+200000
+ 6433 multiletter control sequences out of 15000+200000
  11087 words of font info for 43 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
  42i,7n,31p,1191b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2011/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2011/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2011/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2011/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2011/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy8.pfb>
-Output written on Kernel.pdf (5 pages, 142205 bytes).
+</usr/local/texlive/2011/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2011/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2011/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2011/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2011/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb>
+Output written on Kernel.pdf (6 pages, 173520 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 65 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
