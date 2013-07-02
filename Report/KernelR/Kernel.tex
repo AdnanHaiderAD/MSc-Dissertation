@@ -7,6 +7,8 @@
 \usepackage{amssymb}
 \usepackage{epstopdf}
 \usepackage{setspace} 
+\usepackage{amsmath}
+
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 \title{Brief Article}
@@ -88,23 +90,27 @@ The signal denoted by the `blue' color is a translation of the signal denoted by
   \caption{Two identical subsequences varying in time }
   
 \end{figure}
-Ideally, we want a metric that takes into account that two similar subsequences may vary in time and speed. We will want to compare the global and local properties at a point in one subsequence with the global and local properties of different regions in the second sub-sequence.  Using a euclidean metric in this scenario is inappropriate. The euclidean metric  in this context is identical  linear time warping where the  two subsequences will be matched based on a linear match of the two temporal dimensions.  In our context, we need a kernel that computes the similarity/distance between two sub-sequences by warping the time axis.  From the discussion of the polynomial kernel we have seen that if we consider the generalised case then $k(x,z) = (x^{T}z)^M$  represents a particular weighted sum of all possible products of M time series points in the first sub-sequence with M time series points in the second subsequence here $x$ and $z$ represent respective subsequences. Using this as motivation I propose the following metric:.
-\[ k(x,z) = <\sum_{i=1}^{n}x_i, \sum_{j=1}^{m}z_i>\]
-For a windows of size 3, this kernel can be expressed as :
- \begin{eqnarray*}
+Ideally, we want a metric that takes into account that two similar subsequences may vary in time and speed. We will want to compare the global and local properties associated with a point in one subsequence with the global and local properties of points at  different regions in the second sub-sequence illustrated by figure 2.  Using a euclidean metric in this scenario is inappropriate. The euclidean metric  in this context is identical to  linear time warping where the  two subsequences will be matched based on a linear match of the two temporal dimensions.  In our context, we need a kernel that computes the similarity/distance between two sub-sequences by warping the time axis.  From the earlier  discussion of the polynomial kernel, we have seen that if we consider the generalised case then $k(x,z) = (x^{T}z)^M$  represents a particular weighted sum of all possible products of M time series points in the first sub-sequence with M time series points in the second subsequence here $x$ and $z$ represent respective subsequences. Using this as motivation I propose the following metric:.
+\[ k(x,z) = <\sum_{i=1}^{n}x_i, \sum_{j=1}^{n}z_j>\]
+where $n$ denotes the length of the window and $x_i$ s and$z_i$ represents the 4-dimensional features associated point i in the first sequence and point j in the second sequence.
+
+For a windows of size 3, this kernel  metric representation can be expanded and   expressed as :
+
+\begin{eqnarray*}
 k(x,z) &= &<\sum_{i=1}^{3}x_i, \sum_{j=1}^{3}z_i>\\
 &  =& (x_1+x_2+x_3)(z_1+z_2+z_3)\\
-&= & x_1z_1+x_1z_2+x_1z_2+x_2z_1+x_2z_2+x_2z_3+x_3z_1+x_3z_2+x_3z_3\\ 
+&= & <x_1z_1>+<x_1z_2>+<x_1z_2>+<x_2z_1>+<x_2z_2> +<x_2z_3>+......\\ 
 \end{eqnarray*}
-From the expansion of the above expression, it can be seen that the proposed kernel corresponds to a sum of all possible products of each time series points in the first subsequence with each time series point in the second subsequence. Thus  we match each feature vector in 1 subsequence with all feature vectors in the 2nd sequence.
+
+From above expression, we can see  that the proposed kernel corresponds to a sum of all possible dot products of pairs belonging to the set
+$\{(x_iz_i) | x_i\in \mbox{seq1}, z_i \in \mbox{seq2}\}$. Thus  we match each feature vector in 1 subsequence with all feature vectors in the 2nd sequence.
 
 It is easy to check that the kernel I propose here is in fact a valid kernel:
 \begin{itemize}
-\item K(x,z)= K(z,x)
+\item K(x,z)= K(z,x) $\Rightarrow $the function is symmetric.
 \item The kernel satisfies Mercer's theorem : K(x,z) =$\phi(x)^T\phi(x)$
-where  the feature mapping $\phi(y) = \sum_{i=1}^{3}y_i$. 
+where  the feature mapping corresponds to $\phi(y) = \sum_{i=1}^{3}y_i$. 
 \end{itemize}
-Note: If $x_i$  and $z_i$ are 1-dimensional, the proposed kernel is no longer a valid kernel and corresponds to the Cauchy product of two finite series.
 
 
 
