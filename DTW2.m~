@@ -1,4 +1,4 @@
-function DTW2(varargin)
+function distortion= DTW2(varargin)
 tic
 %% segments the utterances into frames of 20ms long and applies DTW
 % augmented with a polynomial kernel 
@@ -29,8 +29,8 @@ m=noOfseq2frames;
 seq2= seq2(1:(m*window),:);
 
 %% Partitioning the sequences
-seq1 =mat2cell(seq1,repmat(window,noOfseq1frames,1),dim);
-seq2 =mat2cell(seq2,repmat(window,noOfseq1frames,1),dim);
+seq1 =mat2cell(seq1,repmat(window,n,1),dim);
+seq2 =mat2cell(seq2,repmat(window,m,1),dim);
 
 %% Initializing The DTW cost matrix
 seq1=seq1';
@@ -51,7 +51,11 @@ for l=2:n+1
     for j=2:m+1
       
      %using  normal DTW with warping window
-      DTW(l,j)= polynomialKernel(seq1{l},seq2{j},window) + min ([DTW(l-1,j),DTW(l-1,j-1),DTW(l,j-1)]);
+      sumofvec1=sum(seq1{l});
+      sumofvec2=sum(seq1{j});
+      DTW(l,j)= real(acos((sumofvec1*sumofvec2')/(norm(sumofvec1)*norm(sumofvec2)))) + min ([DTW(l-1,j),DTW(l-1,j-1),DTW(l,j-1)]);
+   
+     % DTW(l,j)= polynomialKernel(seq1{l},seq2{j},window) + min ([DTW(l-1,j),DTW(l-1,j-1),DTW(l,j-1)]);
     end
 end
 distortion =DTW(n+1,m+1)/(n+m);

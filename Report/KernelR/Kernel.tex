@@ -49,7 +49,7 @@ Definition of local feature given in [] is as follows:
 
 
 The  extraction of global features is constrained by two factors: the features that reflect information about  global trends and  the features must be in the same scaling order  as the local features. Being in the same scale allows them to  be combined with local features. In [] the authors used the following method to extract global features from the time series sequence:
-\[ f_{\mbox{global}}(r_i)= (r_i -\sum_{k=1}^{i-1}r_k , r_i-\sum_{k=i+1}^M \frac{r_k}{M+1})\]
+\[ f_{\mbox{global}}(r_i)= (r_i -\sum_{k=1}^{i-1}\frac{r_k}{i-1} , r_i-\sum_{k=i+1}^M \frac{r_k}{M-i})\]
 
 
 \section{Adaption of DTW}

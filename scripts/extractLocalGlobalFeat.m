@@ -31,7 +31,11 @@ for i=1:length(data)
     
     %% extracting local and global features seperately
     for j=2:length(dataPoint)-1
-        globalFeat(j-1,:)= [(dataPoint(j)-sum(dataPoint(1:j-1))) (dataPoint(j)-sum(dataPoint(j+1:end)))];
+        % computing global feature
+        offsetL=(sum(dataPoint(1:j-1)))/(j-1);
+        offsetR= (sum(dataPoint(j+1:end)))/(length(dataPoint)-j);
+        globalFeat(j-1,:)= [(dataPoint(j)-offsetL) (dataPoint(j)-offsetR)];
+        %computing the local feature
         localFeat(j-1,:) =[ (dataPoint(j) -dataPoint(j-1))  (dataPoint(j)- dataPoint(j+1))];
     end
     featMatrix =[localFeat globalFeat];
