@@ -162,7 +162,7 @@ end
 if length(varargin)==3
     window=varargin{3};
 else
-    window=100;
+    window=50;
 end
 seq1= varargin{1};
 seq3=varargin{2};
@@ -200,9 +200,10 @@ end
 DTW(1,1)=0;
 for l=2:n+1
     for j=2:m+1
-      
-     %using  normal DTW with warping window
-      DTW(l,j)= polynomialKernel(seq1{l},seq3{j},window) + min ([DTW(l-1,j),DTW(l-1,j-1),DTW(l,j-1)]);
+      %% using my own proposed kernel
+      sumofvec1=sum(seq1{l});
+      sumofvec2=sum(seq3{j});
+      DTW(l,j)= real(acos((sumofvec1*sumofvec2')/(norm(sumofvec1)*norm(sumofvec2)))) + min ([DTW(l-1,j),DTW(l-1,j-1),DTW(l,j-1)]);
     end
 end
 distortion =DTW(n+1,m+1)/(n+m);
