@@ -1,8 +1,10 @@
 
 function output = DynamicTimeWarp(varargin)
-%%Runs the DTW algorithm augmented with the kernel metric to perform K
+%% Runs the DTW algorithm augmented with the kernel metric to perform K
 %nearest neighbours classification for each test sample in the test set
 %using the training data.
+%% Input : test data, training data , window parameter size;
+%%  Output : the 1 vs rest classification out
 tic 
 time=0;
 %%checks for the number of arguments
@@ -12,6 +14,9 @@ end
 %if window is not specified then
 if length(varargin)==2
     w=nan;
+
+else
+    w=varargin{3};
 end
 %%
 test_data=varargin{1};
@@ -51,9 +56,10 @@ for samp=1:noOftestsamp
                 tic
             end
             %% applying DTW+MFCC +euclidean metric
-            % distortion= log(DTW(seq,seq2,w)+1); 
+             distortion= log(DTW(seq,seq2,w)+1); 
              %% applying DTW using local and global features and a polynomial kernel. 
-              distortion=DTW2(seq,seq2);
+              %distortion=DTW2(seq,seq2);
+              %% keeping a record of K nearest matches
             if distortion<max(min_dist)
                 min_dist(min_dist==max(min_dist))=distortion;
                 closest_match(min_dist==max(min_dist))= trainClass;
@@ -62,8 +68,12 @@ for samp=1:noOftestsamp
     end
     %% The classifier is a 1 vs rest classifier where correct classifiaction denotes 0
     %and misclassifaction denotes 1
-    if closest_match(min_dist==min(min_dist))==class
-        entry{1}=0;
+    
+    %% 1 nearest neigbour
+   % if closest_match(min_dist==min(min_dist))==class
+   %% k nearest neighbour
+   if mode(closest_match)==class
+      entry{1}=0;
     else
         entry{1}=1;
     end
@@ -71,16 +81,16 @@ for samp=1:noOftestsamp
     output{samp}=entry;
     clear closest_match entry min_dist
 end
+  time=time+toc;
 
  [L,host]= unix('hostname');
  filename = strcat('output',host,'.mat');
- save (filename,'output','samp');              
+ save (filename,'output','samp','time');              
 
 
 
 
 clearvars seq1 seq2
-time=time+toc
 
 
 
@@ -147,7 +157,7 @@ clearvars DTW seq1 seq2
 end
 
 function distortion= DTW2(varargin)
-tic
+
 %% segments the utterances into frames of 20ms long and applies DTW
 % augmented with a polynomial kernel 
 
@@ -157,7 +167,7 @@ end
 if length(varargin)==3
     window=varargin{3};
 else
-    window=100;
+    window=50;
 end
 seq1= varargin{1};
 seq3=varargin{2};
@@ -195,14 +205,15 @@ end
 DTW(1,1)=0;
 for l=2:n+1
     for j=2:m+1
-      
-     %using  normal DTW with warping window
-      DTW(l,j)= polynomialKernel(seq1{l},seq3{j},window) + min ([DTW(l-1,j),DTW(l-1,j-1),DTW(l,j-1)]);
+      %% using my own proposed kernel
+      sumofvec1=sum(seq1{l});
+      sumofvec2=sum(seq3{j});
+      DTW(l,j)= real(acos((sumofvec1*sumofvec2')/(norm(sumofvec1)*norm(sumofvec2)))) + min ([DTW(l-1,j),DTW(l-1,j-1),DTW(l,j-1)]);
     end
 end
 distortion =DTW(n+1,m+1)/(n+m);
 
-toc
+
 end
 
 end

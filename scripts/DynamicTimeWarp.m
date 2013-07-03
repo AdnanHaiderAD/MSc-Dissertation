@@ -1,8 +1,10 @@
 
 function output = DynamicTimeWarp(varargin)
-%%Runs the DTW algorithm augmented with the kernel metric to perform K
+%% Runs the DTW algorithm augmented with the kernel metric to perform K
 %nearest neighbours classification for each test sample in the test set
 %using the training data.
+%% Input : test data, training data , window parameter size;
+%%  Output : the 1 vs rest classification output for each test instance.
 tic 
 time=0;
 %%checks for the number of arguments
@@ -12,6 +14,9 @@ end
 %if window is not specified then
 if length(varargin)==2
     w=nan;
+
+else
+    w=varargin{3};
 end
 %%
 test_data=varargin{1};
@@ -51,9 +56,9 @@ for samp=1:noOftestsamp
                 tic
             end
             %% applying DTW+MFCC +euclidean metric
-            % distortion= log(DTW(seq,seq2,w)+1); 
+             distortion= log(DTW(seq',seq2',w)+1); 
              %% applying DTW using local and global features and a polynomial kernel. 
-              distortion=DTW2(seq,seq2);
+              %distortion=DTW2(seq,seq2);
               %% keeping a record of K nearest matches
             if distortion<max(min_dist)
                 min_dist(min_dist==max(min_dist))=distortion;
@@ -108,7 +113,7 @@ if n==1 && m==1
 end
 
 if ~isnan(w)
-w = max(w,abs(n-m));
+w = max(w*max(n,m),abs(n-m));
 end
 
 %% Initializing The DTW cost matrix
