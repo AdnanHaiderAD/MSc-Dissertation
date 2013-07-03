@@ -149,3 +149,30 @@ However in the Subsample step : To ensure proper comparison, I am using the same
 To transform, the training set, I performed all the steps as above except for the subsample step.
 
 
+
+3 > Outline of my methodology
+Domain-independent:
+i) Perform Feature selection: remove segments of silence and downsample the remaining signals by 1/2.
+
+Domain-independent
+  Using the selected features, apply DTW augmented with a eucliean metric and an adaptive window of size max(n-m ,0.1*max(n,m)).
+
+Domain-dependent
+ii) Feature Extraction: Extract MFCC features from the raw utterances.
+Using the selected features, apply DTW augmented with  eucliean metric and an adaptive window of size max(n-m ,0.1*max(n,m)).
+
+iii) Feature Selection: remove segments of silence from the raw utterance
+Feature extraction: Extract MFCC features from reduced utterances
+Using the selected features ,apply DTW augemnted with the euclidean metric
+
+Domain-independent
+iv) Feature Selection:remove segments of silence and downsample the remaining signals by 1/2.
+Feature extraction:extract local and global features from each utterance
+Using the selected features, apply DTW augmented with the euclidean metric and an adaptive window of size max(n-m ,0.1*max(n,m)).
+
+
+v)Feature Selection:remove segments of silence and downsample the remaining signals by 1/2.
+Feature extraction:extract local and global features from each utterance
+Using the selected features, apply DTW augmented with the proposed metric
+
+
