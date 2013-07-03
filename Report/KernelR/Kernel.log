@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  2 JUL 2013 20:10
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  3 JUL 2013 13:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -345,31 +345,71 @@ Overfull \hbox (25.58398pt too wide) in alignment at lines 99--103
  [][][] []
  []
 
-[6] (./Kernel.aux) ) 
+<Accuracy.jpg, id=30, 423.5022pt x 295.3434pt>
+File: Accuracy.jpg Graphic file (type jpg)
+ <use Accuracy.jpg>
+Package pdftex.def Info: Accuracy.jpg used on input line 132.
+(pdftex.def)             Requested size: 338.8022pt x 236.27502pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<GraphsResults.jpg, id=31, 457.71pt x 342.5598pt>
+File: GraphsResults.jpg Graphic file (type jpg)
+ <use GraphsResults.jpg>
+Package pdftex.def Info: GraphsResults.jpg used on input line 140.
+(pdftex.def)             Requested size: 366.1685pt x 274.04819pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+./Kernel.tex:144: Extra \endgroup.
+\restore@spacing ...vskip \baselineskip \endgroup 
+                                                  \vskip -\parskip \vskip -\...
+l.144 \end{spacing}
+                   
+? 
+
+./Kernel.tex:144: LaTeX Error: \begin{document} ended by \end{spacing}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144 \end{spacing}
+                   
+? 
+./Kernel.tex:144: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.144 \end{spacing}
+                   
+? 
+[6] [7 <./Accuracy.jpg>] [8 <./GraphsResults.jpg>] (./Kernel.aux) ) 
 Here is how much of TeX's memory you used:
- 3343 strings out of 493633
- 44035 string characters out of 3143377
+ 3353 strings out of 493633
+ 44218 string characters out of 3143377
  108520 words of memory out of 3000000
- 6434 multiletter control sequences out of 15000+200000
+ 6442 multiletter control sequences out of 15000+200000
  11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
  42i,7n,31p,1191b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmcsc10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
-pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
-fb>
-Output written on Kernel.pdf (6 pages, 185758 bytes).
+</usr/local/
+texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/t
+exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/t
+exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texli
+ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
+/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/20
+11/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Kernel.pdf (8 pages, 394355 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 79 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
