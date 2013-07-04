@@ -20,7 +20,9 @@ extractLocalGlobalFeat(data)-- extracts Local and Global features.
 %data: The raw training/test set
 %LocGLo: data is 4 by 1 cell where each cell represents data corresponding to extracted local+global features from a particular category.
 
- DynamicTimeWarp(test_data,training_data)---Runs the DTW algorithm augmented with the euclidean metric to perform Knearest neighbours classification for each test sample in the test set using the training data.
+ DynamicTimeWarp(test_data,training_data)--- Runs two versions of DTW algorithm augmented with different  kernel metric to perform K
+%nearest neighbours classification for each test sample in the test set
+%using the training data.
 
 createtestSubset()-- subsamples the tescleanRawData(data)
 

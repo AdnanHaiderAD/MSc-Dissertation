@@ -176,3 +176,41 @@ Feature extraction:extract local and global features from each utterance
 Using the selected features, apply DTW augmented with the proposed metric
 
 
+
+4> Checking the validity of the methodology with other time series data sets:
+Motivation for choosing datasets:Long time series (for algorithms that scale poorly in dimensionality).
+
+
+
+Steps: 1) extract labels
+       2) Set up 3 experiments
+1st Experiment:
+ Apply DTW augmented with window of size max(n-m ,0.1*max(n,m)) and the euclidean metric;
+
+2nd Experiment:
+ Feature extraction: extract global +local features
+ Apply DTW augmented with window of size max(n-m ,0.1*max(n,m)) and the euclidean metric;
+
+3rd Experiment: 
+Feature extraction: extract global +local features.
+Apply DTW augmented with the proposed metric
+
+
+Run the three experiments for each of two data sets.
+
+	
+
+
+List of things to do :
+1) Feature selection: i) baseline DTW and for local+Global
+			ii) MFCC
+
+
+2) Feature extraction : brief MFCC
+
+3) formulate all results for each category
+
+4) Data Preparation
+ 
+
+

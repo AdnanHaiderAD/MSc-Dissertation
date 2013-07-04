@@ -1,10 +1,9 @@
 
 function output = DynamicTimeWarp(varargin)
-%% Runs the DTW algorithm augmented with the kernel metric to perform K
-%nearest neighbours classification for each test sample in the test set
-%using the training data.
-%% Input : test data, training data , window parameter size;
-%%  Output : the 1 vs rest classification output for each test instance.
+%% Runs two versions of DTW algorithm augmented with different  kernel metric to perform K nearest neighbours classification for each test sample in the test set.
+% using the training data.
+% Input : test data, training data , window parameter size;
+%  Output : the 1 vs rest classification output for each test instance.
 tic 
 time=0;
 %%checks for the number of arguments
@@ -18,14 +17,14 @@ if length(varargin)==2
 else
     w=varargin{3};
 end
-%%
+
 test_data=varargin{1};
 training_data=varargin{2};
 
 noOftestsamp= length(test_data);
 [r, categories]=size(training_data);
 
-%%each entry of the output contain a vector of K nearest neighbours and value of 0 or 1 where 1 denote misclassication
+%% each entry of the output contain a vector of K nearest neighbours and value of 0 or 1 where 1 denote misclassication
 output=cell(noOftestsamp,1);
 
 
@@ -55,22 +54,22 @@ for samp=1:noOftestsamp
                 save (filename,'output','samp');
                 tic
             end
-            %% applying DTW+MFCC +euclidean metric
+            %% applying DTW+(baseline or MFCC) +euclidean metric
              distortion= log(DTW(seq',seq2',w)+1); 
-             %% applying DTW using local and global features and a polynomial kernel. 
+             %% applying DTW using local and global features and the proposed kernel. 
               %distortion=DTW2(seq,seq2);
               %% keeping a record of K nearest matches
             if distortion<max(min_dist)
                 min_dist(min_dist==max(min_dist))=distortion;
                 closest_match(min_dist==max(min_dist))= trainClass;
-             end
+            end
         end
     end
     %% The classifier is a 1 vs rest classifier where correct classifiaction denotes 0
-    %and misclassifaction denotes 1
+    % and misclassifaction denotes 1
     
-    %% 1 nearest neigbour
-   % if closest_match(min_dist==min(min_dist))==class
+   
+    % if closest_match(min_dist==min(min_dist))==class
    %% k nearest neighbour
    if mode(closest_match)==class
       entry{1}=0;
@@ -90,7 +89,7 @@ end
 
 
 
-clearvars seq1 seq2
+clearvars seq seq2
 
 
 
