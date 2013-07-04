@@ -48,7 +48,7 @@ To speed up the process, I performed the following steps:
 The size of the DTW cost matrix is govererned by the length of the vectors. Subsampling the sequence results in a smaller sequence that leads to smaller DTW matrix and hence lesser computational time.
 Problem: Subsampling lead to loss of information (both local+global). To tackle the problem I created a filter which infacts improves the quality of the utternace signal. The filter first removes regions of silence from the utterance and down subsamples the remaining signal by half.
 Observations: 1) The extracted signal is much more clearer to understand
-	      2) This procedue seems to have diminished the effect of accents.
+	      2) This procedure seems to have diminished the effect of accents.
 
 However the time taken to compare a single test point with the entire training set  now takes 16000 (over 4 hours)
 Steps taken to speed up DTW:
@@ -193,10 +193,17 @@ Steps: 1) extract labels
 
 3rd Experiment: 
 Feature extraction: extract global +local features.
-Apply DTW augmented with the proposed metric
+Apply DTW augmented with the proposed metric + time_slice window=20
 
+4th Experiment:
+Feature extraction: extract global +local features.
+Apply DTW augmented with the proposed metric + time_slice window=35
 
-Run the three experiments for each of two data sets.
+5th Experiment
+Feature extraction: extract global +local features.
+Apply DTW augmented with the proposed metric + time_slice window=50
+
+Run the five experiments for each of two data sets.
 
 	
 
@@ -212,5 +219,6 @@ List of things to do :
 
 4) Data Preparation
  
+
 
 

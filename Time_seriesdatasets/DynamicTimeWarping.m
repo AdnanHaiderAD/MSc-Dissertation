@@ -49,9 +49,9 @@ for samp=1:noOftestsamp
                 tic
          end
             %% applying DTW+(baseline or MFCC) +euclidean metric
-              distortion= log(DTW(seq',seq2',w)+1); 
+              %distortion= log(DTW(seq',seq2',w)+1); 
              %% applying DTW using local and global features and a proposed kernel. 
-              %distortion=DTW2(seq,seq2);
+              distortion=DTW2(seq,seq2);
               %% keeping a record of K nearest matches
           if distortion<max(min_dist)
                min_dist(min_dist==max(min_dist))=distortion;
@@ -61,9 +61,9 @@ for samp=1:noOftestsamp
   %% The classifier is a 1 vs rest classifier where correct classifiaction denotes 0
     % and misclassifaction denotes 1
     if mode(closest_match)==class
-      output(samp)=0;
+      output{samp}=0;
     else
-        output(samp)=1;
+        output{samp}=1;
     end
     
     clear closest_match  min_dist
@@ -159,7 +159,7 @@ end
 if length(varargin)==3
     window=varargin{3};
 else
-    window=50;
+    window=20;
 end
 seq1= varargin{1};
 seq3=varargin{2};
