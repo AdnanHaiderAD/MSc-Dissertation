@@ -50,7 +50,7 @@ for samp=1:noOftestsamp
          end
             %% applying DTW+(baseline or MFCC) +euclidean metric
               %distortion= log(DTW(seq',seq2',w)+1); 
-             %% applying DTW using local and global features and a proposed kernel. 
+             %% applying DTW using local and global features and the proposed kernel. 
               distortion=DTW2(seq,seq2);
               %% keeping a record of K nearest matches
           if distortion<max(min_dist)
@@ -150,7 +150,7 @@ end
 
 function distortion= DTW2(varargin)
 
-%% segments the utterances into frames of 20ms long and applies DTW
+%% segments the utterances into frames of 35ms long and applies DTW
 % augmented with a polynomial kernel 
 
 if length(varargin)<2
@@ -159,7 +159,7 @@ end
 if length(varargin)==3
     window=varargin{3};
 else
-    window=20;
+    window=35;
 end
 seq1= varargin{1};
 seq3=varargin{2};
