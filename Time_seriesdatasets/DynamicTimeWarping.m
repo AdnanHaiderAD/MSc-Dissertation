@@ -48,10 +48,10 @@ for samp=1:noOftestsamp
                 save (filename,'output','samp');
                 tic
          end
-            %% applying DTW+(baseline or MFCC) +euclidean metric
-              %distortion= log(DTW(seq',seq2',w)+1); 
+            %% applying DTW+(baseline or MFCC or LocalGlobal) +euclidean metric
+             distortion= log(DTW(seq',seq2',w)+1); 
              %% applying DTW using local and global features and the proposed kernel. 
-              distortion=DTW2(seq,seq2);
+             % distortion=DTW2(seq,seq2);
               %% keeping a record of K nearest matches
           if distortion<max(min_dist)
                min_dist(min_dist==max(min_dist))=distortion;
@@ -105,7 +105,7 @@ if n==1 && m==1
 end
 
 if ~isnan(w)
-w = max(w*max(n,m),abs(n-m));
+w = max(fix(w*max(n,m)),abs(n-m));
 end
 
 %% Initializing The DTW cost matrix
