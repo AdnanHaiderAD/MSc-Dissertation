@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  4 JUL 2013 16:43
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  6 JUL 2013 00:09
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -228,7 +228,84 @@ e
 Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
 
 Package: `setspace' 6.7 <2000/12/01>
-) (/usr/local/texlive/2011/texmf-dist/tex/latex/parskip/parskip.sty
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2008/00/00 v3.10 algorithms environments
+\c@AlgoLine=\count103
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+
+/usr/local/texlive/2011/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty:970: L
+aTeX Error: Unknown option `options' for package `algorithm2e'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.970 \@algocf@algotitleofalgo
+                              % fix name for \TitleOfAlgo to \algorithmcfnam...
+
+? 
+(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2006/05/08 v1.12 Space after command names (DPC,MH)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2003/07/04 ver 3.1
+
+
+Package relsize Warning: Failed to get list of font sizes.
+(relsize)                Falling back to old definition. on input line 81.
+
+LaTeX Info: Redefining \larger on input line 218.
+LaTeX Info: Redefining \smaller on input line 219.
+)
+********************************************************
+Package `algorithm2e' Release 4.01 -- december 14 2009 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (fiorio@lirmm.fr)
+********************************************************
+\skiptotal=\skip51
+\skiplinenumber=\skip52
+\skiprule=\skip53
+\skiphlne=\skip54
+\skiptext=\skip55
+\skiplength=\skip56
+\algomargin=\skip57
+\skipalgocfslide=\skip58
+\algowidth=\dimen124
+\inoutsize=\dimen125
+\inoutline=\dimen126
+\interspacetitleruled=\dimen127
+\interspacealgoruled=\dimen128
+\interspacetitleboxruled=\dimen129
+\algocf@inoutbox=\box29
+\algocf@inputbox=\box30
+\AlCapSkip=\skip59
+\AlCapHSkip=\skip60
+\algocf@nlbox=\box31
+\algocf@hangingbox=\box32
+\algocf@capbox=\box33
+\algoheightruledefault=\skip61
+\algoheightrule=\skip62
+\algotitleheightruledefault=\skip63
+\algotitleheightrule=\skip64
+\c@algocfline=\count104
+\c@algocfproc=\count105
+\c@algocf=\count106
+\algocf@algoframe=\box34
+\algocf@algobox=\box35
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count107
+\float@exts=\toks27
+\float@box=\box36
+\@float@everytoks=\toks28
+\@floatcapt=\box37
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 
 
@@ -238,23 +315,23 @@ LaTeX Warning: Command \@starttoc  has changed.
 ) (./Kernel.aux)
 \openout1 = `Kernel.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Try loading font information for U+msa on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Try loading font information for U+msa on input line 23.
  (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 20.
+LaTeX Font Info:    Try loading font information for U+msb on input line 23.
  (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
@@ -294,122 +371,147 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count103
-\scratchdimen=\dimen124
-\scratchbox=\box29
-\nofMPsegments=\count104
-\nofMParguments=\count105
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count106
-\MPscratchDim=\dimen125
-\MPnumerator=\count107
-\makeMPintoPDFobject=\count108
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count108
+\scratchdimen=\dimen130
+\scratchbox=\box38
+\nofMPsegments=\count109
+\nofMParguments=\count110
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count111
+\MPscratchDim=\dimen131
+\MPnumerator=\count112
+\makeMPintoPDFobject=\count113
+\everyMPtoPDFconversion=\toks30
 ) [1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-./Kernel.tex:42: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.42 T
-      he fundamental problem of baseline DTW  is that the numerical value of...
-
-? 
-./Kernel.tex:42: Undefined control sequence.
-l.42 ... an alternative  form of DTW know as \epmh
-                                                  {Derivative} DTW is propos...
-
-? 
 [2]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ã in font cmr10!
- [3] <Example1.jpg, id=22, 603.25375pt x 608.2725pt>
+ [3] <Example1.jpg, id=23, 549.05125pt x 566.115pt>
 File: Example1.jpg Graphic file (type jpg)
  <use Example1.jpg>
-Package pdftex.def Info: Example1.jpg used on input line 80.
-(pdftex.def)             Requested size: 361.95503pt x 364.96632pt.
+Package pdftex.def Info: Example1.jpg used on input line 82.
+(pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
 
-<Cross-section.jpg, id=23, 562.1pt x 420.57124pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+<Cross-section.jpg, id=27, 562.1pt x 420.57124pt>
 File: Cross-section.jpg Graphic file (type jpg)
  <use Cross-section.jpg>
-Package pdftex.def Info: Cross-section.jpg used on input line 89.
+Package pdftex.def Info: Cross-section.jpg used on input line 88.
 (pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4 <./Example1.jpg>] [5 <./Cross-section.jpg>]
-Overfull \hbox (25.58398pt too wide) in alignment at lines 99--103
+
+Overfull \hbox (34.709pt too wide) in alignment at lines 92--96
  [][][] []
  []
 
-<Accuracy.jpg, id=30, 423.5022pt x 295.3434pt>
-File: Accuracy.jpg Graphic file (type jpg)
- <use Accuracy.jpg>
-Package pdftex.def Info: Accuracy.jpg used on input line 132.
-(pdftex.def)             Requested size: 338.8022pt x 236.27502pt.
+[5 <./Example1.jpg>]
+Underfull \vbox (badness 5008) has occurred while \output is active []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<GraphsResults.jpg, id=31, 457.71pt x 342.5598pt>
-File: GraphsResults.jpg Graphic file (type jpg)
- <use GraphsResults.jpg>
-Package pdftex.def Info: GraphsResults.jpg used on input line 140.
-(pdftex.def)             Requested size: 366.1685pt x 274.04819pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-./Kernel.tex:144: Extra \endgroup.
-\restore@spacing ...vskip \baselineskip \endgroup 
-                                                  \vskip -\parskip \vskip -\...
-l.144 \end{spacing}
-                   
+ [6 <./Cross-section.jpg>]
+./Kernel.tex:130: Undefined control sequence.
+l.130 ...gth(seq\_1) }{DTW(i,0) = $\infty$}\EndFor
+                                                  
+? 
+./Kernel.tex:132: Undefined control sequence.
+l.132  \EndFor
+              
 ? 
 
-./Kernel.tex:144: LaTeX Error: \begin{document} ended by \end{spacing}.
+./Kernel.tex:137: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.144 \end{spacing}
+l.137  \EndFor}
+               
+? 
+./Kernel.tex:137: Missing $ inserted.
+<inserted text> 
+                $
+l.137  \EndFor}
+               
+? 
+./Kernel.tex:137: Undefined control sequence.
+<argument> ...d $Z =\sum _{j=1}^{n}z_i$ } \EndFor 
+                                                  
+l.137  \EndFor}
+               
+? 
+./Kernel.tex:138: Undefined control sequence.
+l.138 \EndFor
+             
+? 
+[7] <Accuracy.jpg, id=38, 423.5022pt x 295.3434pt>
+File: Accuracy.jpg Graphic file (type jpg)
+ <use Accuracy.jpg>
+Package pdftex.def Info: Accuracy.jpg used on input line 187.
+(pdftex.def)             Requested size: 338.8022pt x 236.27502pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<GraphsResults.jpg, id=39, 457.71pt x 342.5598pt>
+File: GraphsResults.jpg Graphic file (type jpg)
+ <use GraphsResults.jpg>
+Package pdftex.def Info: GraphsResults.jpg used on input line 195.
+(pdftex.def)             Requested size: 366.1685pt x 274.04819pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+./Kernel.tex:199: Extra \endgroup.
+\restore@spacing ...vskip \baselineskip \endgroup 
+                                                  \vskip -\parskip \vskip -\...
+l.199 \end{spacing}
                    
 ? 
-./Kernel.tex:144: Extra \endgroup.
+
+./Kernel.tex:199: LaTeX Error: \begin{document} ended by \end{spacing}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.199 \end{spacing}
+                   
+? 
+./Kernel.tex:199: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.144 \end{spacing}
+l.199 \end{spacing}
                    
 ? 
-[6] [7 <./Accuracy.jpg>] [8 <./GraphsResults.jpg>] (./Kernel.aux) ) 
+[8] [9 <./Accuracy.jpg>] [10 <./GraphsResults.jpg>] (./Kernel.aux) ) 
 Here is how much of TeX's memory you used:
- 3353 strings out of 493633
- 44218 string characters out of 3143377
- 108520 words of memory out of 3000000
- 6442 multiletter control sequences out of 15000+200000
+ 4559 strings out of 493633
+ 60254 string characters out of 3143377
+ 144109 words of memory out of 3000000
+ 7630 multiletter control sequences out of 15000+200000
  11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
- 42i,7n,31p,1190b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/
-texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/t
-exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/t
-exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
-xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
-live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texli
-ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
-/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/20
-11/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Kernel.pdf (8 pages, 392901 bytes).
+ 42i,14n,31p,1190b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local
+/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/
+texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/
+texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/t
+exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
+xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texl
+ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texliv
+e/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
+011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Kernel.pdf (10 pages, 425955 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

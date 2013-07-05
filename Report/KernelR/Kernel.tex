@@ -8,6 +8,9 @@
 \usepackage{epstopdf}
 \usepackage{setspace} 
 \usepackage{amsmath}
+\usepackage[options]{algorithm2e}
+\usepackage{float}
+
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
@@ -15,10 +18,10 @@
 \author{The Author}
 %\date{}                                           % Activate to display a given date or no date
 \usepackage{parskip}
-\setlength{\parindent}{15pt}
+\setlength{\parindent}{25pt}
 
 \begin{document}
-\begin{spacing}{1.1}
+\begin{spacing}{1.0}
 \maketitle
 %\section{}
 %\subsection{}
@@ -29,7 +32,7 @@ In the previous chapter, we have seen that using a MFCC representation of uttera
 
 The base-line DTW algorithm  is a domain independent  algorithm that  uses a similarity metric  to  compare  any two sequences through comparison of  their  global trends.  The algorithm  employes dynamic programming to search a space of mapping between the time axis of  the two respective sequences to determine the optimum alignment between them.  The only difference between MFCC-augmented DTW and baseline DTW is the feature extraction stage. In machine learning, feature extraction refers to the pre-processing stage that involves the extraction of new features from a set of raw attributes through a suitable functional mapping. The extraction phase of MFCC features  involves a segmentation of the time series followed by a functional mapping on the segmented windows. The  resultant sequence of  extracted feature vectors has a much smaller length compared to the length of the original sequence. Evident from the  experiments done in the previous chapters, the use mel-cepstrum features extracted on `cleaned' signals not only increases the accuracy of DTW but also reduces the time and computational cost through reduction of dimensionality of the original sequence.
 
-Any time series sequence contains both local and global trends. In some time series datasets[], it has been observed that incorporating the information of both  local trends and global shapes in the clustering /classification process does improve the performance of the DTW. The feature extraction methodologies used for their works  are domain and application independent. The MFCC feature extraction  on the other hand is only applicable to time series data corresponding to human speech. From a  scientific stand point, it will be interesting to compare and see how well/bad the domain independent methods are to  domain dependent methods. In this chapter, I investigate  an unsupervised methodology that:
+ Time series sequences are embedded with local and global trends. Unsupervised methods using DTW  focus on  exploiting the information of either these trends for pattern extraction and mining. From the  work conducted by Xie and Wiltgen on  the time series datasets[], it  has been shown that using DTW equipped with features that incorporate  information of \textbf{both}  local trends and global shapes in the clustering /classification process greatly improves the performance of DTW . Unlike the MFCC, the features constructed from local and global trends are domain independent and thus can be applied to any time of data.  However, when working high-dimensional time-series data, the accuracy of the DTW algorithm using a window constraint suffers greatly even if it's equipped with domain dependent/independent features. Hence from a scientific point of view, it is of great interest to research methods to improve the DTW algorithm so it can constraint the time and computational complexity associated with high-dimensional data without degrading the accuracy by too much. In this chapter, I investigate an unsupervised methodology that:
 
 \begin{itemize}
 \item incorporates  information about local and global trends  in the feature extraction process
@@ -38,8 +41,8 @@ Any time series sequence contains both local and global trends. In some time ser
 
 \section {{Feature extraction}}
 
-\\
-The fundamental problem of baseline DTW  is that the numerical value of a data point in a time series sequence is not a complete picture of the data point  in relation to the rest of the sequence. The context such as the position of the points in relation to their neighbours is ignored. To fix  this issue, an alternative  form of DTW know as \epmh{Derivative} DTW is proposed but the fundamental problem with this DTW is that it  fails to detect significant common sub-patterns between two sequences(mainly global trends). Ideally we need to use features that contains information about the overall shapes of the sequences plus the local trend around the points. This allows the DTW to built a complete picture of the data point in relation to the rest of the sequence and hence achieve a better optimal alignment between the two sequences.
+
+The fundamental problem of baseline DTW  is that the numerical value of a data point in a time series sequence is not a complete picture of the data point  in relation to the rest of the sequence. The context such as the position of the points in relation to their neighbours is ignored. To fix  this issue, an alternative  form of DTW know as \emph{Derivative} DTW is proposed but the fundamental problem with this DTW is that it  fails to detect significant common sub-patterns between two sequences(mainly global trends). Ideally we need to use features that contains information about the overall shapes of the sequences plus the local trend around the points. This allows the DTW to built a complete picture of the data point in relation to the rest of the sequence and hence achieve a better optimal alignment between the two sequences.
 
 For feature extraction, the methodology that I have used  for this setup is based on Xie and Wiltgen's paper[].  Each point in the time series sequence is replaced by a 4 dimensional vector  where the first two features correspond to information regarding the local trends around a point and the last two features reflect the position of that point in the global shape of the sequence.
 
@@ -51,17 +54,15 @@ Definition of local feature given in [] is as follows:
 The  extraction of global features is constrained by two factors: the features that reflect information about  global trends and  the features must be in the same scaling order  as the local features. Being in the same scale allows them to  be combined with local features. In [] the authors used the following method to extract global features from the time series sequence:
 \[ f_{\mbox{global}}(r_i)= (r_i -\sum_{k=1}^{i-1}\frac{r_k}{i-1} , r_i-\sum_{k=i+1}^M \frac{r_k}{M-i})\]
 
-
+Note : The local and global features have no definition for the first and last points in a sequence.
 \section{Adaption of DTW}
-The feature extraction methodology discussed above maps the time series sequence to a a time series sequence of vectors whose length  is $\|X_n\|-2. $   ($\|X_n\| $ denotes the original length of the time series sequence).  The DTW augmented with these features will still suffer from large time and computational complexity as before. In the MFCC feature extraction, the time series sequence is first segmented into series of frames  of length 20ms. Through appropriate functional mapping, the frames are then  converted into vectors. Because the length of the resultant sequence of vectors is much smaller than the length of the original time series, the size of the  DTW cost matrix is therefore smaller than before hence decreasing the time and computational cost associated with each comparison.
+The feature extraction methodology discussed above maps the time series sequence to a time series sequence of vectors whose length  is $\|X_n\|-2. $   ( where $\|X_n\| $ denotes the  length of the original time series sequence).  The DTW augmented with these features will still suffer from large time and computational complexity if the dimensionality of the data is high. In the MFCC feature extraction process, the time series sequence is first segmented into series of frames  of length 20ms. Through appropriate functional mapping, each  frame is then mapped to a vector. Because the length of the resultant sequence of vectors is much smaller than the length of the original time series, the size of the  DTW cost matrix is reduced resulting in lower  time and computational cost associated with each comparison.
 
-Using this as motivation,  the time series of 4d vectors extracted in the previous stage are segmented using windows  of width 5ms.  The number of segmented windows is much smaller than the length of sequences. Thus if we adapt the DTW to work on sequence of frames rather than the time series sequences, we can achieve a large improvement in the time and computational cost  associated in the testing phase. 
+Similar to the MFCC extraction process, the time series of 4d vectors extracted in the feature extraction stage are segmented using windows  of width 5ms. The original time series is reduced to series of matrices  where the length of the new  series is 5 times smaller than before. Now if we adapt the cost function of DTW to work on series of matrices rather than series of vectors we can achieve a large improvement in the time and computational cost  associated in the testing phase without imposing a \textbf{window} constraint. 
 
-The problem now can be shifted to finding  an appropriate kernel that can be used to compute the similarity between two subsequences  of feature vectors while adjusting to the temporal skewness present within the subsequences. Intuitively speaking , we need a kernel that behaves like a DTW on pairs of  subsequences.
+The problem now can be shifted to finding  an appropriate kernel that can be used to compute the similarity between matrices composed of feature vectors. Ideally, we want a metric that takes into account the variation of speed and time when comparing two similar subsequences. We will want to compare the global and local properties associated with a point in one subsequence with the global and local properties of points at  different regions in the second sub-sequence illustrated by figure 2.  Using a euclidean metric in this scenario is inappropriate. The euclidean metric  in this context is identical to  linear time warping where the  two subsequences will be matched based on a linear match of the two temporal dimensions.  In our context, we need a kernel that computes the similarity between two sub-sequences by warping the time axis.
 
-
-The motivation behind the kernel proposed for this problem comes from the polynomial kernel. 
-Lets consider the following example.
+The motivation behind the kernel  that I propose for aiding  DTW to tackle  high-dimensional data comes from the polynomial kernel. \\
 Let $x$ and $z$ be two dimensional vectors.
 Consider the simple polynomial kernel of degree 2  :$k(x,z) = (x^{T}z)^2$ .  This kernel can expressed as :
 \begin{eqnarray*}
@@ -70,62 +71,116 @@ k(x,z) &= &(x^{T}x')^2\\
 &= & x_1^2z_1^2 + 2x_1z_1x_2z_2 + x_2^2z_2^2\\ 
 &=& (x_1^2, Ã2x_1x_2, x_2^2)(z_1^2, Ã2z_1z_2, z_2^2)^{T}\\
 &=& \phi(x)^{T}\phi(z)\\
-\end{eqnarray*}
-Hence the 2nd order polynomial kernel is equivalent to a corresponding feature mapping $\phi$  that contains terms of order 2. Now, if we generalise this notion then $k(x,z) = (x^{T}z)^M$ contains all monomials of order M. For instance, if x and z are two images, then the kernel represents a particular weighted sum of all possible products of M pixels in the first image with M pixels in the second image.
-
-Now consider the following signals:
-\begin{figure}[h!]
-  \centering
-   
-     \includegraphics[scale=0.6]{Example1.jpg}
-  \caption{Two signals separated by translation}
-  
-\end{figure}
-The signal denoted by the `blue' color is a `slower' version of the signal denoted by the `red' color . In the above example, lets consider the window spanned by the arrows:
-
-\begin{figure}[h!]
-  \centering
-   
-     \includegraphics[scale=0.6]{Cross-section.jpg}
-  \caption{Two identical subsequences varying in time }
-  
-\end{figure}
-Ideally, we want a metric that takes into account the variation of speed and time when comparing two similar subsequences. We will want to compare the global and local properties associated with a point in one subsequence with the global and local properties of points at  different regions in the second sub-sequence illustrated by figure 2.  Using a euclidean metric in this scenario is inappropriate. The euclidean metric  in this context is identical to  linear time warping where the  two subsequences will be matched based on a linear match of the two temporal dimensions.  In our context, we need a kernel that computes the similarity between two sub-sequences by warping the time axis.  From the earlier  discussion of the polynomial kernel, we have seen that if we consider the generalised case then $k(x,z) = (x^{T}z)^M$  represents a particular weighted sum of all possible products of M time series points in the first sub-sequence with M time series points in the second subsequence here $x$ and $z$ represent respective subsequences. Using this as motivation I propose the following kernel:.
+\end{eqnarray*}\\
+The 2nd order polynomial kernel is equivalent to a corresponding feature mapping $\phi$  that contains terms of order 2. Now, if we generalise this notion then $k(x,z) = (x^{T}z)^M$ contains all monomials of order M. If we imagine x and z to be two images, then the polynomial kernel represents a particular weighted sum of all possible products of M pixels in the first image with M pixels in the second image.\\
+Using this as motivation I propose the following kernel:.
 \[ k(x,z) = <\sum_{i=1}^{n}x_i, \sum_{j=1}^{n}z_j>\]
-where $n$ denotes the length of the window and $x_i$  and $z_j$ represents the 4-dimensional features indexed by the points in two sub-sequences.
-
-For a windows of size 3, this kernel  metric representation can be expanded and   expressed as :
-
+where $n$ denotes the length of the window and $x_i$  and $z_j$ represents the 4-dimensional features indexed by the points in two sub-sequences.\\
+To motivate the reasoning behind the construction of this particular kernel lets consider the following signals:
+\begin{figure}[H]
+  \centering
+   \includegraphics[scale=0.4]{Example1.jpg}
+  \caption{Two signals separated by translation}
+ \end{figure}
+The signal denoted by the `red' color is a `slower' version of the signal denoted by the `blue' color . In the above example, if we are comparing the similarity  between the  time slices spanned by the arrows, an ideal kernel must be invariant to  the time offsets of the signals and thus should consider all possible pairings between the vectors in the subsequences. Intuitively speaking, the kernel must behave like a DTW algorithm..\\
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale=0.6]{Cross-section.jpg}
+  \caption{Two identical subsequences varying in time }
+  \end{figure}
+ For time slices of width $n$, the kernel  metric  can be expanded and   expressed as :
 \begin{eqnarray*}
-k(x,z) &= &<\sum_{i=1}^{3}x_i, \sum_{j=1}^{3}z_i>\\
-&  =& <(x_1+x_2+x_3),(z_1+z_2+z_3)>\\
-&= & <x_1,z_1>+<x_1,z_2>+<x_1,z_2>+<x_2,z_1>+<x_2,z_2> +<x_2,z_3>+......\\ 
+k(x,z) &= &<\sum_{i=1}^{n}x_i, \sum_{j=1}^{n}z_i>\\
+&  =& <(x_1+x_2+x_3+..),(z_1+z_2+z_3+..)>\\
+&= & <x_1,z_1>+<x_1,z_2>+<x_1,z_2>...+<x_2,z_1>+<x_2,z_2> +<x_2,z_3>+......\\ 
 \end{eqnarray*}
-
 From above expression, we can see  that the proposed kernel corresponds to a sum of all possible dot products of pairs belonging to the set
-$\{(x_iz_i) | x_i\in \mbox{seq1}, z_i \in \mbox{seq2}\}$. Similar to the polynomial kernel, the proposed kernel  allows us to match all possible pairs of vectors belonging to the tow sub-sequences.
-
+$\{(x_iz_i) | x_i\in \mbox{seq1}, z_i \in \mbox{seq2}\}$. Similar to the polynomial kernel, the proposed kernel  allows us to match all possible pairs of vectors belonging to the two sub-sequences  given by the matrices.
 It is easy to check that this proposed kernel is in fact a valid kernel:
-\begin{itemize}
+\begin{itemize} \itemsep-2pt
 \item K(x,z)= K(z,x) $\Rightarrow $the function is symmetric.
 \item The kernel satisfies Mercer's theorem : K(x,z) =$\phi(x)^T\phi(x)$
-where  the feature mapping corresponds to $\phi(y) = \sum_{i=1}^{3}y_i$. 
+where  the feature mapping corresponds to  a finite summation of vectors $\phi(y) = \sum_{i=1}^{n}y_i$. 
 \end{itemize}
-
-Kernels constructed from dot products measure the similarity between  two samples.  For this kernel to be used as an appropriate cost function in the DTW algorithm, we need:
-\begin{enumerate}
-\item  the codomain to be in the range from 0 to $\infty$.
-\item  Larger values given by the kernel to signify great degree of dissimilarity and smaller values to signify a high degree of similitude.
+Augmenting the kernel to the DTW algorithm allows DTW to work on high-dimensional time sequences with using a window constraint. However the accuracy and computational cost of the DTW is now dependent on the size of the time slices used to segment the original sequences:
+\begin{itemize} \itemsep-2pt
+\item The accuracy of DTW increases as the width of the windows decrease. Using subsequence allows the similarity measure to be dominated by the dot products of points whose local and global features are most alike. However using smaller windows achieve lesser dimensionality reduction. Thus the time and computational complexity suffers.
+\end{itemize}
+To use this kernel as an  appropriate cost function in the DTW algorithm, we need a functional mapping that:
+\begin{enumerate} \itemsep-2pt
+\item  constraints the codomain to be in the range from 0 to $\infty$.
+\item    ensures larger values given by the function signify great degree of dissimilarity and smaller values  signify a high degree of similitude.
 \end{enumerate}
-
-An ideal cost function that make use of dot product is the \emph{arc-cosine}. Hence for my experiments, I augmented the following cost function to be DTW algorithm: 
-
+An ideal cost function that make use of dot product sis the \emph{arc-cosine}. Hence I embedded the kernel function in the cosine distance: 
 \[ \theta = \frac{ <X,Z>}{|X||Z|} \]
 where $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$
 
-%Kernel functions must be continuous, symmetric, and most preferably should have a positive (semi-) definite Gram matrix. Kernels which are said to satisfy the Mercer's theorem are positive semi-definite, meaning their kernel matrices have no non-negative Eigen values. The use of a positive definite kernel insures that the optimization problem will be convex and solution will be unique.
-\section{Experimental results}
+A formal outline of the algorithm is as follows:
 
+\begin{algorithm}[H]
+ \SetAlgoLined
+ \KwData{seq1, seq2}
+ \KwResult{cost }
+ Segment the sequences using a window of size n\\
+ seq\_1$\leftarrow$segment(seq1,n)\\
+ seq\_2$\leftarrow$segment(seq2,n)\\
+ 
+ Augment a matrix of 0 vectors to the front  seq1` and seq2`   \\ 
+ Initialise the DTW cost matrix\\
+ \For{i=1: to length(seq\_1) }{DTW(i,0) = $\infty$}\EndFor
+ \For{i=1 to length(seq\_2)} { DTW(0,i) = $\infty$}
+ \EndFor 
+ \For{i=2 to length(seq\_1)}  {
+ \For{j=2 to length(seq\_2)} {
+ DTW(i,j) = $\theta = \frac{ <X,Z>}{|X||Z|}  + min\{ DTW(i-1,j)+DTW(i,j-1)+DTW(i-1,j-1)\\
+ where  $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$ }
+ \EndFor}
+\EndFor
+ cost = DTW(length(seq\_1),length(seq\_2))
+  \caption{Adapted DTW algorithm}
+\end{algorithm}
+\newpage
+
+\section{Experimental results}
+To study how  the performance of the DTW algorithm is affected by new changes,  I tested this algorithm on 3 different types of data sets and compared 
+it's performance against the following 4 models we discussed so far :
+\begin{itemize}
+\item Method 1
+\begin{itemize}
+\item Apply feature selection process to remove segments of silece and down sample the remaining segment to improve the quality.
+\item  Apply valuebased DTW(which we denote as baseline) using a window constraint and a euclidean metric.
+\end{itemize}
+
+\item Method 2
+\begin{itemize}
+\item Apply feature selection process to remove segment of utterance and down sample the remaining segment to improve the quality.
+\item Apply  the feature extraction process discussed in [] to extract local and global features.
+ \item Apply DTW using a window constraint and a euclidean metric.
+ \end{itemize}
+
+\item Method 3
+\begin{itemize}
+ \item Apply feature selection process that only removes  segments of  silence 
+ \item Extract MFCC features
+ \item Apply DTW using a window constraint and a euclidean metric.
+ \end{itemize}
+ 
+ \item  Method 4
+ \begin{itemize}
+ \item Apply feature selection process that only removes  segments of  silence 
+ \item Extract MFCC features
+ \item Apply DTW augmented witha euclidean metric.
+ \end{itemize}
+ \end{itemize}
+I raw this algorithm on 3 different sets of data sets:
+\begin{itemize}
+\item The test and training sets that I have created from the Tidigits samples
+\item To data sets  from the UCR time-series testbed:
+\begin{itemize}
+\item  The ECG torso datasets
+\item The Inline Skating datasets.
+\end{itemize}
+\end{itemize}
 \begin{figure}[h!]
   \centering
    
