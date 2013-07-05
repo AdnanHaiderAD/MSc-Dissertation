@@ -159,7 +159,7 @@ end
 if length(varargin)==3
     window=varargin{3};
 else
-    window=35;
+    window=20;
 end
 seq1= varargin{1};
 seq3=varargin{2};
