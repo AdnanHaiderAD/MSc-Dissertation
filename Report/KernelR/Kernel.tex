@@ -142,34 +142,35 @@ A formal outline of the algorithm is as follows:
 \newpage
 
 \section{Experimental results}
-To study how  the performance of the DTW algorithm is affected by the proposed changes,  I tested this algorithm on 3 different types of data sets and compared 
-it's performance against the following  4 domain dependent and independent methodologies we discussed so far :
+The main aim behind the design  of the proposed DTW(discussed in the last section) is to improve the accuracy of the DTW algorithm while restricting time and computational cost to  a minimum
+when applied to high-dimensional time-series data. I have tested the algorithm on the test data set that I have constructed using TIDIGITS test corpus and compared the performances against the methodologies that I have investigated so far:
+ 
 \begin{itemize}
 \item Methodology 1
 \begin{itemize}
-\item Apply feature selection process to remove segments of silece and down sample the remaining segment to improve the quality.
-\item  Apply valuebased DTW(which we denote as baseline) using a window constraint and a euclidean metric.
+\item Apply feature selection process to remove segments of silence and down sample the remaining segment to improve the quality.
+\item  Apply value-based DTW(which we denote as baseline) using the most constrained window size  and a euclidean metric.
 \end{itemize}
 
 \item Methodology 2
 \begin{itemize}
 \item Apply feature selection process to remove segment of utterance and down sample the remaining segment to improve the quality.
 \item Apply  the feature extraction process discussed in [] to extract local and global features.
- \item Apply DTW using a window constraint and a euclidean metric.
+ \item Apply DTW using the most constrained window size  and a euclidean metric.
  \end{itemize}
 
 \item Methodology 3
 \begin{itemize}
- \item Apply feature selection process that only removes  segments of  silence 
- \item Extract MFCC features
- \item Apply DTW using a window constraint and a euclidean metric.
+ \item Apply no feature selection
+ \item Perform feature extraction by extracting MFCC features
+ \item Apply DTW using the most constrained window size and a euclidean metric.
  \end{itemize}
  
  \item  Methodology 4
  \begin{itemize}
  \item Apply feature selection process that only removes  segments of  silence 
  \item Extract MFCC features
- \item Apply DTW augmented witha euclidean metric.
+ \item Apply DTW augmented with the euclidean metric.
  \end{itemize}
  \end{itemize}
 I raw this algorithm on 3 different sets of data sets:

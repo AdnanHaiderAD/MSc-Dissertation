@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  6 JUL 2013 00:13
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  7 JUL 2013 22:35
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -450,7 +450,7 @@ l.138 \EndFor
 [7] <Accuracy.jpg, id=38, 423.5022pt x 295.3434pt>
 File: Accuracy.jpg Graphic file (type jpg)
  <use Accuracy.jpg>
-Package pdftex.def Info: Accuracy.jpg used on input line 187.
+Package pdftex.def Info: Accuracy.jpg used on input line 188.
 (pdftex.def)             Requested size: 338.8022pt x 236.27502pt.
 
 
@@ -459,32 +459,32 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <GraphsResults.jpg, id=39, 457.71pt x 342.5598pt>
 File: GraphsResults.jpg Graphic file (type jpg)
  <use GraphsResults.jpg>
-Package pdftex.def Info: GraphsResults.jpg used on input line 195.
+Package pdftex.def Info: GraphsResults.jpg used on input line 196.
 (pdftex.def)             Requested size: 366.1685pt x 274.04819pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-./Kernel.tex:199: Extra \endgroup.
+./Kernel.tex:200: Extra \endgroup.
 \restore@spacing ...vskip \baselineskip \endgroup 
                                                   \vskip -\parskip \vskip -\...
-l.199 \end{spacing}
+l.200 \end{spacing}
                    
 ? 
 
-./Kernel.tex:199: LaTeX Error: \begin{document} ended by \end{spacing}.
+./Kernel.tex:200: LaTeX Error: \begin{document} ended by \end{spacing}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.199 \end{spacing}
+l.200 \end{spacing}
                    
 ? 
-./Kernel.tex:199: Extra \endgroup.
+./Kernel.tex:200: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.199 \end{spacing}
+l.200 \end{spacing}
                    
 ? 
 [8] [9 <./Accuracy.jpg>] [10 <./GraphsResults.jpg>] (./Kernel.aux) ) 
@@ -508,7 +508,7 @@ e/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Kernel.pdf (10 pages, 425995 bytes).
+Output written on Kernel.pdf (10 pages, 426345 bytes).
 PDF statistics:
  85 PDF objects out of 1000 (max. 8388607)
  57 compressed objects within 1 object stream
