@@ -142,30 +142,30 @@ A formal outline of the algorithm is as follows:
 \newpage
 
 \section{Experimental results}
-To study how  the performance of the DTW algorithm is affected by new changes,  I tested this algorithm on 3 different types of data sets and compared 
-it's performance against the following 4 models we discussed so far :
+To study how  the performance of the DTW algorithm is affected by the proposed changes,  I tested this algorithm on 3 different types of data sets and compared 
+it's performance against the following  4 domain dependent and independent methodologies we discussed so far :
 \begin{itemize}
-\item Method 1
+\item Methodology 1
 \begin{itemize}
 \item Apply feature selection process to remove segments of silece and down sample the remaining segment to improve the quality.
 \item  Apply valuebased DTW(which we denote as baseline) using a window constraint and a euclidean metric.
 \end{itemize}
 
-\item Method 2
+\item Methodology 2
 \begin{itemize}
 \item Apply feature selection process to remove segment of utterance and down sample the remaining segment to improve the quality.
 \item Apply  the feature extraction process discussed in [] to extract local and global features.
  \item Apply DTW using a window constraint and a euclidean metric.
  \end{itemize}
 
-\item Method 3
+\item Methodology 3
 \begin{itemize}
  \item Apply feature selection process that only removes  segments of  silence 
  \item Extract MFCC features
  \item Apply DTW using a window constraint and a euclidean metric.
  \end{itemize}
  
- \item  Method 4
+ \item  Methodology 4
  \begin{itemize}
  \item Apply feature selection process that only removes  segments of  silence 
  \item Extract MFCC features

@@ -1,0 +1,27 @@
+
+The folders
+
+baselineOutput: contains the result of
+>)applying feature selection: remove segments of silence and downsample the remaining segmets by 1/2. This is followed by
+ >)the application of valued-based DTW augmented with a euclidean and a window constraints on the TIDITS selected test set
+
+MFCCrawOutput:contains the result of
+ >) Applying MFCC feature extraction followed by
+ >)the applicationDTW augmented with a euclidean and a window constraints on the TIDITS selected test set. 
+
+ MFCC_sil: contains the result of :
+ >) removing segments of silence from the utterances followed by
+ >) applying MFCC feature extraction followed by
+ >)the application of  DTW augmented with a euclidean metric on the TIDITS selected test
+
+ localGlobal R: contains the result of :
+ >) applying feature selection: remove segments of silence and downsample the remaining segmets by 1/2
+ >) This is followed by extraction of local and global features which is then followed by
+ >) the applicationDTW augmented with a euclidean and a window constraints on the TIDITS selected test set. 
+
+ localGlo_kernel: contains the result of 
+ >)  applying feature selection: remove segments of silence and downsample the remaining segmets by 1/2
+ >) This is followed by extraction of local and global features which is then followed by
+ >) the applicationDTW augmented with the proposed metric
+ 
+ 
