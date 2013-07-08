@@ -112,7 +112,7 @@ if n==1 && m==1
 end
 
 if ~isnan(w)
-w = max(w*max(n,m),abs(n-m));
+w = max(fix(w*max(n,m)),abs(n-m));
 end
 
 %% Initializing The DTW cost matrix
