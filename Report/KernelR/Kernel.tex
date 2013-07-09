@@ -18,10 +18,10 @@
 \author{The Author}
 %\date{}                                           % Activate to display a given date or no date
 \usepackage{parskip}
-\setlength{\parindent}{25pt}
+\setlength{\parindent}{18pt}
 
 \begin{document}
-\begin{spacing}{1.0}
+\begin{spacing}{1.2}
 \maketitle
 %\section{}
 %\subsection{}
@@ -142,8 +142,7 @@ A formal outline of the algorithm is as follows:
 \newpage
 
 \section{Experimental results}
-The main aim behind the design  of the proposed DTW(discussed in the last section) is to improve the accuracy of the DTW algorithm while restricting time and computational cost to  a minimum
-when applied to high-dimensional time-series data. I have tested the algorithm on the test data set that I have constructed using TIDIGITS test corpus and compared the performances against the methodologies that I have investigated so far:
+The changes that I have introduced,  in the previous section  to the `Dynamic Time Warping' algorithm is aimed to improve the algorithm's performance in handling high dimensional time series data. In this section, I investigate the investigate the performance of my proposed algorithm by running it  on the test data set that I have constructed from TIDIGITS test corpus and the time complexities and accuracies  against the methodologies that I have investigated so far:
  
 \begin{itemize}
 \item Methodology 1
@@ -154,34 +153,32 @@ when applied to high-dimensional time-series data. I have tested the algorithm o
 
 \item Methodology 2
 \begin{itemize}
-\item Apply feature selection process to remove segment of utterance and down sample the remaining segment to improve the quality.
-\item Apply  the feature extraction process discussed in [] to extract local and global features.
- \item Apply DTW using the most constrained window size  and a euclidean metric.
- \end{itemize}
-
-\item Methodology 3
-\begin{itemize}
- \item Apply no feature selection
+ \item Apply no feature selection process
  \item Perform feature extraction by extracting MFCC features
  \item Apply DTW using the most constrained window size and a euclidean metric.
  \end{itemize}
  
- \item  Methodology 4
+ \item  Methodology 3
  \begin{itemize}
  \item Apply feature selection process that only removes  segments of  silence 
  \item Extract MFCC features
  \item Apply DTW augmented with the euclidean metric.
  \end{itemize}
+
+ 
+\item Methodology 4
+\begin{itemize}
+\item Apply feature selection process to remove segment of utterance and down sample the remaining segment to improve the quality.
+\item Apply  the feature extraction process discussed in [] to extract local and global features.
+ \item Apply DTW using the most constrained window size  and a euclidean metric.
+ \end{itemize}
+
+
+ 
+ 
  \end{itemize}
 I raw this algorithm on 3 different sets of data sets:
-\begin{itemize}
-\item The test and training sets that I have created from the Tidigits samples
-\item To data sets  from the UCR time-series testbed:
-\begin{itemize}
-\item  The ECG torso datasets
-\item The Inline Skating datasets.
-\end{itemize}
-\end{itemize}
+
 \begin{figure}[h!]
   \centering
    
@@ -190,13 +187,70 @@ I raw this algorithm on 3 different sets of data sets:
   
 \end{figure}
 \end{spacing}
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
+   
    
      \includegraphics[scale=0.8]{GraphsResults.jpg}
   \caption{Time complexity}
+  \end{figure}
+Observations:
+\begin{itemize}{ \itemsep 2pt
+\item  From the observation of results given in [], the performance of the DTW algorithm based on approach 3 achieves near optimal performance.
+
+Reasons:
+\begin{itemize}
+\item The methodology behind approach 3 combines the preprocessing steps used in approach 1 and approach 2. 
+\item The pre-processing stage reduces the dimensionality of the time-series sequences. Redundant features are dropped during the silence removal phase and the dimensionality is reduced even further when the the resultant series is partitioned into frames for MFCC feature extraction.
+\item  The size of the DTW cost matrix is $mn$ where $m$ and $n$ denotes the length of the sequences currently being compared. Since both $m$ and $ n$ is reduced through feature and feature extraction process,  the window constraint is lifted allowing the algorithm to reach high levels of accuracy while  constraining the time and computational cost.
+\end{itemize}
+ 
+
+\end{itemize}
+
+
+
+
+
+\begin{itemize}
+\item On average, the accuracy achieved by the version of the DTW algorithm  based on approach 2  is lower than the accuracy achieved by the adapted DTW  version implemented based on approach 1. The two methodologies used in approach 1 and approach 2 differ in the preprocessing stage. Approach 1 employs a domain-specific feature extraction process. The data set comprises of acoustic signals of human speech. In the first approach, a filter is created by the help of  exploratory data analysis to remove redundant features . To be specific, the preprocessing stage of approach 1 consists segments of silence from utterances. In the 2nd approach, the feature selection phase is omitted and a domain dependent feature extraction phase is employed. Both approaches use the same rigid  window constraint , $w = \mbox{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$ to reduce the  computational and time cost to minimum.
+
+\item From analysing the time complexity associated with each of the two versions, it can be seen that partitioning the sequences into frames actually leads to greater reduction in dimensionality of the time series than removing redundant features.
+\end{itemize}  
+
+
+
+\begin{itemize}
+\item  It can be concluded that adapting DTW to incorporate a pre-processing stage that involves removal of redundant features through silence removal and employing a feature extraction mapping that integrates application dependent knowledge in the extraction process  achieves almost perfects accuracy and incurs the lowest computational time. To be precise,  adapting DTW to be domain-dependent allows the algorithm to achieve near perfect accuracy while incurring the minimum computational cost.
+
+However, there are quite number of interesting observations that can made from the graphs and the tables given by figures []. 
+
+\item The proposed algorithm achieves better accuracy for test samples belonging to all categories than any of algorithms that employ the rigid  window constraint of  of $w = \mbox{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$. The most interesting result is that the new algorithm incurs a lower computational cost than any of these DTW algorithms. 
+\item From examining the improvements in accuracy across all categories, it can be concluded that for the TIGITS dataset,  the new algorithm is invariant to variations introduced  in the acoustic signals  by different speakers . 
+\item The  methodology behind my proposed approach and that of  approach 4  includes the same pre-processing stage. Th input to the DTW algorithm is constructed by using  the domain dependent feature selection process mentioned in section followed by a domain independent feature extraction mapping (i.e the local and global features defined in section).  Both approaches  differ however, in their use of a cost function and a window constraint. The proposed approach doesn't subject DTW  to any window constraints and utilised the kernel function that I constructed in the cost metric. Approach 4 on the other hand, employs the euclidean metric an subjects DTW to the window constraint of  of $w = \mbox{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$.
+
+The proposed DTW segments sequences into frames and employ a cost function on  the frames. This reduces the dimensionality of the time series sequences and allows the algorithm to achieve a  time and computational cost than is lower than  the cost incurred by any of the investigated adaptations of the DTW algorithm that  employs window constraints. 
+\end{itemize}
+
+  To ensure that the results founds are not tailored for this particular time-series data set, I have tested the performance of the pro DTW algorithm based on my proposed approach  against  the performance of the window-constrained DTW algorithms that use domain independent feature extraction process.
+  The datasets that i will now be investigating are no longer speech data. Thus it makes no sense to use methodologies that are based on MFCC  feature extraction.
   
-\end{figure}
+  The datasets that I chose for this part of my analysis is from the  UCR datasets. 
+  \begin{figure}[H]
+  \centering
+   
+     \includegraphics[scale=0.8]{accuracy_cinc_inline.jpg}
+  \caption{Time complexity}
+  \end{figure}
+   
+\begin{figure}[H]
+  \centering
+   
+     \includegraphics[scale=0.8]{time_cinc_inline.jpg}
+  \caption{Time complexity}
+  \end{figure}
+   
+
 \end{spacing}
 
 \end{document}  

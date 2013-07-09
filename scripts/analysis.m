@@ -1,8 +1,5 @@
 function [MisClassCount ,Counter,Accuracy]=  analysis(data,refdata)
-%%plot an histogram  and a graph
-%the histogram corresponds to the number of in-correct 
-% classifications performed by the algorithm for each class
-%The graph correpsponds to the accuracy
+%%  gives the accuracy along with the misscalssification and accuracy in the class breakdown 
 count=0;
 MisClassCount =zeros(9,1);
 Counter=zeros(9,1);
