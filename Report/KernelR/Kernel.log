@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  7 JUL 2013 22:35
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  10 JUL 2013 13:29
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -383,10 +383,10 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 \makeMPintoPDFobject=\count113
 \everyMPtoPDFconversion=\toks30
 ) [1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2]
+[2] [3]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ã in font cmr10!
- [3] <Example1.jpg, id=23, 549.05125pt x 566.115pt>
+ <Example1.jpg, id=23, 549.05125pt x 566.115pt>
 File: Example1.jpg Graphic file (type jpg)
  <use Example1.jpg>
 Package pdftex.def Info: Example1.jpg used on input line 82.
@@ -409,10 +409,7 @@ Overfull \hbox (34.709pt too wide) in alignment at lines 92--96
  [][][] []
  []
 
-[5 <./Example1.jpg>]
-Underfull \vbox (badness 5008) has occurred while \output is active []
-
- [6 <./Cross-section.jpg>]
+[5 <./Example1.jpg>] [6 <./Cross-section.jpg>]
 ./Kernel.tex:130: Undefined control sequence.
 l.130 ...gth(seq\_1) }{DTW(i,0) = $\infty$}\EndFor
                                                   
@@ -450,7 +447,7 @@ l.138 \EndFor
 [7] <Accuracy.jpg, id=38, 423.5022pt x 295.3434pt>
 File: Accuracy.jpg Graphic file (type jpg)
  <use Accuracy.jpg>
-Package pdftex.def Info: Accuracy.jpg used on input line 188.
+Package pdftex.def Info: Accuracy.jpg used on input line 185.
 (pdftex.def)             Requested size: 338.8022pt x 236.27502pt.
 
 
@@ -459,59 +456,113 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <GraphsResults.jpg, id=39, 457.71pt x 342.5598pt>
 File: GraphsResults.jpg Graphic file (type jpg)
  <use GraphsResults.jpg>
-Package pdftex.def Info: GraphsResults.jpg used on input line 196.
+Package pdftex.def Info: GraphsResults.jpg used on input line 194.
 (pdftex.def)             Requested size: 366.1685pt x 274.04819pt.
 
+[8]
+Overfull \vbox (18.10498pt too high) has occurred while \output is active []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-./Kernel.tex:200: Extra \endgroup.
-\restore@spacing ...vskip \baselineskip \endgroup 
-                                                  \vskip -\parskip \vskip -\...
-l.200 \end{spacing}
+[9 <./Accuracy.jpg> <./GraphsResults.jpg>]
+./Kernel.tex:209: Missing } inserted.
+<inserted text> 
+                }
+l.209 \end{itemize}
                    
 ? 
+./Kernel.tex:216: Undefined control sequence.
+l.216 ...constraint , $w = \mbox{max} (|n-m|,\ceil
+                                                  {0.1*\mbox{max}(n,m))$ to ...
 
-./Kernel.tex:200: LaTeX Error: \begin{document} ended by \end{spacing}.
+? 
+./Kernel.tex:216: Missing } inserted.
+<inserted text> 
+                }
+l.216 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
+                                                   to reduce the  computatio...
+
+? 
+./Kernel.tex:228: Undefined control sequence.
+l.228 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
+                                                  {0.1*\mbox{max}(n,m))$. Th...
+
+? 
+./Kernel.tex:228: Missing } inserted.
+<inserted text> 
+                }
+l.228 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
+                                                  . The most interesting res...
+
+? 
+[10]
+./Kernel.tex:230: Undefined control sequence.
+l.230 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
+                                                  {0.1*\mbox{max}(n,m))$.
+? 
+./Kernel.tex:230: Missing } inserted.
+<inserted text> 
+                }
+l.230 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
+                                                  .
+? 
+[11] <accuracy_cinc_inline.jpg, id=52, 428.802pt x 500.1084pt>
+File: accuracy_cinc_inline.jpg Graphic file (type jpg)
+
+<use accuracy_cinc_inline.jpg>
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 276.
+(pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+<time_cinc_inline.jpg, id=56, 359.4228pt x 339.669pt>
+File: time_cinc_inline.jpg Graphic file (type jpg)
+
+<use time_cinc_inline.jpg>
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 290.
+(pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
+ [13 <./accuracy_cinc_inline.jpg>]
+
+./Kernel.tex:299: LaTeX Error: \begin{document} ended by \end{spacing}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.200 \end{spacing}
+l.299 \end{spacing}
                    
 ? 
-./Kernel.tex:200: Extra \endgroup.
+./Kernel.tex:299: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.200 \end{spacing}
+l.299 \end{spacing}
                    
 ? 
-[8] [9 <./Accuracy.jpg>] [10 <./GraphsResults.jpg>] (./Kernel.aux) ) 
+[14 <./time_cinc_inline.jpg>] (./Kernel.aux) ) 
 Here is how much of TeX's memory you used:
- 4559 strings out of 493633
- 60254 string characters out of 3143377
- 144109 words of memory out of 3000000
- 7630 multiletter control sequences out of 15000+200000
+ 4569 strings out of 493633
+ 60512 string characters out of 3143377
+ 143116 words of memory out of 3000000
+ 7638 multiletter control sequences out of 15000+200000
  11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
  42i,14n,31p,1190b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local
-/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/
-texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/
-texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/t
-exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texl
-ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texliv
-e/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
-011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Kernel.pdf (10 pages, 426345 bytes).
+</usr/local/texlive/2011/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2011/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2011/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2011/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2011/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb>
+Output written on Kernel.pdf (14 pages, 688292 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
