@@ -145,20 +145,20 @@ A formal outline of the algorithm is as follows:
 The changes that I have introduced,  in the previous section  to the `Dynamic Time Warping' algorithm is aimed to improve the algorithm's performance in handling high dimensional time series data. In this section, I investigate the investigate the performance of my proposed algorithm by running it  on the test data set that I have constructed from TIDIGITS test corpus and the time complexities and accuracies  against the methodologies that I have investigated so far:
  
 \begin{itemize}
-\item Methodology 1
+\item Approach 1
 \begin{itemize}
 \item Apply feature selection process to remove segments of silence and down sample the remaining segment to improve the quality.
 \item  Apply value-based DTW(which we denote as baseline) using the most constrained window size  and a euclidean metric.
 \end{itemize}
 
-\item Methodology 2
+\item Approach 2
 \begin{itemize}
  \item Apply no feature selection process
  \item Perform feature extraction by extracting MFCC features
  \item Apply DTW using the most constrained window size and a euclidean metric.
  \end{itemize}
  
- \item  Methodology 3
+ \item  Approach 3
  \begin{itemize}
  \item Apply feature selection process that only removes  segments of  silence 
  \item Extract MFCC features
@@ -166,7 +166,7 @@ The changes that I have introduced,  in the previous section  to the `Dynamic Ti
  \end{itemize}
 
  
-\item Methodology 4
+\item Approach 4
 \begin{itemize}
 \item Apply feature selection process to remove segment of utterance and down sample the remaining segment to improve the quality.
 \item Apply  the feature extraction process discussed in [] to extract local and global features.
@@ -177,7 +177,7 @@ The changes that I have introduced,  in the previous section  to the `Dynamic Ti
  
  
  \end{itemize}
-I raw this algorithm on 3 different sets of data sets:
+
 
 \begin{figure}[h!]
   \centering
@@ -232,16 +232,57 @@ However, there are quite number of interesting observations that can made from t
 The proposed DTW segments sequences into frames and employ a cost function on  the frames. This reduces the dimensionality of the time series sequences and allows the algorithm to achieve a  time and computational cost than is lower than  the cost incurred by any of the investigated adaptations of the DTW algorithm that  employs window constraints. 
 \end{itemize}
 
-  To ensure that the results founds are not tailored for this particular time-series data set, I have tested the performance of the pro DTW algorithm based on my proposed approach  against  the performance of the window-constrained DTW algorithms that use domain independent feature extraction process.
-  The datasets that i will now be investigating are no longer speech data. Thus it makes no sense to use methodologies that are based on MFCC  feature extraction.
+  To confirm that the performance of the new algorithm  is not tailored for this particular time-series data set, I have applied the tested the algorithm on the two largest  time series data sets in UCR database. 
   
-  The datasets that I chose for this part of my analysis is from the  UCR datasets. 
+  The description of the data sets used for the next set of experiements are as follows:
+  \begin{enumerate}
+  \item CinC\_ECG\_torso
+  
+  \begin{itemize}
+    \item Length of the time series:1639
+  \item Size of test set:1380
+  \item Size of training set:40
+  \item Number of classes:4
+  \end{itemize}
+  \item  InLineSkate
+  \begin{itemize}
+    \item Length of the time series:1882
+  \item Size of test set:550
+  \item Size of training set:100
+  \item Number of classes:7 
+  \end{itemize}
+  
+  Unlike the speech utterances, the time series sequences within each data set  share the same length.
+  
+  \subsection{Experimental setup}
+  
+ The focus now is  to check how well/ bad is the performance of the new DTW algorithm  against  DTW algorithms using window constraints when applied to datasets that belong to other application domains . The domain -dependent pre-processing policies are dropped for this set of experiments as these procedures were specifically designed for speech data. Thus in this section, I compare my proposed approach against:
+ \begin{itemize}
+ \item Approach 1
+ \item Approach 4 
+ \end{itemize}
+  As a I mentioned, the domain-dependent feature selection process  of silence removal and subsampling is dropped from all approaches. However, the feature extraction process  that involves extracting  local and global features is kept since this procedure is domain independent.
+  
+One of the factors that I have also investigated in these experiments is  the size of the time slices used in the algorithm that I proposed. For the TIDIGITS data set, I have used window slices of 50 ms. Reducing the size of the windows should principally increase both accuracy and time-complexity .
+The core kernel used by the new algorithm is based on the function: 
+\[ k(x,z) = <\sum_{i=1}^{n}x_i, \sum_{j=1}^{n}z_j>\]
+k(x,z) represents the sum of all possible dot-products . Having a smaller window allows the sum to be dominated by dot products of vectors that are most similar. However smaller window  frames results in  longer time series sequence of frames. This in turn increases the time and computational complexity incurred by the DTW algorithm.
+  
+Figure [] and figure[] shows the  accuracies and log(time) of the  algorithms  for the two datasets:
+
   \begin{figure}[H]
   \centering
    
      \includegraphics[scale=0.8]{accuracy_cinc_inline.jpg}
-  \caption{Time complexity}
+  \caption{Accuracy}
   \end{figure}
+   
+   Observation:
+   \begin{itemize}
+   \item The  new algorithm indeed achieves better accuracy than any versions of the window  constrained DTW algorithm employing domain-independent feature extraction
+   \item Comparatively, the performance of the new algorithm does improve if smaller window slices are employed to partition the time series sequence of vectors. 
+   \end{itemize}
+   
    
 \begin{figure}[H]
   \centering
@@ -249,7 +290,11 @@ The proposed DTW segments sequences into frames and employ a cost function on  t
      \includegraphics[scale=0.8]{time_cinc_inline.jpg}
   \caption{Time complexity}
   \end{figure}
-   
+Observation:
+   \begin{itemize}
+   \item The  new algorithm incurs less time and computational cost  than any versions of the window  constrained DTW algorithm employing domain-independent feature extraction
+   \item Comparatively, the time complexity of the new algorithm increases when smaller window slices are used to partition the sequence
+   \end{itemize}   
 
 \end{spacing}
 

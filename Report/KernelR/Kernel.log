@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  9 JUL 2013 20:02
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  10 JUL 2013 13:29
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -505,53 +505,44 @@ l.230 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
 l.230 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
                                                   .
 ? 
-<accuracy_cinc_inline.jpg, id=49, 428.802pt x 500.1084pt>
+[11] <accuracy_cinc_inline.jpg, id=52, 428.802pt x 500.1084pt>
 File: accuracy_cinc_inline.jpg Graphic file (type jpg)
 
 <use accuracy_cinc_inline.jpg>
-Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 242.
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 276.
 (pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11]
-<time_cinc_inline.jpg, id=53, 359.4228pt x 339.669pt>
+ [12]
+<time_cinc_inline.jpg, id=56, 359.4228pt x 339.669pt>
 File: time_cinc_inline.jpg Graphic file (type jpg)
 
 <use time_cinc_inline.jpg>
-Package pdftex.def Info: time_cinc_inline.jpg used on input line 249.
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 290.
 (pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
+ [13 <./accuracy_cinc_inline.jpg>]
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <./accuracy_cinc_inline.jpg>]
-./Kernel.tex:254: Extra \endgroup.
-\restore@spacing ...vskip \baselineskip \endgroup 
-                                                  \vskip -\parskip \vskip -\...
-l.254 \end{spacing}
-                   
-? 
-
-./Kernel.tex:254: LaTeX Error: \begin{document} ended by \end{spacing}.
+./Kernel.tex:299: LaTeX Error: \begin{document} ended by \end{spacing}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.254 \end{spacing}
+l.299 \end{spacing}
                    
 ? 
-./Kernel.tex:254: Extra \endgroup.
+./Kernel.tex:299: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.254 \end{spacing}
+l.299 \end{spacing}
                    
 ? 
-[13 <./time_cinc_inline.jpg>] (./Kernel.aux) ) 
+[14 <./time_cinc_inline.jpg>] (./Kernel.aux) ) 
 Here is how much of TeX's memory you used:
  4569 strings out of 493633
  60512 string characters out of 3143377
- 143109 words of memory out of 3000000
+ 143116 words of memory out of 3000000
  7638 multiletter control sequences out of 15000+200000
  11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
@@ -568,10 +559,10 @@ ype1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb>
-Output written on Kernel.pdf (13 pages, 684259 bytes).
+Output written on Kernel.pdf (14 pages, 688292 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
