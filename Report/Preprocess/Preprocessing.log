@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  4 JUL 2013 21:00
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  11 JUL 2013 23:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -235,96 +235,64 @@ LaTeX Warning: Command \@starttoc  has changed.
 Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
 
 Package: `setspace' 6.7 <2000/12/01>
-) (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
-Package: algorithm2e 2008/00/00 v3.10 algorithms environments
-\c@AlgoLine=\count103
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
 
+(/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks27
+\float@box=\box29
+\@float@everytoks=\toks28
+\@floatcapt=\box30
+)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-
-/usr/local/texlive/2011/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty:970: L
-aTeX Error: Unknown option `options' for package `algorithm2e'.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.970 \@algocf@algotitleofalgo
-                              % fix name for \TitleOfAlgo to \algorithmcfnam...
-
-? 
-(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2006/05/08 v1.12 Space after command names (DPC,MH)
+\@float@every@algorithm=\toks29
+\c@algorithm=\count104
 )
-(/usr/local/texlive/2011/texmf-dist/tex/latex/relsize/relsize.sty
-Package: relsize 2003/07/04 ver 3.1
+(/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
 
+(/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
-Package relsize Warning: Failed to get list of font sizes.
-(relsize)                Falling back to old definition. on input line 81.
-
-LaTeX Info: Redefining \larger on input line 218.
-LaTeX Info: Redefining \smaller on input line 219.
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count105
+\c@ALG@rem=\count106
+\c@ALG@nested=\count107
+\ALG@tlm=\skip51
+\ALG@thistlm=\skip52
+\c@ALG@Lnr=\count108
+\c@ALG@blocknr=\count109
+\c@ALG@storecount=\count110
+\c@ALG@tmpcounter=\count111
+\ALG@tmplength=\skip53
 )
-********************************************************
-Package `algorithm2e' Release 4.01 -- december 14 2009 --
-- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
-- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
-subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
-- Author: Christophe Fiorio (fiorio@lirmm.fr)
-********************************************************
-\skiptotal=\skip51
-\skiplinenumber=\skip52
-\skiprule=\skip53
-\skiphlne=\skip54
-\skiptext=\skip55
-\skiplength=\skip56
-\algomargin=\skip57
-\skipalgocfslide=\skip58
-\algowidth=\dimen124
-\inoutsize=\dimen125
-\inoutline=\dimen126
-\interspacetitleruled=\dimen127
-\interspacealgoruled=\dimen128
-\interspacetitleboxruled=\dimen129
-\algocf@inoutbox=\box29
-\algocf@inputbox=\box30
-\AlCapSkip=\skip59
-\AlCapHSkip=\skip60
-\algocf@nlbox=\box31
-\algocf@hangingbox=\box32
-\algocf@capbox=\box33
-\algoheightruledefault=\skip61
-\algoheightrule=\skip62
-\algotitleheightruledefault=\skip63
-\algotitleheightrule=\skip64
-\c@algocfline=\count104
-\c@algocfproc=\count105
-\c@algocf=\count106
-\algocf@algoframe=\box34
-\algocf@algobox=\box35
+Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (./Preprocessing.aux)
 \openout1 = `Preprocessing.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Try loading font information for U+msa on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 19.
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -365,90 +333,110 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
-\scratchdimen=\dimen130
-\scratchbox=\box36
-\nofMPsegments=\count108
-\nofMParguments=\count109
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count110
-\MPscratchDim=\dimen131
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
-\everyMPtoPDFconversion=\toks28
-)
-Missing character: There is no Ô in font cmr10!
-Missing character: There is no Õ in font cmr10!
- [1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 48.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
-
-<Rawsample.jpg, id=11, 552.0625pt x 272.01625pt>
-File: Rawsample.jpg Graphic file (type jpg)
- <use Rawsample.jpg>
-Package pdftex.def Info: Rawsample.jpg used on input line 53.
-(pdftex.def)             Requested size: 441.65059pt x 217.61328pt.
-
-Overfull \hbox (11.64597pt too wide) in paragraph at lines 53--54
- [][] 
- []
+\scratchcounter=\count112
+\scratchdimen=\dimen124
+\scratchbox=\box31
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen125
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks31
+) [1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<featuremapping.jpg, id=12, 317.988pt x 153.6942pt>
+File: featuremapping.jpg Graphic file (type jpg)
+ <use featuremapping.jpg>
+Package pdftex.def Info: featuremapping.jpg used on input line 52.
+(pdftex.def)             Requested size: 254.39073pt x 122.9555pt.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2]
-Overfull \hbox (36.4667pt too wide) in paragraph at lines 61--73
-$[]$ 
- []
 
-[3 <./Rawsample.jpg>]
-
-./Preprocessing.tex:78: LaTeX Error: \begin{enumerate} on input line 35 ended b
-y \end{itemize}.
+./Preprocessing.tex:56: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.78   \end{itemize}
-                    
+l.56 \newline
+             
 ? 
-<Feature_selection.jpg, id=19, 1216.545pt x 630.355pt>
+[2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 64.
+ (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
+
+<Rawsample.jpg, id=19, 552.0625pt x 272.01625pt>
+File: Rawsample.jpg Graphic file (type jpg)
+ <use Rawsample.jpg>
+Package pdftex.def Info: Rawsample.jpg used on input line 69.
+(pdftex.def)             Requested size: 331.24005pt x 163.211pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3 <./featuremapping.jpg>]
+<Feature_selection.jpg, id=23, 1216.545pt x 630.355pt>
 File: Feature_selection.jpg Graphic file (type jpg)
 
 <use Feature_selection.jpg>
-Package pdftex.def Info: Feature_selection.jpg used on input line 82.
-(pdftex.def)             Requested size: 486.60938pt x 252.13753pt.
+Package pdftex.def Info: Feature_selection.jpg used on input line 99.
+(pdftex.def)             Requested size: 364.96632pt x 189.10796pt.
 
-Overfull \hbox (56.60475pt too wide) in paragraph at lines 82--83
- [][] 
- []
 
-[4 <./Feature_selection.jpg>] (./Preprocessing.aux) ) 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <./Rawsample.jpg>]
+
+./Preprocessing.tex:107: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.107  \newline
+               
+? 
+./Preprocessing.tex:127: Undefined control sequence.
+l.127 \State \texbf
+                   {return}  result = $\frac{\mbox{DTW(n,m))}}{nm}$ \Comment...
+
+? 
+./Preprocessing.tex:129: Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.129 \EndProcedure}
+                    
+? 
+[5 <./Feature_selection.jpg>] [6] (./Preprocessing.aux) ) 
 Here is how much of TeX's memory you used:
- 4504 strings out of 493633
- 59656 string characters out of 3143377
- 140762 words of memory out of 3000000
- 7579 multiletter control sequences out of 15000+200000
- 11087 words of font info for 43 fonts, out of 3000000 for 9000
+ 3990 strings out of 493633
+ 53559 string characters out of 3143377
+ 117343 words of memory out of 3000000
+ 7059 multiletter control sequences out of 15000+200000
+ 11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
- 42i,8n,31p,940b,536s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2011/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2011/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Preprocessing.pdf (4 pages, 189726 bytes).
+ 42i,6n,31p,1215b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/20
+11/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/201
+1/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/201
+1/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2011
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2011/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Preprocessing.pdf (6 pages, 275788 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

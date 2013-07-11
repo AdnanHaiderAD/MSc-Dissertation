@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  10 JUL 2013 20:33
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  11 JUL 2013 23:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -228,84 +228,44 @@ e
 Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
 
 Package: `setspace' 6.7 <2000/12/01>
-) (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
-Package: algorithm2e 2008/00/00 v3.10 algorithms environments
-\c@AlgoLine=\count103
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
 
+(/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks27
+\float@box=\box29
+\@float@everytoks=\toks28
+\@floatcapt=\box30
+)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-
-/usr/local/texlive/2011/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty:970: L
-aTeX Error: Unknown option `options' for package `algorithm2e'.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.970 \@algocf@algotitleofalgo
-                              % fix name for \TitleOfAlgo to \algorithmcfnam...
-
-? 
-(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2006/05/08 v1.12 Space after command names (DPC,MH)
+\@float@every@algorithm=\toks29
+\c@algorithm=\count104
 )
-(/usr/local/texlive/2011/texmf-dist/tex/latex/relsize/relsize.sty
-Package: relsize 2003/07/04 ver 3.1
+(/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
 
+(/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
-Package relsize Warning: Failed to get list of font sizes.
-(relsize)                Falling back to old definition. on input line 81.
-
-LaTeX Info: Redefining \larger on input line 218.
-LaTeX Info: Redefining \smaller on input line 219.
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count105
+\c@ALG@rem=\count106
+\c@ALG@nested=\count107
+\ALG@tlm=\skip51
+\ALG@thistlm=\skip52
+\c@ALG@Lnr=\count108
+\c@ALG@blocknr=\count109
+\c@ALG@storecount=\count110
+\c@ALG@tmpcounter=\count111
+\ALG@tmplength=\skip53
 )
-********************************************************
-Package `algorithm2e' Release 4.01 -- december 14 2009 --
-- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
-- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
-subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
-- Author: Christophe Fiorio (fiorio@lirmm.fr)
-********************************************************
-\skiptotal=\skip51
-\skiplinenumber=\skip52
-\skiprule=\skip53
-\skiphlne=\skip54
-\skiptext=\skip55
-\skiplength=\skip56
-\algomargin=\skip57
-\skipalgocfslide=\skip58
-\algowidth=\dimen124
-\inoutsize=\dimen125
-\inoutline=\dimen126
-\interspacetitleruled=\dimen127
-\interspacealgoruled=\dimen128
-\interspacetitleboxruled=\dimen129
-\algocf@inoutbox=\box29
-\algocf@inputbox=\box30
-\AlCapSkip=\skip59
-\AlCapHSkip=\skip60
-\algocf@nlbox=\box31
-\algocf@hangingbox=\box32
-\algocf@capbox=\box33
-\algoheightruledefault=\skip61
-\algoheightrule=\skip62
-\algotitleheightruledefault=\skip63
-\algotitleheightrule=\skip64
-\c@algocfline=\count104
-\c@algocfproc=\count105
-\c@algocf=\count106
-\algocf@algoframe=\box34
-\algocf@algobox=\box35
-) (/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count107
-\float@exts=\toks27
-\float@box=\box36
-\@float@everytoks=\toks28
-\@floatcapt=\box37
-)
-(/usr/local/texlive/2011/texmf-dist/tex/latex/parskip/parskip.sty
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 
 
@@ -315,23 +275,23 @@ LaTeX Warning: Command \@starttoc  has changed.
 ) (./Kernel.aux)
 \openout1 = `Kernel.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Try loading font information for U+msa on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Try loading font information for U+msa on input line 24.
  (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 23.
+LaTeX Font Info:    Try loading font information for U+msb on input line 24.
  (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
@@ -371,17 +331,17 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count108
-\scratchdimen=\dimen130
-\scratchbox=\box38
-\nofMPsegments=\count109
-\nofMParguments=\count110
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count111
-\MPscratchDim=\dimen131
-\MPnumerator=\count112
-\makeMPintoPDFobject=\count113
-\everyMPtoPDFconversion=\toks30
+\scratchcounter=\count112
+\scratchdimen=\dimen124
+\scratchbox=\box31
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen125
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks31
 ) [1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2] [3]
 Missing character: There is no Ã in font cmr10!
@@ -389,7 +349,7 @@ Missing character: There is no Ã in font cmr10!
  <Example1.jpg, id=23, 549.05125pt x 566.115pt>
 File: Example1.jpg Graphic file (type jpg)
  <use Example1.jpg>
-Package pdftex.def Info: Example1.jpg used on input line 82.
+Package pdftex.def Info: Example1.jpg used on input line 83.
 (pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -398,56 +358,42 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Cross-section.jpg, id=27, 562.1pt x 420.57124pt>
 File: Cross-section.jpg Graphic file (type jpg)
  <use Cross-section.jpg>
-Package pdftex.def Info: Cross-section.jpg used on input line 88.
+Package pdftex.def Info: Cross-section.jpg used on input line 89.
 (pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (34.709pt too wide) in alignment at lines 92--96
+Overfull \hbox (34.709pt too wide) in alignment at lines 93--97
  [][][] []
  []
 
 [5 <./Example1.jpg>] [6 <./Cross-section.jpg>]
-./Kernel.tex:130: Undefined control sequence.
-l.130 ...gth(seq\_1) }{DTW(i,0) = $\infty$}\EndFor
-                                                  
-? 
-./Kernel.tex:132: Undefined control sequence.
-l.132  \EndFor
-              
-? 
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 137.
 
-./Kernel.tex:137: LaTeX Error: There's no line here to end.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.137  \EndFor}
-               
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 137.
+
+./Kernel.tex:142: Undefined control sequence.
+l.142 \State \texbf
+                   {return}  result = $\frac{\mbox{DTW(n,m))}}{nm}$ \Comment...
+
 ? 
-./Kernel.tex:137: Missing $ inserted.
-<inserted text> 
-                $
-l.137  \EndFor}
-               
-? 
-./Kernel.tex:137: Undefined control sequence.
-<argument> ...d $Z =\sum _{j=1}^{n}z_i$ } \EndFor 
-                                                  
-l.137  \EndFor}
-               
-? 
-./Kernel.tex:138: Undefined control sequence.
-l.138 \EndFor
-             
+./Kernel.tex:144: Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.144 \EndProcedure}
+                    
 ? 
 [7] <Accuracy.jpg, id=38, 456.2646pt x 385.44pt>
 File: Accuracy.jpg Graphic file (type jpg)
  <use Accuracy.jpg>
-Package pdftex.def Info: Accuracy.jpg used on input line 185.
+Package pdftex.def Info: Accuracy.jpg used on input line 193.
 (pdftex.def)             Requested size: 365.01218pt x 308.35242pt.
 
 
@@ -456,7 +402,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <GraphsResults.jpg, id=39, 417.7206pt x 349.305pt>
 File: GraphsResults.jpg Graphic file (type jpg)
  <use GraphsResults.jpg>
-Package pdftex.def Info: GraphsResults.jpg used on input line 194.
+Package pdftex.def Info: GraphsResults.jpg used on input line 202.
 (pdftex.def)             Requested size: 334.17693pt x 279.44437pt.
 
 [8]
@@ -464,52 +410,52 @@ Overfull \vbox (95.57855pt too high) has occurred while \output is active []
 
 
 [9 <./Accuracy.jpg> <./GraphsResults.jpg>]
-./Kernel.tex:209: Missing } inserted.
+./Kernel.tex:217: Missing } inserted.
 <inserted text> 
                 }
-l.209 \end{itemize}
+l.217 \end{itemize}
                    
 ? 
-./Kernel.tex:216: Undefined control sequence.
-l.216 ...constraint , $w = \mbox{max} (|n-m|,\ceil
+./Kernel.tex:224: Undefined control sequence.
+l.224 ...constraint , $w = \mbox{max} (|n-m|,\ceil
                                                   {0.1*\mbox{max}(n,m))$ to ...
 
 ? 
-./Kernel.tex:216: Missing } inserted.
+./Kernel.tex:224: Missing } inserted.
 <inserted text> 
                 }
-l.216 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
+l.224 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
                                                    to reduce the  computatio...
 
 ? 
-./Kernel.tex:228: Undefined control sequence.
-l.228 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
+./Kernel.tex:236: Undefined control sequence.
+l.236 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
                                                   {0.1*\mbox{max}(n,m))$. Th...
 
 ? 
-./Kernel.tex:228: Missing } inserted.
+./Kernel.tex:236: Missing } inserted.
 <inserted text> 
                 }
-l.228 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
+l.236 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
                                                   . The most interesting res...
 
 ? 
 [10]
-./Kernel.tex:230: Undefined control sequence.
-l.230 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
+./Kernel.tex:238: Undefined control sequence.
+l.238 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
                                                   {0.1*\mbox{max}(n,m))$.
 ? 
-./Kernel.tex:230: Missing } inserted.
+./Kernel.tex:238: Missing } inserted.
 <inserted text> 
                 }
-l.230 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
+l.238 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
                                                   .
 ? 
 [11] <accuracy_cinc_inline.jpg, id=52, 428.802pt x 500.1084pt>
 File: accuracy_cinc_inline.jpg Graphic file (type jpg)
 
 <use accuracy_cinc_inline.jpg>
-Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 276.
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 284.
 (pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -519,34 +465,34 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: time_cinc_inline.jpg Graphic file (type jpg)
 
 <use time_cinc_inline.jpg>
-Package pdftex.def Info: time_cinc_inline.jpg used on input line 290.
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 298.
 (pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
  [13 <./accuracy_cinc_inline.jpg>]
 
-./Kernel.tex:299: LaTeX Error: \begin{document} ended by \end{spacing}.
+./Kernel.tex:307: LaTeX Error: \begin{document} ended by \end{spacing}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.299 \end{spacing}
+l.307 \end{spacing}
                    
 ? 
-./Kernel.tex:299: Extra \endgroup.
+./Kernel.tex:307: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.299 \end{spacing}
+l.307 \end{spacing}
                    
 ? 
 [14 <./time_cinc_inline.jpg>] (./Kernel.aux) ) 
 Here is how much of TeX's memory you used:
- 4569 strings out of 493633
- 60512 string characters out of 3143377
- 143116 words of memory out of 3000000
- 7638 multiletter control sequences out of 15000+200000
+ 4006 strings out of 493633
+ 53813 string characters out of 3143377
+ 117327 words of memory out of 3000000
+ 7072 multiletter control sequences out of 15000+200000
  11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
- 42i,14n,31p,1190b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,7n,31p,1190b,444s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2011/texmf-dis
@@ -559,7 +505,7 @@ ype1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb>
-Output written on Kernel.pdf (14 pages, 761364 bytes).
+Output written on Kernel.pdf (14 pages, 761869 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream

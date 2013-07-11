@@ -8,7 +8,8 @@
 \usepackage{epstopdf}
 \usepackage{setspace} 
 \usepackage{amsmath}
-\usepackage[options]{algorithm2e}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{float}
 
 
@@ -117,28 +118,35 @@ where $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$
 
 A formal outline of the algorithm is as follows:
 
-\begin{algorithm}[H]
- \SetAlgoLined
- \KwData{seq1, seq2}
- \KwResult{cost }
- Segment the sequences using a window of size n\\
- seq\_1$\leftarrow$segment(seq1,n)\\
- seq\_2$\leftarrow$segment(seq2,n)\\
+ \begin{algorithm}
+
+\begin{algorithmic}[1]
+\Procedure{Value-based}{$seq1,seq2$}\Comment{two sequences of feature vectors}
+\State  seq\_1$\leftarrow$segment(seq1,n)\\\Comment{ Segment the sequences using a window of size n}
+ \State seq\_2$\leftarrow$segment(seq2,n)
+ \For{i=1: to length(seq1) }\Comment{Initialise the DTW cost matrix}
+ \State DTW(i,0) = $\infty$
+ \EndFor
  
- Augment a matrix of 0 vectors to the front  seq1` and seq2`   \\ 
- Initialise the DTW cost matrix\\
- \For{i=1: to length(seq\_1) }{DTW(i,0) = $\infty$}\EndFor
- \For{i=1 to length(seq\_2)} { DTW(0,i) = $\infty$}
- \EndFor 
- \For{i=2 to length(seq\_1)}  {
- \For{j=2 to length(seq\_2)} {
- DTW(i,j) = $\theta = \frac{ <X,Z>}{|X||Z|}  + min\{ DTW(i-1,j)+DTW(i,j-1)+DTW(i-1,j-1)\\
- where  $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$ }
- \EndFor}
-\EndFor
- cost = DTW(length(seq\_1),length(seq\_2))
-  \caption{Adapted DTW algorithm}
+ \For{i=1 to length(seq2)}
+ \State DTW(0,i) = $\infty$
+ \EndFor
+  \For{i=2 to length(seq1)}  
+ \For{j=max(2, i-w) to min(length(seq2), i+w)} 
+ 
+  \State DTW(i,j) = $\theta = \frac{ <X,Z>}{|X||Z|} $+ min\{ DTW(i-1,j)+DTW(i,j-1)+DTW(i-1,j-1)\}
+ \EndFor \Comment { $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$}
+
+ 
+ \EndFor
+\State \texbf{return}  result = $\frac{\mbox{DTW(n,m))}}{nm}$ \Comment{n=length(seq1), m=length(seq2)}
+
+\EndProcedure} 
+\end{algorithmic}
+\caption{Adpated DTW}
 \end{algorithm}
+ 
+
 \newpage
 
 \section{Experimental results}

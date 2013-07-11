@@ -216,6 +216,40 @@ List of things to do :
 3) formulate all results for each category
 
 4) Data Preparation
+
+
+
+Introduction:
+Aim : Investigate unsupervised machine learning methods that can be used to cluster time series data.
+
+to extract meaningful patterna from high dimensional time series data sets that can be used to cluster / find motifs  
+
+First I investigate the DTW algorithm and investigate the effect of use domain-dependent knowledge to  optimise DTW
+
+--> Compare the performance of the DTW algorithm when it is equipped  with domain 
+
+Investigate domain dependent and domain independendent methodolgies for clustering time series data. 
+ Chapters 2 and 3  investigates different machine learning metholodologies to adapt DTW to handle high dimensional time series sequences.
+
+Chapter 1 -> Description of the primary dataset used . Preparation of the test and training set
+Chapter 2 : Preprocessing : Feature selection by exploratory data analysis and domain dependent feature extraction MFCC
+
+
+Notes : The motivation behind motif discovery comes from the area in comparative genomics. Unlike speech recogni- tion systems that are embedded with a lexicon dictionary, the lexicon of interesting DNA subsequences are not known ahead of time. By aligning continuous sequences with each other and identifying sub-sequences that are frequently recurrent, the discovery of biologi- cally significant sequences can be made. Based on the observation that patterns of speech sounds are more likely to be consistent within word or phrase boundaries than across, the techniques employed to find recurrent patterns in DNA sequences can be applied to find recurrent patterns in speech that signify the presence of topic-dependent frequent words.
+One of the most successful algorithms employed to compare the similarity between two sequences in the context of unsupervised pattern recognition is the Dynamic Time Warping algorithm.
+
+
+We begin by considering time series motifs, a concept highly related to clusters. Motifs are overrepresented
+sequences in discrete strings, for example, in musical or DNA sequences
+Motifs generally define a small subset of the data, and not the entire dataset
+
+There has been much work on finding association rules in time series
+
+
+
+Chapters 2 ,3  ->Investigate multiple methodologies to improve the performance of DTW.
+
+
  
 
 
