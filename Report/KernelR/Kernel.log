@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  11 JUL 2013 23:51
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  12 JUL 2013 23:35
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -410,86 +410,129 @@ Overfull \vbox (95.57855pt too high) has occurred while \output is active []
 
 
 [9 <./Accuracy.jpg> <./GraphsResults.jpg>]
-./Kernel.tex:217: Missing } inserted.
-<inserted text> 
-                }
-l.217 \end{itemize}
-                   
-? 
-./Kernel.tex:224: Undefined control sequence.
-l.224 ...constraint , $w = \mbox{max} (|n-m|,\ceil
-                                                  {0.1*\mbox{max}(n,m))$ to ...
 
-? 
-./Kernel.tex:224: Missing } inserted.
-<inserted text> 
-                }
-l.224 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
-                                                   to reduce the  computatio...
-
-? 
-./Kernel.tex:236: Undefined control sequence.
-l.236 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
-                                                  {0.1*\mbox{max}(n,m))$. Th...
-
-? 
-./Kernel.tex:236: Missing } inserted.
-<inserted text> 
-                }
-l.236 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
-                                                  . The most interesting res...
-
-? 
-[10]
-./Kernel.tex:238: Undefined control sequence.
-l.238 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
-                                                  {0.1*\mbox{max}(n,m))$.
-? 
-./Kernel.tex:238: Missing } inserted.
-<inserted text> 
-                }
-l.238 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
-                                                  .
-? 
-[11] <accuracy_cinc_inline.jpg, id=52, 428.802pt x 500.1084pt>
-File: accuracy_cinc_inline.jpg Graphic file (type jpg)
-
-<use accuracy_cinc_inline.jpg>
-Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 284.
-(pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-<time_cinc_inline.jpg, id=56, 359.4228pt x 339.669pt>
-File: time_cinc_inline.jpg Graphic file (type jpg)
-
-<use time_cinc_inline.jpg>
-Package pdftex.def Info: time_cinc_inline.jpg used on input line 298.
-(pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
- [13 <./accuracy_cinc_inline.jpg>]
-
-./Kernel.tex:307: LaTeX Error: \begin{document} ended by \end{spacing}.
+./Kernel.tex:208: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.307 \end{spacing}
+l.208 \item T
+             he proposed algorithm achieves better accuracy for test samples...
+
+? 
+./Kernel.tex:208: Undefined control sequence.
+l.208 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
+                                                  {0.1*\mbox{max}(n,m))$. Th...
+
+? 
+./Kernel.tex:208: Missing } inserted.
+<inserted text> 
+                }
+l.208 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
+                                                  . The most interesting res...
+
+? 
+
+./Kernel.tex:209: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.209 \item F
+             rom examining the improvements in accuracy across all categorie...
+
+? 
+
+./Kernel.tex:210: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.210 \item T
+             he  methodology behind my proposed approach and that of  approa...
+
+? 
+./Kernel.tex:210: Undefined control sequence.
+l.210 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
+                                                  {0.1*\mbox{max}(n,m))$.
+? 
+./Kernel.tex:210: Missing } inserted.
+<inserted text> 
+                }
+l.210 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
+                                                  .
+? 
+
+./Kernel.tex:213: LaTeX Error: \begin{document} ended by \end{itemize}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.213 \end{itemize}
                    
 ? 
-./Kernel.tex:307: Extra \endgroup.
+./Kernel.tex:213: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.307 \end{spacing}
+l.213 \end{itemize}
                    
 ? 
-[14 <./time_cinc_inline.jpg>] (./Kernel.aux) ) 
+[10] <accuracy_cinc_inline.jpg, id=49, 428.802pt x 500.1084pt>
+File: accuracy_cinc_inline.jpg Graphic file (type jpg)
+
+<use accuracy_cinc_inline.jpg>
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 256.
+(pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
+
+Underfull \vbox (badness 4429) has occurred while \output is active []
+
+ [11]
+Overfull \hbox (3.00174pt too wide) in paragraph at lines 263--264
+[]\OT1/cmr/m/n/10.95 Comparatively, the per-for-mance of the new al-go-rithm do
+es im-prove if smaller
+ []
+
+<time_cinc_inline.jpg, id=53, 359.4228pt x 339.669pt>
+File: time_cinc_inline.jpg Graphic file (type jpg)
+
+<use time_cinc_inline.jpg>
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 270.
+(pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
+ [12 <./accuracy_cinc_inline.jpg>]
+Overfull \hbox (20.49013pt too wide) in paragraph at lines 275--276
+\OT1/cmr/m/n/10.95 sions of the win-dow con-strained DTW al-go-rithm em-ploy-in
+g domain-independent
+ []
+
+
+./Kernel.tex:279: LaTeX Error: \begin{document} ended by \end{spacing}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.279 \end{spacing}
+                   
+? 
+./Kernel.tex:279: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.279 \end{spacing}
+                   
+? 
+[13 <./time_cinc_inline.jpg>] (./Kernel.aux) ) 
 Here is how much of TeX's memory you used:
- 4006 strings out of 493633
- 53813 string characters out of 3143377
+ 4007 strings out of 493633
+ 53818 string characters out of 3143377
  117327 words of memory out of 3000000
- 7072 multiletter control sequences out of 15000+200000
+ 7073 multiletter control sequences out of 15000+200000
  11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
  42i,7n,31p,1190b,444s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -505,10 +548,10 @@ ype1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb>
-Output written on Kernel.pdf (14 pages, 761869 bytes).
+Output written on Kernel.pdf (13 pages, 759505 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

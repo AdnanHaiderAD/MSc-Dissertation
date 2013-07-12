@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  12 JUL 2013 22:34
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  12 JUL 2013 23:32
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -474,20 +474,18 @@ File: mfcc.jpg Graphic file (type jpg)
  <use mfcc.jpg>
 Package pdftex.def Info: mfcc.jpg used on input line 236.
 (pdftex.def)             Requested size: 392.37845pt x 52.03445pt.
- [12 <./cinc_inlineLocalGlobaltime.jpg>]
-Missing character: There is no Ñ in font cmr10!
- [13 <./mfcc.jpg>]
-<Mfcc-accuracy.jpg, id=65, 422.0568pt x 405.6756pt>
+ [12 <./cinc_inlineLocalGlobaltime.jpg>] [13 <./mfcc.jpg>]
+<Mfcc-accuracy.jpg, id=65, 493.845pt x 370.5042pt>
 File: Mfcc-accuracy.jpg Graphic file (type jpg)
  <use Mfcc-accuracy.jpg>
-Package pdftex.def Info: Mfcc-accuracy.jpg used on input line 259.
-(pdftex.def)             Requested size: 337.64589pt x 324.54091pt.
+Package pdftex.def Info: Mfcc-accuracy.jpg used on input line 258.
+(pdftex.def)             Requested size: 395.07652pt x 296.40375pt.
 
-<Mfcc-time.jpg, id=66, 408.0846pt x 323.2878pt>
+<Mfcc-time.jpg, id=66, 417.2388pt x 295.3434pt>
 File: Mfcc-time.jpg Graphic file (type jpg)
  <use Mfcc-time.jpg>
-Package pdftex.def Info: Mfcc-time.jpg used on input line 266.
-(pdftex.def)             Requested size: 326.46811pt x 258.63058pt.
+Package pdftex.def Info: Mfcc-time.jpg used on input line 265.
+(pdftex.def)             Requested size: 250.3452pt x 177.2074pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -499,7 +497,7 @@ Here is how much of TeX's memory you used:
  7247 multiletter control sequences out of 15000+200000
  11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
- 42i,7n,31p,1215b,466s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,7n,31p,1330b,466s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr
 /local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
 local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/
@@ -512,7 +510,7 @@ live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texliv
 e/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
 011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Preprocessing.pdf (15 pages, 1171208 bytes).
+Output written on Preprocessing.pdf (15 pages, 1216185 bytes).
 PDF statistics:
  109 PDF objects out of 1000 (max. 8388607)
  68 compressed objects within 1 object stream
