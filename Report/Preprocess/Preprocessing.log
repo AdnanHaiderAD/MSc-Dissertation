@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  11 JUL 2013 23:44
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  12 JUL 2013 16:46
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -389,54 +389,88 @@ File: Feature_selection.jpg Graphic file (type jpg)
 Package pdftex.def Info: Feature_selection.jpg used on input line 99.
 (pdftex.def)             Requested size: 364.96632pt x 189.10796pt.
 
+Underfull \vbox (badness 1590) has occurred while \output is active []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[4 <./Rawsample.jpg>]
-
-./Preprocessing.tex:107: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107  \newline
-               
-? 
-./Preprocessing.tex:127: Undefined control sequence.
-l.127 \State \texbf
+ [4 <./Rawsample.jpg>]
+./Preprocessing.tex:124: Undefined control sequence.
+l.124 \State \texbf
                    {return}  result = $\frac{\mbox{DTW(n,m))}}{nm}$ \Comment...
 
 ? 
-./Preprocessing.tex:129: Extra }, or forgotten \endgroup.
+./Preprocessing.tex:126: Extra }, or forgotten \endgroup.
 <recently read> }
                  
-l.129 \EndProcedure}
+l.126 \EndProcedure}
                     
 ? 
-[5 <./Feature_selection.jpg>] [6] (./Preprocessing.aux) ) 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <./Feature_selection.jpg>] <value-basedaccuracy.jpg, id=30, 459.6372pt x 36
+6.6498pt>
+File: value-basedaccuracy.jpg Graphic file (type jpg)
+
+<use value-basedaccuracy.jpg>
+Package pdftex.def Info: value-basedaccuracy.jpg used on input line 135.
+(pdftex.def)             Requested size: 367.71025pt x 293.32022pt.
+
+<value-basedtime.jpg, id=31, 423.5022pt x 307.3884pt>
+File: value-basedtime.jpg Graphic file (type jpg)
+
+<use value-basedtime.jpg>
+Package pdftex.def Info: value-basedtime.jpg used on input line 142.
+(pdftex.def)             Requested size: 254.10327pt x 184.43445pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+[7 <./value-basedaccuracy.jpg> <./value-basedtime.jpg>] [8]
+<localglobalaccuracy.jpg, id=42, 509.2626pt x 405.1938pt>
+File: localglobalaccuracy.jpg Graphic file (type jpg)
+
+<use localglobalaccuracy.jpg>
+Package pdftex.def Info: localglobalaccuracy.jpg used on input line 183.
+(pdftex.def)             Requested size: 305.5599pt x 243.11815pt.
+
+<localglobaltime.jpg, id=43, 519.3804pt x 415.7934pt>
+File: localglobaltime.jpg Graphic file (type jpg)
+
+<use localglobaltime.jpg>
+Package pdftex.def Info: localglobaltime.jpg used on input line 190.
+(pdftex.def)             Requested size: 259.68956pt x 207.89618pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9]
+Missing character: There is no Ñ in font cmr10!
+
+Underfull \vbox (badness 1248) has occurred while \output is active []
+
+ [10 <./localglobalaccuracy.jpg> <./localglobaltime.jpg>] [11] (./Preprocessing
+.aux) ) 
 Here is how much of TeX's memory you used:
- 3990 strings out of 493633
- 53559 string characters out of 3143377
- 117343 words of memory out of 3000000
- 7059 multiletter control sequences out of 15000+200000
+ 4011 strings out of 493633
+ 54065 string characters out of 3143377
+ 117350 words of memory out of 3000000
+ 7076 multiletter control sequences out of 15000+200000
  11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
- 42i,6n,31p,1215b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/20
-11/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/201
-1/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/201
-1/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2011
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2011/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Preprocessing.pdf (6 pages, 275788 bytes).
+ 42i,7n,31p,1215b,413s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+0.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc1
+0.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10
+.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
+b></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
+local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/loc
+al/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Preprocessing.pdf (11 pages, 759359 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 91 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
