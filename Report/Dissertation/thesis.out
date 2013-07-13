@@ -1,12 +1,13 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
 \BOOKMARK [0][-]{chapter.2}{Background}{}% 2
-\BOOKMARK [0][-]{chapter.3}{Improving DTW}{}% 3
-\BOOKMARK [1][-]{section.3.1}{Feature Selection}{chapter.3}% 4
-\BOOKMARK [1][-]{section.3.2}{Feature extraction}{chapter.3}% 5
-\BOOKMARK [2][-]{subsection.3.2.1}{ Domain-independent feature extraction}{section.3.2}% 6
-\BOOKMARK [2][-]{subsection.3.2.2}{Domain-dependent feature extraction}{section.3.2}% 7
-\BOOKMARK [0][-]{chapter.4}{Adaptive DTW}{}% 8
-\BOOKMARK [1][-]{section.4.1}{Feature extraction}{chapter.4}% 9
-\BOOKMARK [1][-]{section.4.2}{Adaption of DTW}{chapter.4}% 10
-\BOOKMARK [1][-]{section.4.3}{Experimental results}{chapter.4}% 11
-\BOOKMARK [2][-]{subsection.4.3.1}{Experimental setup}{section.4.3}% 12
+\BOOKMARK [0][-]{chapter.3}{Datasets}{}% 3
+\BOOKMARK [0][-]{chapter.4}{Improving DTW}{}% 4
+\BOOKMARK [1][-]{section.4.1}{Feature Selection}{chapter.4}% 5
+\BOOKMARK [1][-]{section.4.2}{Feature extraction}{chapter.4}% 6
+\BOOKMARK [2][-]{subsection.4.2.1}{ Domain-independent feature extraction}{section.4.2}% 7
+\BOOKMARK [2][-]{subsection.4.2.2}{Domain-dependent feature extraction}{section.4.2}% 8
+\BOOKMARK [0][-]{chapter.5}{Adaptive DTW}{}% 9
+\BOOKMARK [1][-]{section.5.1}{Feature extraction}{chapter.5}% 10
+\BOOKMARK [1][-]{section.5.2}{Adaption of DTW}{chapter.5}% 11
+\BOOKMARK [1][-]{section.5.3}{Experimental results}{chapter.5}% 12
+\BOOKMARK [2][-]{subsection.5.3.1}{Experimental setup}{section.5.3}% 13

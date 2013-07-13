@@ -1,12 +1,13 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}
-\contentsline {chapter}{\numberline {3}Improving DTW}{4}{chapter.3}
-\contentsline {section}{\numberline {3.1}Feature Selection}{6}{section.3.1}
-\contentsline {section}{\numberline {3.2}Feature extraction}{11}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1} Domain-independent feature extraction}{11}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Domain-dependent feature extraction}{15}{subsection.3.2.2}
-\contentsline {chapter}{\numberline {4}Adaptive DTW}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}{Feature extraction}}{20}{section.4.1}
-\contentsline {section}{\numberline {4.2}Adaption of DTW}{20}{section.4.2}
-\contentsline {section}{\numberline {4.3}Experimental results}{25}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Experimental setup}{28}{subsection.4.3.1}
+\contentsline {chapter}{\numberline {2}Background}{4}{chapter.2}
+\contentsline {chapter}{\numberline {3}Datasets}{5}{chapter.3}
+\contentsline {chapter}{\numberline {4}Improving DTW}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Feature Selection}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Feature extraction}{14}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1} Domain-independent feature extraction}{14}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Domain-dependent feature extraction}{18}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {5}Adaptive DTW}{22}{chapter.5}
+\contentsline {section}{\numberline {5.1}{Feature extraction}}{23}{section.5.1}
+\contentsline {section}{\numberline {5.2}Adaption of DTW}{24}{section.5.2}
+\contentsline {section}{\numberline {5.3}Experimental results}{29}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Experimental setup}{32}{subsection.5.3.1}

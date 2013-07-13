@@ -65,8 +65,8 @@
 \usepackage{algpseudocode}
 \usepackage{enumitem}
 %% Information about the title, etc.
-\title{How I Did It}
-\author{Victor von Frankenstein}
+\title{Improving the discovery of Motifs in high-dimensional sequences of varying length}
+\author{M. Adnan Haider}
 
 %% If the year of submission is not the current year, uncomment this line and 
 %% specify it here:
@@ -77,8 +77,8 @@
 
 %% Specify the abstract here.
 \abstract{%
-    This doctoral thesis will present the results of my work into the
-    reanimation of lifeless human tissues.
+    %This doctoral thesis will present the results of my work into the
+    %reanimation of lifeless human tissues.
 }
 
 %% Now we start with the actual document.
@@ -117,11 +117,82 @@ Igor, my faithful lab assistant.
 %% format.
 \include{chapter1}
 \chapter{Introduction}
-jdcsdc
-\include{chapter 2}
+The mining of time-series data has received considerable attention in the last decade. One particular aspect of time series analysis that is currently very popular is \emph{motif} discovery- the problem of efficiently locating frequent/interesting sub-patterns in the data.  The knowledge of motifs has been to have important applications in various aspects of data mining tasks. For instance:
+\begin{itemize}
+\item  The discovery of association rules [] the reflect information of `primitive shapes.
+\item  The clustering of data into meaninful subgroups.  Clustering is one of the most frequently used data mining tasks. It involves an unsupervised process  for partitioning  a dataset into meaningful groups. Such algorithms need to be specified on the initial seed of points and the number of cluster of groups.Motifs could potentially be used to address both 
+problems. In addition, seeding the algorithm with motifs 
+rather than random points could speed up convergence [].
+\item The identification of important sub-patterns in DNA and gene sequences
+\end{itemize}
+
+For speech data, motifs play a very important role. Modern Speech recognition systems are typically built using a supervised training methodology that employs transcribed speech data to model the underlying speech process. Annotation of speech corpus are performed manually and are conducted at the level of phonemes. By a phoneme we refer to a unit of sound. Since annotation is performed at the level of phones, given the small duration of phones, itÕs highly likely for annotators to miss phonetic boundaries or mislabel phone intervals. Hence the entire process of annotation is not only highly time-consuming but also prone to human error. Since the acquisition of labels is very expensive, the standard state of art systems are limited on their ability to be applied to new domains. To address this issue, recent research has been conducted  to develop systems that detect word entities through operating on the acoustic signal directly[].   These methodologies rely of the location of motifs to identify frequently spoken word entities.
+
+To identify motifs, various time series metrics have been proposed.  One of the most popular and widely used is the Dynamic Time Warping algorithm that warps the time axis of sequences to find an optimum alignment between them. Another technique that is currently being used is SVD-single value decomposition. The entire time series data set can be approximated by a low-rank approximation matrix achieved through transforming the data into an orthogonal feature space  whose dimensionality is much lower than the original data sequences. 
+
+However, the accuracy of methods such as  DTW and SVD deteriorates with the increase in dimensionality of the time sequences.The computational cost of DTW is directly dependent on the length of the time-series sequences. For high dimensional time-series data, DTW employs a windowing constraint that reduces the search space in order to contain the computational costs. In domains where motifs suffer from a high degree of temporal dilution, for example `speech', the use of window constraints in very undesirable. The SVD too, also suffers from similar problems. For data sets where the dimensionality of the data is much higher than the sample size, the computational cost associated with the factorisation of the matrix is quite large.  Plus,  for time series data of variable length, SVD suffers from the problem of incomplete matrix.
+
+The discovery of motifs in high dimensional time series data that varying length still remains a very difficult problem to solve. Current works have only tried to address the issue of high-dimensional spaces. The state of the art algorithms have been to designed to work on high-dimensional time series sequences that all share the same length. To my knowledge, there exits no algorithm apart from DTW that can applied to high-dimensional sequences varying in length. Using this as motivation, the aim of this project is to investigate methods  that can improve the discovery of motifs in  high-dimensional time-series sequences that vary in length. In this project, I particularly focus on improving the performance of the DTW algorithm in high dimensional spaces and in the later chapters investigate on  how to adapt unsupervised parametric models to high dimensional  data sets  that vary in length. 
+
+The  dissertation is  organised as follows: Chapter 2 provides background on the techniques that I consider for this project. Chapter 3 and 4 investigates methods to improve the performance of the DTW algorithm in terms of both accuracy and speed. Chapter4...
+
+\include{chap2}
 
 \chapter{Background}
-cdscsdcds
+\include{chap3}
+\chapter{Datasets}
+The primary dataset that I have used for this project is the `TIGITS' corpus. (I need to give more description here)
+
+For Training : The entire training data is used
+--To contain the computational complexitiy, I am usig samples from production 'a'
+
+
+For the training set : 
+To reduce the average mean time , I am using half of the training data set by choosing samples from one production:
+I have chosen:
+
+ 225 samples from the boy category
+ 
+ 234 samples from the girl category
+ 
+ 495 samples from the men category
+ 
+ 513 samples from the women category
+ 
+
+Note : the size of the training set is half of the original training set but contains examples of all classes [1-9]  
+
+For the  test set : Due to the high computational complexity, I  am using only 1/3 of the test set
+I have chosen 
+162 random samples from boys
+
+162 random samples from girls
+
+326 random samples from men
+
+326 random samples from women
+
+Apart from the TIGITS, I have used two datasets from the UCR database:
+
+The description of the data sets used for the next set of experiments are as follows:
+  \begin{enumerate}
+  \item CinC\_ECG\_torso
+  
+  \begin{itemize}
+    \item Length of the time series:1639
+  \item Size of test set:1380
+  \item Size of training set:40
+  \item Number of classes:4
+  \end{itemize}
+  \item  InLineSkate
+  \begin{itemize}
+    \item Length of the time series:1882
+  \item Size of test set:550
+  \item Size of training set:100
+  \item Number of classes:7 
+  \end{itemize}
+  
+
 \include{chapter3}
 \chapter{Improving DTW}
 The Dynamic Time Warping(DTW) algorithm is the one of the oldest algorithms that is used to compare and cluster sequences varying in time, length and speed. Formally, given two temporal sequences, the algorithm utilises the technique of dynamic programming to find an optimum alignment between  through the computation of local distances between the points in each sequence. The time and computational complexity of this algorithm is  \emph{O}(mn) where $m$ and $n$ denote the length of the sequences that are being compared. Thus for  high dimensional time series sequences, the time and computational costs incurred by the algorithm are quite high which  makes DTW a very unattractive choice for clustering or discovering motifs in high dimensional  data sets.  Intuitively speaking, DTW is a clustering algorithm that clusters similar patterns varying in time and speed. Another drawback for working in high-dimensional spaces is the contrast between the distances of nearest and furthest points. The distances between such points  become increasingly smaller  as the dimensionality increases. This makes it  difficult to construct meaningful cluster groups in such spaces.
@@ -307,7 +378,9 @@ Explanation:
 \item The cost of applying the euclidean metric on vectors $> $cost of applying the euclidean metric on points. Since the euclidean metric is applied $mn$ times. The overall computational cost increases.
 \end{itemize}
 \end{itemize}
-The problem of working with a single data set is that if the model design is iterated many times using a limited size data set, then some over-fitting to the validation data can occur. To ensure that our model has not over fitted to the test set, I ran the two versions of DTW :one that uses the preprocessing steps of feature selection and feature extraction  while being subjected to a window constraint while the other omits  the feature extraction phase and uses the feature selection phase along with the window constraint, on the InlineSkate and Cinc\_Ecg\_Torso time series datasets[]. The results found are as follows:
+The problem of working with a single data set is that if the model design is iterated many times using a limited size data set, then some over-fitting to the validation data can occur. To ensure that the models have not over-fitted to the test set, I ran the two versions of DTW :one that uses the preprocessing step of  feature extraction  while the other just uses the raw values for computing similarity, on the InlineSkate and Cinc\_Ecg\_Torso time series datasets[]. The results found are as follows:
+
+Note: Both versions of DTW are equipped with the window constraint  w = max($\lceil{0.1*max(n.m)}\rceil$, abs(n-m)) to reduce the time and computational cost to a minimum.
 
 \begin{figure}[H]
   \centering
@@ -532,7 +605,7 @@ The changes that I have introduced,  in the previous section  to the `Dynamic Ti
   \caption{Accuracy}
   
 \end{figure}
-\end{spacing}
+
 \begin{figure}[H]
   \centering
    
@@ -553,25 +626,7 @@ The proposed DTW segments sequences into frames and employ a cost function on  t
 
   To confirm that the performance of the new algorithm  is not tailored for this particular time-series data set, I have applied the tested the algorithm on the two largest  time series data sets in UCR database. 
   
-  The description of the data sets used for the next set of experiements are as follows:
-  \begin{enumerate}
-  \item CinC\_ECG\_torso
-  
-  \begin{itemize}
-    \item Length of the time series:1639
-  \item Size of test set:1380
-  \item Size of training set:40
-  \item Number of classes:4
-  \end{itemize}
-  \item  InLineSkate
-  \begin{itemize}
-    \item Length of the time series:1882
-  \item Size of test set:550
-  \item Size of training set:100
-  \item Number of classes:7 
-  \end{itemize}
-  
-  Unlike the speech utterances, the time series sequences within each data set  share the same length.
+    Unlike the speech utterances, the time series sequences within each data set  share the same length.
   
   \subsection{Experimental setup}
   
@@ -614,6 +669,7 @@ Observation:
    \item The  new algorithm incurs less time and computational cost  than any versions of the window  constrained DTW algorithm employing domain-independent feature extraction
    \item Comparatively, the time complexity of the new algorithm increases when smaller window slices are used to partition the sequence
    \end{itemize}   
+
 
 
 %% ... etc ...
