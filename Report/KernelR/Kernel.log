@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  12 JUL 2013 23:35
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  13 JUL 2013 11:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -343,199 +343,119 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 \makeMPintoPDFobject=\count117
 \everyMPtoPDFconversion=\toks31
 ) [1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3]
+[2]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ã in font cmr10!
- <Example1.jpg, id=23, 549.05125pt x 566.115pt>
-File: Example1.jpg Graphic file (type jpg)
- <use Example1.jpg>
-Package pdftex.def Info: Example1.jpg used on input line 83.
-(pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4]
-<Cross-section.jpg, id=27, 562.1pt x 420.57124pt>
+ [3]
+<Example1.jpg, id=22, 549.05125pt x 566.115pt>
+File: Example1.jpg Graphic file (type jpg)
+ <use Example1.jpg>
+Package pdftex.def Info: Example1.jpg used on input line 78.
+(pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
+
+<Cross-section.jpg, id=23, 562.1pt x 420.57124pt>
 File: Cross-section.jpg Graphic file (type jpg)
  <use Cross-section.jpg>
-Package pdftex.def Info: Cross-section.jpg used on input line 89.
+Package pdftex.def Info: Cross-section.jpg used on input line 84.
 (pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (34.709pt too wide) in alignment at lines 93--97
+Overfull \hbox (34.709pt too wide) in alignment at lines 88--92
  [][][] []
  []
 
-[5 <./Example1.jpg>] [6 <./Cross-section.jpg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 137.
 
+Underfull \vbox (badness 6893) has occurred while \output is active []
 
-(/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
+ [4 <./Example1.jpg>]
+Underfull \vbox (badness 2173) has occurred while \output is active []
+
+ [5 <./Cross-section.jpg>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 131.
+
+ (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 137.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 131.
 
-./Kernel.tex:142: Undefined control sequence.
-l.142 \State \texbf
+./Kernel.tex:136: Undefined control sequence.
+l.136 \State \texbf
                    {return}  result = $\frac{\mbox{DTW(n,m))}}{nm}$ \Comment...
 
 ? 
-./Kernel.tex:144: Extra }, or forgotten \endgroup.
-<recently read> }
-                 
-l.144 \EndProcedure}
-                    
-? 
-[7] <Accuracy.jpg, id=38, 456.2646pt x 385.44pt>
+[6] [7] <Accuracy.jpg, id=38, 456.2646pt x 385.44pt>
 File: Accuracy.jpg Graphic file (type jpg)
  <use Accuracy.jpg>
-Package pdftex.def Info: Accuracy.jpg used on input line 193.
+Package pdftex.def Info: Accuracy.jpg used on input line 187.
 (pdftex.def)             Requested size: 365.01218pt x 308.35242pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <GraphsResults.jpg, id=39, 417.7206pt x 349.305pt>
 File: GraphsResults.jpg Graphic file (type jpg)
  <use GraphsResults.jpg>
-Package pdftex.def Info: GraphsResults.jpg used on input line 202.
+Package pdftex.def Info: GraphsResults.jpg used on input line 196.
 (pdftex.def)             Requested size: 334.17693pt x 279.44437pt.
 
-[8]
-Overfull \vbox (95.57855pt too high) has occurred while \output is active []
-
-
-[9 <./Accuracy.jpg> <./GraphsResults.jpg>]
-
-./Kernel.tex:208: LaTeX Error: Lonely \item--perhaps a missing list environment
-.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.208 \item T
-             he proposed algorithm achieves better accuracy for test samples...
-
-? 
-./Kernel.tex:208: Undefined control sequence.
-l.208 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
-                                                  {0.1*\mbox{max}(n,m))$. Th...
-
-? 
-./Kernel.tex:208: Missing } inserted.
-<inserted text> 
-                }
-l.208 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
-                                                  . The most interesting res...
-
-? 
-
-./Kernel.tex:209: LaTeX Error: Lonely \item--perhaps a missing list environment
-.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.209 \item F
-             rom examining the improvements in accuracy across all categorie...
-
-? 
-
-./Kernel.tex:210: LaTeX Error: Lonely \item--perhaps a missing list environment
-.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.210 \item T
-             he  methodology behind my proposed approach and that of  approa...
-
-? 
-./Kernel.tex:210: Undefined control sequence.
-l.210 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
+[8 <./Accuracy.jpg>]
+./Kernel.tex:205: Undefined control sequence.
+l.205 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
                                                   {0.1*\mbox{max}(n,m))$.
 ? 
-./Kernel.tex:210: Missing } inserted.
+./Kernel.tex:205: Missing } inserted.
 <inserted text> 
                 }
-l.210 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
+l.205 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
                                                   .
 ? 
-
-./Kernel.tex:213: LaTeX Error: \begin{document} ended by \end{itemize}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.213 \end{itemize}
-                   
-? 
-./Kernel.tex:213: Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.213 \end{itemize}
-                   
-? 
-[10] <accuracy_cinc_inline.jpg, id=49, 428.802pt x 500.1084pt>
+[9 <./GraphsResults.jpg>] [10]
+<accuracy_cinc_inline.jpg, id=49, 428.802pt x 500.1084pt>
 File: accuracy_cinc_inline.jpg Graphic file (type jpg)
 
 <use accuracy_cinc_inline.jpg>
-Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 256.
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 251.
 (pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
 
-Underfull \vbox (badness 4429) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-Overfull \hbox (3.00174pt too wide) in paragraph at lines 263--264
-[]\OT1/cmr/m/n/10.95 Comparatively, the per-for-mance of the new al-go-rithm do
-es im-prove if smaller
- []
-
 <time_cinc_inline.jpg, id=53, 359.4228pt x 339.669pt>
 File: time_cinc_inline.jpg Graphic file (type jpg)
 
 <use time_cinc_inline.jpg>
-Package pdftex.def Info: time_cinc_inline.jpg used on input line 270.
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 265.
 (pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
  [12 <./accuracy_cinc_inline.jpg>]
-Overfull \hbox (20.49013pt too wide) in paragraph at lines 275--276
-\OT1/cmr/m/n/10.95 sions of the win-dow con-strained DTW al-go-rithm em-ploy-in
-g domain-independent
- []
 
-
-./Kernel.tex:279: LaTeX Error: \begin{document} ended by \end{spacing}.
+./Kernel.tex:274: LaTeX Error: \begin{document} ended by \end{spacing}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.279 \end{spacing}
+l.274 \end{spacing}
                    
 ? 
-./Kernel.tex:279: Extra \endgroup.
+./Kernel.tex:274: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.279 \end{spacing}
+l.274 \end{spacing}
                    
 ? 
 [13 <./time_cinc_inline.jpg>] (./Kernel.aux) ) 
 Here is how much of TeX's memory you used:
- 4007 strings out of 493633
- 53818 string characters out of 3143377
- 117327 words of memory out of 3000000
- 7073 multiletter control sequences out of 15000+200000
+ 4006 strings out of 493633
+ 53813 string characters out of 3143377
+ 118327 words of memory out of 3000000
+ 7072 multiletter control sequences out of 15000+200000
  11433 words of font info for 44 fonts, out of 3000000 for 9000
  992 hyphenation exceptions out of 8191
- 42i,7n,31p,1190b,444s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,7n,31p,2100b,448s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2011/texmf-dis
@@ -548,7 +468,7 @@ ype1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb>
-Output written on Kernel.pdf (13 pages, 759505 bytes).
+Output written on Kernel.pdf (13 pages, 758131 bytes).
 PDF statistics:
  97 PDF objects out of 1000 (max. 8388607)
  64 compressed objects within 1 object stream
