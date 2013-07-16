@@ -11,3 +11,4 @@
 \contentsline {section}{\numberline {5.2}Adaption of DTW}{24}{section.5.2}
 \contentsline {section}{\numberline {5.3}Experimental results}{29}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}Experimental setup}{32}{subsection.5.3.1}
+\contentsline {chapter}{Bibliography}{35}{chapter*.20}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  13 JUL 2013 17:02
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  16 JUL 2013 20:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -371,7 +371,69 @@ Package: enumitem 2009/05/18 v2.2 Customized lists
 \enitdp@desc=\count113
 )
 (./thesis.aux (./chapter1.aux) (./chap2.aux) (./chap3.aux) (./chapter3.aux)
-(./chap4.aux) (./appendix1.aux))
+(./chap4.aux) (./appendix1.aux)
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+./thesis.aux:87: Package natbib Error: Bibliography not compatible with author-
+year citations.
+(natbib)                Press <return> to continue in numerical citation style.
+
+
+See the natbib package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.87 ...mand\NAT@force@numbers{}\NAT@force@numbers
+                                                  
+? 
+)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
@@ -383,8 +445,7 @@ LaTeX Font Info:    ... okay on input line 85.
 LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 85.
 LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 85
 .
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omspzccm.fd
+ (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
 LaTeX Font Info:    ... okay on input line 85.
@@ -540,20 +601,21 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 No file chapter1.tex.
 Chapter 1.
+Missing character: There is no Þ in font ptmr7t!
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 122.
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 132.
 
-Missing character: There is no Õ in font ptmr7t!
 [1
 
 
 
 
 ]
+Missing character: There is no Õ in font ptmr7t!
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 138.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 146.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 10.79993pt on input line 138.
+(Font)              scaled to size 10.79993pt on input line 146.
  [2] [3]
 \openout2 = `chap2.aux'.
 
@@ -584,116 +646,111 @@ Chapter 4.
 
 
 
-] [8] <featuremapping.jpg, id=136, 317.988pt x 153.6942pt>
+] [8] <featuremapping.jpg, id=143, 317.988pt x 153.6942pt>
 File: featuremapping.jpg Graphic file (type jpg)
 
 <use featuremapping.jpg>
-Package pdftex.def Info: featuremapping.jpg used on input line 224.
+Package pdftex.def Info: featuremapping.jpg used on input line 234.
 (pdftex.def)             Requested size: 254.39073pt x 122.9555pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 231.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 241.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 231.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 241.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 15.55188pt on input line 231.
+(Font)              scaled to size 15.55188pt on input line 241.
  [9 <./featuremapping.jpg>]
-Overfull \hbox (12.16096pt too wide) in paragraph at lines 236--237
+Overfull \hbox (12.16096pt too wide) in paragraph at lines 246--247
 \OT1/ptm/m/n/12 gory of the speaker i.e whether the speaker be-longs to \OMS/pz
 ccm/m/n/12 f \OT1/ptm/m/n/12 boy,girl, men,women\OMS/pzccm/m/n/12 g
  []
 
-<Rawsample.jpg, id=144, 552.0625pt x 272.01625pt>
+<Rawsample.jpg, id=150, 552.0625pt x 272.01625pt>
 File: Rawsample.jpg Graphic file (type jpg)
  <use Rawsample.jpg>
-Package pdftex.def Info: Rawsample.jpg used on input line 241.
+Package pdftex.def Info: Rawsample.jpg used on input line 251.
 (pdftex.def)             Requested size: 331.24005pt x 163.211pt.
  [10 <./Rawsample.jpg>]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 261.
- <Feature_selection.jpg, id=150, 1216.545pt x 630.355pt>
+put line 271.
+ <Feature_selection.jpg, id=157, 1216.545pt x 630.355pt>
 File: Feature_selection.jpg Graphic file (type jpg)
 
 <use Feature_selection.jpg>
-Package pdftex.def Info: Feature_selection.jpg used on input line 271.
+Package pdftex.def Info: Feature_selection.jpg used on input line 281.
 (pdftex.def)             Requested size: 364.96632pt x 189.10796pt.
 
-Underfull \hbox (badness 6526) in paragraph at lines 292--293
+Underfull \hbox (badness 6526) in paragraph at lines 302--303
 [] \OT1/ptm/m/n/12 DTW(i,j) = cost(seq1(i),seq2(j)) + min\OMS/pzccm/m/n/12 f \O
 T1/ptm/m/n/12 DTW(i-1,j)+DTW(i,j-
  []
 
-./thesis.tex:296: Undefined control sequence.
-l.296 \State \texbf
-                   {return}  result = $\frac{\mbox{DTW(n,m))}}{nm}$ \Comment...
-
-? 
 [11 <./Feature_selection.jpg>]
-<value-basedaccuracy.jpg, id=158, 422.5386pt x 294.3798pt>
+<value-basedaccuracy.jpg, id=163, 422.5386pt x 294.3798pt>
 File: value-basedaccuracy.jpg Graphic file (type jpg)
 
 <use value-basedaccuracy.jpg>
-Package pdftex.def Info: value-basedaccuracy.jpg used on input line 307.
+Package pdftex.def Info: value-basedaccuracy.jpg used on input line 317.
 (pdftex.def)             Requested size: 338.03134pt x 235.50415pt.
 
-<value-basedtime.jpg, id=159, 423.5022pt x 307.3884pt>
+<value-basedtime.jpg, id=164, 423.5022pt x 307.3884pt>
 File: value-basedtime.jpg Graphic file (type jpg)
 
 <use value-basedtime.jpg>
-Package pdftex.def Info: value-basedtime.jpg used on input line 314.
+Package pdftex.def Info: value-basedtime.jpg used on input line 324.
 (pdftex.def)             Requested size: 254.10327pt x 184.43445pt.
  [12] [13 <./value-basedaccuracy.jpg> <./value-basedtime.jpg>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 332.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 342.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 332.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 342.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 332.
- [14] [15] <localglobalaccuracy.jpg, id=179, 443.7378pt x 407.6028pt>
+(Font)              scaled to size 12.9599pt on input line 342.
+ [14] [15] <localglobalaccuracy.jpg, id=184, 443.7378pt x 407.6028pt>
 File: localglobalaccuracy.jpg Graphic file (type jpg)
 
 <use localglobalaccuracy.jpg>
-Package pdftex.def Info: localglobalaccuracy.jpg used on input line 355.
+Package pdftex.def Info: localglobalaccuracy.jpg used on input line 365.
 (pdftex.def)             Requested size: 266.24472pt x 244.56355pt.
 
-<localglobaltime.jpg, id=180, 519.3804pt x 415.7934pt>
+<localglobaltime.jpg, id=185, 519.3804pt x 415.7934pt>
 File: localglobaltime.jpg Graphic file (type jpg)
 
 <use localglobaltime.jpg>
-Package pdftex.def Info: localglobaltime.jpg used on input line 362.
+Package pdftex.def Info: localglobaltime.jpg used on input line 372.
 (pdftex.def)             Requested size: 259.68956pt x 207.89618pt.
  [16 <./localglobalaccuracy.jpg> <./localglobaltime.jpg>] <cinc_inlineLocalGlob
-alaccuracy.jpg, id=187, 388.3308pt x 291.0072pt>
+alaccuracy.jpg, id=192, 388.3308pt x 291.0072pt>
 File: cinc_inlineLocalGlobalaccuracy.jpg Graphic file (type jpg)
 
 <use cinc_inlineLocalGlobalaccuracy.jpg>
 Package pdftex.def Info: cinc_inlineLocalGlobalaccuracy.jpg used on input line 
-388.
+398.
 (pdftex.def)             Requested size: 233.00026pt x 174.60567pt.
 
-<cinc_inlineLocalGlobaltime.jpg, id=188, 418.6842pt x 195.6108pt>
+<cinc_inlineLocalGlobaltime.jpg, id=193, 418.6842pt x 195.6108pt>
 File: cinc_inlineLocalGlobaltime.jpg Graphic file (type jpg)
 
 <use cinc_inlineLocalGlobaltime.jpg>
-Package pdftex.def Info: cinc_inlineLocalGlobaltime.jpg used on input line 394.
+Package pdftex.def Info: cinc_inlineLocalGlobaltime.jpg used on input line 404.
 
 (pdftex.def)             Requested size: 334.94781pt x 156.48883pt.
- [17 <./cinc_inlineLocalGlobalaccuracy.jpg>] <mfcc.jpg, id=194, 490.4724pt x 65
+ [17 <./cinc_inlineLocalGlobalaccuracy.jpg>] <mfcc.jpg, id=199, 490.4724pt x 65
 .043pt>
 File: mfcc.jpg Graphic file (type jpg)
  <use mfcc.jpg>
-Package pdftex.def Info: mfcc.jpg used on input line 409.
+Package pdftex.def Info: mfcc.jpg used on input line 419.
 (pdftex.def)             Requested size: 392.37845pt x 52.03445pt.
  [18 <./cinc_inlineLocalGlobaltime.jpg>] [19 <./mfcc.jpg>]
-<Mfcc-accuracy.jpg, id=211, 493.845pt x 370.5042pt>
+<Mfcc-accuracy.jpg, id=216, 493.845pt x 370.5042pt>
 File: Mfcc-accuracy.jpg Graphic file (type jpg)
  <use Mfcc-accuracy.jpg>
-Package pdftex.def Info: Mfcc-accuracy.jpg used on input line 431.
+Package pdftex.def Info: Mfcc-accuracy.jpg used on input line 441.
 (pdftex.def)             Requested size: 395.07652pt x 296.40375pt.
 
-<Mfcc-time.jpg, id=212, 417.2388pt x 295.3434pt>
+<Mfcc-time.jpg, id=217, 417.2388pt x 295.3434pt>
 File: Mfcc-time.jpg Graphic file (type jpg)
  <use Mfcc-time.jpg>
-Package pdftex.def Info: Mfcc-time.jpg used on input line 438.
+Package pdftex.def Info: Mfcc-time.jpg used on input line 448.
 (pdftex.def)             Requested size: 250.3452pt x 177.2074pt.
  [20 <./Mfcc-accuracy.jpg>] [21 <./Mfcc-time.jpg>]
 \openout2 = `chap4.aux'.
@@ -708,91 +765,76 @@ Chapter 5.
 ] [23]
 Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
- [24] <Example1.jpg, id=236, 549.05125pt x 566.115pt>
+ [24] <Example1.jpg, id=241, 549.05125pt x 566.115pt>
 File: Example1.jpg Graphic file (type jpg)
 
 <use Example1.jpg>
-Package pdftex.def Info: Example1.jpg used on input line 495.
+Package pdftex.def Info: Example1.jpg used on input line 504.
 (pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
 
-Overfull \hbox (12.5973pt too wide) in paragraph at lines 490--497
+Overfull \hbox (12.5973pt too wide) in paragraph at lines 499--506
 \OT1/ptm/m/n/12 where $\OML/ptmcm/m/it/12 n$ \OT1/ptm/m/n/12 de-notes the lengt
 h of the win-dow and $\OML/ptmcm/m/it/12 x[]$ \OT1/ptm/m/n/12 and $\OML/ptmcm/m
 /it/12 z[]$ \OT1/ptm/m/n/12 rep-re-sents the 4-dimensional
  []
 
-[25] <Cross-section.jpg, id=241, 562.1pt x 420.57124pt>
+[25] <Cross-section.jpg, id=246, 562.1pt x 420.57124pt>
 File: Cross-section.jpg Graphic file (type jpg)
 
 <use Cross-section.jpg>
-Package pdftex.def Info: Cross-section.jpg used on input line 501.
+Package pdftex.def Info: Cross-section.jpg used on input line 510.
 (pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (82.6607pt too wide) in alignment at lines 505--509
+Overfull \hbox (82.6607pt too wide) in alignment at lines 514--518
  [][][] []
  []
 
-[26 <./Example1.jpg>] [27 <./Cross-section.jpg>]
-./thesis.tex:553: Undefined control sequence.
-l.553 \State \texbf
-                   {return}  result = $\frac{\mbox{DTW(n,m))}}{nm}$ \Comment...
-
-? 
-[28] <AdaptedDTW-accuracy.jpg, id=259, 487.5816pt x 431.211pt>
+[26 <./Example1.jpg>] [27 <./Cross-section.jpg>] [28]
+<AdaptedDTW-accuracy.jpg, id=264, 487.5816pt x 431.211pt>
 File: AdaptedDTW-accuracy.jpg Graphic file (type jpg)
 
 <use AdaptedDTW-accuracy.jpg>
-Package pdftex.def Info: AdaptedDTW-accuracy.jpg used on input line 604.
+Package pdftex.def Info: AdaptedDTW-accuracy.jpg used on input line 614.
 (pdftex.def)             Requested size: 390.06581pt x 344.96927pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<AdaptedDTW-time.jpg, id=260, 419.166pt x 362.3136pt>
+<AdaptedDTW-time.jpg, id=265, 419.166pt x 362.3136pt>
 File: AdaptedDTW-time.jpg Graphic file (type jpg)
 
 <use AdaptedDTW-time.jpg>
-Package pdftex.def Info: AdaptedDTW-time.jpg used on input line 613.
+Package pdftex.def Info: AdaptedDTW-time.jpg used on input line 623.
 (pdftex.def)             Requested size: 335.33325pt x 289.85127pt.
  [29]
 Overfull \vbox (25.49019pt too high) has occurred while \output is active []
 
 
-[30 <./AdaptedDTW-accuracy.jpg> <./AdaptedDTW-time.jpg>]
-./thesis.tex:622: Undefined control sequence.
-l.622 ...raint of  of $w = \mbox{max} (|n-m|,\ceil
-                                                  {0.1*\mbox{max}(n,m))$.
-? 
-./thesis.tex:622: Missing } inserted.
-<inserted text> 
-                }
-l.622 ...x{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$
-                                                  .
-? 
-[31] <accuracy_cinc_inline.jpg, id=275, 428.802pt x 500.1084pt>
+[30 <./AdaptedDTW-accuracy.jpg> <./AdaptedDTW-time.jpg>] [31]
+<accuracy_cinc_inline.jpg, id=280, 428.802pt x 500.1084pt>
 File: accuracy_cinc_inline.jpg Graphic file (type jpg)
 
 <use accuracy_cinc_inline.jpg>
-Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 650.
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 659.
 (pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
  [32]
-Overfull \hbox (9.28017pt too wide) in paragraph at lines 657--658
+Overfull \hbox (9.28017pt too wide) in paragraph at lines 666--667
 []\OT1/ptm/m/n/12 Comparatively, the per-for-mance of the new al-go-rithm does 
 im-prove if smaller
  []
 
-<time_cinc_inline.jpg, id=281, 359.4228pt x 339.669pt>
+<time_cinc_inline.jpg, id=286, 359.4228pt x 339.669pt>
 File: time_cinc_inline.jpg Graphic file (type jpg)
 
 <use time_cinc_inline.jpg>
-Package pdftex.def Info: time_cinc_inline.jpg used on input line 664.
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 673.
 (pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
  [33 <./accuracy_cinc_inline.jpg>]
-Overfull \hbox (27.77147pt too wide) in paragraph at lines 669--670
+Overfull \hbox (27.77147pt too wide) in paragraph at lines 678--679
 \OT1/ptm/m/n/12 sions of the win-dow con-strained DTW al-go-rithm em-ploy-ing d
 omain-independent
  []
@@ -803,36 +845,167 @@ omain-independent
 
 No file appendix1.tex.
 No file thesis.bbl.
+./thesis.tex:708: Misplaced alignment tab character &.
+l.708 ..., Lin, K., Mannila, H., Renganathan, G. &
+                                                   Smyth, P.
+? 
+[35
 
-./thesis.tex:695: LaTeX Error: \begin{enumerate} on input line 178 ended by \en
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.721 \bibitem{}
+                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.721 \bibitem{}
+                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.721 \bibitem{}
+                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.721 \bibitem{}
+                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.721 \bibitem{}
+                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.721 \bibitem{}
+                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.721 \bibitem{}
+                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
+]pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.721 \bibitem{}
+                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.722 \bibitem{}
+                 ] A. Brazma, I. Jonassen, I. Eidhammer, and D. Gilbert,  ``...
+Missing character: There is no Ð in font ptmr7t!
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.724 \bibitem{}
+                F Korn, H. Jagadish  and C.Faloutos. ``\emph{Efficiently sup...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.725 \bibitem{}
+                Chun-Lin, Liu ``\emph{ A Tutorial of the Wavelet Transform}"...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.726 \bibitem{}
+                 Josif Grabocka, Erind Bedalli and Lars Schmidt-Thiem ``\emp...
+./thesis.tex:726: Text line contains an invalid character.
+l.726 ...dalli and Lars Schmidt-Thiem ``\emph{E^^N
+                                                  fficient Classication of L...
+
+? 
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.727 \bibitem{}
+                Jessica Lin Eamonn Keogh Stefano Lonardi Pranav Patel ``\emp...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.728 \bibitem {}
+                  Lee A.Barford, R. Shane Fazzio, DavidR. Smith Instruments ...
+pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.729 \bibitem{}
+                 Fayyad, U., Reina, C. &. Bradley. P (1998). ``\emph{Initial...
+./thesis.tex:729: Misplaced alignment tab character &.
+l.729 \bibitem{} Fayyad, U., Reina, C. &
+                                        . Bradley. P (1998). ``\emph{Initial...
+
+? 
+
+Package natbib Warning: There were multiply defined citations.
+
+
+./thesis.tex:733: LaTeX Error: \begin{enumerate} on input line 188 ended by \en
 d{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.695 \end{document}
+l.733 \end{document}
                     
 ? 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 695.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 695.
-(./thesis.aux (./chapter1.aux) (./chap2.aux) (./chap3.aux) (./chapter3.aux)
-(./chap4.aux) (./appendix1.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 695.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 695.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 733.
+[36pdfTeX warning (ext4): destination with the same identifier (name{cite.}) ha
+s been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.733 \end{document}
+                    ]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 733.
+ (./thesis.aux (./chapter1.aux) (./chap2.aux) (./chap3.aux) (./chapter3.aux) (.
+/chap4.aux) (./appendix1.aux)
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 733.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 733.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 1CE7C0AB19A78B9B549CE3F3FD026844;802.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 695.
+(rerunfilecheck)             Checksum: ED0E10D6288B65EE565BDD0150C1CFB1;852.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 733.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 178 (\begingroup)
+### semi simple group (level 1) entered at line 188 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 8496 strings out of 493633
- 127507 string characters out of 3143377
- 217669 words of memory out of 3000000
- 11520 multiletter control sequences out of 15000+200000
+ 8504 strings out of 493633
+ 127574 string characters out of 3143377
+ 217735 words of memory out of 3000000
+ 11524 multiletter control sequences out of 15000+200000
  45109 words of font info for 86 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  43i,7n,40p,2081b,577s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -847,10 +1020,10 @@ ve/2011/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/201
 t/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on thesis.pdf (39 pages, 1883440 bytes).
+Output written on thesis.pdf (41 pages, 1892634 bytes).
 PDF statistics:
- 349 PDF objects out of 1000 (max. 8388607)
- 277 compressed objects within 3 object streams
- 84 named destinations out of 1000 (max. 500000)
- 195 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 364 PDF objects out of 1000 (max. 8388607)
+ 290 compressed objects within 3 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 

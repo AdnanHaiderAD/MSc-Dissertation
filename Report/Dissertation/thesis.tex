@@ -117,16 +117,26 @@ Igor, my faithful lab assistant.
 %% format.
 \include{chapter1}
 \chapter{Introduction}
-The mining of time-series data has received considerable attention in the last decade. One particular aspect of time series analysis that is currently very popular is \emph{motif} discovery- the problem of efficiently locating frequent/interesting sub-patterns in the data.  The knowledge of motifs has been to have important applications in various aspects of data mining tasks. For instance:
+Unsupervised Pattern discovery in high-dimensional time series data.
+The term 'Time Series' means a set of observations concurring any activity against different  periods of time. The duration of time period may be in the order of microseconds to monthly or annually depending of the domain.
+Mathematically, a time series is defined by the values $Y_1, Y_2...$ at times $t_1,t-2...$  where $Y=f(t)$
+The goal of motif ﬁnding is the detection of novel, unknown signals in a set of sequences. For example
+you might want to detect transcription factor binding sites in a genome, but do not know what they
+look like or in the case of speech, detect the mannerism, the most frequent words spoken by the speaker.
+
+
+In time series, time act as an independent variable to estimate dependent variables
+
+The mining of time-series data has received considerable attention in the last decade. One particular aspect of time series analysis that is currently very popular is \emph{motif} discovery- the problem of efficiently locating frequent/interesting sub-patterns in the data.  The knowledge of motifs has been seen  to have important applications in various aspects of data mining tasks. For instance:
 \begin{itemize}
-\item  The discovery of association rules [] the reflect information of `primitive shapes.
-\item  The clustering of data into meaninful subgroups.  Clustering is one of the most frequently used data mining tasks. It involves an unsupervised process  for partitioning  a dataset into meaningful groups. Such algorithms need to be specified on the initial seed of points and the number of cluster of groups.Motifs could potentially be used to address both 
+\item  The discovery of association rules  the reflect information of `primitive shapes[1].
+\item  The clustering of data into meaningful subgroups.  Clustering is one of the most frequently used data mining tasks. It involves an unsupervised process  for partitioning  a dataset into meaningful groups. Such algorithms need to be specified on the initial seed of points and the number of cluster of groups.Motifs could potentially be used to address both 
 problems. In addition, seeding the algorithm with motifs 
-rather than random points could speed up convergence [].
-\item The identification of important sub-patterns in DNA and gene sequences
+rather than random points could speed up convergence [17].
+\item The identification of important sub-patterns in DNA and gene sequences[11]
 \end{itemize}
 
-For speech data, motifs play a very important role. Modern Speech recognition systems are typically built using a supervised training methodology that employs transcribed speech data to model the underlying speech process. Annotation of speech corpus are performed manually and are conducted at the level of phonemes. By a phoneme we refer to a unit of sound. Since annotation is performed at the level of phones, given the small duration of phones, it’s highly likely for annotators to miss phonetic boundaries or mislabel phone intervals. Hence the entire process of annotation is not only highly time-consuming but also prone to human error. Since the acquisition of labels is very expensive, the standard state of art systems are limited on their ability to be applied to new domains. To address this issue, recent research has been conducted  to develop systems that detect word entities through operating on the acoustic signal directly[].   These methodologies rely of the location of motifs to identify frequently spoken word entities.
+For speech data, motifs play a very important role. Modern Speech recognition systems are typically built using a supervised training methodology that employs transcribed speech data to model the underlying speech process. Annotation of speech corpus are performed manually and are conducted at the level of phones. By a phone we refer to a unit of sound. Since annotation is performed at the level of phones, given the small duration of phones, it’s highly likely for annotators to miss phonetic boundaries or mislabel phone intervals. Hence the entire process of annotation is not only highly time-consuming but also prone to human error. Since the acquisition of labels is very expensive, the standard state of art systems are limited on their ability to be applied to new domains. To address this issue, recent research has been conducted  to develop systems that detect word entities through operating on the acoustic signal directly[3] i.e there is no intermediate recognition stage  to map the audio signal to a symbolic representation .   These methodologies rely of the location of motifs to identify frequently spoken word entities.
 
 To identify motifs, various time series metrics have been proposed.  One of the most popular and widely used is the Dynamic Time Warping algorithm that warps the time axis of sequences to find an optimum alignment between them. Another technique that is currently being used is SVD-single value decomposition. The entire time series data set can be approximated by a low-rank approximation matrix achieved through transforming the data into an orthogonal feature space  whose dimensionality is much lower than the original data sequences. 
 
@@ -210,7 +220,7 @@ To address the issue of the curse of dimensionality, DTW algorithms employ a win
  Feature selection techniques  involve selecting only a subset of attributes from the original data.  One of the most popular approaches to feature selection is  the exploratory data analysis(EDA). EDA is an approach to data analysis that postpones the usual assumptions about what kind of model the data follows with the more direct approach of allowing the data itself to reveal its underlying structure and models. The particular techniques employed in EDA are often quite simple, consisting of various techniques of:
  
  \begin{enumerate}
-\item Plotting the raw data (such as data traces, histograms, histograms, probability plots, lag plots, block plots, and Youden plots.
+\item Plotting the raw data such as data traces, histograms, histograms, probability plots, lag plots, block plots, and Youden plots.
 \item Plotting simple statistics such as mean plots, standard deviation plots, box plots, and main effects plots of the raw data.
 \item Positioning such plots so as to maximize our natural pattern-recognition abilities, such as using multiple plots per page.
  \end{enumerate}
@@ -293,7 +303,7 @@ With this knowledge  I have constructed  the following algorithm: `signal filter
  \EndFor
  
  \EndFor
-\State \texbf{return}  result = $\frac{\mbox{DTW(n,m))}}{nm}$ \Comment{n=length(seq1), m=length(seq2)}
+\State \textbf{return}  result = $\frac{\mbox{DTW(n,m)}}{nm}$ \Comment{n=length(seq1), m=length(seq2)}
 
 \EndProcedure 
 \end{algorithmic}
@@ -462,7 +472,6 @@ To summarise, from the observation of the  results gathered from the  experiment
 
 
 For feature extraction, the methodology that I have used  for this setup is based on Xie and Wiltgen's paper[] that I have already discussed in the previous section.  Each point in the time series sequence is replaced by a 4 dimensional vector  where the first two features correspond to information regarding the local trends around a point and the last two features reflect the position of that point in the global shape of the sequence.
-
 Definition of local feature as  given in [3.2.1] :
 \[ f_{\mbox{local}}(r_i)= (r_i-r_{i-1}, r_i-r_{i+1})\]
 
@@ -515,6 +524,7 @@ It is easy to check that this proposed kernel is in fact a valid kernel:
 \item The kernel satisfies Mercer's theorem : K(x,z) =$\phi(x)^T\phi(x)$
 where  the feature mapping corresponds to  a finite summation of vectors $\phi(y) = \sum_{i=1}^{n}y_i$. 
 \end{itemize}
+
 Augmenting the kernel to the DTW algorithm allows DTW to work on high-dimensional time sequences with using a window constraint. However the accuracy and computational cost of the DTW is now dependent on the size of the time slices used to segment the original sequences:
 \begin{itemize} \itemsep-2pt
 \item The accuracy of DTW increases as the width of the windows decrease. Using subsequence allows the similarity measure to be dominated by the dot products of points whose local and global features are most alike. However using smaller windows achieve lesser dimensionality reduction. Thus the time and computational complexity suffers.
@@ -550,11 +560,11 @@ A formal outline of the algorithm is as follows:
 
  
  \EndFor
-\State \texbf{return}  result = $\frac{\mbox{DTW(n,m))}}{nm}$ \Comment{n=length(seq1), m=length(seq2)}
+\State \textbf{return}  result = $\frac{\mbox{DTW(n,m)}}{nm}$ \Comment{n=length(seq1), m=length(seq2)}
 
 \EndProcedure
 \end{algorithmic}
-\caption{Adpated DTW}
+\caption{Adapted DTW}
 \end{algorithm}
  
 
@@ -619,8 +629,7 @@ There are quite number of interesting observations that can made from the graphs
 \begin{itemize}
 \item The proposed algorithm achieves better accuracy for test samples belonging to all categories than any of algorithms that employ the rigid  window constraint of  $w = max(\lceil{0.1*max(n.m)}\rceil, abs(n-m))$. The most interesting result is that the new algorithm incurs a lower computational cost than any of these DTW algorithms. 
 \item From examining the improvements in accuracy across all categories, it can be concluded that for the TIGITS dataset,  the new algorithm is invariant to variations introduced  in the acoustic signals  by different speakers . 
-\item The  methodology behind my proposed approach and that of  approach 4  includes the same pre-processing stage. Th input to the DTW algorithm is constructed by using  the domain dependent feature selection process mentioned in section followed by a domain independent feature extraction mapping (i.e the local and global features defined in section).  Both approaches  differ however, in their use of a cost function and a window constraint. The proposed approach doesn't subject DTW  to any window constraints and utilised the kernel function that I constructed in the cost metric. Approach 4 on the other hand, employs the euclidean metric an subjects DTW to the window constraint of  of $w = \mbox{max} (|n-m|,\ceil{0.1*\mbox{max}(n,m))$.
-
+\item The  methodology behind my proposed approach and that of  approach 4  includes the same pre-processing stage. Th input to the DTW algorithm is constructed by using  the domain dependent feature selection process mentioned in section followed by a domain independent feature extraction mapping (i.e the local and global features defined in section).  Both approaches  differ however, in their use of a cost function and a window constraint. The proposed approach doesn't subject DTW  to any window constraints and utilised the kernel function that I constructed in the cost metric. Approach 4 on the other hand, employs the euclidean metric an subjects DTW to the window constraint of  of w = max($\lceil{0.1*max(n.m)}\rceil$, abs(n-m))
 The proposed DTW segments sequences into frames and employ a cost function on  the frames. This reduces the dimensionality of the time series sequences and allows the algorithm to achieve a  time and computational cost than is lower than  the cost incurred by any of the investigated adaptations of the DTW algorithm that  employs window constraints. 
 \end{itemize}
 
@@ -677,8 +686,10 @@ Observation:
 %%%%%%%%
 %% Any appendices should go here. The appendix files should look just like the
 %% chapter files.
-\appendix
+%\appendix
+
 \include{appendix1}
+
 %% ... etc...
 
 %% Choose your favourite bibliography style here.
@@ -690,6 +701,33 @@ Observation:
 
 %% Specify the bibliography file. Default is thesis.bib.
 \bibliography{thesis}
+% 100 is a random guess of the total number of 
+%references
+\begin{thebibliography}{100} 
+
+\bibitem {} Das, G., Lin, K., Mannila, H., Renganathan, G. & Smyth, P. 
+(1998). ``\emph{Rule discovery from time series}''. In proceedings of 
+the 4th Int'l Conference on Knowledge Discovery and Data 
+Mining. New York, NY, Aug 27-31. pp 16-22.
+\bibitem{} Ying Xie, Bryan Witgen ``\emph{Adaptive Feature Based Dynamic Time Warping}'',International Journal of Computer Science And Network Security, January 2010.
+\bibitem{} Alex S .Park James R.Glass \emph{Unsupervised Pattern Discovery in Speech},
+IEEE Transactions On Audio Speech  And Language Processing, VOL 16, January 2008.
+\bibitem{} Mathias De Wachter, Mike Matton, Kris Demuynck, Patrick Wambacq ``\emph{Template Based Continuous Speech Recognition}"  IEEE Transactions On Audio And Speech Processing ,2007.
+\bibitem{}  Yaodang Zhang and James R.Glass ``\emph{Towards Multi-Speaker Unsupervised Speech Pattern Discovery}" in Proc 2009.
+\bibitem{}  Yaodang Zhang and James R.Glass "\emph{ Unsupervised spoken keyword spotting via segmental DTW on Gaussian Posterior-grams}" in Proc 2009.
+\bibitem{} Mathias De Wachter, Mike Matton, Kris Demuynck, Patrick Wambacq "\emph{A Locally Weighted Distance Measure For Example Based Speech Recognition}" ICASSP 2004.
+\bibitem{}Michael A .Carlin, Samuel Thomas, Aren Jansen, Hyek Hermansky  ``\emph{Rapid Evaluation of Spoken Term Discovery} ",  INTERSPEECH 2011: 821-824.
+\bibitem{} Hui Zhang, Tu Bao ho, Yang Zhang, Mao-Song-Lin ``\emph{Unsupervised Feature Extraction for Time Series Clustering Using Orthogonal Wavelet Transform}"   Informatica 30(2006) 305-319.
+\bibitem{} S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Academic Press ,San Diego ,second edition,1999.
+\bibitem{} ] A. Brazma, I. Jonassen, I. Eidhammer, and D. Gilbert,  ``\emph{Approaches to
+the automatic discovery of patterns in biosequences} "  J. Comput. Biol.,vol. 5, no. 2, pp. 279–305, 1998.
+\bibitem{}F Korn, H. Jagadish  and C.Faloutos. ``\emph{Efficiently supporting ad hoc queries in large datasets of time sequences}". In Proceedings of the ATM of the ACM SIGMOID International Conference of  Management Of Dat, pages 289-300.
+\bibitem{}Chun-Lin, Liu ``\emph{ A Tutorial of the Wavelet Transform}" February 23, 2010.
+\bibitem{} Josif Grabocka, Erind Bedalli and Lars Schmidt-Thiem ``\emph{Efficient Classication of Long Time-Series}", Information Systems and Machine Learning Lab.ICT Innovations 2012, pages 47-57.
+\bibitem{}Jessica Lin Eamonn Keogh Stefano Lonardi Pranav Patel ``\emph{Finding Motifs in Time Series}", CiteSeer 2002.
+\bibitem {} Lee A.Barford, R. Shane Fazzio, DavidR. Smith Instruments and Photonics Laboratory ``\emph{An Introduction to Wavelets}"  September, 1992.
+\bibitem{} Fayyad, U., Reina, C. &. Bradley. P (1998). ``\emph{Initialisation of  iterative refinement clustering algorithms}''. In Proceedings of the 4th International Conference on Knowledge Discovery and Data Mining. New York, NY, Aug 27-31. pp 194-198
+\end{thebibliography} 
 
 %% ... that's all, folks!
 \end{document}
