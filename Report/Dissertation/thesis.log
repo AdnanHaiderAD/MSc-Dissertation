@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  17 JUL 2013 13:02
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  17 JUL 2013 13:40
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -578,16 +578,16 @@ Chapter 4.
 File: featuremapping.jpg Graphic file (type jpg)
 
 <use featuremapping.jpg>
-Package pdftex.def Info: featuremapping.jpg used on input line 243.
+Package pdftex.def Info: featuremapping.jpg used on input line 241.
 (pdftex.def)             Requested size: 254.39073pt x 122.9555pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 250.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 248.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 250.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 248.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 15.55188pt on input line 250.
+(Font)              scaled to size 15.55188pt on input line 248.
  [9 <./featuremapping.jpg>]
-Overfull \hbox (12.16096pt too wide) in paragraph at lines 255--256
+Overfull \hbox (12.16096pt too wide) in paragraph at lines 253--254
 \OT1/ptm/m/n/12 gory of the speaker i.e whether the speaker be-longs to \OMS/pz
 ccm/m/n/12 f \OT1/ptm/m/n/12 boy,girl, men,women\OMS/pzccm/m/n/12 g
  []
@@ -595,16 +595,16 @@ ccm/m/n/12 f \OT1/ptm/m/n/12 boy,girl, men,women\OMS/pzccm/m/n/12 g
 <Rawsample.jpg, id=58, 552.0625pt x 272.01625pt>
 File: Rawsample.jpg Graphic file (type jpg)
  <use Rawsample.jpg>
-Package pdftex.def Info: Rawsample.jpg used on input line 260.
+Package pdftex.def Info: Rawsample.jpg used on input line 258.
 (pdftex.def)             Requested size: 331.24005pt x 163.211pt.
  [10 <./Rawsample.jpg>] <Feature_selection.jpg, id=62, 1216.545pt x 630.355pt>
 File: Feature_selection.jpg Graphic file (type jpg)
 
 <use Feature_selection.jpg>
-Package pdftex.def Info: Feature_selection.jpg used on input line 290.
+Package pdftex.def Info: Feature_selection.jpg used on input line 288.
 (pdftex.def)             Requested size: 364.96632pt x 189.10796pt.
 
-Underfull \hbox (badness 6526) in paragraph at lines 311--312
+Underfull \hbox (badness 6526) in paragraph at lines 309--310
 [] \OT1/ptm/m/n/12 DTW(i,j) = cost(seq1(i),seq2(j)) + min\OMS/pzccm/m/n/12 f \O
 T1/ptm/m/n/12 DTW(i-1,j)+DTW(i,j-
  []
@@ -614,34 +614,34 @@ T1/ptm/m/n/12 DTW(i-1,j)+DTW(i,j-
 File: value-basedaccuracy.jpg Graphic file (type jpg)
 
 <use value-basedaccuracy.jpg>
-Package pdftex.def Info: value-basedaccuracy.jpg used on input line 326.
+Package pdftex.def Info: value-basedaccuracy.jpg used on input line 324.
 (pdftex.def)             Requested size: 338.03134pt x 235.50415pt.
 
 <value-basedtime.jpg, id=67, 423.5022pt x 307.3884pt>
 File: value-basedtime.jpg Graphic file (type jpg)
 
 <use value-basedtime.jpg>
-Package pdftex.def Info: value-basedtime.jpg used on input line 333.
+Package pdftex.def Info: value-basedtime.jpg used on input line 331.
 (pdftex.def)             Requested size: 254.10327pt x 184.43445pt.
  [12] [13 <./value-basedaccuracy.jpg> <./value-basedtime.jpg>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 351.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 349.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 351.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 349.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 351.
+(Font)              scaled to size 12.9599pt on input line 349.
  [14] [15] <localglobalaccuracy.jpg, id=81, 443.7378pt x 407.6028pt>
 File: localglobalaccuracy.jpg Graphic file (type jpg)
 
 <use localglobalaccuracy.jpg>
-Package pdftex.def Info: localglobalaccuracy.jpg used on input line 374.
+Package pdftex.def Info: localglobalaccuracy.jpg used on input line 372.
 (pdftex.def)             Requested size: 266.24472pt x 244.56355pt.
 
 <localglobaltime.jpg, id=82, 519.3804pt x 415.7934pt>
 File: localglobaltime.jpg Graphic file (type jpg)
 
 <use localglobaltime.jpg>
-Package pdftex.def Info: localglobaltime.jpg used on input line 381.
+Package pdftex.def Info: localglobaltime.jpg used on input line 379.
 (pdftex.def)             Requested size: 259.68956pt x 207.89618pt.
  [16 <./localglobalaccuracy.jpg> <./localglobaltime.jpg>] <cinc_inlineLocalGlob
 alaccuracy.jpg, id=86, 388.3308pt x 291.0072pt>
@@ -649,33 +649,33 @@ File: cinc_inlineLocalGlobalaccuracy.jpg Graphic file (type jpg)
 
 <use cinc_inlineLocalGlobalaccuracy.jpg>
 Package pdftex.def Info: cinc_inlineLocalGlobalaccuracy.jpg used on input line 
-407.
+405.
 (pdftex.def)             Requested size: 233.00026pt x 174.60567pt.
 
 <cinc_inlineLocalGlobaltime.jpg, id=87, 418.6842pt x 195.6108pt>
 File: cinc_inlineLocalGlobaltime.jpg Graphic file (type jpg)
 
 <use cinc_inlineLocalGlobaltime.jpg>
-Package pdftex.def Info: cinc_inlineLocalGlobaltime.jpg used on input line 413.
+Package pdftex.def Info: cinc_inlineLocalGlobaltime.jpg used on input line 411.
 
 (pdftex.def)             Requested size: 334.94781pt x 156.48883pt.
  [17 <./cinc_inlineLocalGlobalaccuracy.jpg>] <mfcc.jpg, id=91, 490.4724pt x 65.
 043pt>
 File: mfcc.jpg Graphic file (type jpg)
  <use mfcc.jpg>
-Package pdftex.def Info: mfcc.jpg used on input line 428.
+Package pdftex.def Info: mfcc.jpg used on input line 426.
 (pdftex.def)             Requested size: 392.37845pt x 52.03445pt.
  [18 <./cinc_inlineLocalGlobaltime.jpg>] [19 <./mfcc.jpg>]
 <Mfcc-accuracy.jpg, id=98, 493.845pt x 370.5042pt>
 File: Mfcc-accuracy.jpg Graphic file (type jpg)
  <use Mfcc-accuracy.jpg>
-Package pdftex.def Info: Mfcc-accuracy.jpg used on input line 450.
+Package pdftex.def Info: Mfcc-accuracy.jpg used on input line 448.
 (pdftex.def)             Requested size: 395.07652pt x 296.40375pt.
 
 <Mfcc-time.jpg, id=99, 417.2388pt x 295.3434pt>
 File: Mfcc-time.jpg Graphic file (type jpg)
  <use Mfcc-time.jpg>
-Package pdftex.def Info: Mfcc-time.jpg used on input line 457.
+Package pdftex.def Info: Mfcc-time.jpg used on input line 455.
 (pdftex.def)             Requested size: 250.3452pt x 177.2074pt.
  [20 <./Mfcc-accuracy.jpg>] [21 <./Mfcc-time.jpg>]
 \openout2 = `chap4.aux'.
@@ -694,10 +694,10 @@ Missing character: There is no Ã in font zptmcmr!
 File: Example1.jpg Graphic file (type jpg)
 
 <use Example1.jpg>
-Package pdftex.def Info: Example1.jpg used on input line 513.
+Package pdftex.def Info: Example1.jpg used on input line 511.
 (pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
 
-Overfull \hbox (12.5973pt too wide) in paragraph at lines 508--515
+Overfull \hbox (12.5973pt too wide) in paragraph at lines 506--513
 \OT1/ptm/m/n/12 where $\OML/ptmcm/m/it/12 n$ \OT1/ptm/m/n/12 de-notes the lengt
 h of the win-dow and $\OML/ptmcm/m/it/12 x[]$ \OT1/ptm/m/n/12 and $\OML/ptmcm/m
 /it/12 z[]$ \OT1/ptm/m/n/12 rep-re-sents the 4-dimensional
@@ -707,14 +707,14 @@ h of the win-dow and $\OML/ptmcm/m/it/12 x[]$ \OT1/ptm/m/n/12 and $\OML/ptmcm/m
 File: Cross-section.jpg Graphic file (type jpg)
 
 <use Cross-section.jpg>
-Package pdftex.def Info: Cross-section.jpg used on input line 519.
+Package pdftex.def Info: Cross-section.jpg used on input line 517.
 (pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (82.6607pt too wide) in alignment at lines 523--527
+Overfull \hbox (82.6607pt too wide) in alignment at lines 521--525
  [][][] []
  []
 
@@ -723,7 +723,7 @@ Overfull \hbox (82.6607pt too wide) in alignment at lines 523--527
 File: AdaptedDTW-accuracy.jpg Graphic file (type jpg)
 
 <use AdaptedDTW-accuracy.jpg>
-Package pdftex.def Info: AdaptedDTW-accuracy.jpg used on input line 623.
+Package pdftex.def Info: AdaptedDTW-accuracy.jpg used on input line 621.
 (pdftex.def)             Requested size: 390.06581pt x 344.96927pt.
 
 
@@ -733,7 +733,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: AdaptedDTW-time.jpg Graphic file (type jpg)
 
 <use AdaptedDTW-time.jpg>
-Package pdftex.def Info: AdaptedDTW-time.jpg used on input line 632.
+Package pdftex.def Info: AdaptedDTW-time.jpg used on input line 630.
 (pdftex.def)             Requested size: 335.33325pt x 289.85127pt.
  [29]
 Overfull \vbox (25.49019pt too high) has occurred while \output is active []
@@ -744,10 +744,10 @@ Overfull \vbox (25.49019pt too high) has occurred while \output is active []
 File: accuracy_cinc_inline.jpg Graphic file (type jpg)
 
 <use accuracy_cinc_inline.jpg>
-Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 668.
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 666.
 (pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
  [32]
-Overfull \hbox (9.28017pt too wide) in paragraph at lines 675--676
+Overfull \hbox (9.28017pt too wide) in paragraph at lines 673--674
 []\OT1/ptm/m/n/12 Comparatively, the per-for-mance of the new al-go-rithm does 
 im-prove if smaller
  []
@@ -756,10 +756,10 @@ im-prove if smaller
 File: time_cinc_inline.jpg Graphic file (type jpg)
 
 <use time_cinc_inline.jpg>
-Package pdftex.def Info: time_cinc_inline.jpg used on input line 682.
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 680.
 (pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
  [33 <./accuracy_cinc_inline.jpg>]
-Overfull \hbox (27.77147pt too wide) in paragraph at lines 687--688
+Overfull \hbox (27.77147pt too wide) in paragraph at lines 685--686
 \OT1/ptm/m/n/12 sions of the win-dow con-strained DTW al-go-rithm em-ploy-ing d
 omain-independent
  []
@@ -770,8 +770,8 @@ omain-independent
 
 No file appendix1.tex.
 No file thesis.bbl.
-./thesis.tex:717: Misplaced alignment tab character &.
-l.717 ..., Lin, K., Mannila, H., Renganathan, G. &
+./thesis.tex:715: Misplaced alignment tab character &.
+l.715 ..., Lin, K., Mannila, H., Renganathan, G. &
                                                    Smyth, P.
 ? 
 [35
@@ -781,23 +781,23 @@ l.717 ..., Lin, K., Mannila, H., Renganathan, G. &
 ]
 Missing character: There is no Ð in font ptmr7t!
 
-./thesis.tex:735: Text line contains an invalid character.
-l.735 ...dalli and Lars Schmidt-Thiem ``\emph{E^^N
+./thesis.tex:733: Text line contains an invalid character.
+l.733 ...dalli and Lars Schmidt-Thiem ``\emph{E^^N
                                                   fficient Classication of L...
 
 ? 
-./thesis.tex:738: Misplaced alignment tab character &.
-l.738 \bibitem{} Fayyad, U., Reina, C. &
+./thesis.tex:736: Misplaced alignment tab character &.
+l.736 \bibitem{} Fayyad, U., Reina, C. &
                                         . Bradley. P (1998). ``\emph{Initial...
 
 ? 
-./thesis.tex:739: Misplaced alignment tab character &.
-l.739 \bibitem {} Sakoe, H. &
+./thesis.tex:737: Misplaced alignment tab character &.
+l.737 \bibitem {} Sakoe, H. &
                               chiba, S. (1978). ``\emph{ Dynamic programming...
 
 ? 
-./thesis.tex:743: Misplaced alignment tab character &.
-l.743 ...item{}Fu, A.W., Keogh, E., Lau, L.Y.H., &
+./thesis.tex:741: Misplaced alignment tab character &.
+l.741 ...item{}Fu, A.W., Keogh, E., Lau, L.Y.H., &
                                                    Ratanamahatana, C.A. (200...
 
 ? 
@@ -807,14 +807,14 @@ Missing character: There is no Ô in font ptmr7t!
 Package natbib Warning: There were multiply defined citations.
 
 
-./thesis.tex:746: LaTeX Error: \begin{enumerate} on input line 197 ended by \en
+./thesis.tex:744: LaTeX Error: \begin{enumerate} on input line 195 ended by \en
 d{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.746 \end{document}
+l.744 \end{document}
                     
 ? 
 [37] (./thesis.aux (./chapter1.aux) (./chap2.aux) (./chap3.aux) (./chapter3.aux
@@ -826,7 +826,7 @@ Package natbib Warning: Citation(s) may have changed.
 ) )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 197 (\begingroup)
+### semi simple group (level 1) entered at line 195 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
  5034 strings out of 493633
@@ -847,7 +847,7 @@ ve/2011/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/201
 t/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on thesis.pdf (42 pages, 1890558 bytes).
+Output written on thesis.pdf (42 pages, 1890566 bytes).
 PDF statistics:
  200 PDF objects out of 1000 (max. 8388607)
  126 compressed objects within 2 object streams
