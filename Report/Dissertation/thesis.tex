@@ -55,7 +55,7 @@
 %% Put any \usepackage commands you want to use right here; the following is 
 %% an example:
 \usepackage{natbib}
-\usepackage{hyperref}
+%\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{epstopdf}
@@ -117,35 +117,44 @@ Igor, my faithful lab assistant.
 %% format.
 \include{chapter1}
 \chapter{Introduction}
-Unsupervised Pattern discovery in high-dimensional time series data.
-The term 'Time Series' means a set of observations concurring any activity against different  periods of time. The duration of time period may be in the order of microseconds to monthly or annually depending of the domain.
-Mathematically, a time series is defined by the values $Y_1, Y_2...$ at times $t_1,t-2...$  where $Y=f(t)$
-The goal of motif ﬁnding is the detection of novel, unknown signals in a set of sequences. For example
-you might want to detect transcription factor binding sites in a genome, but do not know what they
-look like or in the case of speech, detect the mannerism, the most frequent words spoken by the speaker.
+focus: Unsupervised Pattern discovery in high-dimensional time series data.
 
 
-In time series, time act as an independent variable to estimate dependent variables
 
-The mining of time-series data has received considerable attention in the last decade. One particular aspect of time series analysis that is currently very popular is \emph{motif} discovery- the problem of efficiently locating frequent/interesting sub-patterns in the data.  The knowledge of motifs has been seen  to have important applications in various aspects of data mining tasks. For instance:
-\begin{itemize}
+Over the course of the last decade, the mining of time-series data have received considerable attention within the  data mining and machine learning community. The term 'time series' denotes a set of observations concurring any activity against different  periods of time. The duration of time period may be in the order of microseconds or monthly or even annually depending on the domain. Mathematically, a time series is defined by the values $y_1, y_2...y_n$ at times  $t_1,t_2... t_n$  where $y=f(t)$.  The time $t_i$  acts as an independent variable to estimate dependent variables $y_i$. The dimensionality of the  series is denoted as \textbf{n} where `\textbf{n}' denotes the length of the sequence. 
+
+ Time series analysis is used in many applications ranging from  sales forecasting, budgetary analysis, stock market analysis and many more. One particular domain where the application of time series analysis is currently very popular is \emph{motif} discovery- the problem of efficiently locating frequent/interesting sub-patterns in the data.  The knowledge of motifs has been seen  to have important applications in various aspects of data mining tasks. For instance:
+
+ \begin{itemize}
 \item  The discovery of association rules  the reflect information of `primitive shapes[1].
-\item  The clustering of data into meaningful subgroups.  Clustering is one of the most frequently used data mining tasks. It involves an unsupervised process  for partitioning  a dataset into meaningful groups. Such algorithms need to be specified on the initial seed of points and the number of cluster of groups.Motifs could potentially be used to address both 
+\item  The clustering of data into meaningful subgroups.  Clustering is one of the most frequently used data mining tasks. It involves an unsupervised process  for partitioning  a dataset into meaningful groups. Such algorithms need to be specified on the initial seed of points and the number of cluster of groups. Motifs could potentially be used to address both 
 problems. In addition, seeding the algorithm with motifs 
 rather than random points could speed up convergence [17].
 \item The identification of important sub-patterns in DNA and gene sequences[11]
 \end{itemize}
 
-For speech data, motifs play a very important role. Modern Speech recognition systems are typically built using a supervised training methodology that employs transcribed speech data to model the underlying speech process. Annotation of speech corpus are performed manually and are conducted at the level of phones. By a phone we refer to a unit of sound. Since annotation is performed at the level of phones, given the small duration of phones, it’s highly likely for annotators to miss phonetic boundaries or mislabel phone intervals. Hence the entire process of annotation is not only highly time-consuming but also prone to human error. Since the acquisition of labels is very expensive, the standard state of art systems are limited on their ability to be applied to new domains. To address this issue, recent research has been conducted  to develop systems that detect word entities through operating on the acoustic signal directly[3] i.e there is no intermediate recognition stage  to map the audio signal to a symbolic representation .   These methodologies rely of the location of motifs to identify frequently spoken word entities.
+In the analysis of speech data, motifs  also play a very important role. Recent research have shown that detecting and isolating motifs in speech  utterances is equivalent to extracting frequent spoken words or linguistic entities spoken by the speaker(s) [3,5]. These methodologies  are based on  understanding  the underlying structure of  the observed data thus hence operate on the acoustic signal directly( i.e there is no intermediate recognition stage  to map the audio signal to a symbolic representation), allowing the word acquisition process to be completely  unsupervised which is a complete different approach to the current speech recognition systems that are built using a supervised  training methodology employing  manually transcribed speech to model the underlying speech process.
 
-To identify motifs, various time series metrics have been proposed.  One of the most popular and widely used is the Dynamic Time Warping algorithm that warps the time axis of sequences to find an optimum alignment between them. Another technique that is currently being used is SVD-single value decomposition. The entire time series data set can be approximated by a low-rank approximation matrix achieved through transforming the data into an orthogonal feature space  whose dimensionality is much lower than the original data sequences. 
+   %Modern Speech recognition systems are typically built using a supervised training methodology that employs transcribed speech data to model the underlying speech process. Annotation of speech corpus are performed manually and are conducted at the level of phones. By a phone we refer to a unit of sound. Since annotation is performed at the level of phones, given the small duration of phones, it’s highly likely for annotators to miss phonetic boundaries or mislabel phone intervals. Hence the entire process of annotation is not only highly time-consuming but also prone to human error. Since the acquisition of labels is very expensive, the standard state of art systems are limited on their ability to be applied to new domains. To address this issue, recent research has been conducted  to develop systems that detect word entities through operating on the acoustic signal directly[3] i.e there is no intermediate recognition stage  to map the audio signal to a symbolic representation .   These methodologies rely of the location of motifs to identify frequently spoken word entities.
 
-However, the accuracy of methods such as  DTW and SVD deteriorates with the increase in dimensionality of the time sequences.The computational cost of DTW is directly dependent on the length of the time-series sequences. For high dimensional time-series data, DTW employs a windowing constraint that reduces the search space in order to contain the computational costs. In domains where motifs suffer from a high degree of temporal dilution, for example `speech', the use of window constraints in very undesirable. The SVD too, also suffers from similar problems. For data sets where the dimensionality of the data is much higher than the sample size, the computational cost associated with the factorisation of the matrix is quite large.  Plus,  for time series data of variable length, SVD suffers from the problem of incomplete matrix.
+To identify and extract motifs from time series data, various clustering algorithms have been proposed. The most widely used and popular approaches include the use of:
+\begin{enumerate}[i]
+\item Dynamic time warping  algorithm(DTW) [2,3,4,5,6,11] that clusters similar sequences separated by time shifts or temporal dynamics
+\item Principal component analysis (PCA)[12]. The entire time series data set can be approximated by a low-rank approximation matrix achieved through transforming the data into an orthogonal feature space  whose dimensionality is much lower than the original data sequences. 
+\item   Discrete Fourier Transform (DFT) coefficients : maps the signal from time to frequency domain.
+\end{itemize}
+ But unfortunately, directly applying these clustering algorithms to the features may not lead to appealing results. Although the DTW algorithm is immune towards patterns shifted in time or distorted in size/shape, the  time complexity of computing the DTW distance of two series is quadratic and is dependent on the dimensionality of the sequences i.e the length of the sequences.  To address this issue, linear-time constrained versions of DTW (Itakura parallelogram[19], Sakoe-Chiba band[18]) are used to constraint the size of the search space but the use  of  such constraints impact the accuracy of the algorithm[20].
+
+The SVD too, also suffers from similar problems. For data sets where the dimensionality of the data is much higher than the sample size, the computational cost associated with the factorisation of the matrix is quite large.  Apart from the computational cost, of the main constraints of  applying SVD  is it requires all samples to share the same dimension which  in the context of time series data means sequences must share the same length. This constraint greatly reduces the range of time series data sets to which single value decomposition  can be applied to extract latent factors that denote motifs.  
+
+The Fourier transform  on the other hand is best suited to analyse stationary periodic functions-those
+that exactly repeat themselves once per period, without modification[]. For non-stationary  time series `signals' we are interested in the
+frequencies that are dominant at any given time.  prvents time -localisation
+
 
 The discovery of motifs in high dimensional time series data that varying length still remains a very difficult problem to solve. Current works have only tried to address the issue of high-dimensional spaces. The state of the art algorithms have been to designed to work on high-dimensional time series sequences that all share the same length. To my knowledge, there exits no algorithm apart from DTW that can applied to high-dimensional sequences varying in length. Using this as motivation, the aim of this project is to investigate methods  that can improve the discovery of motifs in  high-dimensional time-series sequences that vary in length. In this project, I particularly focus on improving the performance of the DTW algorithm in high dimensional spaces and in the later chapters investigate on  how to adapt unsupervised parametric models to high dimensional  data sets  that vary in length. 
 
 The  dissertation is  organised as follows: Chapter 2 provides background on the techniques that I consider for this project. Chapter 3 and 4 investigates methods to improve the performance of the DTW algorithm in terms of both accuracy and speed. Chapter4...
-
 \include{chap2}
 
 \chapter{Background}
@@ -727,7 +736,11 @@ the automatic discovery of patterns in biosequences} "  J. Comput. Biol.,vol. 5,
 \bibitem{}Jessica Lin Eamonn Keogh Stefano Lonardi Pranav Patel ``\emph{Finding Motifs in Time Series}", CiteSeer 2002.
 \bibitem {} Lee A.Barford, R. Shane Fazzio, DavidR. Smith Instruments and Photonics Laboratory ``\emph{An Introduction to Wavelets}"  September, 1992.
 \bibitem{} Fayyad, U., Reina, C. &. Bradley. P (1998). ``\emph{Initialisation of  iterative refinement clustering algorithms}''. In Proceedings of the 4th International Conference on Knowledge Discovery and Data Mining. New York, NY, Aug 27-31. pp 194-198
+\bibitem {} Sakoe, H. & chiba, S. (1978). ``\emph{ Dynamic programming algorithm optimization fro spoken word }" Trans. Acoustics, Speech, and Signal Proc., Vol. ASSP-26. pp. 
+43-49. 
+\bibitem{}Itakura, F. (1975). ``\emph{Minimum prediction residual principle applied to speech recognition}". IEE Speech, and Signal Proc., Vol. ASSP-23, pp. 52-72. 
 \end{thebibliography} 
+\bibitem{}Fu, A.W., Keogh, E., Lau, L.Y.H., & Ratanamahatana, C.A. (2005). ``\emph{Scaling and Time Warping in Time Series Querying}". VLDB ‘05, pp. 649-660. 
 
 %% ... that's all, folks!
 \end{document}

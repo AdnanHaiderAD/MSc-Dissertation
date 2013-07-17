@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  16 JUL 2013 20:20
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  17 JUL 2013 13:02
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -161,113 +161,10 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count93
 )
-(/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2011/04/17 v6.82g Hypertext links for LaTeX
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2011/04/23 v1.4 Bundle oberdiek, subset hyperref (HO)
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2011/04/23 v1.4 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2011/04/23 v1.4 Subsetting bundle oberdiek (HO)
-Package hobsub Info: Skipping package `infwarerr' (already loaded).
-Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-Package hobsub Info: Skipping package `ifvtex' (already loaded).
-Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
-Package hobsub Info: Skipping package `ifpdf' (already loaded).
-Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
-Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
-Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-Package: pdfescape 2011/04/04 v1.12 Provides string conversions (HO)
-Package: bigintcalc 2011/01/30 v1.2 Expandable big integer calculations (HO)
-Package: bitset 2011/01/30 v1.1 Data type bit set (HO)
-Package: uniquecounter 2011/01/30 v1.2 Provides unlimited unique counter (HO)
-)
-Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2011/01/30 v1.0 Wrapper for package hooks (HO)
-Package: xcolor-patch 2011/01/30 xcolor patch
-Package: atveryend 2011/04/23 v1.7 Hooks at very end of document (HO)
-Package atveryend Info: \enddocument detected (standard).
-Package: atbegshi 2011/01/30 v1.15 At begin shipout hook (HO)
-Package: refcount 2010/12/01 v3.2 Data extraction from references (HO)
-Package: hycolor 2011/01/30 v1.7 Color options of hyperref/bookmark (HO)
-)
-(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
-)
-\@linkdim=\dimen117
-\Hy@linkcounter=\count94
-\Hy@pagecounter=\count95
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2011/04/17 v6.82g Hyperref: PDFDocEncoding definition (HO)
-)
-\Hy@SavedSpaceFactor=\count96
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/hyperref.cfg
-File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
-)
-Package hyperref Info: Hyper figures OFF on input line 4026.
-Package hyperref Info: Link nesting OFF on input line 4031.
-Package hyperref Info: Hyper index ON on input line 4034.
-Package hyperref Info: Plain pages OFF on input line 4041.
-Package hyperref Info: Backreferencing OFF on input line 4046.
-Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4264.
-\c@Hy@tempcnt=\count97
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
-Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
-)
-LaTeX Info: Redefining \url on input line 4617.
-\Fld@menulength=\count98
-\Field@Width=\dimen118
-\Fld@charsize=\dimen119
-Package hyperref Info: Hyper figures OFF on input line 5701.
-Package hyperref Info: Link nesting OFF on input line 5706.
-Package hyperref Info: Hyper index ON on input line 5709.
-Package hyperref Info: backreferencing OFF on input line 5716.
-Package hyperref Info: Link coloring OFF on input line 5721.
-Package hyperref Info: Link coloring with OCG OFF on input line 5726.
-Package hyperref Info: PDF/A mode OFF on input line 5731.
-LaTeX Info: Redefining \ref on input line 5771.
-LaTeX Info: Redefining \pageref on input line 5775.
-\Hy@abspage=\count99
-\c@Item=\count100
-\c@Hfootnote=\count101
-)
-
-Package hyperref Message: Driver (autodetected): hpdftex.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2011/04/17 v6.82g Hyperref driver for pdfTeX
-\Fld@listcount=\count102
-\c@bookmark@seq@number=\count103
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
-)
-\Hy@SectionHShift=\skip45
-)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
-\Gin@req@height=\dimen120
-\Gin@req@width=\dimen121
+\Gin@req@height=\dimen117
+\Gin@req@width=\dimen118
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2009/06/22 v3.00
@@ -288,6 +185,34 @@ Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
 )
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
@@ -335,14 +260,14 @@ nment
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count104
+\c@float@type=\count94
 \float@exts=\toks17
 \float@box=\box26
 \@float@everytoks=\toks18
 \@floatcapt=\box27
 )
 \@float@every@algorithm=\toks19
-\c@algorithm=\count105
+\c@algorithm=\count95
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -351,24 +276,24 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count106
-\c@ALG@rem=\count107
-\c@ALG@nested=\count108
-\ALG@tlm=\skip46
-\ALG@thistlm=\skip47
-\c@ALG@Lnr=\count109
-\c@ALG@blocknr=\count110
-\c@ALG@storecount=\count111
-\c@ALG@tmpcounter=\count112
-\ALG@tmplength=\skip48
+\c@ALG@line=\count96
+\c@ALG@rem=\count97
+\c@ALG@nested=\count98
+\ALG@tlm=\skip45
+\ALG@thistlm=\skip46
+\c@ALG@Lnr=\count99
+\c@ALG@blocknr=\count100
+\c@ALG@storecount=\count101
+\c@ALG@tmpcounter=\count102
+\ALG@tmplength=\skip47
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (/usr/local/texlive/2011/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2009/05/18 v2.2 Customized lists
 \enit@toks=\toks20
-\labelindent=\skip49
-\enit@outerparindent=\dimen122
-\enitdp@desc=\count113
+\labelindent=\skip48
+\enit@outerparindent=\dimen119
+\enitdp@desc=\count103
 )
 (./thesis.aux (./chapter1.aux) (./chap2.aux) (./chap3.aux) (./chapter3.aux)
 (./chap4.aux) (./appendix1.aux)
@@ -421,7 +346,16 @@ Package natbib Warning: Citation `' multiply defined.
 Package natbib Warning: Citation `' multiply defined.
 
 
-./thesis.aux:87: Package natbib Error: Bibliography not compatible with author-
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+./thesis.aux:75: Package natbib Error: Bibliography not compatible with author-
 year citations.
 (natbib)                Press <return> to continue in numerical citation style.
 
@@ -430,7 +364,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.87 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.75 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 ? 
 )
@@ -452,8 +386,6 @@ LaTeX Font Info:    ... okay on input line 85.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
 LaTeX Font Info:    ... okay on input line 85.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
 LaTeX Font Info:    ... okay on input line 85.
 
 *geometry* driver: auto-detecting
@@ -492,61 +424,38 @@ LaTeX Font Info:    ... okay on input line 85.
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count114
-\scratchdimen=\dimen123
+\scratchcounter=\count104
+\scratchdimen=\dimen120
 \scratchbox=\box28
-\nofMPsegments=\count115
-\nofMParguments=\count116
+\nofMPsegments=\count105
+\nofMParguments=\count106
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count117
-\MPscratchDim=\dimen124
-\MPnumerator=\count118
-\makeMPintoPDFobject=\count119
+\MPscratchCnt=\count107
+\MPscratchDim=\dimen121
+\MPnumerator=\count108
+\makeMPintoPDFobject=\count109
 \everyMPtoPDFconversion=\toks22
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
-Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 85.
- (/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
-)
-\c@section@level=\count120
-)
-LaTeX Info: Redefining \ref on input line 85.
-LaTeX Info: Redefining \pageref on input line 85.
-LaTeX Info: Redefining \nameref on input line 85.
-
-(./thesis.out) (./thesis.out)
-\@outlinefile=\write3
-\openout3 = `thesis.out'.
-
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 92.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 91.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 92.
+(Font)              scaled to size 18.66588pt on input line 91.
  [1
 
 {/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 92.
+(Font)              scaled to size 10.79993pt on input line 91.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 92.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 91.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 92.
-pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.92 
-      [1
+(Font)              scaled to size 10.79993pt on input line 91.
+
+[1
 
 ] [2] [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
@@ -590,8 +499,8 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 5.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ))
-\tf@toc=\write4
-\openout4 = `thesis.toc'.
+\tf@toc=\write3
+\openout3 = `thesis.toc'.
 
  [4
 
@@ -601,9 +510,8 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 No file chapter1.tex.
 Chapter 1.
-Missing character: There is no Þ in font ptmr7t!
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 132.
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 129.
 
 [1
 
@@ -611,12 +519,32 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 
 
 ]
-Missing character: There is no Õ in font ptmr7t!
+
+./thesis.tex:141: Package keyval Error: i undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 \begin{enumerate}[i]
+                          
+? 
+
+./thesis.tex:145: LaTeX Error: \begin{enumerate} on input line 141 ended by \en
+d{itemize}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 \end{itemize}
+                   
+? 
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 146.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 149.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 10.79993pt on input line 146.
- [2] [3]
+(Font)              scaled to size 10.79993pt on input line 149.
+[2] [3]
 \openout2 = `chap2.aux'.
 
 
@@ -646,111 +574,108 @@ Chapter 4.
 
 
 
-] [8] <featuremapping.jpg, id=143, 317.988pt x 153.6942pt>
+] [8] <featuremapping.jpg, id=53, 317.988pt x 153.6942pt>
 File: featuremapping.jpg Graphic file (type jpg)
 
 <use featuremapping.jpg>
-Package pdftex.def Info: featuremapping.jpg used on input line 234.
+Package pdftex.def Info: featuremapping.jpg used on input line 243.
 (pdftex.def)             Requested size: 254.39073pt x 122.9555pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 241.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 250.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 241.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 250.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 15.55188pt on input line 241.
+(Font)              scaled to size 15.55188pt on input line 250.
  [9 <./featuremapping.jpg>]
-Overfull \hbox (12.16096pt too wide) in paragraph at lines 246--247
+Overfull \hbox (12.16096pt too wide) in paragraph at lines 255--256
 \OT1/ptm/m/n/12 gory of the speaker i.e whether the speaker be-longs to \OMS/pz
 ccm/m/n/12 f \OT1/ptm/m/n/12 boy,girl, men,women\OMS/pzccm/m/n/12 g
  []
 
-<Rawsample.jpg, id=150, 552.0625pt x 272.01625pt>
+<Rawsample.jpg, id=58, 552.0625pt x 272.01625pt>
 File: Rawsample.jpg Graphic file (type jpg)
  <use Rawsample.jpg>
-Package pdftex.def Info: Rawsample.jpg used on input line 251.
+Package pdftex.def Info: Rawsample.jpg used on input line 260.
 (pdftex.def)             Requested size: 331.24005pt x 163.211pt.
- [10 <./Rawsample.jpg>]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 271.
- <Feature_selection.jpg, id=157, 1216.545pt x 630.355pt>
+ [10 <./Rawsample.jpg>] <Feature_selection.jpg, id=62, 1216.545pt x 630.355pt>
 File: Feature_selection.jpg Graphic file (type jpg)
 
 <use Feature_selection.jpg>
-Package pdftex.def Info: Feature_selection.jpg used on input line 281.
+Package pdftex.def Info: Feature_selection.jpg used on input line 290.
 (pdftex.def)             Requested size: 364.96632pt x 189.10796pt.
 
-Underfull \hbox (badness 6526) in paragraph at lines 302--303
+Underfull \hbox (badness 6526) in paragraph at lines 311--312
 [] \OT1/ptm/m/n/12 DTW(i,j) = cost(seq1(i),seq2(j)) + min\OMS/pzccm/m/n/12 f \O
 T1/ptm/m/n/12 DTW(i-1,j)+DTW(i,j-
  []
 
 [11 <./Feature_selection.jpg>]
-<value-basedaccuracy.jpg, id=163, 422.5386pt x 294.3798pt>
+<value-basedaccuracy.jpg, id=66, 422.5386pt x 294.3798pt>
 File: value-basedaccuracy.jpg Graphic file (type jpg)
 
 <use value-basedaccuracy.jpg>
-Package pdftex.def Info: value-basedaccuracy.jpg used on input line 317.
+Package pdftex.def Info: value-basedaccuracy.jpg used on input line 326.
 (pdftex.def)             Requested size: 338.03134pt x 235.50415pt.
 
-<value-basedtime.jpg, id=164, 423.5022pt x 307.3884pt>
+<value-basedtime.jpg, id=67, 423.5022pt x 307.3884pt>
 File: value-basedtime.jpg Graphic file (type jpg)
 
 <use value-basedtime.jpg>
-Package pdftex.def Info: value-basedtime.jpg used on input line 324.
+Package pdftex.def Info: value-basedtime.jpg used on input line 333.
 (pdftex.def)             Requested size: 254.10327pt x 184.43445pt.
  [12] [13 <./value-basedaccuracy.jpg> <./value-basedtime.jpg>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 342.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 351.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 342.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 351.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 342.
- [14] [15] <localglobalaccuracy.jpg, id=184, 443.7378pt x 407.6028pt>
+(Font)              scaled to size 12.9599pt on input line 351.
+ [14] [15] <localglobalaccuracy.jpg, id=81, 443.7378pt x 407.6028pt>
 File: localglobalaccuracy.jpg Graphic file (type jpg)
 
 <use localglobalaccuracy.jpg>
-Package pdftex.def Info: localglobalaccuracy.jpg used on input line 365.
+Package pdftex.def Info: localglobalaccuracy.jpg used on input line 374.
 (pdftex.def)             Requested size: 266.24472pt x 244.56355pt.
 
-<localglobaltime.jpg, id=185, 519.3804pt x 415.7934pt>
+<localglobaltime.jpg, id=82, 519.3804pt x 415.7934pt>
 File: localglobaltime.jpg Graphic file (type jpg)
 
 <use localglobaltime.jpg>
-Package pdftex.def Info: localglobaltime.jpg used on input line 372.
+Package pdftex.def Info: localglobaltime.jpg used on input line 381.
 (pdftex.def)             Requested size: 259.68956pt x 207.89618pt.
  [16 <./localglobalaccuracy.jpg> <./localglobaltime.jpg>] <cinc_inlineLocalGlob
-alaccuracy.jpg, id=192, 388.3308pt x 291.0072pt>
+alaccuracy.jpg, id=86, 388.3308pt x 291.0072pt>
 File: cinc_inlineLocalGlobalaccuracy.jpg Graphic file (type jpg)
 
 <use cinc_inlineLocalGlobalaccuracy.jpg>
 Package pdftex.def Info: cinc_inlineLocalGlobalaccuracy.jpg used on input line 
-398.
+407.
 (pdftex.def)             Requested size: 233.00026pt x 174.60567pt.
 
-<cinc_inlineLocalGlobaltime.jpg, id=193, 418.6842pt x 195.6108pt>
+<cinc_inlineLocalGlobaltime.jpg, id=87, 418.6842pt x 195.6108pt>
 File: cinc_inlineLocalGlobaltime.jpg Graphic file (type jpg)
 
 <use cinc_inlineLocalGlobaltime.jpg>
-Package pdftex.def Info: cinc_inlineLocalGlobaltime.jpg used on input line 404.
+Package pdftex.def Info: cinc_inlineLocalGlobaltime.jpg used on input line 413.
 
 (pdftex.def)             Requested size: 334.94781pt x 156.48883pt.
- [17 <./cinc_inlineLocalGlobalaccuracy.jpg>] <mfcc.jpg, id=199, 490.4724pt x 65
-.043pt>
+ [17 <./cinc_inlineLocalGlobalaccuracy.jpg>] <mfcc.jpg, id=91, 490.4724pt x 65.
+043pt>
 File: mfcc.jpg Graphic file (type jpg)
  <use mfcc.jpg>
-Package pdftex.def Info: mfcc.jpg used on input line 419.
+Package pdftex.def Info: mfcc.jpg used on input line 428.
 (pdftex.def)             Requested size: 392.37845pt x 52.03445pt.
  [18 <./cinc_inlineLocalGlobaltime.jpg>] [19 <./mfcc.jpg>]
-<Mfcc-accuracy.jpg, id=216, 493.845pt x 370.5042pt>
+<Mfcc-accuracy.jpg, id=98, 493.845pt x 370.5042pt>
 File: Mfcc-accuracy.jpg Graphic file (type jpg)
  <use Mfcc-accuracy.jpg>
-Package pdftex.def Info: Mfcc-accuracy.jpg used on input line 441.
+Package pdftex.def Info: Mfcc-accuracy.jpg used on input line 450.
 (pdftex.def)             Requested size: 395.07652pt x 296.40375pt.
 
-<Mfcc-time.jpg, id=217, 417.2388pt x 295.3434pt>
+<Mfcc-time.jpg, id=99, 417.2388pt x 295.3434pt>
 File: Mfcc-time.jpg Graphic file (type jpg)
  <use Mfcc-time.jpg>
-Package pdftex.def Info: Mfcc-time.jpg used on input line 448.
+Package pdftex.def Info: Mfcc-time.jpg used on input line 457.
 (pdftex.def)             Requested size: 250.3452pt x 177.2074pt.
  [20 <./Mfcc-accuracy.jpg>] [21 <./Mfcc-time.jpg>]
 \openout2 = `chap4.aux'.
@@ -765,76 +690,76 @@ Chapter 5.
 ] [23]
 Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
- [24] <Example1.jpg, id=241, 549.05125pt x 566.115pt>
+ [24] <Example1.jpg, id=116, 549.05125pt x 566.115pt>
 File: Example1.jpg Graphic file (type jpg)
 
 <use Example1.jpg>
-Package pdftex.def Info: Example1.jpg used on input line 504.
+Package pdftex.def Info: Example1.jpg used on input line 513.
 (pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
 
-Overfull \hbox (12.5973pt too wide) in paragraph at lines 499--506
+Overfull \hbox (12.5973pt too wide) in paragraph at lines 508--515
 \OT1/ptm/m/n/12 where $\OML/ptmcm/m/it/12 n$ \OT1/ptm/m/n/12 de-notes the lengt
 h of the win-dow and $\OML/ptmcm/m/it/12 x[]$ \OT1/ptm/m/n/12 and $\OML/ptmcm/m
 /it/12 z[]$ \OT1/ptm/m/n/12 rep-re-sents the 4-dimensional
  []
 
-[25] <Cross-section.jpg, id=246, 562.1pt x 420.57124pt>
+[25] <Cross-section.jpg, id=120, 562.1pt x 420.57124pt>
 File: Cross-section.jpg Graphic file (type jpg)
 
 <use Cross-section.jpg>
-Package pdftex.def Info: Cross-section.jpg used on input line 510.
+Package pdftex.def Info: Cross-section.jpg used on input line 519.
 (pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (82.6607pt too wide) in alignment at lines 514--518
+Overfull \hbox (82.6607pt too wide) in alignment at lines 523--527
  [][][] []
  []
 
 [26 <./Example1.jpg>] [27 <./Cross-section.jpg>] [28]
-<AdaptedDTW-accuracy.jpg, id=264, 487.5816pt x 431.211pt>
+<AdaptedDTW-accuracy.jpg, id=131, 487.5816pt x 431.211pt>
 File: AdaptedDTW-accuracy.jpg Graphic file (type jpg)
 
 <use AdaptedDTW-accuracy.jpg>
-Package pdftex.def Info: AdaptedDTW-accuracy.jpg used on input line 614.
+Package pdftex.def Info: AdaptedDTW-accuracy.jpg used on input line 623.
 (pdftex.def)             Requested size: 390.06581pt x 344.96927pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<AdaptedDTW-time.jpg, id=265, 419.166pt x 362.3136pt>
+<AdaptedDTW-time.jpg, id=132, 419.166pt x 362.3136pt>
 File: AdaptedDTW-time.jpg Graphic file (type jpg)
 
 <use AdaptedDTW-time.jpg>
-Package pdftex.def Info: AdaptedDTW-time.jpg used on input line 623.
+Package pdftex.def Info: AdaptedDTW-time.jpg used on input line 632.
 (pdftex.def)             Requested size: 335.33325pt x 289.85127pt.
  [29]
 Overfull \vbox (25.49019pt too high) has occurred while \output is active []
 
 
 [30 <./AdaptedDTW-accuracy.jpg> <./AdaptedDTW-time.jpg>] [31]
-<accuracy_cinc_inline.jpg, id=280, 428.802pt x 500.1084pt>
+<accuracy_cinc_inline.jpg, id=142, 428.802pt x 500.1084pt>
 File: accuracy_cinc_inline.jpg Graphic file (type jpg)
 
 <use accuracy_cinc_inline.jpg>
-Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 659.
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 668.
 (pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
  [32]
-Overfull \hbox (9.28017pt too wide) in paragraph at lines 666--667
+Overfull \hbox (9.28017pt too wide) in paragraph at lines 675--676
 []\OT1/ptm/m/n/12 Comparatively, the per-for-mance of the new al-go-rithm does 
 im-prove if smaller
  []
 
-<time_cinc_inline.jpg, id=286, 359.4228pt x 339.669pt>
+<time_cinc_inline.jpg, id=147, 359.4228pt x 339.669pt>
 File: time_cinc_inline.jpg Graphic file (type jpg)
 
 <use time_cinc_inline.jpg>
-Package pdftex.def Info: time_cinc_inline.jpg used on input line 673.
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 682.
 (pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
  [33 <./accuracy_cinc_inline.jpg>]
-Overfull \hbox (27.77147pt too wide) in paragraph at lines 678--679
+Overfull \hbox (27.77147pt too wide) in paragraph at lines 687--688
 \OT1/ptm/m/n/12 sions of the win-dow con-strained DTW al-go-rithm em-ploy-ing d
 omain-independent
  []
@@ -845,170 +770,72 @@ omain-independent
 
 No file appendix1.tex.
 No file thesis.bbl.
-./thesis.tex:708: Misplaced alignment tab character &.
-l.708 ..., Lin, K., Mannila, H., Renganathan, G. &
+./thesis.tex:717: Misplaced alignment tab character &.
+l.717 ..., Lin, K., Mannila, H., Renganathan, G. &
                                                    Smyth, P.
 ? 
 [35
 
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.721 \bibitem{}
-                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.721 \bibitem{}
-                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.721 \bibitem{}
-                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.721 \bibitem{}
-                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.721 \bibitem{}
-                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.721 \bibitem{}
-                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.721 \bibitem{}
-                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
-]pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.721 \bibitem{}
-                 S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Ac...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.722 \bibitem{}
-                 ] A. Brazma, I. Jonassen, I. Eidhammer, and D. Gilbert,  ``...
+]
 Missing character: There is no Ð in font ptmr7t!
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.724 \bibitem{}
-                F Korn, H. Jagadish  and C.Faloutos. ``\emph{Efficiently sup...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.725 \bibitem{}
-                Chun-Lin, Liu ``\emph{ A Tutorial of the Wavelet Transform}"...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.726 \bibitem{}
-                 Josif Grabocka, Erind Bedalli and Lars Schmidt-Thiem ``\emp...
-./thesis.tex:726: Text line contains an invalid character.
-l.726 ...dalli and Lars Schmidt-Thiem ``\emph{E^^N
+
+./thesis.tex:735: Text line contains an invalid character.
+l.735 ...dalli and Lars Schmidt-Thiem ``\emph{E^^N
                                                   fficient Classication of L...
 
 ? 
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.727 \bibitem{}
-                Jessica Lin Eamonn Keogh Stefano Lonardi Pranav Patel ``\emp...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.728 \bibitem {}
-                  Lee A.Barford, R. Shane Fazzio, DavidR. Smith Instruments ...
-pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.729 \bibitem{}
-                 Fayyad, U., Reina, C. &. Bradley. P (1998). ``\emph{Initial...
-./thesis.tex:729: Misplaced alignment tab character &.
-l.729 \bibitem{} Fayyad, U., Reina, C. &
+./thesis.tex:738: Misplaced alignment tab character &.
+l.738 \bibitem{} Fayyad, U., Reina, C. &
                                         . Bradley. P (1998). ``\emph{Initial...
 
 ? 
+./thesis.tex:739: Misplaced alignment tab character &.
+l.739 \bibitem {} Sakoe, H. &
+                              chiba, S. (1978). ``\emph{ Dynamic programming...
+
+? 
+./thesis.tex:743: Misplaced alignment tab character &.
+l.743 ...item{}Fu, A.W., Keogh, E., Lau, L.Y.H., &
+                                                   Ratanamahatana, C.A. (200...
+
+? 
+Missing character: There is no Ô in font ptmr7t!
+[36]
 
 Package natbib Warning: There were multiply defined citations.
 
 
-./thesis.tex:733: LaTeX Error: \begin{enumerate} on input line 188 ended by \en
+./thesis.tex:746: LaTeX Error: \begin{enumerate} on input line 197 ended by \en
 d{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.733 \end{document}
+l.746 \end{document}
                     
 ? 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 733.
-[36pdfTeX warning (ext4): destination with the same identifier (name{cite.}) ha
-s been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.733 \end{document}
-                    ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 733.
- (./thesis.aux (./chapter1.aux) (./chap2.aux) (./chap3.aux) (./chapter3.aux) (.
-/chap4.aux) (./appendix1.aux)
+[37] (./thesis.aux (./chapter1.aux) (./chap2.aux) (./chap3.aux) (./chapter3.aux
+) (./chap4.aux) (./appendix1.aux)
 
 Package natbib Warning: Citation(s) may have changed.
 (natbib)                Rerun to get citations correct.
 
-)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 733.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 733.
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: ED0E10D6288B65EE565BDD0150C1CFB1;852.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 733.
- )
+) )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 188 (\begingroup)
+### semi simple group (level 1) entered at line 197 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 8504 strings out of 493633
- 127574 string characters out of 3143377
- 217735 words of memory out of 3000000
- 11524 multiletter control sequences out of 15000+200000
+ 5034 strings out of 493633
+ 75344 string characters out of 3143377
+ 141996 words of memory out of 3000000
+ 8163 multiletter control sequences out of 15000+200000
  45109 words of font info for 86 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 43i,7n,40p,2081b,577s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,7n,40p,2081b,470s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
@@ -1020,10 +847,10 @@ ve/2011/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/201
 t/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on thesis.pdf (41 pages, 1892634 bytes).
+Output written on thesis.pdf (42 pages, 1890558 bytes).
 PDF statistics:
- 364 PDF objects out of 1000 (max. 8388607)
- 290 compressed objects within 3 object streams
- 88 named destinations out of 1000 (max. 500000)
- 203 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 200 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
