@@ -117,9 +117,6 @@ Igor, my faithful lab assistant.
 %% format.
 \include{chapter1}
 \chapter{Introduction}
-focus: Unsupervised Pattern discovery in high-dimensional time series data.
-
-
 
 Over the course of the last decade, the mining of time-series data have received considerable attention within the  data mining and machine learning community. The term 'time series' denotes a set of observations concurring any activity against different  periods of time. The duration of time period may be in the order of microseconds or monthly or even annually depending on the domain. Mathematically, a time series is defined by the values $y_1, y_2...y_n$ at times  $t_1,t_2... t_n$  where $y=f(t)$.  The time $t_i$  acts as an independent variable to estimate dependent variables $y_i$. The dimensionality of the  series is denoted as \textbf{n} where `\textbf{n}' denotes the length of the sequence. 
 
@@ -133,29 +130,36 @@ rather than random points could speed up convergence [17].
 \item The identification of important sub-patterns in DNA and gene sequences[11]
 \end{itemize}
 
-In the analysis of speech data, motifs  also play a very important role. Recent research have shown that detecting and isolating motifs in speech  utterances is equivalent to extracting frequent spoken words or linguistic entities spoken by the speaker(s) [3,5]. These methodologies  are based on  understanding  the underlying structure of  the observed data thus hence operate on the acoustic signal directly( i.e there is no intermediate recognition stage  to map the audio signal to a symbolic representation), allowing the word acquisition process to be completely  unsupervised which is a complete different approach to the current speech recognition systems that are built using a supervised  training methodology employing  manually transcribed speech to model the underlying speech process.
+In the analysis of speech data, motifs  also play a very important role. Recent research have shown that detecting and isolating motifs in speech  utterances is equivalent to extracting frequent spoken words or linguistic entities spoken by the speaker(s) [3,5]. These methodologies  are based on  understanding  the underlying structure of  the observed data and operate on the acoustic signal directly( i.e there is no intermediate recognition stage  to map the audio signal to a symbolic representation). This  allows  the word acquisition process to be unsupervised which is  completely a  different approach to the current speech recognition systems that are built using a supervised  training methodology employing  manually transcribed speech to model the underlying speech process.
 
    %Modern Speech recognition systems are typically built using a supervised training methodology that employs transcribed speech data to model the underlying speech process. Annotation of speech corpus are performed manually and are conducted at the level of phones. By a phone we refer to a unit of sound. Since annotation is performed at the level of phones, given the small duration of phones, it’s highly likely for annotators to miss phonetic boundaries or mislabel phone intervals. Hence the entire process of annotation is not only highly time-consuming but also prone to human error. Since the acquisition of labels is very expensive, the standard state of art systems are limited on their ability to be applied to new domains. To address this issue, recent research has been conducted  to develop systems that detect word entities through operating on the acoustic signal directly[3] i.e there is no intermediate recognition stage  to map the audio signal to a symbolic representation .   These methodologies rely of the location of motifs to identify frequently spoken word entities.
 
 To identify and extract motifs from time series data, various clustering algorithms have been proposed. The most widely used and popular approaches include the use of:
-\begin{enumerate}[i]
+\begin{enumerate}
 \item Dynamic time warping  algorithm(DTW) [2,3,4,5,6,11] that clusters similar sequences separated by time shifts or temporal dynamics
-\item Principal component analysis (PCA)[12]. The entire time series data set can be approximated by a low-rank approximation matrix achieved through transforming the data into an orthogonal feature space  whose dimensionality is much lower than the original data sequences. 
-\item   Discrete Fourier Transform (DFT) coefficients : maps the signal from time to frequency domain.
-\end{itemize}
- But unfortunately, directly applying these clustering algorithms to the features may not lead to appealing results. Although the DTW algorithm is immune towards patterns shifted in time or distorted in size/shape, the  time complexity of computing the DTW distance of two series is quadratic and is dependent on the dimensionality of the sequences i.e the length of the sequences.  To address this issue, linear-time constrained versions of DTW (Itakura parallelogram[19], Sakoe-Chiba band[18]) are used to constraint the size of the search space but the use  of  such constraints impact the accuracy of the algorithm[20].
+\item Single value decomposition(SVD)12]. The entire time series data set can be approximated by a low-rank approximation matrix achieved through transforming the data into an orthogonal feature space  whose dimensionality is much lower than the original data sequences. 
+
+\end{enumerate}
+ But unfortunately, directly applying these clustering algorithms to the features i.e the individual time series points may not lead to appealing results. Although the DTW algorithm is immune towards patterns shifted in time or distorted in size/shape, the  time complexity of computing the DTW distance of two series is quadratic and is dependent on the dimensionality of the sequences or in other words the length of the sequences.  To address this issue, linear-time constrained versions of DTW (Itakura parallelogram[19], Sakoe-Chiba band[18]) are used to constraint the size of the search space but the use  of  such constraints impact the accuracy of the algorithm[20].
 
 The SVD too, also suffers from similar problems. For data sets where the dimensionality of the data is much higher than the sample size, the computational cost associated with the factorisation of the matrix is quite large.  Apart from the computational cost, one of the main constraints of  applying SVD  is the requirement for  all samples to share the same dimension which  in the context of time series data means sequences must share the same length. This constraint greatly reduces the type of  time series domains to which SVD  can be applied to extract latent factors that denote motifs. The speech corpus is an example of one such domain. Data sets comprised of  speech utterances are a good example where recorded utterances do not share the same  dimensionality (i.e  the same length) and signals that are acoustically similar  may be a contracted/ expanded version of each other.  
 
-The Fourier transform  on the other hand, although like DTW can work with series of different lengths but is restricted by the fact that it is not time-localised[16]. For non-stationary  time series `signals' it is necessary to capture frequencies that are dominant at any given time.  Short-time discrete  fourier  transform tries to address this issue through some time-limited window centered on time  $t$. But using the window prevents good localisation of signal discontinuities.
+%The Fourier transform  on the other hand, although like DTW can work with series of different lengths but is restricted by the fact that it is not time-localised[16]. For non-stationary  time series `signals' it is necessary to capture frequencies that are dominant at any given time.  Short-time discrete  fourier  transform tries to address this issue through some time-limited window centered on time  $t$. But using the window prevents good localisation of signal discontinuities.
 
+The discovery of motifs in high dimensional time series data that vary in length  is still a difficult problem to work with. To address the drawbacks of DTW and SVD, there has been some recent work conducted to improve these algorithms. In the paper `` \emph {Fast time series classification using numerosity reduction}", the authors address the drawbacks of DTW in handling high dimensional sequences. They propose an adaptive approach that initially uses a strict window constraint to reduce the search space of DTW but then gradually increase size of the window by discarding samples from the training set. Although this methodology improves the time complexity of the dynamic time warping algorithm by heuristically discarding regions in the input space, it does not improve the algorithm itself. In the case of SVD, for high dimensional time series sequences which vary in length, the  data matrix  suffers in being  incomplete. Carelessly addressing only the relatively few known entries is highly prone to over ﬁtting. Earlier works [21] relied on imputation to fill  in missing ratings and make the rating matrix dense. However, imputation can be very expensive as it significantly  increases the amount of data. In addition, the data may be considerably distorted due to inaccurate imputation. 
 
-The discovery of motifs in high dimensional time series data that varying length still remains a very difficult problem to solve. Current works have only tried to address the issue of high-dimensional spaces. The state of the art algorithms have been to designed to work on high-dimensional time series sequences that all share the same length. To my knowledge, there exits no algorithm apart from DTW that can applied to high-dimensional sequences varying in length.  Using this as motivation, the aim of this project is to investigate methods  that can improve the discovery of motifs in  high-dimensional time-series sequences that vary in length. In this project, I particularly focus on improving the performance of the DTW algorithm in high dimensional spaces and in the later chapters investigate on  how to adapt unsupervised parametric models to high dimensional  data sets  that vary in length. 
+The goal of this project is to improve the performance of  these algorithms in handling time series sequences that  have dimensionality and vary in length . To be precise, in the first half of the project, I will be investigating data mining and machine learning methods to  improve the speed of the DTW algorithm without degrading the accuracy. And in the second half I will be ...
 
-The  dissertation is  organised as follows: Chapter 2 provides background on the techniques that I consider for this project. Chapter 3 and 4 investigates methods to improve the performance of the DTW algorithm in terms of both accuracy and speed. Chapter4...
-\include{chap2}
+For this project, I will be using 3 time series data sets (details in chapter 2):
+\begin{itemize}
+\item TIGITS 
+\item INLINESKATE
+\item CINC\_ECG\_TORSO
+\end{itemize}
+For a majority portion of the analysis, the TIDIGITS corpus will serve as  the primary dataset used  to investigate the performances of different models. The reason being the TIGITS corpus consists of utterances of words spoken by different speakers. Since each  time sequence corresponds to a speech utterance spoken by a speaker, as result of environment, context and speaker differences the length of the time series sequences will not be the same. In comparison the sequences with each UCR data set share the same dimensionality i.e length. Furthermore, the length of the time series sequences on average is much higher in the TIDIGITS corpus than sequences of any data set in the UCR time series database.
+ %The discovery of motifs in high dimensional time series data that vary in length  is still a difficult problem to work with. Current works have only tried to address the issue of high-dimensional spaces. The state of the art algorithms have been to designed to work on high-dimensional time series sequences that all share the same length. To my knowledge, there exits no algorithm apart from DTW that can applied to high-dimensional sequences varying in length.  Using this as motivation, the aim of this project is to investigate methods  that can improve the discovery of motifs in  high-dimensional time-series sequences that vary in length. In this project, I particularly focus on improving the performance of the DTW algorithm in high dimensional spaces and in the later chapters investigate on  how to adapt unsupervised parametric models to high dimensional  data sets  that vary in length. 
 
-\chapter{Background}
+The  dissertation is  organised as follows: Chapter 2 gives a description of the 3 time-series datasets used for this project. Chapter 4  provides a detailed back ground description of the DTW algorithm. Chapter 3 and 4 investigates methods to improve the performance of the DTW algorithm in terms of both accuracy and speed. Chapter4...
 \include{chap3}
 \chapter{Datasets}
 The primary dataset that I have used for this project is the `TIGITS' corpus. (I need to give more description here)
@@ -208,9 +212,49 @@ The description of the data sets used for the next set of experiments are as fol
   \item Size of training set:100
   \item Number of classes:7 
   \end{itemize}
-  
+ \end{enumerate}
+  \include{chap2}
 
-\include{chapter3}
+\chapter{DTW-Background}
+The Dynamic Time Warping algorithm measures the similarity between  sequences varying in both time and speed. Formally, the problem formulation of the algorithm is stated as follows: Given two time series X, and Y, of lengths $|X|$ and $|Y|$,
+\begin{eqnarray}
+X &= &x_1,x_2...x_{|X|}\\
+Y &= &y_1,y_2...y_{|Y|}\end{eqnarray}
+construct a warping path W
+\[ W =  w_1, w_2...w_k \mbox{ where max } (|X|,|Y|\leq k\leq |X|=|Y|\]
+\begin{itemize}
+\item Here \emph{k} denotes the length of the warping path and the  mth element of the warping path is $w_l = (n_l,m_l) \in [1 : N]\times[1 : M] \mbox{for } l \in [1 : k]$ where $n_l$ is an index from the  time series X and $m_l$ is an index from the time series Y.
+\end{itemize}
+To  properly understand  the  mechanism of the DTW algorithm, the definition of some key terminologies  must first be stated:
+ \begin {enumerate}
+\item Warping path:
+An (N,M)-warping path (or simply referred to as warping path if N and M are clear from the context) is a sequence $w= (w_1,...,w_k)$ with $w_l = (n_l,m_l) \in [1 : N]\times[1 : M] \mbox{for } l \in [1 : k]$ satisfying the following three conditions.
+ \begin{enumerate}
+ \item Boundary condition: $p_1 = (1,1)$ and $p_k = (N,M)$.
+ The boundary condition enforces that the first elements of X and Y as well as the last elements of X and Y to be  aligned with each other. In other words, the alignment refers to the entire sequences X and Y.
+ \item Monotonicity condition requires that  the path will not turn back on itself, both the i and j indexes either stay the same or increase, they never decrease. 
+ 
+ \item Step-size condition: $p_{l+1}-p_l \in \{(1,0),(0,1),(1,1)\}$  for l $\in$ [1:k-1].
+ The step size con- dition expresses a kind of continuity condition: no element in X and Y can be omitted and there are no replications in the alignment
+ \end {enumerate}
+ Intuitively speaking, the (N,M)warping path$ p = (p_1,...,p_k) $defines an alignment  between two sequences $X = (x_1,x_2,...,x_N)$ and $Y = (y)1,y_2,...,y_M)$ by assigning the element $x_i$ of X to the element $y_j$	of Y.   
+ \item Optimum Warping Path :
+ 
+ The optimal warp path corresponds to the  minimum-distance warp path, where the distance of a warp path W is given as 
+ \[ Dist(W) = \sum_{i=1}^{K} dist(X,Y)_{|(w_i)}\]
+ $dist(X,Y)_{|(w_i)}$  represents the distance computed using an appropriate  cost function between the time series points of $x_{ni}$ of sequence X and $y_{mi}$ of sequence Y. \[\emph dist(X,Y)_{|(w_i)} = dist(x_{ni},y_{mi}) \]
+ 
+\end{enumerate}
+The goal of the DTW algorithm is to compute the distance of the optimal warping path between two time series sequences. Instead of attempting to solve the entire problem all at once, the DTW algorithm utilises the technique of dynamic programming to find an optimum alignment between two sequences through the computation of local distances between the points in the temporal sequence. A two-dimensional $|X|$ by $|Y|$ cost matrix D, is constructed where the value at $D(i, j)$ is the minimum- distance warp path that can be constructed from the two time series $X=x)1,...,x_n $ and $Y=y_1,...,y_m$. 
+\[D(i,j) =Dist(i,j) +min[D(i-1,j),D(i-1,j-1),D(i,j-1)\]
+
+The figure below gives an example of the working the algorithm.
+\begin{figure}[H]
+  \centering
+   
+     \includegraphics[scale=0.8]{DTWpicture.jpg}
+  \caption{A cost matrix with the minimum-distance warp path traced through it.  }
+  \end{figure}\include{chap3}
 \chapter{Improving DTW}
 The Dynamic Time Warping(DTW) algorithm is the one of the oldest algorithms that is used to compare and cluster sequences varying in time, length and speed. Formally, given two temporal sequences, the algorithm utilises the technique of dynamic programming to find an optimum alignment between  through the computation of local distances between the points in each sequence. The time and computational complexity of this algorithm is  \emph{O}(mn) where $m$ and $n$ denote the length of the sequences that are being compared. Thus for  high dimensional time series sequences, the time and computational costs incurred by the algorithm are quite high which  makes DTW a very unattractive choice for clustering or discovering motifs in high dimensional  data sets.  Intuitively speaking, DTW is a clustering algorithm that clusters similar patterns varying in time and speed. Another drawback for working in high-dimensional spaces is the contrast between the distances of nearest and furthest points. The distances between such points  become increasingly smaller  as the dimensionality increases. This makes it  difficult to construct meaningful cluster groups in such spaces.
 
@@ -730,7 +774,7 @@ IEEE Transactions On Audio Speech  And Language Processing, VOL 16, January 2008
 the automatic discovery of patterns in biosequences} "  J. Comput. Biol.,vol. 5, no. 2, pp. 279–305, 1998.
 \bibitem{}F Korn, H. Jagadish  and C.Faloutos. ``\emph{Efficiently supporting ad hoc queries in large datasets of time sequences}". In Proceedings of the ATM of the ACM SIGMOID International Conference of  Management Of Dat, pages 289-300.
 \bibitem{}Chun-Lin, Liu ``\emph{ A Tutorial of the Wavelet Transform}" February 23, 2010.
-\bibitem{} Josif Grabocka, Erind Bedalli and Lars Schmidt-Thiem ``\emph{Efficient Classication of Long Time-Series}", Information Systems and Machine Learning Lab.ICT Innovations 2012, pages 47-57.
+\bibitem{} Josif Grabocka, Erind Bedalli and Lars Schmidt-Thiem ``\emph{ Efficient  Classification of Long Time-Series}", Information Systems and Machine Learning Lab.ICT Innovations 2012, pages 47-57.
 \bibitem{}Jessica Lin Eamonn Keogh Stefano Lonardi Pranav Patel ``\emph{Finding Motifs in Time Series}", CiteSeer 2002.
 \bibitem {} Lee A.Barford, R. Shane Fazzio, DavidR. Smith Instruments and Photonics Laboratory ``\emph{An Introduction to Wavelets}"  September, 1992.
 \bibitem{} Fayyad, U., Reina, C. &. Bradley. P (1998). ``\emph{Initialisation of  iterative refinement clustering algorithms}''. In Proceedings of the 4th International Conference on Knowledge Discovery and Data Mining. New York, NY, Aug 27-31. pp 194-198
@@ -739,6 +783,7 @@ the automatic discovery of patterns in biosequences} "  J. Comput. Biol.,vol. 5,
 \bibitem{}Itakura, F. (1975). ``\emph{Minimum prediction residual principle applied to speech recognition}". IEE Speech, and Signal Proc., Vol. ASSP-23, pp. 52-72. 
 \end{thebibliography} 
 \bibitem{}Fu, A.W., Keogh, E., Lau, L.Y.H., & Ratanamahatana, C.A. (2005). ``\emph{Scaling and Time Warping in Time Series Querying}". VLDB ‘05, pp. 649-660. 
-
+\bibitem{}Xiaopeng  Xi, Eamonn Keogh, Christian Shelton, Li Wei  ``\emph{Fast Time Series Classification Using Numerosity Reduction}" ICML '06 Proceedings of the 23rd international conference on Machine learning Pages 1033-1040 
+\bibitem{} D. Kim and B. Yum, ``\emph{Collaborative Filtering Based on Iterative Principal Component Analysis}”, Expert Systems with Applications 28 (2005), 823–830.
 %% ... that's all, folks!
 \end{document}
