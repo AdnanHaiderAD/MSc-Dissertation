@@ -25,9 +25,9 @@ for s=1:speakers
     for c=1:classes
         for v=1:versions
             %% removes silence and performs subsampling on the result
-            Cleaned=filterSignal(data{s,c,v});
+            %Cleaned=filterSignal(data{s,c,v});
            %% removes silence
-           % Cleaned =silencefilter(data{s,c,v});
+            Cleaned =silencefilter(data{s,c,v});
             %%
             entry ={c, Cleaned};
             clear Cleaned

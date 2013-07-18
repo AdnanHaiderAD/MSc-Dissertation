@@ -37,6 +37,11 @@ RawTrainingCleanedSamp---All training samples corresponding to a particular prod
 
 
 
+The folder RawdataSilR contains:
+
+
+RawdataSilR: The utterances in the test set are cleaned  by removing silence regions and the same subset of test samples as RawdataTestExp are chosen.
+RAwdataSilR: The utterances in the training set ae cleaned by removing silence segments and samples of one production are kept.
 
 The folder LocalGlobalFeat contains:
 

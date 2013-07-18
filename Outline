@@ -274,6 +274,11 @@ Feature Selection
         remove segments of silence  and downsample the remaining by half
         Apply DTW augmented with window of size max(n-m ,0.1*max(n,m)) and the euclidean metric;
 
+Feature extraction
+----step 1) investigate the use of MFCC features
+--- Step 2) Investigate the use of MFCC + feature selection + window
+----Step 3) investigate the use of MFCC + feature selection         
+
 
 
 
