@@ -250,7 +250,35 @@ There has been much work on finding association rules in time series
 Chapters 2 ,3  ->Investigate multiple methodologies to improve the performance of DTW.
 
 
- 
+ Revised Outline:
+ Introduction: 
+ 1)Definition of time series
+ 2)Importance of Time series analysis--introduce motifs
+ 3)Algorithms used for motif discovery
+ 4))the problem of high dimensionality-define  dimensionality of a time series sequence
+ 5)The focus of this project: to improve the speed of the DTW algorithm and to allows SVD based mechanisms to handle sequences of variable length
+An outline of the chapters
+
+Dataset description
+
+DTW- background
+--Define baseline DTW
+
+
+Improving DTW: 
+Feature Selection
+----Step 1)
+	remove segments of silence 
+	Apply DTW augmented with window of size max(n-m ,0.1*max(n,m)) and the euclidean metric;
+---Step 2)
+        remove segments of silence  and downsample the remaining by half
+        Apply DTW augmented with window of size max(n-m ,0.1*max(n,m)) and the euclidean metric;
+
+
+
+
+
+
 
 
 

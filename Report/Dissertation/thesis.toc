@@ -2,13 +2,15 @@
 \contentsline {chapter}{\numberline {2}Datasets}{5}
 \contentsline {chapter}{\numberline {3}DTW-Background}{7}
 \contentsline {chapter}{\numberline {4}Improving DTW}{10}
-\contentsline {section}{\numberline {4.1}Feature Selection}{12}
-\contentsline {section}{\numberline {4.2}Feature extraction}{17}
-\contentsline {subsection}{\numberline {4.2.1} Domain-independent feature extraction}{17}
-\contentsline {subsection}{\numberline {4.2.2}Domain-dependent feature extraction}{21}
-\contentsline {chapter}{\numberline {5}Adaptive DTW}{25}
-\contentsline {section}{\numberline {5.1}{Feature extraction}}{26}
-\contentsline {section}{\numberline {5.2}Adaption of DTW}{26}
-\contentsline {section}{\numberline {5.3}Experimental results}{31}
-\contentsline {subsection}{\numberline {5.3.1}Experimental setup}{34}
-\contentsline {chapter}{Bibliography}{37}
+\contentsline {section}{\numberline {4.1}Feature Selection}{13}
+\contentsline {subsection}{\numberline {4.1.1}Signal Filter}{14}
+\contentsline {subsection}{\numberline {4.1.2}Downsampling}{18}
+\contentsline {section}{\numberline {4.2}Feature extraction}{19}
+\contentsline {subsection}{\numberline {4.2.1}Domain-dependent feature extraction}{20}
+\contentsline {subsection}{\numberline {4.2.2} Domain-independent feature extraction}{24}
+\contentsline {chapter}{\numberline {5}Adaptive DTW}{28}
+\contentsline {section}{\numberline {5.1}{Feature extraction}}{29}
+\contentsline {section}{\numberline {5.2}Adaption of DTW}{30}
+\contentsline {section}{\numberline {5.3}Experimental results}{35}
+\contentsline {subsection}{\numberline {5.3.1}Experimental setup}{38}
+\contentsline {chapter}{Bibliography}{41}
