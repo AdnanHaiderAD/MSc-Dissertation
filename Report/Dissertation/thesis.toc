@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {4.1.2}Downsampling}{18}
 \contentsline {section}{\numberline {4.2}Feature extraction}{19}
 \contentsline {subsection}{\numberline {4.2.1}Domain-dependent feature extraction}{20}
-\contentsline {subsection}{\numberline {4.2.2} Domain-independent feature extraction}{24}
+\contentsline {subsection}{\numberline {4.2.2} Domain-independent feature extraction}{23}
 \contentsline {chapter}{\numberline {5}Adaptive DTW}{28}
 \contentsline {section}{\numberline {5.1}{Feature extraction}}{29}
 \contentsline {section}{\numberline {5.2}Adaption of DTW}{30}

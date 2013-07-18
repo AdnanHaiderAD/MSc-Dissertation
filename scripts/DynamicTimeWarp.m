@@ -55,7 +55,7 @@ for samp=1:noOftestsamp
                 tic
             end
             %% applying DTW+(baseline or MFCC) +euclidean metric
-             distortion= log(DTW(seq',seq2',w)+1); 
+             distortion= log(DTW(seq,seq2,w)+1); 
              %% applying DTW using local and global features and the proposed kernel. 
               %distortion=DTW2(seq,seq2);
               %% keeping a record of K nearest matches
@@ -84,7 +84,8 @@ end
 
  [L,host]= unix('hostname');
  filename = strcat('output',host,'.mat');
- save (filename,'output','samp','time');              
+ save (filename,'output','samp','time'); 
+ time
 
 
 
