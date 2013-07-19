@@ -432,42 +432,44 @@ Note : The DTW algorithm is subjected to an adaptive window constraint. The focu
  \begin{figure}[H]
    \centering
    
-     \includegraphics[scale=0.8]{value-basedaccuracy.jpg}
+     \includegraphics[scale=0.8]{4111.jpg}
   \caption{ }
   
 \end{figure}
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.6]{value-basedtime.jpg}
+     \includegraphics[scale=0.6]{4112.jpg}
   \caption{}
   
 \end{figure}
 \end{itemize}
 Observations:
+\begin{itemize}
 
-From the results above, it can seen that the  DTW algorithm achieves very poor accuracy. The reason for this lack of poor recall may be attributed to one of these or  a combination of the following three factors:
+\item From the results above, it can seen that the  DTW algorithm achieves very poor accuracy. The reason for this lack of poor recall may be attributed to one  or  a combination of the following three factors:
 \begin{itemize}
 \renewcommand{\labelitemi}{$\rightarrow$}
 \item raw values- the value of a data point in a time series sequence is not a complete picture of the data point in relation to the rest of the sequence.
 \item window constraint- the optimum warping path exists outside the boundaries of the Sakoe-Chuba bands[3,6].
-\item not using MFCC values- The data set comprises of speech utterances. It is a widely known fact that for speech data, the MFCC feature vectors captures the information of phones that make up a word  and thus can be used to differentiate between utterances of different lexical identities. (details of MFCC to follow)[3,4,5,6,7].
+\item not using MFCC values- The data set comprises of speech utterances. It is a widely known fact that for speech data, the MFCC feature vectors capture the information of phones that make up a word. Since different lexical identities are composed of different phones, these use of these vectors can provide effective clustering. (details of MFCC to follow)[3,4,5,6,7].
+ \end{itemize}
 
-Employing the prior feature selection process allows DTW subjected to global window constraint to improve \textbf{both} its accuracy and time complexity. 
- 
+ \item Removing `silence' segments improves \textbf{both} the accuracy and the time complexity of the algorithm.
 Reasons:
 
+ The DTW algorithm, aims to finds an optimum warping path  in the search space bounded by the window constraints. Removing `silence' segments proves to be highly advantageous because  these `silence' are present in all utterances. Thus there are not good  discriminators for identifying different lexical identities.  Taking these silences into account therefore degrades the performance of the DTW as  they bring in an unwanted notion of similarity in dissimilar patterns.
+ 
+ 
+ The size of the DTW cost matrix is \emph{O}(mn). Achieving dimensionality reduction through feature selection reduces the size of the cost matrix and thus decreases the computational cost.
 
-\item The DTW algorithm,due to  the high dimensionality of the  time series sequences is subjected to a window constraint that forces the algorithm to operate on the diagonal region of the DTW cost matrix. Removing  these redundant features increases the accuracy because these features  primarily represent segments of silence and since all utterances contain silence segments, taking these silences into account degrades the performance as  they bring in an unwanted notion of similarity in dissimilar patterns.
-\item The size of the DTW cost matrix is \emph{O}(mn). Achieving dimensionality reduction through feature selection reduces the size of the cost matrix and thus decreases the computational cost.
-
-From this observation, it can be  concluded that using raw values does degrade the performance of the DTW. The experiments to follow later in this chapter will attempt to  investigate the influence of  each these  individual factors on the performance of DTW.
 
 
+\end{itemize}
 \end {itemize}
 
 \subsection{Downsampling}
-From further exploratory data analysis,  I have observed that if  I down-sample the utterances by $\frac{1}{2}$  which in other words means decreasing the sampling frequency by half, the resultant sampled signal is much clearer to understand. Sub-sampling  the utterances by half involves removing every other sample from the time series.  From the observation of figure 4.6, it can be seen that this technique  keeps the global trend of the signal intact but results in the  loss of local information. Furthermore through listening the sampled signals, I have discovered that losing some \textbf{local information} actually cleans the signal in a manner that allows the listener to identity the speaker's category and the utterance's class with ease.
+From further exploratory data analysis,  I have observed that if  I down-sample the utterances by $\frac{1}{2}$  which in other words means decreasing the sampling frequency by half, the resultant sampled signal is much clearer to understand.  From the observation of figure 4.6, it can be seen that performing sub-sampling does keep the global trend of the signal intact but results in minute loss of local information. Furthermore through listening the sampled signals, I have discovered that losing some \textbf{local information} actually cleans the signal in a manner that allows the listener to identify the speaker's category and the lexical identity with ease.
  \begin{figure}[H]
   \centering
    
@@ -475,8 +477,20 @@ From further exploratory data analysis,  I have observed that if  I down-sample 
   \caption{shows the raw acoustic signal of the digit `8' (top figure), the silence removed version of the signal(middle) and the silence removed and down sampled version of the acoustic signal (bottom) }
   \end{figure}
 To investigate whether further reducing the dimensionality of the time  sequences can improve the performance of the DTW, I conducted a third experiment using the same data set and the sample DTW algorithm discussed in 4.1.1.  The results found are as follows:
+ \begin{figure}[H]
+   \centering
+   
+     \includegraphics[scale=0.8]{4121.jpg}
+  \caption{ }
+  \end{figure}
+ \begin{figure}[H]
+   \centering
+   
+     \includegraphics[scale=0.8]{4122.jpg}
+  \caption{ }
+  
 
-
+\end{figure}
 
 \section{Feature extraction}
 From the analysis conducted so far, it can be concluded that heuristically selecting only significant  attributes from the time series sequences does \textbf{improve} the accuracy and the speed of the DTW. However, from the observation of the experimental results,it is quite clear that  the accuracy of the algorithm is very low.  In this section, I investigate on the degree of influence that employing domain-dependent and domain dependent feature extraction methodologies have on the speed and accuracy of the DTW algorithm. There are two motivations behind conducting this analysis:
@@ -524,14 +538,14 @@ Experimental setup:
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.8]{Mfcc-accuracy1.jpg}
+     \includegraphics[scale=0.8]{421.jpg}
   \caption{MFCC feature extraction}
   \end{figure}
   
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.6]{Mfcc-time1.jpg}
+     \includegraphics[scale=0.6]{422.jpg}
   \caption{MFCC feature extraction}
   \end{figure}
     \end{itemize}
