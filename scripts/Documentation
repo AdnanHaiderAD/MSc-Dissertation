@@ -25,7 +25,7 @@ extractLocalGlobalFeat(data)-- extracts Local and Global features.
 %using the training data.
 
 createtestSubset()-- subsamples the tescleanRawData(data)
-
+reducetrainSize(trainData)---resamples the training set to get a smaller data sets that contains sufficient examples of labels
 
 cleanRawData(data)-- passes filterSignal/silencefilter to each time-series data. `data' is cell where each entry contains samples of a specific gender.
 

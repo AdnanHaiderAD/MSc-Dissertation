@@ -20,12 +20,24 @@ end
 
 test_data=varargin{1};
 training_data=varargin{2};
+data_b=training_data{1};
+data_g=training_data{2};
+data_m=training_data{3};
+data_w= training_data{4};
+data(1:length(data_b)) = data_b(1:end);
+data(length(data_b)+1:length(data_b)+length(data_g)) = data_g(1:end);
+data(length(data_b)+length(data_g)+1:length(data_b)+length(data_g)+length(data_m)) = data_m(1:end);
+data(length(data_b)+length(data_g)+length(data_m)+1:length(data_b)+length(data_g)+length(data_m)+length(data_w)) = data_w(1:end);
+
+
 
 noOftestsamp= length(test_data);
 [r, categories]=size(training_data);
 
 %% each entry of the output contain a vector of K nearest neighbours and value of 0 or 1 where 1 denote misclassication
 output=cell(noOftestsamp,1);
+
+
 
 
 for samp=1:noOftestsamp
@@ -39,8 +51,7 @@ for samp=1:noOftestsamp
      closest_match =zeros(11,1);
      
      %% Comparing the test sample with the entire training set
-    for g=1 :categories
-        data=training_data{g};
+    
         for i=1:length(data)
             %extraction of class and sample separately
             trainSamp=data{i};
@@ -64,7 +75,7 @@ for samp=1:noOftestsamp
                 closest_match(min_dist==max(min_dist))= trainClass;
             end
         end
-    end
+    
     %% The classifier is a 1 vs rest classifier where correct classifiaction denotes 0
     % and misclassifaction denotes 1
     

@@ -576,7 +576,7 @@ Note : The local and global features have no definition for the first and last p
 
 When working with high dimensional time series data, the main drawback of employing this feature extraction method is that  it does not offer the advantage of  dimensionality reduction. The dimensionality of a transformed time series sequence is just two dimensions less than the dimensionality of the original sequence. The DTW algorithm combined with this feature extraction process therefore suffers from the curse of dimensionality as before. 
 
-For the TIGITS data set, as a prior step to the feature extraction process, I applied the  feature selection process that I have discussed in 4.1.1 and 4.1.2 to reduce the dimensionality of the sequences by removing utterance segments that correspond to silence and downsampling the remaining signal by half. To compare the model's performance with the base line model and the models discussed so far, the  transformed time series sequences were then fed to the DTW algorithm subjected to the same window constraints as before(4.1.1).
+For the TIGITS data set, as a prior step to the feature extraction process, I applied the  feature selection process that I have discussed  4.1.2 to reduce the dimensionality of the sequences by removing utterance segments that correspond to silence and downsampling the remaining signal by half. To compare the model's performance with the base line model and the models discussed so far, the transformed time series sequences were then fed to the DTW algorithm subjected to the same window constraints as before(4.1.1).
 
  A summary of the results are given below:
 
