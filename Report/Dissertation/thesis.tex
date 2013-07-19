@@ -465,7 +465,7 @@ Reasons:
 
 
 
-\end{itemize}
+
 \end {itemize}
 
 \subsection{Downsampling}
@@ -476,19 +476,25 @@ From further exploratory data analysis,  I have observed that if  I down-sample 
      \includegraphics[scale=0.5]{Feature_selection2.jpg}
   \caption{shows the raw acoustic signal of the digit `8' (top figure), the silence removed version of the signal(middle) and the silence removed and down sampled version of the acoustic signal (bottom) }
   \end{figure}
-To investigate whether further reducing the dimensionality of the time  sequences can improve the performance of the DTW, I conducted a third experiment using the same data set and the sample DTW algorithm discussed in 4.1.1.  The results found are as follows:
+To investigate whether performing further dimensionality reduction  through downsampling improves the performance of the DTW, I conducted a third experiment using the same data set and the sample DTW algorithm discussed in 4.1.1.  The results found are as follows:
  \begin{figure}[H]
    \centering
    
-     \includegraphics[scale=0.8]{4121.jpg}
-  \caption{ }
+     \includegraphics[scale=0.7]{4121.jpg}
+  \caption{Performing silence removal followed by downsampling still achieves better accuracy than the base line DTW }
   \end{figure}
  \begin{figure}[H]
    \centering
    
-     \includegraphics[scale=0.8]{4122.jpg}
-  \caption{ }
-  
+     \includegraphics[scale=0.5]{4122.jpg}
+     
+  \caption{ Integrating downsampling into the preprocessing step decreases the log(time)}
+Observations:
+
+\begin{itemize}
+\item Performing down-sampling along with silence removal achieve a reduction in the log(time) by 1.5 on average. This is expected since in the first stage of the preprocessing phase, redundant features are dropped which reduces the dimensionality(i.e length ) of the sequences. The length of the sequences is reduced even further through downsampling the the output sequences of stage 1. the computational cost of DTW is directly dependent on the length of the sequences , thus decrements in dimensionality leads to a decrease in the computational cost.
+\item The drawback of conducting downsampling is that it leads to a loss of  local information from the sequences. However, for this data set, the effect of losing local information is minimal as evident from the experimental results. The DTW's accuracy is reduced by only  1\% on average in comparison to the model that uses only silence removal as a pre-processing step. However, this model still achieves  an accuracy that is 3\% greater on average across the test data sets of all categories  in comparison to the baseline DTW.
+\end{itemize}  
 
 \end{figure}
 
@@ -529,9 +535,10 @@ The experiments conducted in section 4.1.1 and 4.1.2, have shown that the  DTW a
 
 \end{enumerate}
 Experimental setup:
-\begin{itemize}
-\item Data- set : The TIDIGITS  training and test set (Chapter 2, 4.1.1)
-\item  Results 
+
+  \textbf{Data- set} : The TIDIGITS  training and test set (Chapter 2, 4.1.1)
+  
+\textbf{RESULTS}:
 
 
 
@@ -548,25 +555,26 @@ Experimental setup:
      \includegraphics[scale=0.6]{422.jpg}
   \caption{MFCC feature extraction}
   \end{figure}
-    \end{itemize}
+
   Observations:
  
   
   \begin{itemize}
-  \renewcommand{\labelitemi}{$\rightarrow$}
 
-  \item In comparison to the baseline model (4.1.1), model 1 achieves an improvement in both accuracy and time complexity. The accuracy of the DTW algorithm has increased by  \% on average  while the $log(time)$ have been reduced by[].
+
+  \item Replacing raw values with MFCC features surprisingly only leads to a minimal increase in the accuracy of the DTW subjected to a window constraint. By comparing these results with the  experiments done in 4.1.1, it can observed that the presence of `silence' forces the optimal warping path between utterances corresponding to identical lexical identities  to occupy regions that are outside those that are bounded by the Sakoe-Chuba band constraints.
   
- Employing domain dependent features thus do not only increase the accuracy but also improve the speed of the DTW algorithm subjected to Sakoe-Chuba band constraint. 
- 
-  \item Combining  attribute/feature selection with MFCC feature extraction as a preprocessing step achieves greater improvement in accuracy and speed than using either of these approaches alone. In comparison to just using MFCC feature extraction as a preprocessing step, the algorithm's accuracy has been boosted up by 15.17\% on average  while the $log(time)$ have been reduced by 2.36.  Similarly in comparison  to just using feature selection as a preprocessing step, the algorithm's accuracy has  increased  by []\% on average  while the $log(time)$ have been reduced by [].
+   \item Combining  attribute/feature selection with MFCC feature extraction as a preprocessing step achieves greater improvement in accuracy and speed than using either of these approaches alone. In comparison to just using MFCC feature extraction as a preprocessing step, the algorithm's accuracy has been boosted up by 15.17\% on average  while the $log(time)$ have been reduced by 2.36.  Similarly in comparison  to just using feature selection as a preprocessing step, the algorithm's accuracy has  increased  by 12.9\% on average  while the $log(time)$ have been reduced by 6.5.
+   
+    From this observation alone, we deduce two facts, one of which is not that obvious: the accuracy of the DTW is governed by the removal `silence' segments and the size of the Sakoe-Chuba band constraint.  Since the main focus is to improve  \textbf{both} the accuracy and  speed of DTW in handling sequences of high-dimensionality i.e long lengths, removal of silence segments provides an ideal mechanism to improve the time complexity and the accuracy of the algorithm.
   
-  \item Model 3 achieves almost near perfect accuracy. Dropping the window constraints improve the accuracy by 67.15\% on average over model 2.  Although removing the window constraint does degrade the time complexity (as observed by comparing its time complexity with that  of model 2) but when we compare its time complexity with the other models, it can been model 3 achieves lower  $log(time)$ than model 1, the baseline model and the two models considered in 4.1.
+  \item Model 3 achieves almost near perfect accuracy. Dropping the window constraint improves the accuracy by 67.15\% on average over model 2.  Thus 67.15\% times on avergage, the optimum warping path lay outside the regions bounded by the Sakoe-Chuba band constraints, This proves  that  patterns belonging to the same lexical identity can have an overly temporal askew between them as result of the different contexts in which the words are spoken and/or as a result of different speakers speaking the same word.
+  
+  Although removing the window constraint does degrade the time complexity in comparison to the log(time) cost of model 2, if  we compare the log(time) of model 3  with the other models, we can observe that model 3 achieves lower  $log(time)$ s  than any of the model with the exception of model 2.
   
   \textbf{Conclusion}
   
- Therefore from this analysis, it can be concluded that by understanding the underlying  structure of the data  and using metadata(i.e knowledge of the domain)  appropriate preprocessing techniques can be constructed  that can serve as an alternative to using rigid window constraints to handle high dimensional time series sequences and allow the DTW algorithm to improve both it accuracy and speed.
- 
+ Therefore from this analysis, it can be concluded that  equipping DTW with  preprocessing techniques constructed by performing exploratory data analysis and  integrating  metadata(i.e knowledge of the domain) can serve as an alternative to equipping the algorithm with rigid window constraints to handle high dimensional time series sequences in terms of both accuracy and speed. 
   % \item It can be observed that adapting DTW to incorporate a pre-processing stage that involves removal of redundant features through silence removal and employing a feature extraction mapping that integrates domains knowledge in the feature extraction process achieves almost perfects accuracy and incurs the lowest computational time. To be precise, adapting DTW to be domain-dependent allows the algorithm to achieve near perfect accuracy while incurring the minimum computational cost. 
   %\item From analysing the time complexity associated with each of the two versions, it can be seen that partitioning the sequences into frames actually leads to greater reduction in dimensionality of the time series than removing redundant features.
   \end{itemize}
