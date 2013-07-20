@@ -299,7 +299,7 @@ The Dynamic Time Warping(DTW) algorithm is the one of the oldest algorithms that
 
 To address the issue of the curse of dimensionality, DTW algorithms employ a window constraint to reduce the search space. The most commonly used  are Sakoe-Chuba Band[18]  and the Itakura  window constraint[19]. Figure[3.2]  gives an illustration on the nature of these window constraints. These constraints determine the allowable  shapes that a warping path can take by restricting the DTW to find an optimal warping path only through the constrained window. As the dimensionality(length) of the sequences increases, the size of the window is adjusted accordingly. Rigid  window constraints impose a more rigid alignment  that prevent an overly temporal skew between two sequences, by keeping frames of one sequence  from getting too far from the other. The vast majority of the data mining researchers use a Sakoe-Chiba Band with a 10\% width for the global constraint[23] to constraint the time complexity of DTW to a minimum. For clustering data sets such as speech utterances, the effect produced by such global constraints is highly undesirable. If we consider two utterances of a word spoken at different time frames, the patterns can have an overly temporal askew between them as result of the different contexts in which the  words are spoken and/or as a result of  different speakers speaking the same word. Thus it is necessary to explore alternative techniques to window constraints that can reduce the time complexity of  the DTW algorithm to a minimum without decreasing accuracy. 
 
-Before investigating methods to improve the DTW algorithm itself, it is highly necessary to first understand the nature of the data sequences that the DTW is presented with.  By achieving a thorough understanding of the data, we can  achieve dimensionality reduction by  isolating and identifying smaller set of new(current)  features  that are more relevant for the problem in hand.  In this chapter, I investigate data-driven preprocessing techniques that can improve  the  DTW's performance by mapping   the sequences  to a lower dimensional space that captures the intrinsic structure of the data.
+Before investigating methods to improve the DTW algorithm itself, it is highly necessary to first understand the nature of the data sequences that the DTW is presented with.  By achieving a thorough understanding of the data, we can  achieve dimensionality reduction by  isolating and identifying smaller set of new(current)  features  that are more relevant for the problem in hand.  In this chapter, I investigate domain-dependent preprocessing techniques that can improve  the  DTW's performance by mapping   the sequences  to a lower dimensional space that captures the intrinsic structure of the data.
  There are presently two groups of preprocessing techniques commonly used to address this issue:
 \begin{itemize}
 \item  Feature Selection 
@@ -492,7 +492,7 @@ To investigate whether performing further dimensionality reduction  through down
 Observations:
 
 \begin{itemize}
-\item Performing down-sampling along with silence removal achieve a reduction in the log(time) by 1.5 on average. This is expected since in the first stage of the preprocessing phase, redundant features are dropped which reduces the dimensionality(i.e length ) of the sequences. The length of the sequences is reduced even further through downsampling the the output sequences of stage 1. the computational cost of DTW is directly dependent on the length of the sequences , thus decrements in dimensionality leads to a decrease in the computational cost.
+\item Performing down-sampling along with silence removal achieve a reduction in the log(time) by 1.5 on average. This is expected since in the first stage of the preprocessing phase, redundant features are dropped which reduces the dimensionality(i.e length ) of the sequences. The length of the sequences is reduced even further through downsampling the the output sequences of stage 1. the computational cost of DTW is directly dependent on the length of the sequences,  thus decrements in dimensionality leads to a decrease in the computational cost.
 \item The drawback of conducting downsampling is that it leads to a loss of  local information from the sequences. However, for this data set, the effect of losing local information is minimal as evident from the experimental results. The DTW's accuracy is reduced by only  1\% on average in comparison to the model that uses only silence removal as a pre-processing step. However, this model still achieves  an accuracy that is 3\% greater on average across the test data sets of all categories  in comparison to the baseline DTW.
 \end{itemize}  
 
@@ -501,7 +501,7 @@ Observations:
 \section{Feature extraction}
 From the analysis conducted so far, it can be concluded that heuristically selecting only significant  attributes from the time series sequences does \textbf{improve} the accuracy and the speed of the DTW. However, from the observation of the experimental results,it is quite clear that  the accuracy of the algorithm is very low.  In this section, I investigate on the degree of influence that employing domain-dependent and domain dependent feature extraction methodologies have on the speed and accuracy of the DTW algorithm. There are two motivations behind conducting this analysis:
 \begin{itemize}
-\item The primary motivation is to investigate  to what degree is this low error is credited to not using features that incorporate information about the domain and the trends of the sequence and the degree of  contribution that  using a rigid window constraint has on the low accuracy . (The features that we have considered so far are the raw  values indexed by time)
+\item The primary motivation is to investigate  to what degree is this low error credited to not using features that incorporate information about the domain and the trends of the sequence and the degree of  contribution that  using a rigid window constraint has on the low accuracy . (The features that we have considered so far are the raw  values indexed by time)
 \item The overall focus is to improve the speed  of the DTW algorithm without degrading accuracy. By choosing an appropriate functional mapping, we can map the data to lower dimensional feature space that can captures the intrinsic qualities of the data. This not achieves dimensionality reduction of the time series sequences but also posses  the potential to boost accuracy.
 \end{itemize}
 
@@ -562,7 +562,7 @@ Experimental setup:
   \begin{itemize}
 
 
-  \item Replacing raw values with MFCC features surprisingly only leads to a minimal increase in the accuracy of the DTW subjected to a window constraint. By comparing these results with the  experiments done in 4.1.1, it can observed that the presence of `silence' forces the optimal warping path between utterances corresponding to identical lexical identities  to occupy regions that are outside those that are bounded by the Sakoe-Chuba band constraints.
+  \item Replacing raw values with MFCC features surprisingly only leads to a minimal increase in the accuracy of the DTW subjected to a window constraint. By comparing these results with the  experiments done in 4.1.1, it can observed that the presence of `silence' forces the optimal warping path between utterances corresponding to identical lexical identities  to occupy regions that are outside those that are bounded by the adaptive Sakoe-Chuba band constraints.
   
    \item Combining  attribute/feature selection with MFCC feature extraction as a preprocessing step achieves greater improvement in accuracy and speed than using either of these approaches alone. In comparison to just using MFCC feature extraction as a preprocessing step, the algorithm's accuracy has been boosted up by 15.17\% on average  while the $log(time)$ have been reduced by 2.36.  Similarly in comparison  to just using feature selection as a preprocessing step, the algorithm's accuracy has  increased  by 12.9\% on average  while the $log(time)$ have been reduced by 6.5.
    
@@ -580,8 +580,16 @@ Experimental setup:
   \end{itemize}
 
 
-\subsection{ Domain-independent feature extraction}
-So far, we have investigated methodologies  that integrate meta data (i.e knowledge of the domain) in the feature extraction phase., In this section I investigate feature extraction methodologies that are entirely data driven.  The motivation here is to investigate whether we can construct a model that  allows DTW to extend both its accuracy and speed, when working on high dimensional time series data sets, across multiple domains .Ideally, we require features that reflect information about the structure of the data.The fundamental problem of baseline (value-based) DTW  is that the numerical value of a data point in a time series sequence is not a complete picture of the data point  in relation to the rest of the sequence. The context such as the position of the points in relation to their neighbours is ignored. To fix  this issue, an alternative  form of DTW know as \emph{Derivative} DTW is proposed but  it fails to achieve better performance across all domains as it ignores to take into account the common sub-patterns between two sequences(mainly global trends). Ideally we need to use features that contains information about the overall shapes of the sequences plus the local trend around the points. This allows the DTW to built a complete picture of the data point in relation to the rest of the sequence and hence achieve a better optimal alignment between the two sequences.
+
+ \include{chap4}
+ \chapter{Adaptive DTW}
+ 
+So far, we have investigated methodologies  that integrate meta data (i.e knowledge of the domain) in the pre-processing stage. The problem with such methodologies is that  the same algorithm cannot be extended across multiple domains since the feature extraction process is highly domain-dependent. The MFCC feature vectors, for example,  that we considered in the previous section can only be employed for data sets that comprise of speech utterances.  In the first half of this chapter, I investigate feature extraction methodologies that are entirely data driven so that we can  construct a methodology for improving DTW's  speed and accuracy that can be extended  across  multiple domains. In the second half of this chapter, I investigate methods to improve the algorithm itself so that it may better performance in  terms of time and accuracy across time series domains.
+
+ \subsection{ Domain-independent feature extraction}
+
+Ideally, we require features that reflect information about the structure of the data. This allows the DTW to built a complete picture of the data point in relation to the rest of the sequence and hence achieve  better optimal alignments between similar sequences.The fundamental problem of baseline (value-based) DTW  is that the numerical value of a data point in a time series sequence is not a complete picture of the data point  in relation to the rest of the sequence. The context such as the position of the points in relation to their neighbours is ignored. To fix  this issue, an alternative  form of DTW known as \emph{derivative} DTW is proposed but  it  too fails to achieve better performance across all domains as it ignores to take into account the common sub-patterns between two sequences(mainly global trends). 
+
 
 For feature extraction, the methodology that I have used  for this setup is based on Xie and Wiltgen's paper[2]. In their paper, the authors highlight a domain-independent feature extraction process where each point in the time series sequence is replaced by a 4 dimensional vector. In this vector, the  first two features correspond to information regarding the local trends around a point and the last two features reflect the position of that point with respect to the global shape of the sequence. From experiments conducted on the UCR data sets,  they have observed that embedding DTW with this feature extraction process yields greater accuracy across all datasets. 
 
@@ -589,16 +597,33 @@ Definition of local feature given in [2] is as follows:
 \[ f_{\mbox{local}}(r_i)= (r_i-r_{i-1}, r_i-r_{i+1})\]
 The first feature reflects the difference between the  values of the current index and the previous index while the second feature reflects the difference between the values in the current index and the succeeding index.
 
-The  extraction of global features is constrained by two factors: the features must reflect information about  global trends and must be in the same scaling order  as the local features. Being in the same scale allows them to  be combined with local features. In [2], the authors used the following method to extract global features from the time series sequence:
+The  extraction of global features however, is constrained by two factors:
+ the features must reflect information about  global trends and must be in the same scaling order  as the local features. Being in the same scale allows them to  be combined with local features. In [2], the authors used the following method to extract global features from the time series sequence:
 \[ f_{\mbox{global}}(r_i)= (r_i -\sum_{k=1}^{i-1}\frac{r_k}{i-1} , r_i-\sum_{k=i+1}^M \frac{r_k}{M-i})\]
-The first  feature represents the deviation of the value of the current index from the mean of the values that seen so far while the second feature represents the  deviation  of the current value from the mean of the values that is yet to be seen. These two features together attempts to reflect information about the current point with  respect to the overall shape.
+The first  feature represents the deviation of the value of the current index from the mean of the values of the sequence that has  been seen so far while the second feature represents the  deviation  of the current value from the mean of the values that is yet to be seen. This formulation allows the detection of significant `drops' or `rises' in the series.
+
 
 Note : The local and global features have no definition for the first and last points in a sequence.To keep the terminology clear, I to refer the length of the time series as the dimension of the time series. Each dimension i.e each point in the time series can be a value or in this case a 4-d vector.
 
 
-When working with high dimensional time series data, the main drawback of employing this feature extraction method is that  it does not offer the advantage of  dimensionality reduction. The dimensionality of a transformed time series sequence is just two dimensions less than the dimensionality of the original sequence. The DTW algorithm combined with this feature extraction process therefore suffers from the curse of dimensionality as before. 
+When working with high dimensional time series(i.e sequences with long lengths) data, the main drawback of employing this feature extraction method is that  it does not offer the advantage of  dimensionality reduction. The dimensionality of a transformed time series sequence is just two dimensions less than the dimensionality of the original sequence. The DTW algorithm combined with this feature extraction process therefore suffers from the curse of dimensionality as before. To address this issue, the DTW algorithm is subjected to the adaptive Sakoe-Chuba band window constraint (4.1.1)  that reduces the search space by restricting the algorithm to look for optimal paths  only through limited cells in the DTW cost matrix.
 
-For the TIGITS data set, as a prior step to the feature extraction process, I applied the  feature selection process that I have discussed  4.1.2 to reduce the dimensionality of the sequences by removing utterance segments that correspond to silence and downsampling the remaining signal by half. To compare the model's performance with the base line model and the models discussed so far, the transformed time series sequences were then fed to the DTW algorithm subjected to the same window constraints as before(4.1.1).
+Xie and Witgen[2] have already shown that  augmenting this feature extraction methodology to the DTW algorithm does allow the algorithm to achieve better accuracy on datasets from different domains. However, due to the availability of sufficient computing power, they didn't use any window constraints when performing their experiments. For problem scenarios where the speed of the DTW is considered a priority, it will be interesting to investigate whether this methodology can allow DTW to achieve better performance in terms of accuracy over  the base line method when subjected to the window constraint.
+
+To investigate the effect of introducing this prior feature selection step on the performance of the DTW algorithm that employs a rigid window constraint, I conducted the following 2 experiment:
+
+\textbf{Objective}
+Compare the affect of using global and local features to using raw values on the performance of the DTW subjected to a window constraint
+
+\begin{itemize}
+\item   Experiment 1
+
+\textbf{Datasets}: TIDIGITS data set(4.1.1)
+
+To compare the effect on the accuracy between using only raw values, removing silence segments and  using global and local features, as a  prior step to the feature extraction process, I applied the feature selection process that I have discussed 4.1.1 to reduce the dimensionality of the sequences  compared the algorithm performance against the baseline model and the model  that I had investigated in 4.1.1. 
+
+\textbf{RESULTS}
+
 
  A summary of the results are given below:
 
@@ -606,55 +631,49 @@ For the TIGITS data set, as a prior step to the feature extraction process, I ap
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.6]{localglobalaccuracy.jpg}
+     \includegraphics[scale=0.6]{425.jpg}
   \caption{}
   
 \end{figure}
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.5]{localglobaltime.jpg}
+     \includegraphics[scale=0.5]{426.jpg}
   \caption{}
   
 \end{figure}
 Observation:
-\begin{itemize}
-\item Equipping DTW with a preprocessing stage that involves feature selection and extraction of local and global features result in a greater improvement in the accuracy of the algorithm.
 
-Explanation:
-\begin{itemize}
-\item The algorithm now warps the time axis to  match the local and global trends  between points in the sequences instead of just their values. Since similar patterns will share the same trends, adding the feature extraction phase therefore improves the accuracy.
+ Surprisingly, by comparing these results with the previous experiments, it can now concluded that for the TIDIGITS dataset(2.1), removing redundant features i.e  removing regions of silence  is a greater contributing factor in improving the performance of a window constrained DTW than applying a feature extraction process that integrates meta data(4.2.1) or that captures information about local and global trends.   Using local and global features only leads to an average improvement of 0.8\%  over the model that performs only silence removal as a preprocessing step. 
+ 
+ One obvious observation is the poor performance shown by all  3 models in terms of accuracy. From the analysis conducted so far, the reason for this poor performance can be narrowed down to  the use of the rigid window constraint imposed to minimise the time complexity.The computational cost incurred by the algorithm is higher than the version used for  the model of 4.1.1 One possible explanation is that the cost of applying the euclidean metric on vectors $> $cost of applying the euclidean metric on points. Since the euclidean metric is applied $mn$ times. The overall computational cost increases.
+
+
+
+\item Experiment 2
+Datasets: UCR datasets: InlineSkate and Cinc_ECG_Torso
 \end{itemize}
-\item  The computational cost incurred by the algorithm is higher than the previous version that  uses  only the feature selection process.
-
-Explanation:
-\begin{itemize}
-\item The cost of applying the euclidean metric on vectors $> $cost of applying the euclidean metric on points. Since the euclidean metric is applied $mn$ times. The overall computational cost increases.
-\end{itemize}
-\end{itemize}
-The problem of working with a single data set is that if the model design is iterated many times using a limited size data set, then some over-fitting to the validation data can occur. To ensure that the models have not over-fitted to the test set, I ran the two versions of DTW :one that uses the preprocessing step of  feature extraction  while the other just uses the raw values for computing similarity, on the InlineSkate and Cinc\_Ecg\_Torso time series datasets[]. The results found are as follows:
-
-Note: Both versions of DTW are equipped with the window constraint  w = max($\lceil{0.1*max(n.m)}\rceil$, abs(n-m)) to reduce the time and computational cost to a minimum.
-
+The results are as follows:
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.6]{cinc_inlineLocalGlobalaccuracy.jpg}
-  \caption{}
+     \includegraphics[scale=0.6]{427.jpg}
+  \caption{Using features that reflect information of trends improves the accuracy of the algorithm}
   \end{figure}
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.8]{cinc_inlineLocalGlobaltime.jpg}
-  \caption{}
+     \includegraphics[scale=0.8]{428.jpg}
+  \caption{The computation time incurred }
   \end{figure}
-The differences between the two versions of DTW in terms of accuracy and time complexity are consistent  with the observations made in the previous experiment  with the TIDIGITS data set. This gives valid supports to the analysis of the tests that I  have conducted so far
-
+ 
+ \textbf{Observation} 
+  
+The differences between the two versions of DTW in terms of accuracy and time complexity are consistent  with the observations made in the previous experiment.
+  
 To summarise, from the observation of the  results gathered from the  experiments it can be concluded that employing preprocessing steps that include the domain knowledge greatly improves the accuracy and time complexity of the DTW algorithm when high dimensional spaces and in some domain such the TIGITS corpus eliminates the necessity of impose global window constraints to achieve minimum computational cost.
 
 
- \include{chap4}
- \chapter{Adaptive DTW}
  n the previous chapter, I have investigated techniques on different pre-processing strategies that can improve the performance of the general  DTW algorithm  in working with high dimensional time series datasets. These techniques that I am investigated so far primarily focus on the improving the quality of the data rather than the algorithm itself. The results found from the experiments so far, have shown that understanding the intrinsic properties of the data and factoring in the  domain information can not only improve the performance of the  DTW but may even discard the need for a  the  global windowing constraint(as we have seen for the model that augments feature selection and MFCC feature extraction) to reduce the time and computational complexity.  The DTW algorithm is a memory based algorithm that employs a similarity metric to compare a sequence with all sequences in the training in an iterative manner.  Since the whole training set is used during the testing phase, the computational complexity makes the algorithm very attractive to use. The computational cost of a DTW algorithm is $(mn)$ where $m$ and $n$ denote the length of the two time series sequences currently being compared. Using longer sequences increases the size of the DTW cost matrix hence resulting into a greater number of computations. The domain-dependent pre-processing methodology doesnt guarantee the dropping of the  global window constraint that is used to reduce the search space when tackling high dimensional data. As we have seen from the experiments,when working with high-dimensional time-series data, the accuracy of the DTW algorithm using a window constraint suffers greatly even if it's equipped with domain dependent/independent features. Hence from a scientific point of view, it is of great interest to research methods to improve the DTW algorithm so it can constraint the time and computational complexity associated with high-dimensional data without degrading the accuracy by too much. In this chapter, I investigate an unsupervised methodology that:
 
 
@@ -885,7 +904,7 @@ Observation:
 %% chapter files.
 %\appendix
 
-\include{appendix1}
+
 
 %% ... etc...
 
@@ -902,37 +921,33 @@ Observation:
 %references
 \begin{thebibliography}{100} 
 
-\bibitem {} Das, G., Lin, K., Mannila, H., Renganathan, G. & Smyth, P. 
-(1998). ``\emph{Rule discovery from time series}''. In proceedings of 
+\bibitem {Das}   Das, G., Lin, K., Mannila, H., Renganathan, G. \& Smyth, P. (1998). {\em Rule discovery from time series}. In proceedings of 
 the 4th Int'l Conference on Knowledge Discovery and Data 
 Mining. New York, NY, Aug 27-31. pp 16-22.
-\bibitem{} Ying Xie, Bryan Witgen ``\emph{Adaptive Feature Based Dynamic Time Warping}'',International Journal of Computer Science And Network Security, January 2010.
-\bibitem{} Alex S .Park James R.Glass \emph{Unsupervised Pattern Discovery in Speech},
-IEEE Transactions On Audio Speech  And Language Processing, VOL 16, January 2008.
-\bibitem{} Mathias De Wachter, Mike Matton, Kris Demuynck, Patrick Wambacq ``\emph{Template Based Continuous Speech Recognition}"  IEEE Transactions On Audio And Speech Processing ,2007.
-\bibitem{}  Yaodang Zhang and James R.Glass ``\emph{Towards Multi-Speaker Unsupervised Speech Pattern Discovery}" in Proc 2009.
-\bibitem{}  Yaodang Zhang and James R.Glass "\emph{ Unsupervised spoken keyword spotting via segmental DTW on Gaussian Posterior-grams}" in Proc 2009.
-\bibitem{} Mathias De Wachter, Mike Matton, Kris Demuynck, Patrick Wambacq "\emph{A Locally Weighted Distance Measure For Example Based Speech Recognition}" ICASSP 2004.
-\bibitem{}Michael A .Carlin, Samuel Thomas, Aren Jansen, Hyek Hermansky  ``\emph{Rapid Evaluation of Spoken Term Discovery} ",  INTERSPEECH 2011: 821-824.
-\bibitem{} Hui Zhang, Tu Bao ho, Yang Zhang, Mao-Song-Lin ``\emph{Unsupervised Feature Extraction for Time Series Clustering Using Orthogonal Wavelet Transform}"   Informatica 30(2006) 305-319.
-\bibitem{} S.Mallet ``\emph{ A Wavelet  Tour of Signal Processing}" Academic Press ,San Diego ,second edition,1999.
-\bibitem{} ] A. Brazma, I. Jonassen, I. Eidhammer, and D. Gilbert,  ``\emph{Approaches to
-the automatic discovery of patterns in biosequences} "  J. Comput. Biol.,vol. 5, no. 2, pp. 279Ð305, 1998.
-\bibitem{}F Korn, H. Jagadish  and C.Faloutos. ``\emph{Efficiently supporting ad hoc queries in large datasets of time sequences}". In Proceedings of the ATM of the ACM SIGMOID International Conference of  Management Of Dat, pages 289-300.
-\bibitem{}Chun-Lin, Liu ``\emph{ A Tutorial of the Wavelet Transform}" February 23, 2010.
-\bibitem{} Josif Grabocka, Erind Bedalli and Lars Schmidt-Thiem ``\emph{ Efficient  Classification of Long Time-Series}", Information Systems and Machine Learning Lab.ICT Innovations 2012, pages 47-57.
-\bibitem{}Jessica Lin Eamonn Keogh Stefano Lonardi Pranav Patel ``\emph{Finding Motifs in Time Series}", CiteSeer 2002.
-\bibitem {} Lee A.Barford, R. Shane Fazzio, DavidR. Smith Instruments and Photonics Laboratory ``\emph{An Introduction to Wavelets}"  September, 1992.
-\bibitem{} Fayyad, U., Reina, C. &. Bradley. P (1998). ``\emph{Initialisation of  iterative refinement clustering algorithms}''. In Proceedings of the 4th International Conference on Knowledge Discovery and Data Mining. New York, NY, Aug 27-31. pp 194-198
-\bibitem {} Sakoe, H. & chiba, S. (1978). ``\emph{ Dynamic programming algorithm optimization fro spoken word }" Trans. Acoustics, Speech, and Signal Proc., Vol. ASSP-26. pp. 
-43-49. 
-\bibitem{}Itakura, F. (1975). ``\emph{Minimum prediction residual principle applied to speech recognition}". IEE Speech, and Signal Proc., Vol. ASSP-23, pp. 52-72. 
+\bibitem{YIng}	 Ying Xie, Bryan Witgen {\em Adaptive Feature Based Dynamic Time Warping},International Journal of Computer Science And Network Security, January 2010.
+\bibitem{Alex}	 Alex S .Park James R.Glass {\em Unsupervised Pattern Discovery in Speech}, IEEE Transactions On Audio Speech  And Language Processing, VOL 16, January 2008.
+\bibitem{Mathias}	   Mathias De Wachter, Mike Matton, Kris Demuynck, Patrick Wambacq ``\emph{Template Based Continuous Speech Recognition}, IEEE Transactions On Audio And Speech Processing ,2007.
+\bibitem{Zhang}    Yaodang Zhang and James R.Glass {\em Towards Multi-Speaker Unsupervised Speech Pattern Discovery},  Proc 2009.
+\bibitem{ Zh2}   Yaodang Zhang and James R.Glass {\em Unsupervised spoken keyword spotting via segmental DTW on Gaussian Posterior-grams}, Proc 2009.
+\bibitem{Mathias2}	  Mathias De Wachter, Mike Matton, Kris Demuynck, Patrick Wambacq {\em A Locally Weighted Distance Measure For Example Based Speech Recognition}, ICASSP 2004.
+\bibitem{Michael}	 Michael A .Carlin, Samuel Thomas, Aren Jansen, Hyek Hermansky  {\em Rapid Evaluation of Spoken Term Discovery},INTERSPEECH 2011: 821-824.
+\bibitem{Zhang3} 	Hui Zhang, Tu Bao ho, Yang Zhang, Mao-Song-Lin {\em Unsupervised Feature Extraction for Time Series Clustering Using Orthogonal Wavelet Transform}, Informatica 30(2006) 305-319.
+\bibitem{Mallet} 	S.Mallet {\em A Wavelet  Tour of Signal Processing} Academic Press ,San Diego ,second edition,1999.
+\bibitem{Bazma}  A. Brazma, I. Jonassen, I. Eidhammer, and D. Gilbert,  {\em Approaches to the automatic discovery of patterns in biosequences} J. Comput. Biol.,vol. 5, no. 2, pp. 279Ð305, 1998.
+\bibitem{Korn}	F Korn, H. Jagadish  and C.Faloutos. {\em Efficiently supporting ad hoc queries in large datasets of time sequences}. In Proceedings of the ATM of the ACM SIGMOID International Conference of  Management Of Dat, pages 289-300.
+\bibitem{Liu}	   Chun-Lin, Liu  {\em A Tutorial of the Wavelet Transform}, February 23, 2010.
+\bibitem{Josif}  Josif Grabocka, Erind Bedalli and Lars Schmidt-Thiem {\em Efficient  Classification of Long Time-Series}, Information Systems and Machine Learning Lab.ICT Innovations 2012, pages 47-57.
+\bibitem{Jessica} 	Jessica Lin Eamonn Keogh Stefano Lonardi Pranav Patel {\em Finding Motifs in Time Series}, CiteSeer 2002.
+\bibitem {Lee} Lee A.Barford, R. Shane Fazzio, DavidR. Smith Instruments and Photonics Laboratory {\em An Introduction to Wavelets},  September, 1992.
+\bibitem{Fayad} 	Fayyad, U., Reina, C. \&. Bradley. P (1998). {\em Initialisation of  iterative refinement clustering algorithms}, In Proceedings of the 4th International Conference on Knowledge Discovery and Data Mining. New York, NY, Aug 27-31. pp 194-198
+\bibitem {Sakoe}	 Sakoe, H. \& chiba, S. (1978). {\em Dynamic programming algorithm optimization fro spoken word },Trans. Acoustics, Speech, and Signal Proc., Vol. ASSP-26. pp. 43-49. 
+\bibitem{Itakura}	Itakura, F. (1975). {\em Minimum prediction residual principle applied to speech recognition},IEE Speech, and Signal Proc., Vol. ASSP-23, pp. 52-72. 
  
-\bibitem{} Fu, A.W., Keogh, E., Lau, L.Y.H., & Ratanamahatana, C.A. (2005). ``\emph{Scaling and Time Warping in Time Series Querying}". VLDB Ô05, pp. 649-660. 
-\bibitem{} Xiaopeng  Xi, Eamonn Keogh, Christian Shelton, Li Wei  ``\emph{Fast Time Series Classification Using Numerosity Reduction}" ICML '06 Proceedings of the 23rd international conference on Machine learning Pages 1033-1040 
-\bibitem{}  D. Kim and B. Yum, ``\emph{Collaborative Filtering Based on Iterative Principal Component Analysis}Ó, Expert Systems with Applications 28 (2005), 823Ð830.
-\bibitem{} Chotirat Ann Ratanamahatana , Eamonn Keogh ``\emph{Three Myths about Dynamic Time Warping Data}",  Proceedings of SIAM International Conference on Data Mining (2005).
-\bibitem{} Rabiner, L., Rosenberg, A. & Levinson, S. (1978). ``\emph{Considerations in dynamic time warping algorithms for discrete  word recognition}". IEEE Trans. Acoustics Speech, and Signal Proc., Vol. ASSP-26, pp. 575-582.
+\bibitem{Keogh} 	  Fu, A.W., Keogh, E., Lau, LYH, \& Ratanamahatana, CA(2005). {\em Scaling and Time Warping in Time Series Querying}, VLDB 05, pp 649-660. 
+\bibitem{Xiapong}	 Xiaopeng  Xi, Eamonn Keogh, Christian Shelton, Li Wei  { \em Fast Time Series Classification Using Numerosity Reduction}, ICML '06 Proceedings of the 23rd international conference on Machine learning Pages 1033-1040 
+\bibitem{D.kim}  D. Kim and B. Yum, {\em Collaborative Filtering Based on Iterative Principal Component Analysis}, Expert Systems with Applications 28 (2005), 823Ð830.
+\bibitem{Chotirat} 	Chotirat Ann Ratanamahatana , Eamonn Keogh {\em Three Myths about Dynamic Time Warping Data}, Proceedings of SIAM International Conference on Data Mining (2005).
+\bibitem{Rabiner} 	Rabiner, L., Rosenberg, A. \& Levinson, S. (1978). {\em Considerations in dynamic time warping algorithms for discrete  word recognition}, IEEE Trans. Acoustics Speech, and Signal Proc., Vol. ASSP-26, pp. 575-582.
 \end{thebibliography}
 %% ... that's all, folks!
 \end{document}
