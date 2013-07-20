@@ -64,6 +64,7 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{enumitem}
+\renewcommand{\rmdefault}{pplx}
 %% Information about the title, etc.
 \title{Improving the discovery of Motifs in high-dimensional sequences of varying length}
 \author{M. Adnan Haider}
@@ -493,7 +494,8 @@ Observations:
 
 \begin{itemize}
 \item Performing down-sampling along with silence removal achieve a reduction in the log(time) by 1.5 on average. This is expected since in the first stage of the preprocessing phase, redundant features are dropped which reduces the dimensionality(i.e length ) of the sequences. The length of the sequences is reduced even further through downsampling the the output sequences of stage 1. the computational cost of DTW is directly dependent on the length of the sequences,  thus decrements in dimensionality leads to a decrease in the computational cost.
-\item The drawback of conducting downsampling is that it leads to a loss of  local information from the sequences. However, for this data set, the effect of losing local information is minimal as evident from the experimental results. The DTW's accuracy is reduced by only  1\% on average in comparison to the model that uses only silence removal as a pre-processing step. However, this model still achieves  an accuracy that is 3\% greater on average across the test data sets of all categories  in comparison to the baseline DTW.
+\item Although  the downsampling method seems to improve the quality of the signal from a listeners viewpoint, the accuracy of the DTW on the down-sampled sequences  is seen to be actually less than the DTW algorithm that employs silence removal as the only pre-processing step.  I found the cause of the anomaly to be `soundsc' function of matlab. The function scales the acoustic signal as loud as possible without clipping causing the resultant signal hard to understand.  The reason for the decrement in accuracy is quite obvious : removing attributes leads to a loss of information.  The DTW's accuracy is reduced by   1\% on average in comparison to the model that uses only silence removal as a pre-processing step. Even through loss
+achieves  an accuracy that is 3\% greater on average across the test data sets of all categories  in comparison to the baseline DTW.
 \end{itemize}  
 
 \end{figure}
@@ -582,11 +584,11 @@ Experimental setup:
 
 
  \include{chap4}
- \chapter{Adaptive DTW}
+ \chapter{Extending DTW}
  
-So far, we have investigated methodologies  that integrate meta data (i.e knowledge of the domain) in the pre-processing stage. The problem with such methodologies is that  the same algorithm cannot be extended across multiple domains since the feature extraction process is highly domain-dependent. The MFCC feature vectors, for example,  that we considered in the previous section can only be employed for data sets that comprise of speech utterances.  In the first half of this chapter, I investigate feature extraction methodologies that are entirely data driven so that we can  construct a methodology for improving DTW's  speed and accuracy that can be extended  across  multiple domains. In the second half of this chapter, I investigate methods to improve the algorithm itself so that it may better performance in  terms of time and accuracy across time series domains.
+So far, we have investigated methodologies  that integrate meta data (i.e knowledge of the domain) in the pre-processing stage. The problem with such methodologies is that  the same algorithm cannot be extended across multiple domains since the feature extraction process is highly domain-dependent. The MFCC feature vectors, for example,  that we considered in the previous section can only be employed for data sets that comprise of speech utterances.  In the first half of this chapter, I investigate feature extraction methodologies that are entirely data driven so that we can  construct a methodology for improving DTW's  speed and accuracy that can be extended  across  multiple domains. In the second half of this chapter, I investigate alternative measures to using window constraints that can improve the performance of the  algorithm  terms of \textbf{both} time and accuracy across all  time series domains.
 
- \subsection{ Domain-independent feature extraction}
+ \section{ Domain-independent feature extraction}
 
 Ideally, we require features that reflect information about the structure of the data. This allows the DTW to built a complete picture of the data point in relation to the rest of the sequence and hence achieve  better optimal alignments between similar sequences.The fundamental problem of baseline (value-based) DTW  is that the numerical value of a data point in a time series sequence is not a complete picture of the data point  in relation to the rest of the sequence. The context such as the position of the points in relation to their neighbours is ignored. To fix  this issue, an alternative  form of DTW known as \emph{derivative} DTW is proposed but  it  too fails to achieve better performance across all domains as it ignores to take into account the common sub-patterns between two sequences(mainly global trends). 
 
@@ -651,7 +653,7 @@ Observation:
 
 
 \item Experiment 2
-Datasets: UCR datasets: InlineSkate and Cinc_ECG_Torso
+Datasets: UCR datasets: InlineSkate and Cinc\_ECG\_Torso
 \end{itemize}
 The results are as follows:
 \begin{figure}[H]
@@ -668,39 +670,37 @@ The results are as follows:
   \end{figure}
  
  \textbf{Observation} 
+  \begin{itemize}
+\item The differences between performances of  the two versions of DTW are consistent  with the observations made in the previous experiment. For the Cinc\_ECG\_Torso  time series data set, using global and local features improves the accuracy by 3.2\%  whereas  for the InlineSkate data set, the accuracy improves by 1.92\%.
+Thus it is safe to conclude  that replacing each point in the time series sequence with a vector that reflect the relation of the point with the respect to the trends increase the number of the optimal warping paths that lie with in the regions bounded by the Sakoe-Chuba band constraint.The time complexity incurred by the algorithm under the new model is worse in comparison to the baseline model. Thus although  we achieve an improvement in accuracy, we are loosing  performance in speed. The accuracy of both the baseline and the current model is very low. This shows that a majority of the optimal warping between  sequences belonging to the same class lie outside the Sakoe-Chuba band.
+  \end{itemize}
+
+From the results of the experiments that has been conducted so far, it can be observed that the prominent factor responsible for the low accuracy of the DTW is the window constraint that keeps points(or vectors) of one sequence from getting too far from the other. Increasing the width of the Sakoe-Chuba band  will  although increase  the accuracy of the DTW (as seen in 4.2) but will definitely cause an reduction in speed. One of the primary goals of this project is to improve the performance of the DTW in handling sequences of high dimensionality(i.e log lengths). Thus \textbf{minimising} time complexity is as important as improving the accuracy. This provides the motivation to investigate alternative methods that can a better balance between the two conflicting goals of accuracy and speed. 
+
+In the next section, I investigate a self-proposed method that is aimed  to help DTW tackle the two conflicting objectives  more effectively than using rigid window constraints. The new proposed methodology uses the data-driven feature extraction process that is discussed in the current section. The aim here to use the advantages presented by this domain independent feature extraction process [2] without being subject to the model's drawbacks.
+% proposed methodology the DTW algorithm works on series of frames rather than series of vectors and employs a new kernel function(self-proposed) that is designed to measure the similarity of sub-sequences more accurately than standard euclidean metric by being \textbf{invariant} toward time-dilation and scale. (Details innext section).  
+
   
-The differences between the two versions of DTW in terms of accuracy and time complexity are consistent  with the observations made in the previous experiment.
-  
-To summarise, from the observation of the  results gathered from the  experiments it can be concluded that employing preprocessing steps that include the domain knowledge greatly improves the accuracy and time complexity of the DTW algorithm when high dimensional spaces and in some domain such the TIGITS corpus eliminates the necessity of impose global window constraints to achieve minimum computational cost.
+%To summarise, from the observation of the  results gathered from the  experiments it can be concluded that employing preprocessing steps that include the domain knowledge greatly improves the accuracy and time complexity of the DTW algorithm when high dimensional spaces and in some domain such the TIGITS corpus eliminates the necessity of impose global window constraints to achieve minimum computational cost.
 
 
- n the previous chapter, I have investigated techniques on different pre-processing strategies that can improve the performance of the general  DTW algorithm  in working with high dimensional time series datasets. These techniques that I am investigated so far primarily focus on the improving the quality of the data rather than the algorithm itself. The results found from the experiments so far, have shown that understanding the intrinsic properties of the data and factoring in the  domain information can not only improve the performance of the  DTW but may even discard the need for a  the  global windowing constraint(as we have seen for the model that augments feature selection and MFCC feature extraction) to reduce the time and computational complexity.  The DTW algorithm is a memory based algorithm that employs a similarity metric to compare a sequence with all sequences in the training in an iterative manner.  Since the whole training set is used during the testing phase, the computational complexity makes the algorithm very attractive to use. The computational cost of a DTW algorithm is $(mn)$ where $m$ and $n$ denote the length of the two time series sequences currently being compared. Using longer sequences increases the size of the DTW cost matrix hence resulting into a greater number of computations. The domain-dependent pre-processing methodology doesnt guarantee the dropping of the  global window constraint that is used to reduce the search space when tackling high dimensional data. As we have seen from the experiments,when working with high-dimensional time-series data, the accuracy of the DTW algorithm using a window constraint suffers greatly even if it's equipped with domain dependent/independent features. Hence from a scientific point of view, it is of great interest to research methods to improve the DTW algorithm so it can constraint the time and computational complexity associated with high-dimensional data without degrading the accuracy by too much. In this chapter, I investigate an unsupervised methodology that:
+ %n the previous chapter, I have investigated techniques on different pre-processing strategies that can improve the performance of the general  DTW algorithm  in working with high dimensional time series datasets. These techniques that I am investigated so far primarily focus on the improving the quality of the data rather than the algorithm itself. The results found from the experiments so far, have shown that understanding the intrinsic properties of the data and factoring in the  domain information can not only improve the performance of the  DTW but may even discard the need for a  the  global windowing constraint(as we have seen for the model that augments feature selection and MFCC feature extraction) to reduce the time and computational complexity.  The DTW algorithm is a memory based algorithm that employs a similarity metric to compare a sequence with all sequences in the training in an iterative manner.  Since the whole training set is used during the testing phase, the computational complexity makes the algorithm very attractive to use. The computational cost of a DTW algorithm is $(mn)$ where $m$ and $n$ denote the length of the two time series sequences currently being compared. Using longer sequences increases the size of the DTW cost matrix hence resulting into a greater number of computations. The domain-dependent pre-processing methodology doesnt guarantee the dropping of the  global window constraint that is used to reduce the search space when tackling high dimensional data. As we have seen from the experiments,when working with high-dimensional time-series data, the accuracy of the DTW algorithm using a window constraint suffers greatly even if it's equipped with domain dependent/independent features. Hence from a scientific point of view, it is of great interest to research methods to improve the DTW algorithm so it can constraint the time and computational complexity associated with high-dimensional data without degrading the accuracy by too much. In this chapter, I investigate an unsupervised methodology that:
 
 
  %Time series sequences are embedded with local and global trends. Unsupervised methods using DTW  focus on  exploiting the information of either these trends for pattern extraction and mining. From the  work conducted by Xie and Wiltgen on  the time series datasets[], it  has been shown that using DTW equipped with features that incorporate  information of \textbf{both}  local trends and global shapes in the clustering /classification process greatly improve the performance of DTW . Unlike the MFCC, the features constructed from local and global trends are domain independent and thus can be applied to any time of data.  However, when working high-dimensional time-series data, the accuracy of the DTW algorithm using a window constraint suffers greatly even if it's equipped with domain dependent/independent features. Hence from a scientific point of view, it is of great interest to research methods to improve the DTW algorithm so it can constraint the time and computational complexity associated with high-dimensional data without degrading the accuracy by too much. In this chapter, I investigate an unsupervised methodology that:
 
-\begin{itemize}
-\item incorporates  information about local and global trends  in the feature extraction process
-\item employs an adaptive DTW that tackles the issue of the large time and computational complexity by moving from working on  time series sequences to  sequences of segmented time-slices. To counter the tradeoff in the decrease  in accuracy, the algorithm is equipped with a kernel function(self-proposed) that is designed to measure the similarity of sub-sequences more accurately than standard euclidean metric by being invariant toward time-dilation and scale.   
-\end{itemize}
+%\begin{itemize}
+%\item incorporates  information about local and global trends  in the feature extraction process
+%\item employs an adaptive DTW that tackles the issue of the large time and computational complexity by moving from working on  time series sequences to  sequences of segmented time-slices. To counter the tradeoff in the decrease  in accuracy, the algorithm is equipped with a kernel function(self-proposed) that is designed to measure the similarity of sub-sequences more accurately than standard euclidean metric by being invariant toward time-dilation and scale.   
+%\end{itemize}
+\section{Adapting  DTW}
+The feature extraction methodology discussed above maps the time series sequence to a time series sequence of vectors whose length  is $\|X_n\|-2. $   ( where $\|X_n\| $ denotes the  length of the original time series sequence).  The DTW augmented with these features will still suffer from large time and computational complexity if the dimensionality of the data is high. In the MFCC feature extraction process, the time series sequence is first segmented into series of frames  of length 20ms i.e 200 points. Through appropriate functional mapping, each  frame is then mapped to a vector. Because the length of the resultant sequence of vectors is much smaller than the length of the original time series, the size of the  DTW cost matrix. This reduces the search space and thus decrease the time complexity of the DTW algorithm.
 
-\section {{Feature extraction}}
-
-
-For feature extraction, the methodology that I have used  for this setup is based on Xie and Wiltgen's paper[] that I have already discussed in the previous section.  Each point in the time series sequence is replaced by a 4 dimensional vector  where the first two features correspond to information regarding the local trends around a point and the last two features reflect the position of that point in the global shape of the sequence.
-Definition of local feature as  given in [3.2.1] :
-\[ f_{\mbox{local}}(r_i)= (r_i-r_{i-1}, r_i-r_{i+1})\]
-
-Definition of global feature:
-\[ f_{\mbox{global}}(r_i)= (r_i -\sum_{k=1}^{i-1}\frac{r_k}{i-1} , r_i-\sum_{k=i+1}^M \frac{r_k}{M-i})\]
-\section{Adaption of DTW}
-The feature extraction methodology discussed above maps the time series sequence to a time series sequence of vectors whose length  is $\|X_n\|-2. $   ( where $\|X_n\| $ denotes the  length of the original time series sequence).  The DTW augmented with these features will still suffer from large time and computational complexity if the dimensionality of the data is high. In the MFCC feature extraction process, the time series sequence is first segmented into series of frames  of length 20ms. Through appropriate functional mapping, each  frame is then mapped to a vector. Because the length of the resultant sequence of vectors is much smaller than the length of the original time series, the size of the  DTW cost matrix is reduced resulting in lower  time and computational cost associated with each comparison.
-
-Similar to the MFCC extraction process, the time series of 4d vectors extracted in the feature extraction stage are segmented using windows  of width 5ms. The original time series is reduced to series of matrices  where the length of the new  series is 5 times smaller than before. Now if we adapt the cost function of DTW to work on series of matrices rather than series of vectors we can achieve a large improvement in the time and computational cost  associated in the testing phase without imposing a \textbf{window} constraint. 
+Using the MFCC feature extraction method as motivation, in the proposed model the sequence of 4d vectors extracted using the feature extraction process discussed in 5.1 are segmented using windows  of  size  50  which in the case of the speech data corresponds to width of 5 ms . The original time series is reduced to series of matrices where  the columns of the matrices consist of 4-d feature vectors corresponding to a particular time slice. The length of the series is now 50 times smaller than before. Now if we adapt the cost function of DTW to work on series of frames  rather than series of vectors as before we can achieve a large improvement in both accuracy and  computational cost  associated than imposing a \textbf{window} constraint. 
 
 The problem now can be shifted to finding  an appropriate kernel that can be used to compute the similarity between matrices composed of feature vectors. Ideally, we want a metric that takes into account the variation of speed and time when comparing two similar subsequences. We will want to compare the global and local properties associated with a point in one subsequence with the global and local properties of points at  different regions in the second sub-sequence illustrated by figure 2.  Using a euclidean metric in this scenario is inappropriate. The euclidean metric  in this context is identical to  linear time warping where the  two subsequences will be matched based on a linear match of the two temporal dimensions.  In our context, we need a kernel that computes the similarity between two sub-sequences by warping the time axis.
 
-The motivation behind the kernel  that I propose for aiding  DTW to tackle  high-dimensional data comes from the polynomial kernel. \\
+The motivation behind the kernel  that I propose for aiding  DTW to tackle  high-dimensional sequences(i.e sequences with long lengths) comes from the polynomial kernel. \\
 Let $x$ and $z$ be two dimensional vectors.
 Consider the simple polynomial kernel of degree 2  :$k(x,z) = (x^{T}z)^2$ .  This kernel can expressed as :
 \begin{eqnarray*}
@@ -710,7 +710,7 @@ k(x,z) &= &(x^{T}x')^2\\
 &=& (x_1^2, Ã2x_1x_2, x_2^2)(z_1^2, Ã2z_1z_2, z_2^2)^{T}\\
 &=& \phi(x)^{T}\phi(z)\\
 \end{eqnarray*}\\
-The 2nd order polynomial kernel is equivalent to a corresponding feature mapping $\phi$  that contains terms of order 2. Now, if we generalise this notion then $k(x,z) = (x^{T}z)^M$ contains all monomials of order M. If we imagine x and z to be two images, then the polynomial kernel represents a particular weighted sum of all possible products of M pixels in the first image with M pixels in the second image.\\
+The 2nd order polynomial kernel is equivalent to a corresponding feature mapping $\phi(x)$  that  maps a two dimensional vector to $x_1^2, Ã2x_1x_2, x_2^2)$ where each attribute is monomial of order 2 .  Generalising this notion to order M then $k(x,z) = (x^{T}z)^M$ contains all monomials of order M.  Now, if we imagine x and z to be two images, then the polynomial kernel represents a particular weighted sum of all possible products of M pixels in the first image with M pixels in the second image.\\
 Using this as motivation I propose the following kernel:.
 \[ k(x,z) = <\sum_{i=1}^{n}x_i, \sum_{j=1}^{n}z_j>\]
 where $n$ denotes the length of the window and $x_i$  and $z_j$ represents the 4-dimensional features indexed by the points in two sub-sequences.\\
@@ -720,8 +720,8 @@ To motivate the reasoning behind the construction of this particular kernel lets
    \includegraphics[scale=0.4]{Example1.jpg}
   \caption{Two signals separated by translation}
  \end{figure}
-The signal denoted by the `red' color is a `slower' version of the signal denoted by the `blue' color . In the above example, if we are comparing the similarity  between the  time slices spanned by the arrows, an ideal kernel must be invariant to  the time offsets of the signals and thus should consider all possible pairings between the vectors in the subsequences. Intuitively speaking, the kernel must behave like a DTW algorithm..\\
-\begin{figure}[h!]
+The signal denoted by the `red' color is a `slower' version of the signal denoted by the `blue' color . In the above example, if we are comparing the similarity  between the  time slices spanned by the arrows, an ideal kernel must be invariant to  the time offsets of the signals and thus should consider all possible pairings between the vectors in the subsequences. Intuitively speaking, the kernel must behave like a DTW algorithm.\\
+\begin{figure}[H]
   \centering
    \includegraphics[scale=0.6]{Cross-section.jpg}
   \caption{Two identical subsequences varying in time }
@@ -741,16 +741,16 @@ It is easy to check that this proposed kernel is in fact a valid kernel:
 where  the feature mapping corresponds to  a finite summation of vectors $\phi(y) = \sum_{i=1}^{n}y_i$. 
 \end{itemize}
 
-Augmenting the kernel to the DTW algorithm allows DTW to work on high-dimensional time sequences with using a window constraint. However the accuracy and computational cost of the DTW is now dependent on the size of the time slices used to segment the original sequences:
-\begin{itemize} \itemsep-2pt
-\item The accuracy of DTW increases as the width of the windows decrease. Using subsequence allows the similarity measure to be dominated by the dot products of points whose local and global features are most alike. However using smaller windows achieve lesser dimensionality reduction. Thus the time and computational complexity suffers.
-\end{itemize}
+Augmenting the kernel to the DTW algorithm allows DTW to work on high-dimensional time sequences without using a window constraint. However the accuracy and computational cost of the DTW is now dependent on the size of the time slices used to segment the original sequences in the first place.
+%\begin{itemize} \itemsep-2pt
+%\item The accuracy of DTW increases as the width of the windows decrease. Using subsequence allows the similarity measure to be dominated by the dot products of points whose local and global features are most alike. However using smaller windows achieve lesser dimensionality reduction. Thus the time and computational complexity suffers.
+%\end{itemize}
 To use this kernel as an  appropriate cost function in the DTW algorithm, we need a functional mapping that:
 \begin{enumerate} \itemsep-2pt
 \item  constraints the codomain to be in the range from 0 to $\infty$.
 \item    ensures larger values given by the function signify great degree of dissimilarity and smaller values  signify a high degree of similitude.
 \end{enumerate}
-An ideal cost function that make use of dot product sis the \emph{arc-cosine}. Hence I embedded the kernel function in the cosine distance: 
+An ideal cost function that make use of dot products is the \emph{arc-cosine}. Hence I embedded the kernel function in the cosine distance: 
 \[ \theta = \frac{ <X,Z>}{|X||Z|} \]
 where $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$
 
@@ -784,40 +784,13 @@ A formal outline of the algorithm is as follows:
 \end{algorithm}
  
 
-\newpage
 
-\section{Experimental results}
-The changes that I have introduced,  in the previous section  to the `Dynamic Time Warping' algorithm is aimed to improve the algorithm's performance in handling high dimensional time series data. In this section, I investigate the investigate the performance of my proposed algorithm by running it  on the test data set that I have constructed from TIDIGITS test corpus and the time complexities and accuracies  against the methodologies that I have investigated so far:
- 
-\begin{itemize}
-\item Approach 1
-\begin{itemize}
-\item Apply feature selection process to remove segments of silence and down sample the remaining segment to improve the quality.
-\item  Apply value-based DTW(which we denote as baseline) using the most constrained window size  and a euclidean metric.
-\end{itemize}
+\subsection{Testing the methodology}
+The changes that I have introduced  in the previous section  to the `Dynamic Time Warping' algorithm is aimed to improve the algorithm's performance in handling long time series sequences. In this section, I investigate  the performance of this proposed  methodology against  the versions of the DTW algorithm that employ the Sakoe-Chuba band constraint (discussed in 4.1.1). The window constraint that I have used so far is the most rigid constraint that can be imposed on the DTW algorithm without forcing the algorithm to behave like the euclidean metric. In order to compare  the performance of using my proposed method  with that of using  the window constraint, I have conducted the following 3 experiments:
+\textbf{Experiment 1}
 
-\item Approach 2
-\begin{itemize}
- \item Apply no feature selection process
- \item Perform feature extraction by extracting MFCC features
- \item Apply DTW using the most constrained window size and a euclidean metric.
- \end{itemize}
- 
- \item  Approach 3
- \begin{itemize}
- \item Apply feature selection process that only removes  segments of  silence 
- \item Extract MFCC features
- \item Apply DTW augmented with the euclidean metric.
- \end{itemize}
-
- 
-\item Approach 4
-\begin{itemize}
-\item Apply feature selection process to remove segment of utterance and down sample the remaining segment to improve the quality.
-\item Apply  the feature extraction process discussed in [3.2.1] to extract local and global features.
- \item Apply DTW using the most constrained window size  and a euclidean metric.
- \end{itemize}
-
+In the first experiment I , I  take the model discussed in 5.1  for the TIDIGITS data set which consists of applying two stage feature selection process which involves  silence removal and downsampling followed by the feature extraction phase of [2] and investigate the differences in the performance  between the DTW algorithm is equipped with the changes I propose and  the DTW algorithm using a window constraint.
+The results found from the experiments are as follows:
 
  
  
