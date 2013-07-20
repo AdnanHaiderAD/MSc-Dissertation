@@ -622,7 +622,7 @@ Compare the affect of using global and local features to using raw values on the
 
 \textbf{Datasets}: TIDIGITS data set(4.1.1)
 
-To compare the effect on the accuracy between using only raw values, removing silence segments and  using global and local features, as a  prior step to the feature extraction process, I applied the feature selection process that I have discussed 4.1.1 to reduce the dimensionality of the sequences  compared the algorithm performance against the baseline model and the model  that I had investigated in 4.1.1. 
+ When conducting experiments using MFCC feature vectors, it was observed that removing silence segments  is a more prominent contributing factor in improving a window constrained DTW's performance that  employing the MFCC feature extraction process that integrates meta data i.e knowledge of domain  into the algorithm.  to ensure that this finding is conclusive for this dataset,  apart from inspecting whether using the new  domain-independent features are better than using raw values, I also measure  their relative importance in improving the performance of the DTW  against the `silence' removal phase. 
 
 \textbf{RESULTS}
 
@@ -786,11 +786,19 @@ A formal outline of the algorithm is as follows:
 
 
 \subsection{Testing the methodology}
-The changes that I have introduced  in the previous section  to the `Dynamic Time Warping' algorithm is aimed to improve the algorithm's performance in handling long time series sequences. In this section, I investigate  the performance of this proposed  methodology against  the versions of the DTW algorithm that employ the Sakoe-Chuba band constraint (discussed in 4.1.1). The window constraint that I have used so far is the most rigid constraint that can be imposed on the DTW algorithm without forcing the algorithm to behave like the euclidean metric. In order to compare  the performance of using my proposed method  with that of using  the window constraint, I have conducted the following 3 experiments:
+The changes that I have introduced  in the previous section  to the `Dynamic Time Warping' algorithm is aimed to improve the algorithm's performance in handling long time series sequences. In this section, I investigate  the performance of my proposed  methodology against  the versions of the DTW algorithm that employ the Sakoe-Chuba band constraint (discussed in 4.1.1). To reduce the time complexity to a minimum, the window constraint that I have used so far is the most rigid constraint that can be imposed on the DTW algorithm without forcing the algorithm to behave like the euclidean metric. In order to measure the difference in performance between using my proposed method  and  employing  the window constraint, I have conducted the following  experiments:
+
+
 \textbf{Experiment 1}
 
-In the first experiment I , I  take the model discussed in 5.1  for the TIDIGITS data set which consists of applying two stage feature selection process which involves  silence removal and downsampling followed by the feature extraction phase of [2] and investigate the differences in the performance  between the DTW algorithm is equipped with the changes I propose and  the DTW algorithm using a window constraint.
-The results found from the experiments are as follows:
+\textbf{Data set used} = The TIDIGITS test and training data.
+
+\textbf{Model Used} : The model discussed in 5.2. The model framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed the domain  independent feature extraction discussed in the previous section.
+
+\textbf{Variables being compared}: employing window constraints vs the  new proposed changes
+
+RESULTS: the results are as follows:
+ 
 
  
  
@@ -800,7 +808,7 @@ The results found from the experiments are as follows:
 \begin{figure}[h!]
   \centering
    
-     \includegraphics[scale=0.8]{AdaptedDTW-accuracy.jpg}
+     \includegraphics[scale=0.8]{521.jpg}
   \caption{Accuracy}
   
 \end{figure}
@@ -809,14 +817,20 @@ The results found from the experiments are as follows:
   \centering
    
    
-     \includegraphics[scale=0.8]{AdaptedDTW-time.jpg}
-  \caption{Time complexity}
+     \includegraphics[scale=0.8]{522.jpg}
+  \caption{Time complexity in log(time)}
   \end{figure}
 
-There are quite number of interesting observations that can made from the graphs and the tables given by figures [4.3,4.4]. 
+There are quite number of interesting observations that can made from the graphs and the tables given by figures 5.7 and 5.8. 
 
 \begin{itemize}
-\item The proposed algorithm achieves better accuracy for test samples belonging to all categories than any of algorithms that employ the rigid  window constraint of  $w = max(\lceil{0.1*max(n.m)}\rceil, abs(n-m))$. The most interesting result is that the new algorithm incurs a lower computational cost than any of these DTW algorithms. 
+\item The proposed changes  to DTW allow the algorithm to achieve better accuracy on test samples across all categories than employing the  rigid Sakoe-Chuba band constraint  of  $w = max(\lceil{0.1*max(n.m)}\rceil, abs(n-m))$.  The most interesting result is that the new algorithm incurs a lower computational cost than before.Thus introducing these changes have improved both the accuracy and time complexity of the algorithm.  From the results noted in the tables, it can been seen that the accuracy of DTW  has increased by 6.54\% on average and the average log(time) has decreased by 3.1. The reduction of the time complexity is mainly due to the partitioning of the sequence into  time slices of width  5 ms. The reduction in  the length of the sequences by an order of 50 results in the shrinkage of the search space of DTW thus causing the algorithm to improves its speed. As we have seen so far, increasing the speed of DTW negatively impact the accuracy, in this scenario, the new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance between points/vectors confined by the window constraint.
+
+To check whether the new changes do in fact provide a better alternative to using rigid window constraint for  very long sequences, I repeat the same experiment again but this time, I replace the feature extraction method of 5.2 with the MFCC feature extraction. The objective here is to check whether these new changes do result in faster and improved version of DTW than the current version of DTW algorithm.
+
+
+
+The proposed algorithm achieves better accuracy for test samples belonging to all categories of the TIDIGITS corpus  than any of algorithms that employ the rigid  window constraint of  $w = max(\lceil{0.1*max(n.m)}\rceil, abs(n-m))$. The most interesting result is that the new algorithm incurs a lower computational cost than any of these DTW algorithms. 
 \item From examining the improvements in accuracy across all categories, it can be concluded that for the TIGITS dataset,  the new algorithm is invariant to variations introduced  in the acoustic signals  by different speakers . 
 \item The  methodology behind my proposed approach and that of  approach 4  includes the same pre-processing stage. Th input to the DTW algorithm is constructed by using  the domain dependent feature selection process mentioned in section followed by a domain independent feature extraction mapping (i.e the local and global features defined in section).  Both approaches  differ however, in their use of a cost function and a window constraint. The proposed approach doesn't subject DTW  to any window constraints and utilised the kernel function that I constructed in the cost metric. Approach 4 on the other hand, employs the euclidean metric an subjects DTW to the window constraint of  of w = max($\lceil{0.1*max(n.m)}\rceil$, abs(n-m))
 The proposed DTW segments sequences into frames and employ a cost function on  the frames. This reduces the dimensionality of the time series sequences and allows the algorithm to achieve a  time and computational cost than is lower than  the cost incurred by any of the investigated adaptations of the DTW algorithm that  employs window constraints. 

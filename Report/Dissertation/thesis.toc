@@ -12,4 +12,4 @@
 \contentsline {section}{\numberline {5.2}Adapting DTW}{34}
 \contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{39}
 \contentsline {subsection}{\numberline {5.2.2}Experimental setup}{42}
-\contentsline {chapter}{Bibliography}{45}
+\contentsline {chapter}{Bibliography}{46}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  20 JUL 2013 20:11
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  20 JUL 2013 23:57
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -699,20 +699,20 @@ File: 428.jpg Graphic file (type jpg)
  <use 428.jpg>
 Package pdftex.def Info: 428.jpg used on input line 668.
 (pdftex.def)             Requested size: 288.69495pt x 175.76086pt.
- [32 <./427.jpg> <./428.jpg>] [33] [34]
+ [32 <./427.jpg>] [33 <./428.jpg>] [34]
 Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
- <Example1.jpg, id=156, 549.05125pt x 566.115pt>
+ [35]
+<Example1.jpg, id=159, 549.05125pt x 566.115pt>
 File: Example1.jpg Graphic file (type jpg)
-
-<use Example1.jpg>
+ <use Example1.jpg>
 Package pdftex.def Info: Example1.jpg used on input line 720.
 (pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
- [35] <Cross-section.jpg, id=160, 562.1pt x 420.57124pt>
-File: Cross-section.jpg Graphic file (type jpg)
 
-<use Cross-section.jpg>
+<Cross-section.jpg, id=160, 562.1pt x 420.57124pt>
+File: Cross-section.jpg Graphic file (type jpg)
+ <use Cross-section.jpg>
 Package pdftex.def Info: Cross-section.jpg used on input line 726.
 (pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
 
@@ -726,87 +726,88 @@ Overfull \hbox (53.28601pt too wide) in alignment at lines 730--734
  []
 
 [37 <./Cross-section.jpg>] [38]
-./thesis.tex:797: Undefined control sequence.
+./thesis.tex:805: Undefined control sequence.
 \enit@enditemize ->\enit@after 
                                \endlist \enit@toks \expandafter {\enit@savek...
-l.797  \end{itemize}
+l.805  \end{itemize}
                     
 ? 
-./thesis.tex:797: Undefined control sequence.
+./thesis.tex:805: Undefined control sequence.
 \enit@enditemize ... \expandafter {\enit@savekeys 
                                                   }\xdef \enit@afterlist {\d...
-l.797  \end{itemize}
+l.805  \end{itemize}
                     
 ? 
 
-./thesis.tex:797: LaTeX Error: \begin{document} ended by \end{itemize}.
+./thesis.tex:805: LaTeX Error: \begin{document} ended by \end{itemize}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.797  \end{itemize}
+l.805  \end{itemize}
                     
 ? 
-./thesis.tex:797: Extra \endgroup.
+./thesis.tex:805: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.797  \end{itemize}
+l.805  \end{itemize}
                     
 ? 
-<AdaptedDTW-accuracy.jpg, id=171, 487.5816pt x 431.211pt>
-File: AdaptedDTW-accuracy.jpg Graphic file (type jpg)
-
-<use AdaptedDTW-accuracy.jpg>
-Package pdftex.def Info: AdaptedDTW-accuracy.jpg used on input line 803.
-(pdftex.def)             Requested size: 390.06581pt x 344.96927pt.
+<521.jpg, id=171, 418.2024pt x 300.6432pt>
+File: 521.jpg Graphic file (type jpg)
+ <use 521.jpg>
+Package pdftex.def Info: 521.jpg used on input line 811.
+(pdftex.def)             Requested size: 334.56236pt x 240.51488pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<AdaptedDTW-time.jpg, id=172, 419.166pt x 362.3136pt>
-File: AdaptedDTW-time.jpg Graphic file (type jpg)
+<522.jpg, id=172, 416.757pt x 267.8808pt>
+File: 522.jpg Graphic file (type jpg)
+ <use 522.jpg>
+Package pdftex.def Info: 522.jpg used on input line 820.
+(pdftex.def)             Requested size: 333.40605pt x 214.30492pt.
+ [39] [40 <./521.jpg> <./522.jpg>]
+Overfull \hbox (17.01408pt too wide) in paragraph at lines 833--834
+\OT1/pplx/m/n/12 that em-ploy the rigid win-dow con-straint of $\OML/ptmcm/m/it
+/12 w \OT1/ptmcm/m/n/12 = \OML/ptmcm/m/it/12 max\OT1/ptmcm/m/n/12 (\OMS/pplx/m/
+n/12 d[]e\OML/ptmcm/m/it/12 ; abs\OT1/ptmcm/m/n/12 (\OML/ptmcm/m/it/12 n \OMS/p
+plx/m/n/12 ^^@
+ []
 
-<use AdaptedDTW-time.jpg>
-Package pdftex.def Info: AdaptedDTW-time.jpg used on input line 812.
-(pdftex.def)             Requested size: 335.33325pt x 289.85127pt.
- [39]
-Overfull \vbox (25.49019pt too high) has occurred while \output is active []
-
-
-[40 <./AdaptedDTW-accuracy.jpg> <./AdaptedDTW-time.jpg>] [41]
-<accuracy_cinc_inline.jpg, id=182, 428.802pt x 500.1084pt>
+[41] [42] <accuracy_cinc_inline.jpg, id=185, 428.802pt x 500.1084pt>
 File: accuracy_cinc_inline.jpg Graphic file (type jpg)
 
 <use accuracy_cinc_inline.jpg>
-Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 848.
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 862.
 (pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
- [42]
-Overfull \hbox (6.14879pt too wide) in paragraph at lines 854--855
+ [43]
+Overfull \hbox (6.14879pt too wide) in paragraph at lines 868--869
 \OT1/pplx/m/n/12 the win-dow con-strained DTW al-go-rithm em-ploy-ing domain-in
 dependent
  []
 
-<time_cinc_inline.jpg, id=186, 359.4228pt x 339.669pt>
+<time_cinc_inline.jpg, id=189, 359.4228pt x 339.669pt>
 File: time_cinc_inline.jpg Graphic file (type jpg)
 
 <use time_cinc_inline.jpg>
-Package pdftex.def Info: time_cinc_inline.jpg used on input line 862.
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 876.
 (pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
- [43 <./accuracy_cinc_inline.jpg>]
-Overfull \hbox (1.40965pt too wide) in paragraph at lines 868--869
+ [44 <./accuracy_cinc_inline.jpg>]
+Overfull \hbox (1.40965pt too wide) in paragraph at lines 882--883
 []\OT1/pplx/m/n/12 Comparatively, the time com-plex-ity of the new al-go-rithm 
 in-creases when
  []
 
 No file thesis.bbl.
-[44 <./time_cinc_inline.jpg>] [45
+[45 <./time_cinc_inline.jpg>] [46
 
 ]
 Missing character: There is no Ð in font pplr9t!
- [46]
+ [47]
 Missing character: There is no Ð in font pplr9t!
- [47] (./thesis.aux (./chapter1.aux)
+ [48] (./thesis.aux (./chapter1.aux)
 (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -814,7 +815,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
  5169 strings out of 493633
- 76672 string characters out of 3143377
+ 76532 string characters out of 3143377
  140524 words of memory out of 3000000
  8280 multiletter control sequences out of 15000+200000
  49065 words of font info for 100 fonts, out of 3000000 for 9000
@@ -833,10 +834,10 @@ palatino/uplr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatin
 o/uplri8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.p
 fb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/l
 ocal/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (52 pages, 2181305 bytes).
+Output written on thesis.pdf (53 pages, 1982123 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 157 compressed objects within 2 object streams
+ 252 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  116 words of extra memory for PDF output out of 10000 (max. 10000000)
 

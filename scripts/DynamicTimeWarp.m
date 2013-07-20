@@ -66,9 +66,9 @@ for samp=1:noOftestsamp
                 tic
             end
             %% applying DTW+(baseline or MFCC) +euclidean metric
-             distortion= log(DTW(seq,seq2,w)+1); 
+             %distortion= log(DTW(seq,seq2,w)+1); 
              %% applying DTW using local and global features and the proposed kernel. 
-              %distortion=DTW2(seq,seq2);
+              distortion=DTW2(seq',seq2');
               %% keeping a record of K nearest matches
             if distortion<max(min_dist)
                 min_dist(min_dist==max(min_dist))=distortion;
