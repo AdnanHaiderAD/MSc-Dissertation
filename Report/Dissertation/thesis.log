@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  20 JUL 2013 23:57
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  21 JUL 2013 02:09
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -298,7 +298,7 @@ Package: enumitem 2009/05/18 v2.2 Customized lists
 (./thesis.aux (./chapter1.aux) (./chap3.aux) (./chap2.aux) (./chap3.aux)
 (./chap4.aux)
 
-./thesis.aux:85: Package natbib Error: Bibliography not compatible with author-
+./thesis.aux:87: Package natbib Error: Bibliography not compatible with author-
 year citations.
 (natbib)                Press <return> to continue in numerical citation style.
 
@@ -307,7 +307,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.85 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.87 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 ? 
 )
@@ -636,13 +636,13 @@ Package pdftex.def Info: mfcc.jpg used on input line 518.
 File: 421.jpg Graphic file (type jpg)
  <use 421.jpg>
 Package pdftex.def Info: 421.jpg used on input line 550.
-(pdftex.def)             Requested size: 346.89647pt x 289.46584pt.
+(pdftex.def)             Requested size: 390.2544pt x 325.64561pt.
  [24]
 <422.jpg, id=119, 417.7206pt x 327.1422pt>
 File: 422.jpg Graphic file (type jpg)
  <use 422.jpg>
 Package pdftex.def Info: 422.jpg used on input line 557.
-(pdftex.def)             Requested size: 250.6343pt x 196.28682pt.
+(pdftex.def)             Requested size: 334.17693pt x 261.7141pt.
  [25 <./421.jpg> <./422.jpg>]
 Overfull \hbox (5.06966pt too wide) in paragraph at lines 569--570
 \OT1/pplx/m/n/12 a pre-pro-cess-ing step achieves greater im-prove-ment in ac-c
@@ -675,90 +675,63 @@ ase-line (value-based)
 File: 425.jpg Graphic file (type jpg)
  <use 425.jpg>
 Package pdftex.def Info: 425.jpg used on input line 636.
-(pdftex.def)             Requested size: 251.21246pt x 154.659pt.
+(pdftex.def)             Requested size: 334.94781pt x 206.21068pt.
 
 <426.jpg, id=140, 461.0826pt x 345.4506pt>
 File: 426.jpg Graphic file (type jpg)
  <use 426.jpg>
 Package pdftex.def Info: 426.jpg used on input line 643.
-(pdftex.def)             Requested size: 230.54073pt x 172.72487pt.
-
-Overfull \hbox (2.71773pt too wide) in paragraph at lines 649--650
+(pdftex.def)             Requested size: 276.65169pt x 207.27196pt.
+ [31 <./425.jpg> <./426.jpg>]
+Overfull \hbox (2.71773pt too wide) in paragraph at lines 651--652
 \OT1/pplx/m/n/12 than ap-ply-ing a fea-ture ex-trac-tion pro-cess that in-te-gr
 ates meta data(4.2.1)
  []
 
-[31 <./425.jpg> <./426.jpg>] <427.jpg, id=144, 363.759pt x 221.628pt>
+<427.jpg, id=144, 363.759pt x 221.628pt>
 File: 427.jpg Graphic file (type jpg)
-
-<use 427.jpg>
-Package pdftex.def Info: 427.jpg used on input line 662.
+ <use 427.jpg>
+Package pdftex.def Info: 427.jpg used on input line 664.
 (pdftex.def)             Requested size: 218.25708pt x 132.97781pt.
- <428.jpg, id=145, 360.8682pt x 219.7008pt>
+
+<428.jpg, id=145, 360.8682pt x 219.7008pt>
 File: 428.jpg Graphic file (type jpg)
  <use 428.jpg>
-Package pdftex.def Info: 428.jpg used on input line 668.
+Package pdftex.def Info: 428.jpg used on input line 670.
 (pdftex.def)             Requested size: 288.69495pt x 175.76086pt.
- [32 <./427.jpg>] [33 <./428.jpg>] [34]
+ [32 <./427.jpg>]
+[33 <./428.jpg>] [34]
 Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
- [35]
-<Example1.jpg, id=159, 549.05125pt x 566.115pt>
+ [35] <Example1.jpg, id=159, 549.05125pt x 566.115pt>
 File: Example1.jpg Graphic file (type jpg)
- <use Example1.jpg>
-Package pdftex.def Info: Example1.jpg used on input line 720.
-(pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
 
-<Cross-section.jpg, id=160, 562.1pt x 420.57124pt>
+<use Example1.jpg>
+Package pdftex.def Info: Example1.jpg used on input line 722.
+(pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
+ <Cross-section.jpg, id=160, 562.1pt x 420.57124pt>
 File: Cross-section.jpg Graphic file (type jpg)
- <use Cross-section.jpg>
-Package pdftex.def Info: Cross-section.jpg used on input line 726.
+
+<use Cross-section.jpg>
+Package pdftex.def Info: Cross-section.jpg used on input line 728.
 (pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 723--728
+Underfull \hbox (badness 10000) in paragraph at lines 725--730
 
  []
 
 [36 <./Example1.jpg>]
-Overfull \hbox (53.28601pt too wide) in alignment at lines 730--734
+Overfull \hbox (53.28601pt too wide) in alignment at lines 732--736
  [][][] []
  []
 
-[37 <./Cross-section.jpg>] [38]
-./thesis.tex:805: Undefined control sequence.
-\enit@enditemize ->\enit@after 
-                               \endlist \enit@toks \expandafter {\enit@savek...
-l.805  \end{itemize}
-                    
-? 
-./thesis.tex:805: Undefined control sequence.
-\enit@enditemize ... \expandafter {\enit@savekeys 
-                                                  }\xdef \enit@afterlist {\d...
-l.805  \end{itemize}
-                    
-? 
-
-./thesis.tex:805: LaTeX Error: \begin{document} ended by \end{itemize}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.805  \end{itemize}
-                    
-? 
-./thesis.tex:805: Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.805  \end{itemize}
-                    
-? 
-<521.jpg, id=171, 418.2024pt x 300.6432pt>
+[37 <./Cross-section.jpg>] [38] <521.jpg, id=171, 418.2024pt x 300.6432pt>
 File: 521.jpg Graphic file (type jpg)
- <use 521.jpg>
-Package pdftex.def Info: 521.jpg used on input line 811.
-(pdftex.def)             Requested size: 334.56236pt x 240.51488pt.
+
+<use 521.jpg>
+Package pdftex.def Info: 521.jpg used on input line 805.
+(pdftex.def)             Requested size: 376.37868pt x 270.57637pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -766,58 +739,92 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <522.jpg, id=172, 416.757pt x 267.8808pt>
 File: 522.jpg Graphic file (type jpg)
  <use 522.jpg>
-Package pdftex.def Info: 522.jpg used on input line 820.
-(pdftex.def)             Requested size: 333.40605pt x 214.30492pt.
- [39] [40 <./521.jpg> <./522.jpg>]
-Overfull \hbox (17.01408pt too wide) in paragraph at lines 833--834
-\OT1/pplx/m/n/12 that em-ploy the rigid win-dow con-straint of $\OML/ptmcm/m/it
-/12 w \OT1/ptmcm/m/n/12 = \OML/ptmcm/m/it/12 max\OT1/ptmcm/m/n/12 (\OMS/pplx/m/
-n/12 d[]e\OML/ptmcm/m/it/12 ; abs\OT1/ptmcm/m/n/12 (\OML/ptmcm/m/it/12 n \OMS/p
-plx/m/n/12 ^^@
+Package pdftex.def Info: 522.jpg used on input line 811.
+(pdftex.def)             Requested size: 375.07784pt x 241.09048pt.
+ [39] [40 <./521.jpg> <./522.jpg>] [41] <523.jpg, id=182, 479.391pt x 278.4804p
+t>
+File: 523.jpg Graphic file (type jpg)
+ <use 523.jpg>
+Package pdftex.def Info: 523.jpg used on input line 833.
+(pdftex.def)             Requested size: 431.44792pt x 250.63004pt.
+
+Overfull \hbox (18.88295pt too wide) in paragraph at lines 833--834
+ [][] 
  []
 
-[41] [42] <accuracy_cinc_inline.jpg, id=185, 428.802pt x 500.1084pt>
+<524.jpg, id=183, 420.1296pt x 234.6366pt>
+File: 524.jpg Graphic file (type jpg)
+ <use 524.jpg>
+Package pdftex.def Info: 524.jpg used on input line 839.
+(pdftex.def)             Requested size: 378.11314pt x 211.17097pt.
+
+./thesis.tex:844: Missing $ inserted.
+<inserted text> 
+                $
+l.844 ... the UCR data sets: InlineSkate and CINC_
+                                                  ECG_TORSO.
+? 
+./thesis.tex:845: Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+[42 <./523.jpg> <./524.jpg>]
+./thesis.tex:848: Missing $ inserted.
+<inserted text> 
+                $
+l.848 ...f{Data sets used} : InlineSkate and CINC_
+                                                  ECG_TORSO
+? 
+./thesis.tex:849: Missing $ inserted.
+<inserted text> 
+                $
+l.849 
+      
+? 
+[43] [44] <accuracy_cinc_inline.jpg, id=194, 428.802pt x 500.1084pt>
 File: accuracy_cinc_inline.jpg Graphic file (type jpg)
 
 <use accuracy_cinc_inline.jpg>
-Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 862.
+Package pdftex.def Info: accuracy_cinc_inline.jpg used on input line 887.
 (pdftex.def)             Requested size: 343.04205pt x 400.08727pt.
- [43]
-Overfull \hbox (6.14879pt too wide) in paragraph at lines 868--869
+ [45]
+Overfull \hbox (6.14879pt too wide) in paragraph at lines 893--894
 \OT1/pplx/m/n/12 the win-dow con-strained DTW al-go-rithm em-ploy-ing domain-in
 dependent
  []
 
-<time_cinc_inline.jpg, id=189, 359.4228pt x 339.669pt>
+<time_cinc_inline.jpg, id=198, 359.4228pt x 339.669pt>
 File: time_cinc_inline.jpg Graphic file (type jpg)
 
 <use time_cinc_inline.jpg>
-Package pdftex.def Info: time_cinc_inline.jpg used on input line 876.
+Package pdftex.def Info: time_cinc_inline.jpg used on input line 901.
 (pdftex.def)             Requested size: 287.53862pt x 271.73557pt.
- [44 <./accuracy_cinc_inline.jpg>]
-Overfull \hbox (1.40965pt too wide) in paragraph at lines 882--883
+ [46 <./accuracy_cinc_inline.jpg>]
+Overfull \hbox (1.40965pt too wide) in paragraph at lines 907--908
 []\OT1/pplx/m/n/12 Comparatively, the time com-plex-ity of the new al-go-rithm 
 in-creases when
  []
 
 No file thesis.bbl.
-[45 <./time_cinc_inline.jpg>] [46
+[47 <./time_cinc_inline.jpg>] [48
 
 ]
 Missing character: There is no Ð in font pplr9t!
- [47]
+ [49]
 Missing character: There is no Ð in font pplr9t!
- [48] (./thesis.aux (./chapter1.aux)
+ [50] (./thesis.aux (./chapter1.aux)
 (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5169 strings out of 493633
- 76532 string characters out of 3143377
+ 5178 strings out of 493633
+ 76618 string characters out of 3143377
  140524 words of memory out of 3000000
- 8280 multiletter control sequences out of 15000+200000
+ 8287 multiletter control sequences out of 15000+200000
  49065 words of font info for 100 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  43i,7n,40p,2082b,434s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -834,10 +841,10 @@ palatino/uplr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatin
 o/uplri8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.p
 fb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/l
 ocal/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (53 pages, 1982123 bytes).
+Output written on thesis.pdf (55 pages, 2139279 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
+ 261 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
