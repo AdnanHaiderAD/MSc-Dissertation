@@ -574,8 +574,7 @@ Experimental setup:
   
   Although removing the window constraint does degrade the time complexity in comparison to the log(time) cost of model 2, if  we compare the log(time) of model 3  with the other models, we can observe that model 3 achieves lower  $log(time)$ s  than any of the model with the exception of model 2.
   
-  \textbf{Conclusion}
-  
+
  Therefore from this analysis, it can be concluded that  equipping DTW with  preprocessing techniques constructed by performing exploratory data analysis and  integrating  metadata(i.e knowledge of the domain) can serve as an alternative to equipping the algorithm with rigid window constraints to handle high dimensional time series sequences in terms of both accuracy and speed. 
   % \item It can be observed that adapting DTW to incorporate a pre-processing stage that involves removal of redundant features through silence removal and employing a feature extraction mapping that integrates domains knowledge in the feature extraction process achieves almost perfects accuracy and incurs the lowest computational time. To be precise, adapting DTW to be domain-dependent allows the algorithm to achieve near perfect accuracy while incurring the minimum computational cost. 
   %\item From analysing the time complexity associated with each of the two versions, it can be seen that partitioning the sequences into frames actually leads to greater reduction in dimensionality of the time series than removing redundant features.
@@ -841,74 +840,41 @@ A summary of the results are as follows:
   \end{figure}
 
 \textbf{Observation}
-From the above results, it can be observed that the new changes does provide an a \textbf{ better} alternative approach  to using a very rigid constraint for scenarios where the time complexity is of high priority and the use of window constraints can not be avoided.  For this data set, using the new approach improves the accuracy of the DTW by over 60\% and the log( time)  is reduced by order. This shows that that not only the time complexity is exponentially reduced but the accuracy has also been boosted.  However, since the tests so far has been conducted on the TIDIGITS test set, it is possible that this new approach is only tailored for this particular data set. Thus to confirm  that the performance of the new algorithm  is not tailored for this particular time-series data set, I have the test the performance of the DTW augmented with  the new changes on the UCR data sets: InlineSkate and CINC_ECG_TORSO.
+
+From the above results, it can be observed that the new changes does provide an a \textbf{ better} alternative approach  to using a very rigid constraint for scenarios where the time complexity is of high priority and the use of window constraints can not be avoided.  For this data set, using the new approach improves the accuracy of the DTW by over 60\% and the log( time)  is reduced by order. This shows that that not only the time complexity is exponentially reduced but the accuracy has also been boosted.  However, since the tests so far has been conducted on the TIDIGITS test set, it is possible that this new approach is only tailored for this particular data set. Thus to confirm  that the performance of the new algorithm  is not tailored for this particular time-series data set, I have the test the performance of the DTW augmented with  the new changes on the UCR data sets: InlineSkate and CINC\_ECG\_TORSO.
 
 \textbf{Experiment 3}
 
-\textbf{Data sets used} : InlineSkate and CINC_ECG_TORSO
+\textbf{Data sets used} : InlineSkate and CINC\_ECG\_TORSO
 
-\textbf{Setup} : One of the main goals of this analysis is to construct a methodology that can achieve  good performance in  speed and accuracy across multiple domains. Using this as motivation, the model framework that I am using for this experiment involves the use of  the feature extraction process discussed in 5.1 and [2].   If the results of the experiment has positive correlation with the reults founds so far, then we can finally have a model that improves the performance of the DTW in situations where the time complexity is  a major priority.
+\textbf{Setup} : One of the main goals of this analysis is to construct a methodology that can achieve  good performance in both speed and accuracy across multiple domains. The model framework that I am using for this experiment involves the use of  the feature extraction process discussed in 5.1 and [2].  From the experiments conducted on the UCR datasets, Xie and Witgen[2] have shown  at the cost of higher computational complexity m the accuracy of the DTW algorithm does improve by a significant amount when the algorithm substitutes each raw value with a 4-d vector  that reflects information about local and global  trends. However, from the analysis I conducted in 5.1, it was observed that under the window constraint, the use of these features made little contribution in improving the performance of the algorithm. If  replacing the window constraint with the new changes does improve the performance of the DTW algorithm then we will have a model where the use of global and local features  does allow the algorithm to achieve greater performance even when the decreasing the time complexity is a major priority. 
 
-in my  proposed approach,  the width of the time slices has been kept fixed at a default value of 50 so far. In this experiment, I also investigate the influence of this parameter on the performance of the DTW. Decreasing its value allow subsequence allows the similarity measure to be dominated by the dot products of points whose local and global features are most alike. However using smaller windows achieve lesser dimensionality reduction. Thus the time and computational complexity suffers.
-
-
-
-
-
-The proposed algorithm achieves better accuracy for test samples belonging to all categories of the TIDIGITS corpus  than any of algorithms that employ the rigid  window constraint of  $w = max(\lceil{0.1*max(n.m)}\rceil, abs(n-m))$. The most interesting result is that the new algorithm incurs a lower computational cost than any of these DTW algorithms. 
-
-he  methodology behind my proposed approach and that of  approach 4  includes the same pre-processing stage. Th input to the DTW algorithm is constructed by using  the domain dependent feature selection process mentioned in section followed by a domain independent feature extraction mapping (i.e the local and global features defined in section).  Both approaches  differ however, in their use of a cost function and a window constraint. The proposed approach doesn't subject DTW  to any window constraints and utilised the kernel function that I constructed in the cost metric. Approach 4 on the other hand, employs the euclidean metric an subjects DTW to the window constraint of  of w = max($\lceil{0.1*max(n.m)}\rceil$, abs(n-m))
-The proposed DTW segments sequences into frames and employ a cost function on  the frames. This reduces the dimensionality of the time series sequences and allows the algorithm to achieve a  time and computational cost than is lower than  the cost incurred by any of the investigated adaptations of the DTW algorithm that  employs window constraints. 
-
-
-  To confirm that the performance of the new algorithm  is not tailored for this particular time-series data set, I have applied the tested the algorithm on the two largest  time series data sets in UCR database. 
-  
-    Unlike the speech utterances, the time series sequences within each data set  share the same length.
-  
-  \subsection{Experimental setup}
-  
- The focus now is  to check how well/ bad is the performance of the new DTW algorithm  against  DTW algorithms using window constraints when applied to datasets that belong to other application domains . The domain -dependent pre-processing policies are dropped for this set of experiments as these procedures were specifically designed for speech data. Thus in this section, I compare my proposed approach against:
- \begin{itemize}
- \item Approach 1
- \item Approach 4 
- \end{itemize}
-  As a I mentioned, the domain-dependent feature selection process  of silence removal and subsampling is dropped from all approaches. However, the feature extraction process  that involves extracting  local and global features is kept since this procedure is domain independent.
-  
-One of the factors that I have also investigated in these experiments is  the size of the time slices used in the algorithm that I proposed. For the TIDIGITS data set, I have used window slices of 50 ms. Reducing the size of the windows should principally increase both accuracy and time-complexity .
+In the  proposed approach,  the width of the time slices has been kept fixed at a default value of 50 so far. In this experiment, I also investigate the influence of this parameter on the performance of the DTW. Decreasing its value reduces  the size of the time slices which in  principal should increase both accuracy and time-complexity .
 The core kernel used by the new algorithm is based on the function: 
 \[ k(x,z) = <\sum_{i=1}^{n}x_i, \sum_{j=1}^{n}z_j>\]
-k(x,z) represents the sum of all possible dot-products . Having a smaller window allows the sum to be dominated by dot products of vectors that are most similar. However smaller window  frames results in  longer time series sequence of frames. This in turn increases the time and computational complexity incurred by the DTW algorithm.
-  
-Figure [4.5] and figure[4.6] shows the  accuracies and log(time) of the  algorithms  for the two datasets:
+k(x,z) represents the sum of all possible dot-products. Using smaller subsequences allow the similarity measure to be dominated by the dot products of points whose local and global features are most alike. However,  this suffers from the drawback of achieving lesser dimensionality reduction. Thus the time and computational complexity suffers.
 
-  \begin{figure}[H]
-  \centering
-   
-     \includegraphics[scale=0.8]{accuracy_cinc_inline.jpg}
-  \caption{Accuracy}
-  \end{figure}
-   
-   Observation:
-   \begin{itemize}
-   \item The  new algorithm indeed achieves better accuracy than any versions of the window  constrained DTW algorithm employing domain-independent feature extraction
-   \item Comparatively, the performance of the new algorithm does improve if smaller window slices are employed to partition the time series sequence of vectors. 
-   \end{itemize}
-   
-   
+\textbf{RESULTS}
+
 \begin{figure}[H]
   \centering
-   
-     \includegraphics[scale=0.8]{time_cinc_inline.jpg}
-  \caption{Time complexity}
+      \includegraphics[scale=0.9]{525.jpg}
+  \caption{Accuracy}
   \end{figure}
-Observation:
-   \begin{itemize}
-   \item The  new algorithm incurs less time and computational cost  than any versions of the window  constrained DTW algorithm employing domain-independent feature extraction
-   \item Comparatively, the time complexity of the new algorithm increases when smaller window slices are used to partition the sequence
-   \end{itemize}   
 
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.9]{526.jpg}
+  \caption{Accuracy}
+  \end{figure}
 
+\textbf{Observation}
 
+\begin{itemize}
+\item The proposed changes does provide  a \textbf{ better} alternative approach  to using rigid constraints  for problem domains where the time complexity is of high priority and the use of window constraints can not be avoided. The accuracy of the DTW algorithm under the new methodology is significantly higher then employing a window constrained DTW on sequences of extracted local and global features.  In my analysis in 5.1, I have already shown that the latter model achieves  better accuracy than the baseline model. Thus the new methodology improves the performance of the DTW in both speed and time and also can be \textbf{applied} to time series sequences belonging to different domains. Hence, combining this approach with the feature extraction method discussed in [2]  results in the construction of a model that can applied for \textbf{different types} of time series data sets. 
+ \item Decreasing the size of the time slices only leads to a minimal increase in accuracy. Thus using the default value of 50  seems to be safe option as the algorithm better accuracy and speed than using the rigid Sakoe-Chuba band constraint .
+\end{itemize}
+   
 %% ... etc ...
 
 %%%%%%%%
