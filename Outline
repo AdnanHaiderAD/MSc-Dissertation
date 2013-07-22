@@ -279,7 +279,24 @@ Feature extraction
 --- Step 2) Investigate the use of MFCC + feature selection + window
 ----Step 3) investigate the use of MFCC + feature selection         
 
+Adapting DTW
 
+--Step1):
+	Investigate the use of global and local features on:
+	-- Tigits data sets : compare with baseline
+	----InlineKate and Cinc_ECG_torso: compare with baseline
+--Step2) : propose my method
+
+
+
+
+SVD:
+for long time series seqeunces of equal length :
+--adapt the algorithm to be effecient and test on InlineSkate and Cinc_ECG_torso. Then apply K=1 nearest neighbour.
+
+for long time seqeunces of variable length:
+---baseline methods: reasample the sequences to have the sample length and apply SVD followed by K nearest neighbour 
+	
 
 
 
