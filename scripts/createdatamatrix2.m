@@ -15,25 +15,36 @@ count=1;
 function separatedata(cg_data)
 %% separate lables and put all samples in one list
     for i =1 :length(cg_data)
-         entry=cg_data{i};
-        labels{count}= entry{1};
+        entry=cg_data{i};
+        labels(count)= entry{1};
         datacell{count}=entry{2};
         count=count+1;
     end
 end
 
-
+tic
 separatedata(boy);
+toc
+tic
 separatedata(girl);
+toc
+tic
 separatedata(men);
+toc
+tic
 separatedata(women);
-
+toc
+tic
 %% intialise data matrix
 result=zeros(length(labels),max_length+1);
 result(:,1)=labels;
 
 %% fill in matrix after recaling each sequence
 for i=1 : length(datacell)
+   if toc>600
+       toc
+       tic
+   end
     sample=datacell{i};
     result(i,2:end) = resample(sample,max_length,length(sample));
 end
