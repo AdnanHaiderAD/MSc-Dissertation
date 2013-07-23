@@ -1,6 +1,8 @@
 function output = patternmatch(test,train)
-tic
+
 %% performs 1 nearest neighbour match after mapping the istance to principal subspace
+tic
+
 test_labels=test(:,1);
 testData=test(:,2:end)';
 

@@ -296,7 +296,8 @@ for long time series seqeunces of equal length :
 
 for long time seqeunces of variable length:
 ---baseline methods: reasample the sequences to have the sample length and apply SVD followed by K nearest neighbour 
-	
+	---1) two procedures of rescaling are being used: a) scale all sequences to length of smallest sequence in the training set. Prob: loss of information
+							        b) scale all sequences to length of the longest sequence in the training set. Prob: A lot of redundant feautures. 
 
 
 

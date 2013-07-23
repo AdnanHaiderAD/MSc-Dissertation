@@ -1,4 +1,5 @@
-The folder 
+
+The folders 
 CinC_ECG_torso : contains raw time series data of the ECG of people's torso
 
 InLineSkate: contains raw time series data of InlineSkate
@@ -14,3 +15,21 @@ LocalGlobalkernR : contains the result of applying DTW augmented with the propos
 LocGloR: contains the result of applying DTW augmented with a euclidean metric and window on the sequences of extracted features of Cinc_ECG and  InlineSkate  
 
 basline: contains the result of applying value-based DTW augmented with a euclidean metric and window on the sequences of  Cinc_ECG and  InlineSkate 
+
+The functions:
+
+analysis:gives the accuracy 
+
+
+DynamicTimeWarping: the  same version of the function in the scripts folder that implements Dyanmic time warping.
+
+
+featureextract: extracts local and global features from the  UCR time series
+
+
+patternmatch:%% performs 1 nearest neighbour match after mapping the istance to principal subspace
+
+
+
+principalcomponents:extracts  eigenvectors correponding to the principal subspace datamatrix is D by N where N is the number of samples and D is the dimension and D>>N
+
