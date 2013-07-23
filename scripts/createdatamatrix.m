@@ -16,7 +16,7 @@ women=data{4};
 
 
 %% find the maximum length of the sequences.
-maximum_length=-Inf;
+maximum_length=Inf;
 
 
 
@@ -34,7 +34,7 @@ function findmaxlength(cg_data)
             labels{count} =i;
             count=count+1;
             seqlen= length(cg_data{c,i,1});
-            if seqlen>maximum_length
+            if seqlen<maximum_length
                 maximum_length= seqlen;
             end
         end
