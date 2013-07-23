@@ -58,10 +58,6 @@ data= zeros ( count-1, maximum_length+1);
 data(:,1)= cell2mat(labels);% 1st column contains label information
 
 counter=1;
-fillmatrix(boy);
-fillmatrix(girl);
-fillmatrix(men);
-fillmatrix(women);
 
 
 function fillmatrix(cg_data)
