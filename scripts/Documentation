@@ -33,4 +33,11 @@ cleanRawData(data)-- passes filterSignal/silencefilter to each time-series data.
 polynomialKernel(InputA,InputB,M) ----computes a particular weighted sum of all possible products of M time points
  --in the first slice with M time in the second slice
 
+principalcomponents(test,training)
+  extracts  eigenvectors correponding to the principal subspace
+  datamatrix is D by N where N is the number of samples and D is the
+  dimension and D>>N
+
+  createdatamatrix( raw training data):takes the raw data that is partioned into categories and classes  and creates a data matrix.
+  output : datamatrix where the first column holds information about the classes. The algorithm rescales sequences to ensure that they all share the same length;
 
