@@ -301,7 +301,12 @@ for long time seqeunces of variable length:
 	--2) Try K =1 vs K =11 nearest neighbours
 
 
+-- Approach 1 : Perform wavelet: a) Remove D1(may be D2)
 
+		 Apply SVD on coefficient by imputing incomplete cells by 0
+--Aproach 2 : map all sequences to the same length
+		Perform wavelet analysis a) remove D1, (may be D2)
+		Apply svd on the remainig coeffeicents. 
 
 
 

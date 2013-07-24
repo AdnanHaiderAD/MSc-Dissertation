@@ -17,7 +17,7 @@ women=data{4};
 
 %% find the maximum length of the sequences.
 maximum_length=-Inf;
-
+minimum_length=Inf;
 
 
 
@@ -37,6 +37,9 @@ function findmaxlength(cg_data)
             if seqlen>maximum_length
                 maximum_length= seqlen;
             end
+            if seqlen<minimum_length
+                minimum_length=seqlen;
+            end
         end
     end
 end
@@ -53,8 +56,10 @@ tic
 
 findmaxlength(women);
 toc
+optimum_length= fix((maximum_length+minimum_length)/2);
+
 %% creates the data matrix
-data= zeros ( count-1, maximum_length+1);
+data= zeros ( count-1, optimum_length+1);
 data(:,1)= cell2mat(labels);% 1st column contains label information
 
 counter=1;
@@ -67,7 +72,7 @@ function fillmatrix(cg_data)
     for c=1:categories 
          for i=1:classes
              sample=cg_data{c,i,1};
-             data(counter,2:end)= resample(sample,maximum_length,length(sample));
+             data(counter,2:end)= resample(sample,optimum_length,length(sample));
              counter=counter+1;
          end
     end
