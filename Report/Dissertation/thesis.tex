@@ -137,9 +137,8 @@ In the analysis of speech data, motifs  also play a very important role. Recent 
 
 To identify and extract motifs from time series data, various clustering algorithms have been proposed. The most widely used and popular approaches include the use of:
 \begin{enumerate}
-\item Dynamic time warping  algorithm(DTW) [2,3,4,5,6,11] that clusters similar sequences separated by time shifts or temporal dynamics
-\item Single value decomposition(SVD)12]. The entire time series data set can be approximated by a low-rank approximation matrix achieved through transforming the data into an orthogonal feature space  whose dimensionality is much lower than the original data sequences. 
-
+\item Dynamic time warping  algorithm(DTW) [2,3,4,5,6,11] that clusters similar sequences separated by time shifts or scale.
+\item Single value decomposition(SVD)[12]. The entire time series data set can be approximated by a low-rank approximation matrix achieved through transforming and mapping the data onto a lower dimensional orthogonal feature space.
 \end{enumerate}
  But unfortunately, directly applying these clustering algorithms to  the `raw' time series data may not lead to appealing results. Although the DTW algorithm is immune towards patterns shifted in time or distorted in size/shape, the  time complexity of computing the DTW distance of two series is quadratic and is dependent on the dimensionality of the sequences i.e the length of the sequences.  To address this issue, linear-time constrained versions of DTW (Itakura parallelogram[19], Sakoe-Chiba band[18]) are used to constraint the size of the search space but the use  of  such constraints impact the accuracy of the algorithm[20].
 
