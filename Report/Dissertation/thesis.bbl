@@ -1,0 +1,66 @@
+\begin{thebibliography}{10}
+
+\bibitem{GautamDas}
+R.~{Gautam Das, King ip Lin, Mannila, H.}, ``{Rule Discovery From Time
+  Series},'' {\em 4th Int'l Conference on Knowledge Discovery and Data}, 1998.
+
+\bibitem{Fayyad1998}
+U.~Fayyad, C.~Reina, and P.~S. Bradley, ``{Initialization of Iterative
+  Refinement Clustering Algorithms},'' 1998.
+
+\bibitem{BRAZMA1998}
+A.~Bazma, I.~JONASSEN, I.~EIDHAMMER, and D.~GILBERT, ``{Approaches to the
+  Automatic Discovery of Patterns in Biosequences},'' {\em Journal of
+  Computational Biology}, vol.~5, pp.~279--305, Jan. 1998.
+
+\bibitem{Park2008}
+A.~S. Park and J.~R. Glass, ``{Unsupervised Pattern Discovery in Speech},''
+  {\em IEEE Transactions on Audio, Speech, and Language Processing}, vol.~16,
+  pp.~186--197, Jan. 2008.
+
+\bibitem{Zhang2010}
+Y.~Zhang and J.~R. Glass, ``{Towards multi-speaker unsupervised speech pattern
+  discovery},'' in {\em 2010 IEEE International Conference on Acoustics, Speech
+  and Signal Processing}, pp.~4366--4369, IEEE, 2010.
+
+\bibitem{Salvador}
+S.~Salvador and P.~Chan, ``{FastDTW : Toward Accurate Dynamic Time Warping in
+  Linear Time and Space},''
+
+\bibitem{Sakoe1990}
+H.~Sakoe and S.~Chiba, ``{Dynamic programming algorithm optimization for spoken
+  word recognition},'' pp.~159--165, May 1990.
+
+\bibitem{Rabiner1978}
+L.~Rabiner, A.~Rosenberg, and S.~Levinson, ``{Considerations in dynamic time
+  warping algorithms for discrete word recognition},'' {\em IEEE Transactions
+  on Acoustics, Speech, and Signal Processing}, vol.~26, pp.~575--582, Dec.
+  1978.
+
+\bibitem{Xie2010}
+Y.~Xie and B.~Wiltgen, ``{Adaptive Feature Based Dynamic Time Warping},''
+  vol.~10, no.~1, pp.~264--273, 2010.
+
+\bibitem{Xi2006}
+X.~Xi, E.~Keogh, C.~Shelton, L.~Wei, and C.~A. Ratanamahatana, ``{Fast time
+  series classification using numerosity reduction},'' in {\em Proceedings of
+  the 23rd international conference on Machine learning - ICML '06}, (New York,
+  New York, USA), pp.~1033--1040, ACM Press, June 2006.
+
+\bibitem{Fu2007}
+A.~W.-C. Fu, E.~Keogh, L.~Y.~H. Lau, C.~A. Ratanamahatana, and R.~C.-W. Wong,
+  ``{Scaling and time warping in time series querying},'' {\em The VLDB
+  Journal}, vol.~17, pp.~899--921, Mar. 2007.
+
+\bibitem{Korn1997}
+F.~Korn, H.~V. Jagadish, and C.~Faloutsos, ``{Efficiently supporting ad hoc
+  queries in large datasets of time sequences},'' in {\em Proceedings of the
+  1997 ACM SIGMOD international conference on Management of data - SIGMOD '97},
+  vol.~26, (New York, New York, USA), pp.~289--300, ACM Press, June 1997.
+
+\bibitem{Itakura1975}
+F.~Itakura, ``{Minimum prediction residual principle applied to speech
+  recognition},'' {\em IEEE Transactions on Acoustics, Speech, and Signal
+  Processing}, vol.~23, pp.~67--72, Feb. 1975.
+
+\end{thebibliography}

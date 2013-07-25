@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: chapter1.aux
+A level-1 auxiliary file: chap3.aux
+A level-1 auxiliary file: chap2.aux
+Already encountered file chap3.aux
+---line 26 of file thesis.aux
+ : \@input{chap3.aux
+ :                  }
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: chap4.aux
+The style file: ieeetr.bst
+Database file #1: ../../../../../Documents/mendeley/library.bib.bib
+Warning--empty journal in Fayyad1998
+Warning--empty journal in Salvador
+Warning--empty year in Salvador
+Warning--empty journal in Sakoe1990
+Warning--empty journal in Xie2010
+Warning--can't use both volume and number fields in Korn1997
+You've used 13 entries,
+            1876 wiz_defined-function locations,
+            571 strings with 5908 characters,
+and the built_in function-call counts, 3957 in all, are:
+= -- 406
+> -- 129
+< -- 0
++ -- 48
+- -- 35
+* -- 294
+:= -- 535
+add.period$ -- 12
+call.type$ -- 13
+change.case$ -- 13
+chr.to.int$ -- 0
+cite$ -- 19
+duplicate$ -- 204
+empty$ -- 364
+format.name$ -- 35
+if$ -- 956
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 13
+newline$ -- 42
+num.names$ -- 13
+pop$ -- 43
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 161
+stack$ -- 0
+substring$ -- 328
+swap$ -- 92
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 6
+while$ -- 43
+width$ -- 15
+write$ -- 124
+(There was 1 error message)
