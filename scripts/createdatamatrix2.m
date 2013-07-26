@@ -46,6 +46,7 @@ for i=1 : length(datacell)
        tic
    end
     sample=datacell{i};
-    result(i,2:end) = resample(sample,max_length,length(sample));
+    sampleLen=length(sample);
+    result(i,2:sampleLen+1) = sample;
 end
 end

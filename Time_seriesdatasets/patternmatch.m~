@@ -18,8 +18,11 @@ function result=wavedecom(data)
   result(:,1)=data(:,1);
   for k=1 :samp
     sample= data(k,2:end);
-    [C,L] =wavedec(sample,2,'Haar');
-    result(k,2:end) = C(1:L(3));
+    [C,L] =wavedec(sample,4,'Haar');
+    index=L(5);
+    length(result(k,2:end))
+    coeff=C(1:index);
+    result(k:2:end) = C(;
   end
 end
 
