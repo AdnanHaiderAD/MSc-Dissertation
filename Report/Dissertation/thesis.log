@@ -242,34 +242,28 @@ Type  H <return>  for immediate help.
 l.466 }
        
 ? 
-
-/usr/local/texlive/2011/texmf-dist/tex/latex/setspace/setspace.sty:518: LaTeX E
-rror: Command \doublespace already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
+/usr/local/texlive/2011/texmf-dist/tex/latex/setspace/setspace.sty:466: Emergen
+cy stop.
  ...                                              
                                                   
-l.518 }
+l.466 }
        
-? 
-) (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithms/algorithm.sty
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
-(/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count94
-\float@exts=\toks17
-\float@box=\box26
-\@float@everytoks=\toks18
-\@floatcapt=\box27
-)
-\@float@every@algorithm=\toks19
-\c@algorithm=\count95
-)
-(/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+ 
+Here is how much of TeX's memory you used:
+ 3702 strings out of 493633
+ 55356 string characters out of 3143377
+ 115605 words of memory out of 3000000
+ 6974 multiletter control sequences out of 15000+200000
+ 4445 words of font info for 16 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 43i,0n,40p,320b,186s stack positions out of 5000i,500n,10000p,200000b,50000s
+/usr/local/texlive/2011/texmf-dist/tex/latex/setspace/setspace.sty:466:  ==> Fa
+tal error occurred, no output PDF file produced!
+/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
