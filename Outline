@@ -295,13 +295,18 @@ for long time series seqeunces of equal length :
 --adapt the algorithm to be effecient and test on InlineSkate and Cinc_ECG_torso. Then apply K=1 nearest neighbour.
 
 for long time seqeunces of variable length:
----baseline methods: reasample the sequences to have the sample length and apply SVD followed by K nearest neighbour 
-	---1) two procedures of rescaling are being used: a) scale all sequences to length of smallest sequence in the training set. Prob: loss of information
-							        b) scale all sequences to length of the longest sequence in the training set. Prob: A lot of redundant feautures. 
-	--2) Try K =1 vs K =11 nearest neighbours
+---baseline methods:  Add redundancy by augmenting 0s to make sequences the same length;
+		        Apply SVD and K=1 neaest neighbour
+	
 
 
--- Approach 1 : Perform wavelet: a) Remove D1(may be D2)
+-- Approach 1 :  Add redundancy by augmenting 0s to make sequences the same length;
+		   Feature extraction: conduct wavelet decomposiiton and remove D1;
+		   Apply SVD and K=1 neaest neighbour
+	
+---Approach 2: for feature extraction: try fourier transform;
+
+Approach3 : Try the feature extraction policies for DTW.
 
 		 Apply SVD on coefficient by imputing incomplete cells by 0
 --Aproach 2 : map all sequences to the same length
