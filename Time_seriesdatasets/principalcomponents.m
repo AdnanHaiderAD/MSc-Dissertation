@@ -21,13 +21,13 @@ count = sum(SingularValues~=0);
 U= U(:,1:count);
 
 singularvalues=SingularValues(1:count);
-singValueInv= 1./sqrt(singularvalues);
+singValueInv= diag(1./sqrt(singularvalues));
 
 
 
 
 % 1/(srqt(lambda)) * X'*U  
-eigenvectors=abs( datamatrix'*U*singValueInv);
+eigenvectors=( datamatrix'*U*singValueInv);
 
 
 end

@@ -56,7 +56,6 @@ trainData=fourierdecom(trainData);
 time=time+toc;
 fingerprintSpace = principalcomponents(trainData);
 
-tic
 %% projection to principal subspace
 trainDataR= (fingerprintSpace'* trainData')';
 testDataR= (fingerprintSpace'* testData')';
@@ -96,7 +95,7 @@ for i=1 :length(test_labels)
 end
 
 
-toc
+time=time+toc
 end
     
     
