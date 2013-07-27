@@ -308,6 +308,11 @@ for long time seqeunces of variable length:
 	
 ---Approach 2: for feature extraction: try fourier transform;
 
+
+Problem identified : these methodoligies are not scale, translation invariant
+
+
+
 Test this against resampling
 
 

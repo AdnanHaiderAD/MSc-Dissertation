@@ -17,7 +17,7 @@ women=data{4};
 
 %% find the maximum length of the sequences.
 maximum_length=-Inf;
-%minimum_length=Inf;
+minimum_length=Inf;
 
 
 
@@ -25,38 +25,46 @@ maximum_length=-Inf;
   count=1;
  labels={};
 
-function findmaxlength(cg_data)
+ 
+ %% changes made : normalization and removing silence: translation invariance
+ 
+    function cg_data= findmaxlength(cg_data)
 %% records the maximum length of the sequence seen in the data so far
+% output : is now the same data where sequences are translted and
+% normalised
 
     [categories, classes, production] =size(cg_data);
     for c=1 : categories
         for  i=1 : classes
             labels{count} =i;
             count=count+1;
-            seqlen= length(cg_data{c,i,1});
+            sample= cg_data{c,i,1};
+            sample= sample(sample~=0); % translation
+            sample=1/norm(sample)*sample;
+            seqlen= length(sample);
             if seqlen>maximum_length
                 maximum_length= seqlen;
             end
-            %if seqlen<minimum_length
-             %   minimum_length=seqlen;
-            %end
+            if seqlen<minimum_length
+                minimum_length=seqlen;
+            end
         end
     end
 end
 tic
-findmaxlength(boy);
+boy=findmaxlength(boy);
 toc
 tic
-findmaxlength(girl);
+girl=findmaxlength(girl);
 toc
 tic
-findmaxlength(men);
+men=findmaxlength(men);
 toc
 tic
 
-findmaxlength(women);
+women=findmaxlength(women);
 toc
-optimum_length= maximum_length;
+optimum_length= (maximum_length+minimum_length)/2;
 %% creates the data matrix
 data= zeros ( count-1, optimum_length+1);
 data(:,1)= cell2mat(labels);% 1st column contains label information
@@ -71,8 +79,9 @@ function fillmatrix(cg_data)
     for c=1:categories 
          for i=1:classes
              sample=cg_data{c,i,1};
-             sampleLen=length(sample);
-             data(counter,2:sampleLen+1)=sample; 
+             %sampleLen=length(sample);
+             %data(counter,2:sampleLen+1)=sample; 
+             data(counter,2:end) = resample(sample,optimum_length,length(sample));
              counter=counter+1;
          end
     end

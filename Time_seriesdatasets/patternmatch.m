@@ -50,8 +50,8 @@ tic
 %trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
-testData=fourierdecom(testData);
-trainData=fourierdecom(trainData);
+%testData=fourierdecom(testData);
+%trainData=fourierdecom(trainData);
 
 time=time+toc;
 fingerprintSpace = principalcomponents(trainData);
