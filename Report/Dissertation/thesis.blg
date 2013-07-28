@@ -18,45 +18,47 @@ Warning--empty year in Salvador
 Warning--empty journal in Sakoe1990
 Warning--empty journal in Xie2010
 Warning--can't use both volume and number fields in Korn1997
-You've used 13 entries,
+Warning--empty journal in Carlin
+Warning--empty year in Carlin
+You've used 17 entries,
             1876 wiz_defined-function locations,
-            571 strings with 5908 characters,
-and the built_in function-call counts, 3957 in all, are:
-= -- 406
-> -- 129
+            595 strings with 6812 characters,
+and the built_in function-call counts, 5028 in all, are:
+= -- 504
+> -- 181
 < -- 0
-+ -- 48
-- -- 35
-* -- 294
-:= -- 535
-add.period$ -- 12
-call.type$ -- 13
-change.case$ -- 13
++ -- 67
+- -- 50
+* -- 380
+:= -- 690
+add.period$ -- 15
+call.type$ -- 17
+change.case$ -- 17
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 204
-empty$ -- 364
-format.name$ -- 35
-if$ -- 956
+cite$ -- 25
+duplicate$ -- 256
+empty$ -- 464
+format.name$ -- 50
+if$ -- 1205
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 13
-newline$ -- 42
-num.names$ -- 13
-pop$ -- 43
+int.to.str$ -- 17
+missing$ -- 17
+newline$ -- 54
+num.names$ -- 17
+pop$ -- 60
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 161
+skip$ -- 192
 stack$ -- 0
-substring$ -- 328
-swap$ -- 92
+substring$ -- 400
+swap$ -- 109
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 6
-while$ -- 43
-width$ -- 15
-write$ -- 124
+warning$ -- 8
+while$ -- 54
+width$ -- 19
+write$ -- 159
 (There was 1 error message)

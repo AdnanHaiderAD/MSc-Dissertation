@@ -310,8 +310,17 @@ for long time seqeunces of variable length:
 
 
 Problem identified : these methodoligies are not scale, translation invariant
+	Steps taken:  a)translate the sequences by removing silence segments.
+			b)normalise each sequence
+			c) resample the sequences to share the same length( the accuracy of SVD is 10.46 -doing just this alone) 
+	Repeat tests again
+
+Reasons: SVD works best for Cinc_ECG_torso:
+possible explanation: the patterns are classified by a single oscillation which is time-localised.
 
 
+
+	
 
 Test this against resampling
 

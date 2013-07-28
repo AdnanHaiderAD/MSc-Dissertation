@@ -5,8 +5,8 @@
 \contentsline {section}{\numberline {4.1}Feature Selection}{14}
 \contentsline {subsection}{\numberline {4.1.1}Signal Filter}{15}
 \contentsline {subsection}{\numberline {4.1.2}Downsampling}{19}
-\contentsline {section}{\numberline {4.2}Feature extraction}{22}
-\contentsline {subsection}{\numberline {4.2.1}Domain-dependent feature extraction}{22}
+\contentsline {section}{\numberline {4.2}Domain Dependent Feature extraction}{21}
+\contentsline {subsection}{\numberline {4.2.1}Mel Cepstrum Cepstral Coefficients}{22}
 \contentsline {chapter}{\numberline {5}Extending DTW}{28}
 \contentsline {section}{\numberline {5.1} Domain-independent feature extraction}{28}
 \contentsline {section}{\numberline {5.2}Adapting DTW}{34}

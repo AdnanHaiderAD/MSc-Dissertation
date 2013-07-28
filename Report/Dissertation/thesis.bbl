@@ -63,4 +63,25 @@ F.~Itakura, ``{Minimum prediction residual principle applied to speech
   recognition},'' {\em IEEE Transactions on Acoustics, Speech, and Signal
   Processing}, vol.~23, pp.~67--72, Feb. 1975.
 
+\bibitem{ChotiratAnnRatanamahatana}
+E.~K. {Chotirat Ann Ratanamahatana}, ``{Three Myths about Dynamic Time Warping
+  Data},'' {\em Mining, in the Proceedings of SIAM International Conference on
+  Data Mining}, 2005.
+
+\bibitem{DeWachter2007}
+M.~{De Wachter}, M.~Matton, K.~Demuynck, P.~Wambacq, R.~Cools, and D.~{Van
+  Compernolle}, ``{Template-Based Continuous Speech Recognition},'' {\em IEEE
+  Transactions on Audio, Speech and Language Processing}, vol.~15,
+  pp.~1377--1390, May 2007.
+
+\bibitem{DeWachter2004}
+M.~{De Wachter}, K.~Demuynck, P.~Wambacq, and D.~{Van Compernolle}, ``{A
+  locally weighted distance measure for example based speech recognition},'' in
+  {\em 2004 IEEE International Conference on Acoustics, Speech, and Signal
+  Processing}, vol.~1, pp.~I--181--4, IEEE, 2004.
+
+\bibitem{Carlin}
+M.~A. Carlin, S.~Thomas, A.~Jansen, and H.~Hermansky, ``{Rapid Evaluation of
+  Speech Representations for Spoken Term Discovery},''
+
 \end{thebibliography}
