@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  28 JUL 2013 23:29
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  28 JUL 2013 23:34
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -605,17 +605,17 @@ File: mfcc.jpg Graphic file (type jpg)
 Package pdftex.def Info: mfcc.jpg used on input line 513.
 (pdftex.def)             Requested size: 392.37845pt x 52.03445pt.
 
-[22 <./mfcc.jpg>] [23] <421.jpg, id=115, 433.62pt x 361.8318pt>
+[22 <./mfcc.jpg>] [23] <421.jpg, id=115, 434.1018pt x 363.759pt>
 File: 421.jpg Graphic file (type jpg)
  <use 421.jpg>
 Package pdftex.def Info: 421.jpg used on input line 548.
-(pdftex.def)             Requested size: 390.2544pt x 325.64561pt.
+(pdftex.def)             Requested size: 390.68802pt x 327.38008pt.
 
-[24] <422.jpg, id=119, 417.7206pt x 327.1422pt>
+[24] <422.jpg, id=119, 416.2752pt x 332.442pt>
 File: 422.jpg Graphic file (type jpg)
  <use 422.jpg>
 Package pdftex.def Info: 422.jpg used on input line 555.
-(pdftex.def)             Requested size: 334.17693pt x 261.7141pt.
+(pdftex.def)             Requested size: 333.02061pt x 265.95395pt.
  [25 <./421.jpg> <./422.jpg>]
 Overfull \hbox (5.06966pt too wide) in paragraph at lines 567--568
 \OT1/pplx/m/n/12 a pre-pro-cess-ing step achieves greater im-prove-ment in ac-c
@@ -771,7 +771,7 @@ palatino/uplr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatin
 o/uplri8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.p
 fb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/l
 ocal/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (52 pages, 2054170 bytes).
+Output written on thesis.pdf (52 pages, 2057067 bytes).
 PDF statistics:
  251 PDF objects out of 1000 (max. 8388607)
  157 compressed objects within 2 object streams
