@@ -801,19 +801,21 @@ A formal outline of the entire methodology is given by the algorithm below:
  
 
 
-\subection{Testing the methodology}
-The changes that I have introduced  in the previous section  to the `Dynamic Time Warping' algorithm is aimed to improve the algorithm's performance in handling long time series sequences. In this section, I investigate  the performance of my proposed  methodology against  the versions of the DTW algorithm that employ the Sakoe-Chuba band constraint (discussed in 4.1.1). To reduce the time complexity to a minimum, the window constraint that I have used so far is the most rigid constraint that can be imposed on the DTW algorithm without forcing the algorithm to behave like the euclidean metric. In order to measure the difference in performance between using my proposed method  and  employing  the window constraint, I have conducted the following  experiments:
+\subsection{Testing the methodology}
+The goal here is to improve the performance of the DTW algorithm in problem domains where minimising time complexity has a high priority.
+To investigate whether the proposed changes provide a better alternative to using the Sakoe-Chuba band window constraint, I have conducted the following experiments:
+
 
 
 \textbf{Experiment 1}
 
-\textbf{Data set used} : The TIDIGITS test and training data.
+\textbf{Data set used} : The TIDIGITS data set.
 
-\textbf{Model Used} : The model discussed in 5.2. The model framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed the domain  independent feature extraction discussed in the previous section.
+\textbf{Model used} : The model discussed in section 5.1: the  framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed  by the domain  independent feature extraction methodology proposed in \citep{Xie2010}
 
-\textbf{Variables being compared}: employing window constraints vs the  new proposed changes
+\textbf{Variables being compared}: Sakoe-Chuba band window constraint VS the proposed methodology
 
-RESULTS: the results are as follows:
+RESULTS: 
  \begin{figure}[h!]
   \centering
       \includegraphics[scale=0.9]{521.jpg}
@@ -823,10 +825,10 @@ RESULTS: the results are as follows:
 \begin{figure}[H]
   \centering
      \includegraphics[scale=0.9]{522.jpg}
-  \caption{Time complexity in log(time)}
+  \caption{ $log_e(\mbox{run time})$}
   \end{figure}
 
-There are quite number of interesting observations that can made from the graphs and the tables given by figures 5.7 and 5.8. 
+There are quite number of interesting observations that can made from  figures 5.7 and 5.8. 
 
 \begin{itemize}
 \item The proposed changes  to DTW allow the algorithm to achieve better accuracy on test samples across all categories than employing the  rigid Sakoe-Chuba band constraint  of  $w = max(\lceil{0.1*max(n.m)}\rceil, abs(n-m))$.  The most interesting result is that the new algorithm incurs a lower computational cost than before.Thus introducing these changes have improved both the accuracy and time complexity of the algorithm.  From the results noted in the tables, it can been seen that the accuracy of DTW  has increased by 6.54\% on average and the average log(time) has decreased by 3.1. The reduction of the time complexity is mainly due to the partitioning of the sequence into  time slices of width  5 ms. The reduction in  the length of the sequences by an order of 50 results in the shrinkage of the search space of DTW thus causing the algorithm to improves its speed. As we have seen so far, increasing the speed of DTW negatively impact the accuracy, in this scenario, the new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance between points/vectors confined by the window constraint.

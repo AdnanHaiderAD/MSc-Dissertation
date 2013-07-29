@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  29 JUL 2013 21:05
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  29 JUL 2013 22:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -674,49 +674,50 @@ Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
  [35 <./Cross-section.jpg>] [36]
-./thesis.tex:804: Undefined control sequence.
-l.804 \subection
-                {Testing the methodology}
-? 
-[37] <521.jpg, id=167, 418.2024pt x 300.6432pt>
+<521.jpg, id=164, 418.6842pt x 295.8252pt>
 File: 521.jpg Graphic file (type jpg)
  <use 521.jpg>
-Package pdftex.def Info: 521.jpg used on input line 819.
-(pdftex.def)             Requested size: 376.37868pt x 270.57637pt.
+Package pdftex.def Info: 521.jpg used on input line 821.
+(pdftex.def)             Requested size: 376.8123pt x 266.2402pt.
 
-<522.jpg, id=168, 416.757pt x 267.8808pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<522.jpg, id=165, 416.757pt x 267.8808pt>
 File: 522.jpg Graphic file (type jpg)
  <use 522.jpg>
-Package pdftex.def Info: 522.jpg used on input line 825.
+Package pdftex.def Info: 522.jpg used on input line 827.
 (pdftex.def)             Requested size: 375.07784pt x 241.09048pt.
- [38 <./521.jpg> <./522.jpg>] [39] <523.jpg, id=176, 479.391pt x 278.4804pt>
+ [37] [38 <./521.jpg> <./522.jpg>] <523.jpg, id=173, 479.391pt x 278.4804pt>
 File: 523.jpg Graphic file (type jpg)
  <use 523.jpg>
-Package pdftex.def Info: 523.jpg used on input line 847.
+Package pdftex.def Info: 523.jpg used on input line 849.
 (pdftex.def)             Requested size: 431.44792pt x 250.63004pt.
 
-Overfull \hbox (18.88295pt too wide) in paragraph at lines 847--848
+Overfull \hbox (18.88295pt too wide) in paragraph at lines 849--850
  [][] 
  []
 
-<524.jpg, id=177, 420.1296pt x 234.6366pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<524.jpg, id=174, 420.1296pt x 234.6366pt>
 File: 524.jpg Graphic file (type jpg)
  <use 524.jpg>
-Package pdftex.def Info: 524.jpg used on input line 853.
+Package pdftex.def Info: 524.jpg used on input line 855.
 (pdftex.def)             Requested size: 378.11314pt x 211.17097pt.
- [40 <./523.jpg> <./524.jpg>] [41] <525.jpg, id=184, 401.8212pt x 294.3798pt>
+ [39] [40 <./523.jpg> <./524.jpg>] <525.jpg, id=181, 401.8212pt x 294.3798pt>
 File: 525.jpg Graphic file (type jpg)
  <use 525.jpg>
-Package pdftex.def Info: 525.jpg used on input line 876.
+Package pdftex.def Info: 525.jpg used on input line 878.
 (pdftex.def)             Requested size: 361.63573pt x 264.93936pt.
-
+ [41]
 <526.jpg, id=185, 400.8576pt x 273.6624pt>
 File: 526.jpg Graphic file (type jpg)
  <use 526.jpg>
-Package pdftex.def Info: 526.jpg used on input line 882.
+Package pdftex.def Info: 526.jpg used on input line 884.
 (pdftex.def)             Requested size: 360.7685pt x 246.29387pt.
- [42 <./525.jpg>]
-(./thesis.bbl [43 <./526.jpg>] [44
+ [42 <./525.jpg> <./526.jpg>] (./thesis.bbl [43] [44
 
 ]) [45] (./thesis.aux (./chapter1.aux)
 (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux))
@@ -745,7 +746,7 @@ palatino/uplr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatin
 o/uplri8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.p
 fb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/l
 ocal/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (50 pages, 2065836 bytes).
+Output written on thesis.pdf (50 pages, 2065895 bytes).
 PDF statistics:
  245 PDF objects out of 1000 (max. 8388607)
  153 compressed objects within 2 object streams
