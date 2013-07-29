@@ -546,37 +546,37 @@ Experimental setup:
   \centering
    
      \includegraphics[scale=0.9]{421.jpg}
-  \caption{MFCC feature extraction}
+  \caption{Accuracy achieved by all models}
   \end{figure}
   
 \begin{figure}[H]
   \centering
    
      \includegraphics[scale=0.8]{422.jpg}
-  \caption{MFCC feature extraction}
+  \caption{The run time incurred by all models}
   \end{figure}
 
   Observations:
  
   
   \begin{itemize}
+ \item Partitioning the raw acoustic signal into frames and replacing  each frame with an MFCC feature vector surprisingly has minimal effect on the accuracy of the DTW algorithm equipped with the adaptive Sakoe-Chuba band constraint.
+ \item In comparison to the base-line model, the accuracy of the window-constrained DTW  only increases by 1.3\% on average  across all 4 categories. The run-time on the other hand has improved considerably which is obvious since the acoustic signal is mapped to smaller sequence of frames.  From examining figure 4.12, it can be seen that the windowing process results in  the average ln(run time) has decreased by 5.7.
+ \item Removing redundant features seems to have a greater relative impact on the accuracy than employing domain dependent MFCC features. This is evident  if we compare the results of using model 1 with the model discussed in 4.1.1. The presence of silence regions force the optimal warping paths between  patterns of the same lexical identity to lie outside the regions in the cost matrix bounded by the Sakoe-Chuba band. This forces the DTW to find an \textbf{approximate} optimal path with in the allowed regions which in turn leads to an increase in the error rate.
+ 
+   \item Combining  attribute/feature selection with MFCC feature extraction as a preprocessing step achieves greater improvement in accuracy and speed than using either of these approaches alone. In comparison to just using MFCC feature extraction as a preprocessing step, the accuracy has been boosted up by 15.17\% on average  while the $ln(time)$ have been reduced by 2.36.  Similarly, in comparison  to just using feature selection as a preprocessing step, the accuracy has  increased  by 12.9\% on average  while the $ln(time)$ have been reduced by 6.5.
+  \item  From the above observation alone, we can deduce two facts for this data set, one of which is not that obvious: removing redundant features have a greater relative impact  on improving the performance of a constrained DTW than employing domain dependent features and the second fact which is quite obvious is the strong dependency betwee the algorithm's accuracy and the size of the window constraint. It can be concluded that  the use of the rigid window constraint is the main contributing factor for achieving small accuracy rates.
+ 
+Since the main goal is to improve  \textbf{both} the accuracy and  speed of DTW in handling sequences of high-dimensionality i.e long lengths, removal of silence segments provides an ideal mechanism to improve  \textbf{both}  the time complexity and the accuracy of the algorithm. Dropping the window constraint although will lead to considerable increase in the accuracy by will result in longer run-times. This is not ideal when working on large high dimensional datasets.
+  
+  \item Model 3 achieves almost near perfect accuracy. Dropping the window constraint improves the accuracy by 67.15\% on average over model 2.  In other words 67.15\% of the  time on average, the optimum warping path lie outside the regions bounded by the Sakoe-Chuba band constraints, This confirms  that  patterns belonging to the same lexical identity can have an overly temporal askew between them as result of the different contexts in which the words are spoken and/or as a result of different speakers speaking the same word.
+  
+ \item The run time of model 3 is lower than the run time of  all models with the exception of model 2. Model 3  therefore provides the best balance in the fulfilling  the two  conflicting objectives  of high accuracy and high speed  that any of the other investigated models.
+ \end{itemize}
+ 
+\textbf{ Conclusion}
 
-
-  \item Replacing raw values with MFCC features surprisingly only leads to a minimal increase in the accuracy of the DTW subjected to a window constraint. By comparing these results with the  experiments done in 4.1.1, it can observed that the presence of `silence' forces the optimal warping path between utterances corresponding to identical lexical identities  to occupy regions that are outside those that are bounded by the adaptive Sakoe-Chuba band constraints.
-  
-   \item Combining  attribute/feature selection with MFCC feature extraction as a preprocessing step achieves greater improvement in accuracy and speed than using either of these approaches alone. In comparison to just using MFCC feature extraction as a preprocessing step, the algorithm's accuracy has been boosted up by 15.17\% on average  while the $log(time)$ have been reduced by 2.36.  Similarly in comparison  to just using feature selection as a preprocessing step, the algorithm's accuracy has  increased  by 12.9\% on average  while the $log(time)$ have been reduced by 6.5.
-   
-    From this observation alone, we deduce two facts, one of which is not that obvious: the accuracy of the DTW is governed by the removal `silence' segments and the size of the Sakoe-Chuba band constraint.  Since the main focus is to improve  \textbf{both} the accuracy and  speed of DTW in handling sequences of high-dimensionality i.e long lengths, removal of silence segments provides an ideal mechanism to improve the time complexity and the accuracy of the algorithm.
-  
-  \item Model 3 achieves almost near perfect accuracy. Dropping the window constraint improves the accuracy by 67.15\% on average over model 2.  Thus 67.15\% times on avergage, the optimum warping path lay outside the regions bounded by the Sakoe-Chuba band constraints, This proves  that  patterns belonging to the same lexical identity can have an overly temporal askew between them as result of the different contexts in which the words are spoken and/or as a result of different speakers speaking the same word.
-  
-  Although removing the window constraint does degrade the time complexity in comparison to the log(time) cost of model 2, if  we compare the log(time) of model 3  with the other models, we can observe that model 3 achieves lower  $log(time)$ s  than any of the model with the exception of model 2.
-  
-
- Therefore from this analysis, it can be concluded that  equipping DTW with  preprocessing techniques constructed by performing exploratory data analysis and  integrating  metadata(i.e knowledge of the domain) can serve as an alternative to equipping the algorithm with rigid window constraints to handle high dimensional time series sequences in terms of both accuracy and speed. 
-  % \item It can be observed that adapting DTW to incorporate a pre-processing stage that involves removal of redundant features through silence removal and employing a feature extraction mapping that integrates domains knowledge in the feature extraction process achieves almost perfects accuracy and incurs the lowest computational time. To be precise, adapting DTW to be domain-dependent allows the algorithm to achieve near perfect accuracy while incurring the minimum computational cost. 
-  %\item From analysing the time complexity associated with each of the two versions, it can be seen that partitioning the sequences into frames actually leads to greater reduction in dimensionality of the time series than removing redundant features.
-  \end{itemize}
+Although the DTW algorithm is domain independent,  from the analysis of the above experiments, it has been observed that augmenting the DTW with a  domain dependent preprocessing technique can greatly improve its performance in terms of \textbf{both} accuracy and speed with out the need of any global constraints.  For example, for the TIDIGITS data set, employing the preprocessing steps of `silence' removal followed by MFCC feature extraction allows DTW to improve not only its accuracy but also speed  even without the use of global window constraints.
 
 
 
