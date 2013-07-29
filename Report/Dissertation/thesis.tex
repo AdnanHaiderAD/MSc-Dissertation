@@ -712,15 +712,27 @@ The feature extraction methodology discussed  in the previous section  offers no
 Using the MFCC feature extraction method as motivation, I propose the following methodology:
 \begin{enumerate}[label=\roman*]
 \item Apply the feature extraction process of 5.1 to embed the information of local and global trends.
-\item Partition the sequence of vectors into frames of width $m$. The default value of $m$ is set to 50. For speech utterances in the TIGITS data set, this is equivalent to having frames of size 5ms.  Unlike the windowing process of MFCC extraction, the frames here correspond to sequence of vectors rather sequence of numerical values. This partitioning process reduces the length of the sequences by $m$ times
+\item Partition the sequence of vectors into frames of width $m$. The default value of $m$ is set to 50. For speech utterances in the TIGITS data set, this is equivalent to having frames of size 5ms.  Unlike the windowing process of MFCC extraction, the frames here correspond to sequence of vectors rather sequence of numerical values. This partitioning process reduces the length of the sequences by $m$ times and thus decreases the time complexity of the DTW algorithm from O($n^2$) to O${(\frac{n}{m})}^2$.
 \item Adapt the cost metric of the DTW algorithm to work on series of frames  rather than series of vectors 
 \end{enumerate}
 
-The problem now can be shifted to finding  an appropriate kernel that can be used to compute the similarity between matrices composed of feature vectors. Ideally, we want a metric that takes into account the variation of speed and time when comparing two similar subsequences. We will want to compare the global and local properties associated with a point in one subsequence with the global and local properties of points at  different regions in the second sub-sequence illustrated by figure 2.  Using a euclidean metric in this scenario is inappropriate. The euclidean metric  in this context is identical to  linear time warping where the  two subsequences will be matched based on a linear match of the two temporal dimensions.  In our context, we need a kernel that computes the similarity between two sub-sequences by warping the time axis.
+The problem can now be shifted to finding  an appropriate kernel that can be used to compute the similarity between frames composed of feature vectors. Ideally, we want a metric that takes into account the variation of speed and time when comparing two similar subsequences. To understand why we need the metric to be invariant to variations in speed and time, lets consider the following two signals:
 
-The motivation behind the kernel  that I propose for aiding  DTW to tackle  high-dimensional sequences(i.e sequences with long lengths) comes from the polynomial kernel. \\
-Let $x$ and $z$ be two dimensional vectors.
-Consider the simple polynomial kernel of degree 2  :$k(x,z) = (x^{T}z)^2$ .  This kernel can expressed as :
+%.  
+\begin{figure}[H]
+  \centering
+   \includegraphics[scale=0.4]{Example1.jpg}
+  \caption{Two signals separated by translation}
+ \end{figure}
+The signal denoted by the `red' color is a `slower' version of the signal denoted by the `blue' color . Using a euclidean metric in this scenario is inappropriate. The euclidean metric  in this context is identical to  linear time warping where the  two subsequences/frames will be matched based on a linear match of the two temporal dimensions.  In our context, we need a kernel that computes the similarity between two sub-sequences by warping the time axis. Intuitively speaking, the kernel must behave like a DTW algorithm that compares the global and local properties associated with a point in one frame with the global and local properties of all points in the second frame as illustrated by the figure below.\\
+\begin{figure}[H]
+  \centering
+   \includegraphics[scale=0.6]{Cross-section.jpg}
+  \caption{Two identical subsequences varying in time }
+  \end{figure}
+
+The motivation behind my proposed kernel function comes from the polynomial kernel. 
+Let $x$ and $z$ be two two-dimensional vectors and consider the simple polynomial kernel of degree 2  :$k(x,z) = (x^{T}z)^2$ .  This kernel can expressed as :
 \begin{eqnarray*}
 k(x,z) &= &(x^{T}x')^2\\
 &  =& (x_1z_1+x_2z_2)^2\\
@@ -728,38 +740,24 @@ k(x,z) &= &(x^{T}x')^2\\
 &=& (x_1^2, �2x_1x_2, x_2^2)(z_1^2, �2z_1z_2, z_2^2)^{T}\\
 &=& \phi(x)^{T}\phi(z)\\
 \end{eqnarray*}\\
-The 2nd order polynomial kernel is equivalent to a corresponding feature mapping $\phi(x)$  that  maps a two dimensional vector to $x_1^2, �2x_1x_2, x_2^2)$ where each attribute is monomial of order 2 .  Generalising this notion to order M then $k(x,z) = (x^{T}z)^M$ contains all monomials of order M.  Now, if we imagine x and z to be two images, then the polynomial kernel represents a particular weighted sum of all possible products of M pixels in the first image with M pixels in the second image.\\
+The 2nd order polynomial kernel is equivalent to a corresponding feature mapping $\phi(x)$  that  maps a two dimensional vector to $(x_1^2, �2x_1x_2, x_2^2)$ where each attribute is monomial of order 2 . Generalising this notion to order M then $k(x,z) = (x^{T}z)^M$ represents the sum of all monomials of order M. If we imagine x and z to be two images, then the polynomial kernel represents a particular \textbf{weighted} sum of all possible products of M pixels in the first image with M pixels in the second image.\\
 Using this as motivation I propose the following kernel:.
 \[ k(x,z) = <\sum_{i=1}^{n}x_i, \sum_{j=1}^{n}z_j>\]
-where $n$ denotes the length of the window and $x_i$  and $z_j$ represents the 4-dimensional features indexed by the points in two sub-sequences.\\
-To motivate the reasoning behind the construction of this particular kernel lets consider the following signals:
-\begin{figure}[H]
-  \centering
-   \includegraphics[scale=0.4]{Example1.jpg}
-  \caption{Two signals separated by translation}
- \end{figure}
-The signal denoted by the `red' color is a `slower' version of the signal denoted by the `blue' color . In the above example, if we are comparing the similarity  between the  time slices spanned by the arrows, an ideal kernel must be invariant to  the time offsets of the signals and thus should consider all possible pairings between the vectors in the subsequences. Intuitively speaking, the kernel must behave like a DTW algorithm.\\
-\begin{figure}[H]
-  \centering
-   \includegraphics[scale=0.6]{Cross-section.jpg}
-  \caption{Two identical subsequences varying in time }
-  \end{figure}
- For time slices of width $n$, the kernel  metric  can be expanded and   expressed as :
+Here $n$ denotes the length of the frame while $x_i$  and $z_j$ correspond to the individual 4-dimensional feature vectors that make up  the frame. The above kernel corresponds to the dot product between  the individual sums of the two frames. Although it may not look obvious, this construction actually allows the comparison between all feature vectors in the first frame with all feature vectors in the second frame as shown below:
 \begin{eqnarray*}
 k(x,z) &= &<\sum_{i=1}^{n}x_i, \sum_{j=1}^{n}z_i>\\
 &  =& <(x_1+x_2+x_3+..),(z_1+z_2+z_3+..)>\\
-&= & <x_1,z_1>+<x_1,z_2>+<x_1,z_2>...+<x_2,z_1>+<x_2,z_2> +<x_2,z_3>+......\\ 
+&= & <x_1,z_1>+<x_1,z_2>+<x_1,z_2>...+<x_2,z_1>+<x_2,z_2> +...
 \end{eqnarray*}
 From above expression, we can see  that the proposed kernel corresponds to a sum of all possible dot products of pairs belonging to the set
-$\{(x_iz_i) | x_i\in \mbox{seq1}, z_i \in \mbox{seq2}\}$. Similar to the polynomial kernel, the proposed kernel  allows us to match all possible pairs of vectors belonging to the two sub-sequences  given by the matrices.
-It is easy to check that this proposed kernel is in fact a valid kernel:
+$\{(x_iz_i) | x_i\in \mbox{seq1}, z_i \in \mbox{seq2}\}$. It is easy to check that this proposed kernel is in fact a valid kernel function:
 \begin{itemize} \itemsep-2pt
 \item K(x,z)= K(z,x) $\Rightarrow $the function is symmetric.
-\item The kernel satisfies Mercer's theorem : K(x,z) =$\phi(x)^T\phi(x)$
+\item The kernel can be written as a scalar product in feature space: K(x,z) =$\phi(x)^T\phi(x)$
 where  the feature mapping corresponds to  a finite summation of vectors $\phi(y) = \sum_{i=1}^{n}y_i$. 
 \end{itemize}
 
-Augmenting the kernel to the DTW algorithm allows DTW to work on high-dimensional time sequences without using a window constraint. However the accuracy and computational cost of the DTW is now dependent on the size of the time slices used to segment the original sequences in the first place.
+Augmenting the kernel to the DTW algorithm allows DTW to work on long time sequences without using a window constraint.
 %\begin{itemize} \itemsep-2pt
 %\item The accuracy of DTW increases as the width of the windows decrease. Using subsequence allows the similarity measure to be dominated by the dot products of points whose local and global features are most alike. However using smaller windows achieve lesser dimensionality reduction. Thus the time and computational complexity suffers.
 %\end{itemize}
@@ -768,11 +766,11 @@ To use this kernel as an  appropriate cost function in the DTW algorithm, we nee
 \item  constraints the codomain to be in the range from 0 to $\infty$.
 \item    ensures larger values given by the function signify great degree of dissimilarity and smaller values  signify a high degree of similitude.
 \end{enumerate}
-An ideal cost function that make use of dot products is the \emph{arc-cosine}. Hence I embedded the kernel function in the cosine distance: 
+An inspection of the kernel function shows it represents the sum of dot products of vectors. An  ideal cost function that make use of dot products is the \emph{arc-cosine}. Using an appropriate substitution, I have thus constructed the following cost metric:  
 \[ \theta = \frac{ <X,Z>}{|X||Z|} \]
-where $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$
+where $\theta$ is the \emph{arc-cosine} distance, $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$.
 
-A formal outline of the algorithm is as follows:
+A formal outline of the entire methodology is given by the algorithm below:
 
  \begin{algorithm}
 \begin{algorithmic}[1]
@@ -798,12 +796,12 @@ A formal outline of the algorithm is as follows:
 
 \EndProcedure
 \end{algorithmic}
-\caption{Adapted DTW}
+\caption{Proposed DTW}
 \end{algorithm}
  
 
 
-\subsection{Testing the methodology}
+\subection{Testing the methodology}
 The changes that I have introduced  in the previous section  to the `Dynamic Time Warping' algorithm is aimed to improve the algorithm's performance in handling long time series sequences. In this section, I investigate  the performance of my proposed  methodology against  the versions of the DTW algorithm that employ the Sakoe-Chuba band constraint (discussed in 4.1.1). To reduce the time complexity to a minimum, the window constraint that I have used so far is the most rigid constraint that can be imposed on the DTW algorithm without forcing the algorithm to behave like the euclidean metric. In order to measure the difference in performance between using my proposed method  and  employing  the window constraint, I have conducted the following  experiments:
 
 
