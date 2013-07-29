@@ -4,11 +4,11 @@
 \contentsline {chapter}{\numberline {4}Improving DTW}{11}
 \contentsline {section}{\numberline {4.1}Feature Selection}{14}
 \contentsline {subsection}{\numberline {4.1.1}Signal Filter}{15}
-\contentsline {subsection}{\numberline {4.1.2}Downsampling}{19}
-\contentsline {section}{\numberline {4.2}Domain Dependent Feature extraction}{21}
-\contentsline {subsection}{\numberline {4.2.1}Mel Cepstrum Cepstral Coefficients}{22}
-\contentsline {chapter}{\numberline {5}Extending DTW}{28}
-\contentsline {section}{\numberline {5.1} Domain-independent feature extraction}{28}
-\contentsline {section}{\numberline {5.2}Adapting DTW}{34}
-\contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{39}
-\contentsline {chapter}{Bibliography}{46}
+\contentsline {subsection}{\numberline {4.1.2}Downsampling}{18}
+\contentsline {section}{\numberline {4.2}Domain Dependent Feature extraction}{20}
+\contentsline {subsection}{\numberline {4.2.1}Mel Cepstrum Cepstral Coefficients}{21}
+\contentsline {chapter}{\numberline {5}Extending DTW}{27}
+\contentsline {section}{\numberline {5.1} Domain-independent feature extraction}{27}
+\contentsline {section}{\numberline {5.2}Adapting DTW}{33}
+\contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{37}
+\contentsline {chapter}{Bibliography}{45}
