@@ -63,6 +63,12 @@ F.~Itakura, ``{Minimum prediction residual principle applied to speech
   recognition},'' {\em IEEE Transactions on Acoustics, Speech, and Signal
   Processing}, vol.~23, pp.~67--72, Feb. 1975.
 
+\bibitem{TIDIGITS}
+``{TIDIGITS Readme File},'' 1993.
+
+\bibitem{UCR}
+``{UCR Time Series Data sets},'' 2003.
+
 \bibitem{Keogh2004}
 E.~Keogh and C.~A. Ratanamahatana, ``{Exact indexing of dynamic time
   warping},'' {\em Knowledge and Information Systems}, vol.~7, pp.~358--386,

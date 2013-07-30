@@ -185,9 +185,9 @@ For each of these algorithms, the performance of different adaptions was evaluat
 \end{enumerate}
 All 3 data sets were partitioned into two disjoints sets: test set and training sets. Each sample in the training and test data set corresponds to a particular pattern. The class information of the training samples were used to evaluate the accuracy of the nearest neighbours classifier.
 
-The primary dataset that I have used for this project is the `TIGITS' corpus. In comparison to the UCR datasets, the length of the time series sequences in the TIGITS corpus are on average 100 times longer than the  time series sequences of the two UCR datasets.
+The primary dataset that I have used for this project is the `TIGITS' corpus. In comparison to the UCR datasets, the length of the time series sequences in the TIGITS corpus are on average 100 times longer than the  time series sequences of the two UCR datasets. Description of the data sets is given below:
 \subsection { Brief description of TIDIGITS data set}
-The utterances in the TIDIGITS data set correspond to digit sequences. The corpus consists of :
+The utterances in the TIDIGITS\citep{TIDIGITS} data set correspond to digit sequences. The corpus consists of :
 \begin{itemize}
 \item 22 isolated digits (two tokens of each of the eleven digits)
 \item 11 two-digit sequences
@@ -225,9 +225,8 @@ The test data subset used for evaluation consists of
 \end{itemize}
   
 \subsection{Brief description CinC\_ECG\_torso and InLineSkate dataset}
+The UCR data resource  has been  funded by an NSF(National Science Foundation) since 2003 and is the largest public collection of time series data sets that have been made available to the data mining/machine learning community, to encourage reproducible research for time series classification and clustering.  To evaluate the performance  of different adaptations of the two algorithms on high dimensional sequences, we require data sets that contain extremely long sequences.  The UCR data sets `CinC\_ECG\_torso'\citep{UCR} and the 'InLineSkate' \citep{UCR} therefore are an excellent choice as they contain  time  series sequences that have the longest lengths. 
 
-
-The description of the data sets used for the next set of experiments are as follows:
   \begin{enumerate}
   \item CinC\_ECG\_torso
   
