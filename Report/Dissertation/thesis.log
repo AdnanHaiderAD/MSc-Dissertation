@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  29 JUL 2013 22:20
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  30 JUL 2013 13:22
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -241,6 +241,12 @@ Type  H <return>  for immediate help.
                                                   
 l.466 }
        
+? \
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
 ? 
 
 /usr/local/texlive/2011/texmf-dist/tex/latex/setspace/setspace.sty:518: LaTeX E
@@ -463,23 +469,23 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 150.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
 (Font)              scaled to size 10.79993pt on input line 150.
- [2] [3] [4]
+ [2] [3]
 \openout2 = `chap3.aux'.
 
 
 No file chap3.tex.
 Chapter 2.
-[5
+[4
 
 
 
-] [6]
+] [5]
 \openout2 = `chap2.aux'.
 
 
 No file chap2.tex.
 Chapter 3.
-[7
+[6
 
 
 
@@ -496,42 +502,43 @@ Underfull \hbox (badness 1014) in paragraph at lines 275--276
 T1/pplx/m/n/12 DTW(i-1,j)+DTW(i,j-
  []
 
-[8] <DTWpicture.jpg, id=56, 239.4546pt x 241.8636pt>
+[7] <DTWpicture.jpg, id=52, 239.4546pt x 241.8636pt>
 File: DTWpicture.jpg Graphic file (type jpg)
  <use DTWpicture.jpg>
 Package pdftex.def Info: DTWpicture.jpg used on input line 289.
 (pdftex.def)             Requested size: 191.56393pt x 193.49113pt.
 
-<windowconstraint.jpg, id=57, 245.2362pt x 118.5228pt>
+<windowconstraint.jpg, id=53, 245.2362pt x 118.5228pt>
 File: windowconstraint.jpg Graphic file (type jpg)
 
 <use windowconstraint.jpg>
 Package pdftex.def Info: windowconstraint.jpg used on input line 297.
 (pdftex.def)             Requested size: 196.18922pt x 94.81834pt.
- [9 <./DTWpicture.jpg>] [10 <./windowconstraint.jpg>]
+ [8 <./DTWpicture.jpg>] [9 <./windowconstraint.jpg>]
 \openout2 = `chap3.aux'.
+
 
 No file chap3.tex.
 Chapter 4.
-[11
+[10
 
 
 
-] <featuremapping.jpg, id=68, 317.988pt x 153.6942pt>
+] <featuremapping.jpg, id=65, 317.988pt x 153.6942pt>
 File: featuremapping.jpg Graphic file (type jpg)
 
 <use featuremapping.jpg>
 Package pdftex.def Info: featuremapping.jpg used on input line 328.
 (pdftex.def)             Requested size: 254.39073pt x 122.9555pt.
- [12]
+ [11]
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/pplx/b/n' tried instead on input line 335.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 335.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 15.55188pt on input line 335.
- [13 <./featuremapping.jpg>]
-<Rawsample.jpg, id=75, 552.0625pt x 272.01625pt>
+ [12 <./featuremapping.jpg>]
+<Rawsample.jpg, id=72, 552.0625pt x 272.01625pt>
 File: Rawsample.jpg Graphic file (type jpg)
  <use Rawsample.jpg>
 Package pdftex.def Info: Rawsample.jpg used on input line 347.
@@ -542,7 +549,11 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 351.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 351.
- [14 <./Rawsample.jpg>] <Feature_selection.jpg, id=80, 900.36375pt x 305.14pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Feature_selection.jpg, id=73, 900.36375pt x 305.14pt>
 File: Feature_selection.jpg Graphic file (type jpg)
 
 <use Feature_selection.jpg>
@@ -553,115 +564,114 @@ Overfull \hbox (37.6158pt too wide) in paragraph at lines 375--376
  [][] 
  []
 
-[15 <./Feature_selection.jpg>]
+[13 <./Rawsample.jpg>] [14 <./Feature_selection.jpg>]
 Underfull \hbox (badness 1014) in paragraph at lines 426--427
 [] \OT1/pplx/m/n/12 DTW(i,j) = cost(seq1(i),seq2(j)) + min\OMS/pplx/m/n/12 f \O
 T1/pplx/m/n/12 DTW(i-1,j)+DTW(i,j-
  []
 
-[16] <4111.jpg, id=87, 452.892pt x 276.0714pt>
+<4111.jpg, id=81, 452.892pt x 276.0714pt>
 File: 4111.jpg Graphic file (type jpg)
  <use 4111.jpg>
 Package pdftex.def Info: 4111.jpg used on input line 442.
 (pdftex.def)             Requested size: 362.31409pt x 220.8574pt.
 
-<4112.jpg, id=88, 441.3288pt x 227.8914pt>
+<4112.jpg, id=82, 441.3288pt x 227.8914pt>
 File: 4112.jpg Graphic file (type jpg)
  <use 4112.jpg>
 Package pdftex.def Info: 4112.jpg used on input line 449.
 (pdftex.def)             Requested size: 308.92804pt x 159.52289pt.
- [17 <./4111.jpg> <./4112.jpg>] <Feature_selection2.jpg, id=92, 813.0375pt x 42
-7.5975pt>
+ [15] [16 <./4111.jpg> <./4112.jpg>] <Feature_selection2.jpg, id=89, 813.0375pt
+ x 427.5975pt>
 File: Feature_selection2.jpg Graphic file (type jpg)
 
 <use Feature_selection2.jpg>
 Package pdftex.def Info: Feature_selection2.jpg used on input line 474.
 (pdftex.def)             Requested size: 325.20924pt x 171.03596pt.
- [18]
+
 Overfull \hbox (8.59816pt too wide) in paragraph at lines 479--482
 \OT1/pplx/b/n/12 Algorithm \OT1/pplx/m/n/12 : base-line DTW aug-mented with an 
 adap-tive win-dow con-straint(4.1)
  []
 
-<4121.jpg, id=96, 463.4916pt x 275.1078pt>
+[17 <./Feature_selection2.jpg>] <4121.jpg, id=93, 463.4916pt x 275.1078pt>
 File: 4121.jpg Graphic file (type jpg)
- <use 4121.jpg>
+
+<use 4121.jpg>
 Package pdftex.def Info: 4121.jpg used on input line 485.
 (pdftex.def)             Requested size: 324.4419pt x 192.57413pt.
- [19 <./Feature_selection2.jpg> <./4121.jpg>] <4122.jpg, id=100, 419.166pt x 30
-0.6432pt>
+ <4122.jpg, id=94, 419.166pt x 300.6432pt>
 File: 4122.jpg Graphic file (type jpg)
-
-<use 4122.jpg>
+ <use 4122.jpg>
 Package pdftex.def Info: 4122.jpg used on input line 493.
 (pdftex.def)             Requested size: 251.50154pt x 180.3873pt.
- [20 <./4122.jpg>] <mfcc.jpg, id=105, 490.4724pt x 65.043pt>
+
+[18 <./4121.jpg>] [19 <./4122.jpg>] <mfcc.jpg, id=101, 490.4724pt x 65.043pt>
 File: mfcc.jpg Graphic file (type jpg)
 
 <use mfcc.jpg>
 Package pdftex.def Info: mfcc.jpg used on input line 515.
 (pdftex.def)             Requested size: 392.37845pt x 52.03445pt.
- [21] [22 <./mfcc.jpg>]
-<421.jpg, id=112, 434.1018pt x 363.759pt>
+ [20 <./mfcc.jpg>] [21]
+<421.jpg, id=109, 434.1018pt x 363.759pt>
 File: 421.jpg Graphic file (type jpg)
  <use 421.jpg>
 Package pdftex.def Info: 421.jpg used on input line 550.
 (pdftex.def)             Requested size: 390.68802pt x 327.38008pt.
- [23]
-<422.jpg, id=116, 416.2752pt x 332.442pt>
+
+<422.jpg, id=110, 416.2752pt x 332.442pt>
 File: 422.jpg Graphic file (type jpg)
  <use 422.jpg>
 Package pdftex.def Info: 422.jpg used on input line 557.
 (pdftex.def)             Requested size: 333.02061pt x 265.95395pt.
- [24 <./421.jpg> <./422.jpg>]
+ [22 <./421.jpg>]
 Overfull \hbox (5.06966pt too wide) in paragraph at lines 573--574
 \OT1/pplx/m/n/12 a pre-pro-cess-ing step achieves greater im-prove-ment in ac-c
 u-racy and speed
  []
 
-[25] [26]
+[23 <./422.jpg>] [24] [25]
 \openout2 = `chap4.aux'.
 
 
 No file chap4.tex.
 Chapter 5.
-[27
+[26
 
 
 
-] [28] [29] <425.jpg, id=136, 435.5472pt x 274.1442pt>
+] [27] <425.jpg, id=130, 435.5472pt x 274.1442pt>
 File: 425.jpg Graphic file (type jpg)
  <use 425.jpg>
 Package pdftex.def Info: 425.jpg used on input line 652.
 (pdftex.def)             Requested size: 348.43822pt x 219.31564pt.
 
-<426.jpg, id=137, 459.6372pt x 344.9688pt>
+<426.jpg, id=131, 459.6372pt x 344.9688pt>
 File: 426.jpg Graphic file (type jpg)
  <use 426.jpg>
 Package pdftex.def Info: 426.jpg used on input line 657.
 (pdftex.def)             Requested size: 275.78444pt x 206.98286pt.
- [30 <./425.jpg> <./426.jpg>] <427.jpg, id=141, 388.8126pt x 247.6452pt>
+ [28] [29 <./425.jpg> <./426.jpg>] <427.jpg, id=138, 388.8126pt x 247.6452pt>
 File: 427.jpg Graphic file (type jpg)
  <use 427.jpg>
 Package pdftex.def Info: 427.jpg used on input line 682.
 (pdftex.def)             Requested size: 233.28935pt x 148.58826pt.
 
-<428.jpg, id=142, 360.8682pt x 219.7008pt>
+<428.jpg, id=139, 360.8682pt x 219.7008pt>
 File: 428.jpg Graphic file (type jpg)
  <use 428.jpg>
 Package pdftex.def Info: 428.jpg used on input line 688.
 (pdftex.def)             Requested size: 288.69495pt x 175.76086pt.
- [31 <./427.jpg>]
-[32 <./428.jpg>] [33] <Example1.jpg, id=153, 549.05125pt x 566.115pt>
+ [30 <./427.jpg> <./428.jpg>] [31] <Example1.jpg, id=146, 549.05125pt x 566.115
+pt>
 File: Example1.jpg Graphic file (type jpg)
-
-<use Example1.jpg>
+ <use Example1.jpg>
 Package pdftex.def Info: Example1.jpg used on input line 724.
 (pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
- <Cross-section.jpg, id=154, 562.1pt x 420.57124pt>
-File: Cross-section.jpg Graphic file (type jpg)
 
-<use Cross-section.jpg>
+<Cross-section.jpg, id=147, 562.1pt x 420.57124pt>
+File: Cross-section.jpg Graphic file (type jpg)
+ <use Cross-section.jpg>
 Package pdftex.def Info: Cross-section.jpg used on input line 730.
 (pdftex.def)             Requested size: 337.2626pt x 252.3447pt.
 
@@ -669,57 +679,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 727--732
 
  []
 
-[34 <./Example1.jpg>]
+[32 <./Example1.jpg>]
 Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
 Missing character: There is no Ã in font zptmcmr!
- [35 <./Cross-section.jpg>] [36]
-<521.jpg, id=164, 418.6842pt x 295.8252pt>
+ [33 <./Cross-section.jpg>] [34] [35]
+<521.jpg, id=161, 418.6842pt x 295.8252pt>
 File: 521.jpg Graphic file (type jpg)
  <use 521.jpg>
 Package pdftex.def Info: 521.jpg used on input line 821.
 (pdftex.def)             Requested size: 376.8123pt x 266.2402pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<522.jpg, id=165, 416.757pt x 267.8808pt>
+<522.jpg, id=162, 416.757pt x 267.8808pt>
 File: 522.jpg Graphic file (type jpg)
  <use 522.jpg>
 Package pdftex.def Info: 522.jpg used on input line 827.
 (pdftex.def)             Requested size: 375.07784pt x 241.09048pt.
- [37] [38 <./521.jpg> <./522.jpg>] <523.jpg, id=173, 479.391pt x 278.4804pt>
+ [36 <./521.jpg>]
+[37 <./522.jpg>] <523.jpg, id=169, 479.391pt x 278.4804pt>
 File: 523.jpg Graphic file (type jpg)
  <use 523.jpg>
-Package pdftex.def Info: 523.jpg used on input line 849.
-(pdftex.def)             Requested size: 431.44792pt x 250.63004pt.
+Package pdftex.def Info: 523.jpg used on input line 859.
+(pdftex.def)             Requested size: 335.57141pt x 194.93494pt.
 
-Overfull \hbox (18.88295pt too wide) in paragraph at lines 849--850
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<524.jpg, id=174, 420.1296pt x 234.6366pt>
+<524.jpg, id=170, 451.4466pt x 237.0456pt>
 File: 524.jpg Graphic file (type jpg)
  <use 524.jpg>
-Package pdftex.def Info: 524.jpg used on input line 855.
-(pdftex.def)             Requested size: 378.11314pt x 211.17097pt.
- [39] [40 <./523.jpg> <./524.jpg>] <525.jpg, id=181, 401.8212pt x 294.3798pt>
+Package pdftex.def Info: 524.jpg used on input line 865.
+(pdftex.def)             Requested size: 316.01045pt x 165.93077pt.
+ [38 <./523.jpg> <./524.jpg>] <525.jpg, id=175, 401.8212pt x 294.3798pt>
 File: 525.jpg Graphic file (type jpg)
  <use 525.jpg>
-Package pdftex.def Info: 525.jpg used on input line 878.
+Package pdftex.def Info: 525.jpg used on input line 891.
 (pdftex.def)             Requested size: 361.63573pt x 264.93936pt.
- [41]
-<526.jpg, id=185, 400.8576pt x 273.6624pt>
+ [39]
+<526.jpg, id=179, 400.8576pt x 273.6624pt>
 File: 526.jpg Graphic file (type jpg)
  <use 526.jpg>
-Package pdftex.def Info: 526.jpg used on input line 884.
+Package pdftex.def Info: 526.jpg used on input line 897.
 (pdftex.def)             Requested size: 360.7685pt x 246.29387pt.
- [42 <./525.jpg> <./526.jpg>] (./thesis.bbl [43] [44
+ [40 <./525.jpg> <./526.jpg>] (./thesis.bbl [41] [42
 
-]) [45] (./thesis.aux (./chapter1.aux)
+]) [43] (./thesis.aux (./chapter1.aux)
 (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -746,10 +747,10 @@ palatino/uplr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatin
 o/uplri8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.p
 fb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/l
 ocal/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (50 pages, 2065895 bytes).
+Output written on thesis.pdf (48 pages, 2066046 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
+ 238 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

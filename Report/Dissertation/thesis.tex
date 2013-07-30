@@ -117,7 +117,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.2}
+ \begin{spacing}{1.1}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -712,7 +712,7 @@ The feature extraction methodology discussed  in the previous section  offers no
 Using the MFCC feature extraction method as motivation, I propose the following methodology:
 \begin{enumerate}[label=\roman*]
 \item Apply the feature extraction process of 5.1 to embed the information of local and global trends.
-\item Partition the sequence of vectors into frames of width $m$. The default value of $m$ is set to 50. For speech utterances in the TIGITS data set, this is equivalent to having frames of size 5ms.  Unlike the windowing process of MFCC extraction, the frames here correspond to sequence of vectors rather sequence of numerical values. This partitioning process reduces the length of the sequences by $m$ times and thus decreases the time complexity of the DTW algorithm from O($n^2$) to O${(\frac{n}{m})}^2$.
+\item Partition the sequence of vectors into frames of width $m$. The default value of $m$ is set to 50. For speech utterances in the TIGITS data set, this is equivalent to having frames of size 5ms.  Unlike the windowing process of MFCC extraction, the frames here correspond to sequence of vectors rather sequence of numerical values. This partitioning process reduces the length of the sequences by $m$ times and hence decreases the time complexity of the DTW algorithm from O($n^2$) to O${(\frac{n}{m})}^2$.
 \item Adapt the cost metric of the DTW algorithm to work on series of frames  rather than series of vectors 
 \end{enumerate}
 
@@ -766,7 +766,7 @@ To use this kernel as an  appropriate cost function in the DTW algorithm, we nee
 \item  constraints the codomain to be in the range from 0 to $\infty$.
 \item    ensures larger values given by the function signify great degree of dissimilarity and smaller values  signify a high degree of similitude.
 \end{enumerate}
-An inspection of the kernel function shows it represents the sum of dot products of vectors. An  ideal cost function that make use of dot products is the \emph{arc-cosine}. Using an appropriate substitution, I have thus constructed the following cost metric:  
+An inspection of the kernel function shows the function represents the sum of dot products of all vectors in one frame with all vectors in the second frame. An  ideal cost function that make use of dot products is the \emph{arc-cosine}. Using an appropriate substitution, I have thus constructed the following cost metric:  
 \[ \theta = \frac{ <X,Z>}{|X||Z|} \]
 where $\theta$ is the \emph{arc-cosine} distance, $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$.
 
@@ -802,8 +802,8 @@ A formal outline of the entire methodology is given by the algorithm below:
 
 
 \subsection{Testing the methodology}
-The goal here is to improve the performance of the DTW algorithm in problem domains where minimising time complexity has a high priority.
-To investigate whether the proposed changes provide a better alternative to using the Sakoe-Chuba band window constraint, I have conducted the following experiments:
+The primary objective is  to improve the performance of the DTW algorithm in problem domains where minimising time complexity has a high priority.
+To investigate whether the proposed changes does provide a better alternative to using the Sakoe-Chuba band window constraint, I have conducted the following experiments:
 
 
 
@@ -831,12 +831,20 @@ RESULTS:
 There are quite number of interesting observations that can made from  figures 5.7 and 5.8. 
 
 \begin{itemize}
-\item The proposed changes  to DTW allow the algorithm to achieve better accuracy on test samples across all categories than employing the  rigid Sakoe-Chuba band constraint  of  $w = max(\lceil{0.1*max(n.m)}\rceil, abs(n-m))$.  The most interesting result is that the new algorithm incurs a lower computational cost than before.Thus introducing these changes have improved both the accuracy and time complexity of the algorithm.  From the results noted in the tables, it can been seen that the accuracy of DTW  has increased by 6.54\% on average and the average log(time) has decreased by 3.1. The reduction of the time complexity is mainly due to the partitioning of the sequence into  time slices of width  5 ms. The reduction in  the length of the sequences by an order of 50 results in the shrinkage of the search space of DTW thus causing the algorithm to improves its speed. As we have seen so far, increasing the speed of DTW negatively impact the accuracy, in this scenario, the new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance between points/vectors confined by the window constraint.
+\item In comparison to employing the Sakoe-Chuba band window constraint, the alternative method allows DTW to improve its accuracy across all 4 categories by 6.54\% on average.
+\item  Equipped with the new changes, the run time  of the algorithm has decreased exponentially  by an \textbf{order} of 3.1 on average. The reduction of the time complexity is mainly due to the partitioning of the sequence into time slices of width 5 ms. The reduction in the length of the sequences by an order of 50 results in the shrinkage of the search space of DTW thus causing the algorithm to improves its speed.
 
-In the previous chapter, we have seen that  for the TIDIGITS data set,  constructing a preprocessing methodology that involves `silence' removal followed by MFCC feature extraction allows DTW to minimise its time complexity and at the same achieve high accuracy without the use of the  global window constraint. However for situations where the need for a global window constraint is deemed necessary, it will be interesting to investigate whether the new changes do in fact provide a better alternative to using rigid window constraint for  very long sequences. To check that the new changes allow DTW to perform equally well using domain dependent features,   I have repeated the same experiment again but this time, as  a preprocessing step  I have  just used  the MFCC feature extraction 
+% In Chapter 3, I have shown that the time complexity of the algorithm  equipped with Sakoe-Chuba band constraint is O(n+wn) where w is the size of the adaptive window. The analysis shows that the time complexity associated with the proposed method is smaller than O(n+wn).
+
+\end{itemize}
+%As we have seen so far, increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance between points/vectors confined by the window constraint.
+The proposed methodology can also be adapted to use domain-dependent features.  As I have stated earlier, the main motivation for constructing this framework is to provide better performance  in terms of both accuracy and run-time for time series problem domains where the use of rigid window constraints is deemed necessary. In the previous chapter, we have seen that  when the MFCC feature extraction is used as the only preprocessing step, to minimise the run-time, the use of the adaptive window constraint was deemed necessary. However from the experimental results, it can been seen enforcing such a rigid constraint results in a high error rate. To check that the new changes allow DTW to perform equally well when using domain dependent features,   I have repeated the same experiment again but this time, as  a preprocessing step  I have  just used  the MFCC feature extraction. 
+
+
+
 
 A summary of the results are as follows:
-\end{itemize}
+
 \textbf{Experiment 2}
 
 \textbf{Data set used} : The TIDIGITS test and training data.
@@ -844,27 +852,32 @@ A summary of the results are as follows:
 \textbf{Model} : The model framework consists of single preprocessing step that involves the extraction  of MFCC features
 
 \textbf{Variables being compared}: employing window constraints vs the  new proposed changes
+
+\textbf{Results}
 \begin{figure}[h!]
   \centering
-      \includegraphics[scale=0.9]{523.jpg}
+      \includegraphics[scale=0.7]{523.jpg}
   \caption{Accuracy}
   \end{figure}
 
 \begin{figure}[H]
   \centering
-     \includegraphics[scale=0.9]{524.jpg}
-  \caption{Time complexity in log(time)}
+     \includegraphics[scale=0.7]{524.jpg}
+  \caption{Run time $log_e(time)$}
   \end{figure}
 
 \textbf{Observation}
+The results are consistent with the findings in the previous experiment. The accuracy of the DTW algorithm has improved by over 60\% on average and the average run time  has decreased exponentially by an order of  3.12. Hence in comparison to the window constrained DTW, the new framework takes better advantage  of employing domain dependent features.
 
-From the above results, it can be observed that the new changes does provide an a \textbf{ better} alternative approach  to using a very rigid constraint for scenarios where the time complexity is of high priority and the use of window constraints can not be avoided.  For this data set, using the new approach improves the accuracy of the DTW by over 60\% and the log( time)  is reduced by order. This shows that that not only the time complexity is exponentially reduced but the accuracy has also been boosted.  However, since the tests so far has been conducted on the TIDIGITS test set, it is possible that this new approach is only tailored for this particular data set. Thus to confirm  that the performance of the new algorithm  is not tailored for this particular time-series data set, I have the test the performance of the DTW augmented with  the new changes on the UCR data sets: InlineSkate and CINC\_ECG\_TORSO.
+ However, since the tests so far has been conducted on the TIDIGITS test set, it is possible that this new approach is only tailored for this particular data set. Thus to confirm  that the boost in the performance is not tailored for this particular time-series data set, I have the following experiments using the model of experiments on the  UCR data sets: InlineSkate and CINC\_ECG\_TORSO.
 
 \textbf{Experiment 3}
 
 \textbf{Data sets used} : InlineSkate and CINC\_ECG\_TORSO
 
-\textbf{Setup} : One of the main goals of this analysis is to construct a methodology that can achieve  good performance in both speed and accuracy across multiple domains. The model framework that I am using for this experiment involves the use of  the feature extraction process discussed in 5.1 and [2].  From the experiments conducted on the UCR datasets, Xie and Witgen[2] have shown  at the cost of higher computational complexity m the accuracy of the DTW algorithm does improve by a significant amount when the algorithm substitutes each raw value with a 4-d vector  that reflects information about local and global  trends. However, from the analysis I conducted in 5.1, it was observed that under the window constraint, the use of these features made little contribution in improving the performance of the algorithm. If  replacing the window constraint with the new changes does improve the performance of the DTW algorithm then we will have a model where the use of global and local features  does allow the algorithm to achieve greater performance even when the decreasing the time complexity is a major priority. 
+\textbf{Setup} : 
+
+Model used : The model discussed in section 5.1: the  framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed  by the domain  independent feature extraction methodology proposed in \citep{Xie2010}
 
 In the  proposed approach,  the width of the time slices has been kept fixed at a default value of 50 so far. In this experiment, I also investigate the influence of this parameter on the performance of the DTW. Decreasing its value reduces  the size of the time slices which in  principal should increase both accuracy and time-complexity .
 The core kernel used by the new algorithm is based on the function: 
@@ -888,7 +901,11 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 \textbf{Observation}
 
 \begin{itemize}
-\item The proposed changes does provide  a \textbf{ better} alternative approach  to using rigid constraints  for problem domains where the time complexity is of high priority and the use of window constraints can not be avoided. The accuracy of the DTW algorithm under the new methodology is significantly higher then employing a window constrained DTW on sequences of extracted local and global features.  In my analysis in 5.1, I have already shown that the latter model achieves  better accuracy than the baseline model. Thus the new methodology improves the performance of the DTW in both speed and time and also can be \textbf{applied} to time series sequences belonging to different domains. Hence, combining this approach with the feature extraction method discussed in [2]  results in the construction of a model that can applied for \textbf{different types} of time series data sets. 
+\item The proposed changes does provide  a \textbf{ better} alternative approach  to using rigid constraints  for problem domains where the time complexity is of high priority and the use of window constraints can not be avoided. The accuracy of the DTW algorithm under the new methodology is significantly higher then employing a window constrained DTW on sequences of extracted local and global feature vectors.  
+\end{itemize}
+\textbf{Conclusion}
+\begin{itemize}
+\item  We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance between points/vectors confined by the window constraint.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a model that can applied for \textbf{different types} of time series data sets. 
  \item Decreasing the size of the time slices only leads to a minimal increase in accuracy. Thus using the default value of 50  seems to be safe option as the algorithm better accuracy and speed than using the rigid Sakoe-Chuba band constraint .
 \end{itemize}
    \end{spacing} 
