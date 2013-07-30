@@ -949,6 +949,47 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 \item  We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance to find local optimal warp path only through the constraint window.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a model that can applied for \textbf{different types} of time series data sets. 
 
 \end{itemize}
+
+
+\include{chap5}
+ \chapter{SVD}
+X = \begin{tabular}{|c|c|c|c|c|c|}
+ \hline\\
+ customer & wed & thurs & frid & sat & sun \\
+ \hline\\
+ A & 1 &1 &1 &0 &0 \\
+ B  &2& 2& 2& 0& 0 \\
+ C &1 &1 &1  &0& 0 \\
+ D &5& 5& 5& 0& 0 \\
+ E  &0 &0 &0 &2 &2 \\
+ F  &0& 0& 0& 3& 3 \\
+ G & 0 &0 &0  &1 &1 \\
+ \hline
+ \end{tabular}
+
+\[ \left( \begin{array}{cc}
+0.18 & 0 \\
+0.36 & 1\\
+0.18 & 0 \\
+0.90 & 0 \\
+0 & 0.53 \\
+0 & 0.80 \\
+0 & 0.27 \\
+\end{array} \right)
+\times \left( \begin{array}{cc}
+9.64 & 0 \\
+0 & 5.29
+\end{array} \right)\times
+\left( \begin{array}{cc}
+0.58 & 0 \\
+0.58 & 0 \\
+0.58 & 0 \\
+0 & 0.71 \\
+0 & 0.71 
+\end{array} \right)^t\]
+
+
+
    \end{spacing} 
 %% ... etc ...
 
