@@ -63,6 +63,16 @@ F.~Itakura, ``{Minimum prediction residual principle applied to speech
   recognition},'' {\em IEEE Transactions on Acoustics, Speech, and Signal
   Processing}, vol.~23, pp.~67--72, Feb. 1975.
 
+\bibitem{Keogh2004}
+E.~Keogh and C.~A. Ratanamahatana, ``{Exact indexing of dynamic time
+  warping},'' {\em Knowledge and Information Systems}, vol.~7, pp.~358--386,
+  May 2004.
+
+\bibitem{Vlachos2002}
+M.~Vlachos, G.~Kollios, and D.~Gunopulos, ``{Discovering similar
+  multidimensional trajectories},'' in {\em Proceedings 18th International
+  Conference on Data Engineering}, pp.~673--684, IEEE Comput. Soc, 2002.
+
 \bibitem{ChotiratAnnRatanamahatana}
 E.~K. {Chotirat Ann Ratanamahatana}, ``{Three Myths about Dynamic Time Warping
   Data},'' {\em Mining, in the Proceedings of SIAM International Conference on

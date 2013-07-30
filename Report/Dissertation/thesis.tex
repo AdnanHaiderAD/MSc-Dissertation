@@ -223,39 +223,59 @@ The description of the data sets used for the next set of experiments are as fol
   \include{chap2}
 
 \chapter{DTW-Background}
-The Dynamic Time Warping algorithm measures the similarity between  sequences varying in both time and speed. Formally, the problem formulation of the algorithm is stated as follows: Given two time series X, and Y, of lengths $|X|$ and $|Y|$,
+The Dynamic Time Warping algorithm is  a similarity  metric that is  used cluster similar time series sequences varying in length, scale and speed. The problem formulation \citep{Salvador} of the algorithm is stated as follows: Given two time series X, and Y, of lengths $|X|$ and $|Y|$,
 \begin{eqnarray}
 X &= &x_1,x_2...x_{|X|}\\
 Y &= &y_1,y_2...y_{|Y|}
 \end{eqnarray}
 construct a warping path W
-\[ W =  w_1, w_2...w_k \mbox{ where max } (|X|,|Y|\leq k\leq |X|=|Y|\]
+\[ W =  w_1, w_2...w_k \mbox{ where max } (|X|,|Y|)\leq k\leq |X|+|Y|\]
+where
 \begin{itemize}
-\item Here \emph{k} denotes the length of the warping path and the  mth element of the warping path is $w_l = (n_l,m_l) \in [1 : N]\times[1 : M] \mbox{for } l \in [1 : k]$ where $n_l$ is an index from the  time series X and $m_l$ is an index from the time series Y.
+\item \emph{k} denotes the length of the warping path 
+\item the  mth element of the warping path is $w_m = (i,j) \in [1 : N]\times[1 : M] \mbox{ for } l \in [1 : k]$ where $i$ is an index from the  time series X and $j$ is an index from the time series Y.
 \end{itemize}
-To  properly understand  the  mechanism of the DTW algorithm, the definition of some key terminologies  must first be stated:
+To  properly understand the above formulation some key definitions must be stated:
  \begin {enumerate}
-\item Warping path:
-An (N,M)-warping path (or simply referred to as warping path if N and M are clear from the context) is a sequence $w= (w_1,...,w_k)$ with $w_l = (n_l,m_l) \in [1 : N]\times[1 : M] \mbox{for } l \in [1 : k]$ satisfying the following three conditions.
+\item Warping path \citep{Keogh2004}:
+An (N,M)-warping path (or simply referred to as warping path if N and M are clear from the context) is a sequence $w= (w_1,...,w_k)$ with $w_l = (i,j) \in [1 : N]\times[1 : M] \mbox{ for } l \in [1 : k]$ that satisfies the following three conditions.
  \begin{enumerate}
- \item Boundary condition: $p_1 = (1,1)$ and $p_k = (N,M)$.
- The boundary condition enforces that the first elements of X and Y as well as the last elements of X and Y to be  aligned with each other. In other words, the alignment refers to the entire sequences X and Y.
- \item Monotonicity condition requires that  the path will not turn back on itself, both the i and j indexes either stay the same or increase, they never decrease. 
+ \item Boundary condition \citep{Keogh2004,Sakoe1990,Xi2006,Itakura1975}:  $w_1 = (1,1)$ and $w_k = (N,M)$.
+
+ The boundary condition enforces that the first elements of the series X and Y as well as the last elements of the series X and Y have to be aligned with each other. This prevents the alignment from missing any points.
+ \item Monotonicity condition \citep{Keogh2004,Sakoe1990,Itakura1975}: 
  
- \item Step-size condition: $p_{l+1}-p_l \in \{(1,0),(0,1),(1,1)\}$  for l $\in$ [1:k-1].
- The step size con- dition expresses a kind of continuity condition: no element in X and Y can be omitted and there are no replications in the alignment
+ $\forall i \in [1:k-1] , [|w_{i+1}-w_{i}|= 1]$. In other words, $ w_k =(i,j), w_{k+1} =(i',j'), i\leq i' \leq i+1, j\leq j'\leq j +1$
+ 
+ The condition requires that  the path will not turn back on itself. Both the i and j indexes either stay the same or increase but they will never decrease. 
+ 
+ \item Step-size condition  \citep{Keogh2004,Sakoe1990,Itakura1975}: $w_{l+1}-w_l \in \{(1,0),(0,1),(1,1)\}$,  $ \forall l \in$ [1:k-1].
+ 
+ The step size condition expresses a kind of continuity condition: no element in X and Y can be omitted and there are no replications in the alignment
  \end {enumerate}
- Intuitively speaking, the (N,M)warping path$ p = (p_1,...,p_k) $defines an alignment  between two sequences $X = (x_1,x_2,...,x_N)$ and $Y = (y)1,y_2,...,y_M)$ by assigning the element $x_i$ of X to the element $y_j$	of Y.   
- \item Optimum Warping Path :
+ 
+ Intuitively speaking, the (N,M) warping path $ w = (w_1,...,w_k) $ defines an alignment  between two sequences $X = (x_1,x_2,...,x_N)$ and $Y = (y_1,y_2,...,y_M)$  by assigning each element of X to a unique element  in Y.   
+
+ \item Optimum Warping Path \citep{Xi2006, Keogh2004}:
  
  The optimal warp path corresponds to the  minimum-distance warp path, where the distance of a warp path W is given as 
- \[ Dist(W) = \sum_{i=1}^{K} dist(X,Y)_{|(w_i)}\]
- $dist(X,Y)_{|(w_i)}$  represents the distance computed using an appropriate  cost function between the time series points of $x_{ni}$ of sequence X and $y_{mi}$ of sequence Y. \[\emph dist(X,Y)_{|(w_i)} = dist(x_{ni},y_{mi}) \]
+ \[ Dist(W) = \sum_{m=1}^{K} dist(X,Y)_{|(w_m)}\]
+ where $w_m = (i,j)  \in [1 : N]\times[1 : M]$
+ 
+ The $dist(X,Y)_{|(w_m)}$  represents the distance computed using an appropriate  cost function between the value $x_{i}$ of sequence X and the value $y_{j}$ of sequence Y. 
+ \[\emph dist(X,Y)_{|(w_m)} = dist(x_{x_i},y_{y_j}) \]
  
 \end{enumerate}
-The goal of the DTW algorithm is to compute the distance of the optimal warping path between two time series sequences. Instead of attempting to solve the entire problem all at once, the  algorithm utilises the technique of dynamic programming to find an optimum alignment between two sequences through the computation of local distances between the points in the temporal sequences. The algorithm proceeds by  iteratively filling in values for each cell (i,j) in  the  $|X|$ by $|Y|$ cost matrix \emph{D}. The value of the cell (i,j) is given by  $D(x_{ni}, y_{mj})$  which corresponds to the minimum- distance warp path :
+The goal of the DTW algorithm is to compute the distance of the optimal warping path for  given two time series sequences. Instead of attempting to solve the entire problem all at once, the  algorithm utilises the technique of dynamic programming to find an optimum alignment between two sequences through the computation of local distances between the points in the temporal sequences. The algorithm proceeds by  iteratively filling in values for each cell (i,j) in  the  $|X|$ by $|Y|$ cost matrix \emph{D}. The value of the cell (i,j) is given by  $D(x_{i}, y_{j})$  which uses a cost metric to compute the distance of  optimum warp path from (1,1) to (i,j) :
 \[D(i,j) =Dist(i,j) +min(D(i-1,j),D(i-1,j-1),D(i,j-1))\]
-An outline of the baseline DTW algorithm is given below:
+The figure below illustrates the working of the DTW algorithm.
+\begin{figure}[H]
+  \centering
+   
+     \includegraphics[scale=0.8]{DTWpicture.jpg}
+  \caption{The DTW cost matrix with the minimum-distance warp path traced through it.  }
+  \end{figure}
+Generally as a cost metric, the euclidean metric is mostly  widely used.  For this project, I will hence consider the basic  DTW algorithm equipped with the euclidean metric as my baseline model. An outline of the base line  DTW algorithm is given below:
 
  \begin{algorithm}[H]
 
@@ -282,25 +302,18 @@ An outline of the baseline DTW algorithm is given below:
 \end{algorithmic}
 \caption{Value-Based DTW}
 \end{algorithm}
-The figure below gives an example of the optimal path found by the algorithm.
-\begin{figure}[H]
-  \centering
-   
-     \includegraphics[scale=0.8]{DTWpicture.jpg}
-  \caption{A cost matrix with the minimum-distance warp path traced through it.  }
-  \end{figure}
-  The computational complexity of the DTW algorithm is \emph{O}($n^2$) where $n$ denotes the length of the sequences that are being compared. Thus for time series domains having high dimensions(long sequences), the time and computational costs incurred by the algorithm are quite high.  To address this issue, two well-known global window constraints are employed:  the Sakoe-Chiba band[18] and
-the Itakura parallelogram[19] . Figure 3.2  gives an illustration of the use of both constraints:
+
+  The computational complexity of the DTW algorithm is \emph{O}($n^2$) where $n$ denotes the length of the sequences that are being compared. Thus for time series domains having high dimensions i.e.long lengths, the time and computational costs incurred by the algorithm are quite high.  To address this issue, two well-known global window constraints are employed:  the Sakoe-Chiba band \citep{Sakoe1990} and
+the Itakura parallelogram \citep{Itakura1975} . Figure 3.2  gives an illustration  of the use of both constraints:
   \begin{figure}[H]
   \centering
    
      \includegraphics[scale=0.8]{windowconstraint.jpg}
      \caption{ Two constraints: Sakoe-Chuba Band (left) and an Itakura Parallelogram (right), both have a width of 5.}
     \end{figure}
-  
- The Sakoe-Chiba band runs along the main diagonal and has a fixed (horizontal and vertical) width .The Itakura parallelogram  on the other hand describes a region that constrains the slope of a warping path. To constraint the time complexity to a minimum, the vast majority of the data mining researchers use a Sakoe-Chiba Band with a 10\% width.
+ The shaded areas in the above figure represent the cells of the cost matrix that are filled in by the DTW algorithm for each constraint. The width of each shaded area/window, is specified by a  window parameter. When these constraints are used, the DTW algorithm finds the optimal warp path only through the constraint window. However, the globally optimal warp path will not be found if it is not entirely inside the window\citep{Salvador}. The window parameter therefore determines the accuracy of the DTW algorithm. Decreasing the width decreases the accuracy. If the width is 0 and the series are of equal length then the DTW generalises to the euclidean distance which is a notoriously inaccurate similarity measure for time series data\citep{Vlachos2002}. To constraint the time complexity to a minimum, the vast majority of the data mining researchers use a Sakoe-Chiba Band with a 10\% width. This reduces the time complexity from O($n^2$) to O (wn) where w is the size of the window parameter.
  
- \include{chap3}
+  \include{chap3}
 \chapter{Optimising DTW}
 The Dynamic Time Warping(DTW) algorithm is the one of the oldest algorithm that is used to compare and cluster sequences varying in time, scale and speed. Given two temporal sequences, the algorithm utilises the technique of dynamic programming to compute the cost of the optimum alignment path between them.  The computed cost gives an indication of the degree of similarity. The smaller the cost, the more similar the sequences are. Intuitively speaking, DTW can be seen as  a clustering algorithm that clusters patterns that share roughly the same shape. As I have stated in the previous chapter, the time and computational complexity of this algorithm is  \emph{O}($n^2$) where $n$ denotes the length of the sequences that are being compared. Thus for time series domains having high dimensions i.e long sequences, DTW becomes a very unattractive choice as it suffers from high computational and time costs. 
 
@@ -492,7 +505,7 @@ To investigate  the effect of performing further dimensionality reduction on the
  \begin{figure}[H]
   \includegraphics[scale=0.6]{4122.jpg}
      
-  \caption{ Integrating downsampling  decreases the ln(time)}
+  \caption{ Integrating downsampling  decreases the ln(run time)}
 \end{figure}
 Augmenting the down sampling procedure to the feature selection process leads to a further decrease of 1.5  in the ln( run time) of the DTW algorithm in comparison to just removing silence regions as a preprocessing step. This is expected since in the first stage of the preprocessing phase, redundant features are dropped which reduces the dimensionality(i.e length ) of the sequences. The length of the sequences is reduced even further through downsampling the the output sequences of stage 1. Since the computational cost of DTW is directly dependent on the length of the sequences,  thus decrements in dimensionality leads to a decrease in the computational cost.
 
@@ -555,7 +568,7 @@ Experimental setup:
   \centering
    
      \includegraphics[scale=0.8]{422.jpg}
-  \caption{The run time incurred by all models}
+  \caption{The ln( run time) incurred by all models}
   \end{figure}
 
   Observations:
@@ -655,7 +668,7 @@ A summary of the results are given below:
 \begin{figure}[H]
   \centering
      \includegraphics[scale=0.6]{426.jpg}
-  \caption{}
+  \caption{ln of the run time}
   
 \end{figure}
 \textbf{Observations}:
@@ -863,7 +876,7 @@ A summary of the results are as follows:
 \begin{figure}[H]
   \centering
      \includegraphics[scale=0.7]{524.jpg}
-  \caption{Run time $log_e(time)$}
+  \caption{ln of the run time: $log_e(time)$}
   \end{figure}
 
 \textbf{Observation}
@@ -895,18 +908,22 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.9]{526.jpg}
-  \caption{Accuracy}
+  \caption{Run time in ln}
   \end{figure}
 
 \textbf{Observation}
 
 \begin{itemize}
 \item The proposed changes does provide  a \textbf{ better} alternative approach  to using rigid constraints  for problem domains where the time complexity is of high priority and the use of window constraints can not be avoided. The accuracy of the DTW algorithm under the new methodology is significantly higher then employing a window constrained DTW on sequences of extracted local and global feature vectors.  
+\item Decreasing the size of the time slices only leads to a minimal increase in accuracy. Thus using the default value of 50  seems to be safe option as the algorithm better accuracy and speed than using the rigid Sakoe-Chuba band constraint .
+
 \end{itemize}
 \textbf{Conclusion}
 \begin{itemize}
-\item  We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance between points/vectors confined by the window constraint.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a model that can applied for \textbf{different types} of time series data sets. 
- \item Decreasing the size of the time slices only leads to a minimal increase in accuracy. Thus using the default value of 50  seems to be safe option as the algorithm better accuracy and speed than using the rigid Sakoe-Chuba band constraint .
+\item In chapter 3, we have seen that under the window constraint the time complexity of the algorithm decreases from O($n^2$) to O(wn). From the  experimental results, it can be observed that the new proposed changes allow DTW to achieve run times that are exponential lower than the run times achieved by the window constrained DTW. Thus it can be concluded that the  time complexity of the proposed DTW variant is smaller that O(wn). 
+
+\item  We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance to find local optimal warp path only through the constraint window.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a model that can applied for \textbf{different types} of time series data sets. 
+
 \end{itemize}
    \end{spacing} 
 %% ... etc ...
