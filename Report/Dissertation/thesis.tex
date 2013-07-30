@@ -64,6 +64,7 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{enumitem}
+\usepackage{microtype}
 \renewcommand{\rmdefault}{pplx}
 
 %% Information about the title, etc.
@@ -168,39 +169,63 @@ The prime objective here is to improve the accuracy of the DTW and SVD algorithm
 
 The  dissertation is  organised as follows: Chapter 2 gives a description of the 3 time-series datasets used for this project. Chapter 4  provides a detailed back ground description of the DTW algorithm. Chapter 3 and 4 investigates methods to improve the performance of the DTW algorithm in terms of both accuracy and speed. Chapter4...
 \include{chap3}
-\chapter{Datasets}
-The primary dataset that I have used for this project is the `TIGITS' corpus. (I need to give more description here)
-
-For Training : The entire training data is used
---To contain the computational complexitiy, I am usig samples from production 'a'
-
-
-For the training set : 
-To reduce the average mean time , I am using half of the training data set by choosing samples from one production:
-I have chosen:
-
- 225 samples from the boy category
+\chapter{Datasets Used}
+There are  two primary goals of this project : 
+\begin{itemize}
+\item improve the performance of the DTW  algorithm on long time series sequences. 
+\item adapt SVD to create a  unique `fingerprint' scheme for each distinguished motif/time series pattern. 
+\end{itemize}
+For each of these algorithms, the performance of different adaptions was evaluated by combining them with the 1 nearest neighbours classifier. As I have mentioned in the previous chapter, the 1 nearest neighbour classifier shares the same methodology as the algorithms  used to detect motifs. Thus, if the proposed adaptions improve the performance of  1 nearest neighbour classifier then  it is highly likely that they will achieve better performance in detecting motifs.  The data sets used for evaluation were carefully chosen so that they contain time series sequences that have very long lengths.
  
- 234 samples from the girl category
- 
- 495 samples from the men category
- 
- 513 samples from the women category
- 
+ The data sets used for this project are as follows:
+\begin{enumerate}
+\item TIDIGITS speech corpus
+\item   The UCR data set :CinC\_ECG\_torso
+\item The UCR data set :InlineSkate
+\end{enumerate}
+All 3 data sets were partitioned into two disjoints sets: test set and training sets. Each sample in the training and test data set corresponds to a particular pattern. The class information of the training samples were used to evaluate the accuracy of the nearest neighbours classifier.
 
-Note : the size of the training set is half of the original training set but contains examples of all classes [1-9]  
+The primary dataset that I have used for this project is the `TIGITS' corpus. In comparison to the UCR datasets, the length of the time series sequences in the TIGITS corpus are on average 100 times longer than the  time series sequences of the two UCR datasets.
+\subsection { Brief description of TIDIGITS data set}
+The utterances in the TIDIGITS data set correspond to digit sequences. The corpus consists of :
+\begin{itemize}
+\item 22 isolated digits (two tokens of each of the eleven digits)
+\item 11 two-digit sequences
+\item 11 three-digit sequences
+\item 11 four-digit sequences
+\item  11 five-digit sequences
+\item  11 seven-digit sequences
+\end{itemize}
+In this corpus, the motifs correspond to individual digits. Thus for my experiments, I have considered  only the  isolated digit sequences for classification,  more specifically the digits from 0 to 9. The database  as I have mentioned earlier is divided into two subsets, one to be used for algorithm design and one to be used only for evaluation. Both sets contain samples belonging to different speaker categories i.e (men,women,boy,girl) who in turn have different dialect classifications.
+The table below shows the partitioning of speakers from different speaker categories in the training and test data set.:
 
-For the  test set : Due to the high computational complexity, I  am using only 1/3 of the test set
-I have chosen 
-162 random samples from boys
+\begin{tabular}{|c|c|c|c|c|}
+\hline \\
+Subset  &    Man &   Woman &Boy &   Girl  \\
+         Train &         55&     57 &  25 &     26\\
+    
+         Test      &     56 &    57 &   25 &     25\\
+ \hline
+ \end{tabular}
 
-162 random samples from girls
+For this project, the entire training set was used for nearest neighbour classification, although only samples from one production was taken.
+To ensure that the experiments completed with in a reasonable time, I have only used $\frac{1}{3}$ of the samples of the test set.
 
-326 random samples from men
+The test data subset used for evaluation consists of 
+\begin{itemize}
+\item 162 random samples from boy category
+\item 162 random samples from girl category
+\item 326 random samples from men category
+\item326 random samples from women category
+\end{itemize}
+\textbf{Note}: The samples were not  chosen exactly randomly. When subsampling from each category, I have ensured that:
+\begin{itemize}
+\item the samples   belong to a number of different speakers 
+\item  the chosen subset consists of  enough examples of all 10 digits.
+\end{itemize}
+  
+\subsection{Brief description CinC\_ECG\_torso and InLineSkate dataset}
 
-326 random samples from women
-
-Apart from the TIGITS, I have used two datasets from the UCR database:
 
 The description of the data sets used for the next set of experiments are as follows:
   \begin{enumerate}
