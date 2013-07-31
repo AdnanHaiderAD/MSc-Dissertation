@@ -100,4 +100,13 @@ M.~{De Wachter}, K.~Demuynck, P.~Wambacq, and D.~{Van Compernolle}, ``{A
 M.~A. Carlin, S.~Thomas, A.~Jansen, and H.~Hermansky, ``{Rapid Evaluation of
   Speech Representations for Spoken Term Discovery},''
 
+\bibitem{bishop2006pattern}
+C.~M. Bishop and N.~M. Nasrabadi, {\em {Pattern recognition and machine
+  learning}}, vol.~1.
+\newblock springer New York, 2006.
+
+\bibitem{Marchette1999}
+D.~J. Marchette, ``{Local dimensionality reduction},'' vol.~14, ch.~Dimensiona,
+  p.~469, 1999.
+
 \end{thebibliography}

@@ -10,6 +10,7 @@ Already encountered file chap3.aux
  :                  }
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: chap4.aux
+A level-1 auxiliary file: chap5.aux
 The style file: ieeetr.bst
 Database file #1: ../../../../../Documents/mendeley/library.bib.bib
 Warning--empty journal in Fayyad1998
@@ -20,45 +21,48 @@ Warning--empty journal in Xie2010
 Warning--can't use both volume and number fields in Korn1997
 Warning--empty journal in Carlin
 Warning--empty year in Carlin
-You've used 21 entries,
+Warning--empty booktitle in Marchette1999
+Warning--can't use both volume and number fields in Marchette1999
+Warning--empty publisher in Marchette1999
+You've used 23 entries,
             1876 wiz_defined-function locations,
-            618 strings with 7244 characters,
-and the built_in function-call counts, 5917 in all, are:
-= -- 596
-> -- 202
+            631 strings with 7470 characters,
+and the built_in function-call counts, 6329 in all, are:
+= -- 633
+> -- 214
 < -- 0
-+ -- 76
-- -- 55
-* -- 433
-:= -- 795
-add.period$ -- 19
-call.type$ -- 21
-change.case$ -- 21
++ -- 81
+- -- 58
+* -- 462
+:= -- 849
+add.period$ -- 22
+call.type$ -- 23
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 29
-duplicate$ -- 301
-empty$ -- 565
-format.name$ -- 55
-if$ -- 1434
+cite$ -- 34
+duplicate$ -- 325
+empty$ -- 614
+format.name$ -- 58
+if$ -- 1539
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 19
-newline$ -- 66
-num.names$ -- 19
-pop$ -- 83
+int.to.str$ -- 23
+missing$ -- 22
+newline$ -- 73
+num.names$ -- 21
+pop$ -- 94
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 231
+skip$ -- 245
 stack$ -- 0
-substring$ -- 464
-swap$ -- 127
+substring$ -- 470
+swap$ -- 135
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 8
-while$ -- 62
-width$ -- 23
-write$ -- 191
+warning$ -- 11
+while$ -- 65
+width$ -- 25
+write$ -- 210
 (There was 1 error message)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  30 JUL 2013 23:40
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  31 JUL 2013 13:57
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -177,6 +177,64 @@ Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip45
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks17
+\ex@=\dimen119
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen120
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count94
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count95
+\leftroot@=\count96
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count97
+\DOTSCASE@=\count98
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen121
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count99
+\c@MaxMatrixCols=\count100
+\dotsspace@=\muskip10
+\c@parentequation=\count101
+\dspbrk@lvl=\count102
+\tag@help=\toks18
+\row@=\count103
+\column@=\count104
+\maxfields@=\count105
+\andhelp@=\toks19
+\eqnshift@=\dimen122
+\alignsep@=\dimen123
+\tagshift@=\dimen124
+\tagwidth@=\dimen125
+\totwidth@=\dimen126
+\lineht@=\dimen127
+\@envbody=\toks20
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
@@ -260,14 +318,14 @@ nment
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count94
-\float@exts=\toks17
-\float@box=\box26
-\@float@everytoks=\toks18
-\@floatcapt=\box27
+\c@float@type=\count106
+\float@exts=\toks22
+\float@box=\box28
+\@float@everytoks=\toks23
+\@floatcapt=\box29
 )
-\@float@every@algorithm=\toks19
-\c@algorithm=\count95
+\@float@every@algorithm=\toks24
+\c@algorithm=\count107
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -276,34 +334,34 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count96
-\c@ALG@rem=\count97
-\c@ALG@nested=\count98
-\ALG@tlm=\skip45
-\ALG@thistlm=\skip46
-\c@ALG@Lnr=\count99
-\c@ALG@blocknr=\count100
-\c@ALG@storecount=\count101
-\c@ALG@tmpcounter=\count102
-\ALG@tmplength=\skip47
+\c@ALG@line=\count108
+\c@ALG@rem=\count109
+\c@ALG@nested=\count110
+\ALG@tlm=\skip48
+\ALG@thistlm=\skip49
+\c@ALG@Lnr=\count111
+\c@ALG@blocknr=\count112
+\c@ALG@storecount=\count113
+\c@ALG@tmpcounter=\count114
+\ALG@tmplength=\skip50
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (/usr/local/texlive/2011/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2009/05/18 v2.2 Customized lists
-\enit@toks=\toks20
-\labelindent=\skip48
-\enit@outerparindent=\dimen119
-\enitdp@desc=\count103
+\enit@toks=\toks25
+\labelindent=\skip51
+\enit@outerparindent=\dimen128
+\enitdp@desc=\count115
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2010/01/10 v2.4 Micro-typography with pdfTeX (RS)
-\MT@toks=\toks21
-\MT@count=\count104
+\MT@toks=\toks26
+\MT@count=\count116
 LaTeX Info: Redefining \lsstyle on input line 1597.
 LaTeX Info: Redefining \lslig on input line 1597.
-\MT@outer@space=\skip49
+\MT@outer@space=\skip52
 LaTeX Info: Redefining \textls on input line 1605.
-\MT@outer@kern=\dimen120
+\MT@outer@kern=\dimen129
 LaTeX Info: Redefining \textmicrotypecontext on input line 2156.
 Package microtype Info: Loading configuration file microtype.cfg.
 
@@ -374,17 +432,17 @@ File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count105
-\scratchdimen=\dimen121
-\scratchbox=\box28
-\nofMPsegments=\count106
-\nofMParguments=\count107
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count108
-\MPscratchDim=\dimen122
-\MPnumerator=\count109
-\makeMPintoPDFobject=\count110
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count117
+\scratchdimen=\dimen130
+\scratchbox=\box30
+\nofMPsegments=\count118
+\nofMParguments=\count119
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count120
+\MPscratchDim=\dimen131
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
+\everyMPtoPDFconversion=\toks28
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
@@ -737,26 +795,26 @@ Package pdftex.def Info: 526.jpg used on input line 934.
 
 No file chap5.tex.
 Chapter 6.
-(./thesis.bbl [43
+[43
 
 
 
-] [44
+] (./thesis.bbl [44] [45
 
-] [45]) [46] (./thesis.aux (./chapter1.aux) (./chap3.aux) (./chap2.aux) (./chap
-3.aux) (./chap4.aux) (./chap5.aux))
+] [46]) [47] (./thesis.aux (./chapter1.aux)
+(./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux) (./chap5.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 6937 strings out of 493633
- 105166 string characters out of 3143377
- 192377 words of memory out of 3000000
- 9741 multiletter control sequences out of 15000+200000
- 61622 words of font info for 290 fonts, out of 3000000 for 9000
+ 7533 strings out of 493633
+ 112019 string characters out of 3143377
+ 203794 words of memory out of 3000000
+ 10321 multiletter control sequences out of 15000+200000
+ 63610 words of font info for 294 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 43i,7n,40p,1534b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,9n,40p,1534b,505s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -771,10 +829,10 @@ alatino/uplr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino
 /uplri8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.pf
 b></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/lo
 cal/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (51 pages, 2089495 bytes).
+Output written on thesis.pdf (52 pages, 2094467 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
+ 255 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 48766 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 50814 words of extra memory for PDF output out of 51595 (max. 10000000)
 
