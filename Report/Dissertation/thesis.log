@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  31 JUL 2013 13:57
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  31 JUL 2013 14:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -799,9 +799,9 @@ Chapter 6.
 
 
 
-] (./thesis.bbl [44] [45
+] [44] (./thesis.bbl [45] [46
 
-] [46]) [47] (./thesis.aux (./chapter1.aux)
+] [47]) [48] (./thesis.aux (./chapter1.aux)
 (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux) (./chap5.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -810,11 +810,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  7533 strings out of 493633
  112019 string characters out of 3143377
- 203794 words of memory out of 3000000
+ 205794 words of memory out of 3000000
  10321 multiletter control sequences out of 15000+200000
  63610 words of font info for 294 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 43i,9n,40p,1534b,505s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,12n,40p,1534b,505s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -829,10 +829,10 @@ alatino/uplr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino
 /uplri8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.pf
 b></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/lo
 cal/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (52 pages, 2094467 bytes).
+Output written on thesis.pdf (53 pages, 2095443 bytes).
 PDF statistics:
- 255 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
+ 258 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  50814 words of extra memory for PDF output out of 51595 (max. 10000000)
 

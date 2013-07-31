@@ -953,6 +953,7 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 
 \include{chap5}
  \chapter{SVD}
+ \section{Motivation and Background}
  High dimensional data vectors $x_n$  typically lie close to a non- linear manifold \citep{bishop2006pattern} whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input variables. In data mining, to understand this intrinsic dimensionality of the data, the Single Value Decomposition algorithm is popularly used. SVD gains an understanding of a large database by simplifying the representation and  showing only the number of important dimensions that captures the \textbf{variance} of the data. Intuitively speaking, SVD projects the high dimensional data vectors to an orthogonal subspace that maximises the variance of the data.
 
 % Among feature extraction algorithms, Single Value decomposition has been a very popular choice. The entire time -series is mapped to a low dimensional orthogonal feature space that captures the  variance of the data. Korn \citep{Korn1997} have successfully applied SVD for large time series indexing.
@@ -973,9 +974,12 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
  Here D is a diagonal matrix of singular values ranked from greatest to least. These determine the `rank' of the original matrix.
  \item  V is a $N \times N $ orthogonal matrix. The columns of V are the eigenvectors of $X^TX$. Since $X^TX$ is the covariance matrix, these eigenvectors span the linear subspace that maximises the variance of the data.
  \end{itemize}
-For time series data sets, very little research has been done to apply SVD to time series sequences. Clustering time sequences by conventional methods is extremely difficult. The dimensions in the time series sequences correspond to time indices and as I mentioned earlier, similar patterns even if they are of the same length may vary in terms of speed and scale. This makes the use of euclidean metric in clustering patterns obsolete.  Korn in his paper  \citep{Korn1997} have shown that SVD can be  also applied to efficiently perform time series indexing. Applying SVD as a preprocessing step, can help in extracting patterns in time  that can be used to construct a simplified representation of the data. By presenting each time series sequences in terms of the dominant patterns, we can thus apply the euclidean metric to efficiently cluster sequences. 
 
-Let motivate the considering the  following toy example :
+Unlike other data sets, clustering time sequences by conventional methods such as the euclidean metric achieves very poor results. The euclidean metric or any of the other conventional methods compare sequences based on a linear match of their two temporal dimensions. This is a huge drawback the metrics fail to take into account similar patterns even if they are of the same length may vary in terms of speed and scale. Hence the use of conventional metrics  is  pointless when it comes to  clustering time-series  patterns. To address this issue, Korn in his paper  \citep{Korn1997} have shown that SVD can be  also applied to efficiently perform time series indexing. Applying SVD as a preprocessing step, can result in the  extraction of  latent factors that represent patterns in time. Through mapping the time series sequences in the space  spanned by these latent factors, we can therefore construct a representation of the data which allows conventional methods such as the euclidean metric to cluster time sequences with greater accuracy.
+
+To motivate this reasoning, lets consider the  following toy example :
+
+ Let  X be  a matrix where rows correspond to customers, columns correspond to days and the values are the dollar amounts spent on phone each day.
  
 X = \begin{tabular}{|c|c|c|c|c|c|}
  \hline\\
@@ -991,7 +995,15 @@ X = \begin{tabular}{|c|c|c|c|c|c|}
  \hline
  \end{tabular}
 
-\[ \left( \begin{array}{cc}
+\textbf{Observation}
+\begin{itemize}
+\item From an observation of the matrix, it can seen that there are two groups of customers: one group  makes calls only during week days while the other group only makes calls during weekends
+\end{itemize}
+Applying SVD results:
+
+\begin{eqnarray*} 
+X & = & U\times D \times V^T\\
+ X & = &  \left( \begin{array}{cc}
 0.18 & 0 \\
 0.36 & 0\\
 0.18 & 0 \\
@@ -1010,7 +1022,10 @@ X = \begin{tabular}{|c|c|c|c|c|c|}
 0.58 & 0 \\
 0 & 0.71 \\
 0 & 0.71 
-\end{array} \right)^t\]
+\end{array} \right)^T\end{eqnarray*}
+
+
+
 
 
 
