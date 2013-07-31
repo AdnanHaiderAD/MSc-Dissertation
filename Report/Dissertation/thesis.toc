@@ -16,4 +16,5 @@
 \contentsline {chapter}{\numberline {6}SVD}{43}
 \contentsline {section}{\numberline {6.1} Background}{43}
 \contentsline {section}{\numberline {6.2}Motivation}{44}
-\contentsline {chapter}{Bibliography}{47}
+\contentsline {section}{\numberline {6.3}Baseline Implementation}{46}
+\contentsline {chapter}{Bibliography}{48}

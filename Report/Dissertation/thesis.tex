@@ -65,6 +65,7 @@
 \usepackage{algpseudocode}
 \usepackage{enumitem}
 \usepackage{microtype}
+\usepackage{mathpazo}
 \renewcommand{\rmdefault}{pplx}
 
 %% Information about the title, etc.
@@ -976,7 +977,7 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
   \item  V is a $N \times N $ orthogonal matrix. The columns of V are the eigenvectors of $X^TX$. Since $X^TX$ is the covariance matrix, these eigenvectors span the linear subspace that maximises the variance of the data.
  \end{itemize}
  
-Dimensionality reduction is achieved by discarding the eigen vectors in V i.e the columns that are associated with the smallest or zero singular values. Thus, each sample can now be represented by fewer dimensions. For data matrices where M $\ll$ N, there exists at most M-1 singular values. In such situations, considering only the non zero columns in the diagonal matrix  D  and the associated columns in V achieves dimensionality reduction without any loss of function.
+Dimensionality reduction is achieved by discarding the eigenvectors in V i.e the columns that are associated with the smallest or zero singular values. Thus, each sample can now be represented by fewer dimensions. For data matrices where M $\ll$ N, there exists at most M-1 singular values. In such situations, considering only the non zero columns in the diagonal matrix  D  and the associated columns in V achieves dimensionality reduction without any loss of function.
 The data matrix X can be factorized as $X = U\times D'\times V'^T$ where D is now an M by K diagonal matrix containing only positive values on its diagonal and V' is the corresponding N by K matrix. The matrix $V'^TV$ captures the full  covariance of the data. 
 
 
@@ -1030,7 +1031,7 @@ X & = & U\times D \times V^T\\
 0 & 0.71 
 \end{array} \right)^T\end{eqnarray*}
 
-Note: The columns in the orthogonal matrix V that are the eigen vectors of  the zero singular values in the diagonal matrix have been omitted. Omitting these column vectors results in no loss of information.
+Note: The columns in the orthogonal matrix V that are the eigenvectors of  the zero singular values in the diagonal matrix have been omitted. Omitting these column vectors results in no loss of information.
 
 \textbf{Key observations}
 \begin{itemize}
@@ -1039,6 +1040,30 @@ Note: The columns in the orthogonal matrix V that are the eigen vectors of  the 
 \item The V matrix can be thought  of as day to pattern similarity matrix. In the case of days, there are two  patterns: the weekday pattern i.e \{Wed,Thurs,Frid\} and the weekend pattern \{Sat,Sun\}
 \end{itemize}
 Thus from the toy example it can be seen that SVD can be applied to extract patterns in time as well as samples  from time series sequences.
+
+
+\section {Baseline Implementation}
+To apply SVD to time series data, there are two fundamental issues that must be addressed :
+\begin{enumerate}
+\item The first issue is  time complexity. The time complexity of SVD  is O($D^3$) where D represents the dimensionality of the data. For data sets such time series data where the number of samples $\ll$ than the length of the sequences i.e the dimensionality of the sequences, the high computational cost  associated with the SVD makes it a very unattractive algorithm to use. 
+\item The second issue is that SVD cannot be directly applied to datasets where the individual data points do not share the same dimensionality. This issue is specially seen in time series data sets such as speech. The acoustics samples in such data sets vary in length.
+\end{enumerate}
+For now, I will concentrate on addressing the first issue:
+
+To minimise the time complexity, Bishop\citep{bishop2006pattern} offers the following solution:
+ 
+ If X  is  D by N  data matrix where D is the number dimensions and N is the number of samples and  D$\ll$N, the X will have at least N-1 singular values. In the previous chapter we have seen that when X factorizes to $U \times D \times V^T$ we can  achieve dimensionality reduction by considering only a subset of the columns vectors of V   that are associated with the non-zero singular values. The columns vectors of V are the eigenvectors  of the covariance matrix.Thus, dimensionality reduction can be achieved by mapping the data points to latent space spanned by the eigenvectors corresponding to the non-zero eigenvalues. 
+
+The eigen decomposition of the covariance matrix is $ XX^T u_i= \lambda_i u_i$. $XX^T$ is N by N matrix and the computational complexity of computing the eigenvectors is O ($D^3$).
+
+Now if we multiply both sides by  $X^T$ we get :
+\[ (X^T X)X^T u_i = \lambda_i X^T u_i\]
+Setting $v_i =X^T u_i$ gives us the eigenvectors of $X^TX$.
+
+
+From the above expression, it can be observed that the eigenvectors of  $X^TX$ and  $XX^T$ share the same eigenvalues. Thus we can solve the eigenvector problem in spaces of lower dimensionality with computational cost O($N^3$) instead of O($D^3$). The required eigenvectors of the covariance matrix can then be computed by the using the following expression:
+\[ u_i = \frac{1} {\lambda^(\frac{1}{2})} Xv_i\]
+ 
 
 
 
