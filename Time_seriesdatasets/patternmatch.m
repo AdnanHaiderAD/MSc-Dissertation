@@ -57,10 +57,10 @@ time=time+toc;
 fingerprintSpace = principalcomponents(trainData);
 
 %% projection to principal subspace
-trainDataR= (fingerprintSpace'* trainData')';
-testDataR= (fingerprintSpace'* testData')';
-%testDataR=testData;
-%trainDataR=trainData;
+%trainDataR= (fingerprintSpace'* trainData')';
+%testDataR= (fingerprintSpace'* testData')';
+testDataR=testData;
+trainDataR=trainData;
 
 output=zeros(1,length(test_labels));
 time=time+toc
