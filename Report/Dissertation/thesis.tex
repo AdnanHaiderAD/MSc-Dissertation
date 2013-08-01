@@ -980,13 +980,13 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 \include{chap5}
  \chapter{Single Value Decomposition}
 
- High dimensional data vectors $\{x_n\}$  typically lie close to a non- linear manifold \citep{bishop2006pattern} whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input variables. In data mining, to understand this intrinsic dimensionality of the data, the Single Value Decomposition(SVD) algorithm is popularly used. SVD gains an understanding of a large database by simplifying the data representation by showing only the number of important dimensions that captures the \textbf{variance} of the data. Intuitively speaking, SVD projects the high dimensional data vectors to an orthogonal subspace that maximises the variance of the data. Recent works\citep{Korn1997} have shown that SVD can be applied to achieve dimensionality reduction in time sequences given that  the sequences satisfy certain constraints. Applying SVD as a preprocessing step  to such time series data sets can result in a significant reduction in the runtime of the algorithm.  The focus of this chapter is to investigate compatible preprocessing methods that can be used alongside SVD to improve the accuracy of the 1 nearest neighbour classifier  and minimise its run time.
+ High dimensional data vectors $\{x_n\}$  typically lie close to a non- linear manifold \citep{bishop2006pattern} whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input variables. In data mining, to understand this intrinsic dimensionality of the data, the Single Value Decomposition(SVD) algorithm is widely used. SVD  simplifies the data representation by showing only the number of important dimensions that captures the \textbf{variance} of the data. Intuitively speaking, SVD projects the high dimensional data vectors to an orthogonal subspace that maximises the variance of the data. Recent works\citep{Korn1997} have shown that SVD can be applied to achieve dimensionality reduction in time sequences given that  the sequences satisfy certain constraints. Applying SVD as a preprocessing step  to such time series data sets can result in a significant reduction of the  runtime of a classification/clustering algorithm.  The focus of this chapter is to investigate compatible preprocessing methods that can be used alongside SVD to improve the accuracy of the 1 nearest neighbour classifier while minimising its run time.
   
  
  \section{Motivation}
-Unlike other data sets, clustering/classifying time sequences by conventional methods such as the euclidean metric in most cases results in very poor accuracy. The scope of such metrics is quite  limited in the fact that they  require  sequences to share the same length and they can only perform comparison by conducting a linear match of the  temporal dimensions of the two sequences. This represents a  substantial drawback as the metrics fail to take into account that similar patterns  may vary in terms of speed,length and scale. Therefore, this provides the motivation to look for  preprocessing feature extraction techniques that can extract translation and scale invariant features that capture information about  the intrinsic trends in the data.
+Unlike other data sets, clustering/classifying time  series sequences by conventional distance metrics, such as the euclidean,  may not result  in high accuracy. The scope of such metrics is quite  limited in the fact that they  require  sequences to share the same length and  comparison of sequences is based on a linear match of the  temporal dimensions of the two sequences. This represents a  substantial drawback as the metrics fail to take into account that similar patterns  may vary in terms of speed, length and scale. Therefore, this provides the motivation to look for  preprocessing feature extraction techniques that can extract translation and scale invariant features that capture information about  the intrinsic trends in the data.
 
-However, recent works have shown that there exists time series domains where the use of conventional methods can still achieve accurate results. Korn in his paper  \citep{Korn1997} has  shown that  for time series sequences that share the same \textbf{speed} and \textbf{length},  the conventional methods can achieve good clustering/classification performance. If  sequences of the same class share the same speed then they will also share the same time localised trends(figure 6.1). Applying SVD as a preprocessing step,  results in the  extraction of  latent factors that represent the  localised patterns in time.  Through mapping the time series sequences into the latent space, we can therefore construct a  simplified representation of the data which allows conventional methods such as the euclidean metric to cluster time sequences with less run time . 
+However, recent works have shown that there exists time series domains where the use of conventional methods can still achieve accurate results. Korn in his paper  \citep{Korn1997} has  shown that  for time series sequences that share the same \textbf{speed} and \textbf{length},  the conventional methods can achieve good clustering/classification performance. If  inter class sequences have the same speed i.e no time offsets then they will also share the same time localised trends(see figure 6.1). Applying SVD as a preprocessing step,  results in the  extraction of  latent factors that represent the  localised patterns in time.  Through mapping the time series sequences into the latent space, we can therefore construct a  simplified representation of the data which allows conventional methods such as the euclidean metric to cluster time sequences with lesser run time.
 
 To see how SVD accomplishes this feat, lets consider the following toy example:
 
@@ -1046,13 +1046,14 @@ Note: The columns in the orthogonal matrix V that are the eigenvectors of  the z
 
 For SVD to be applied successfully across all time series datasets , there are two fundamental issues that must be addressed:
 \begin{enumerate}
-\item Time complexity: The time complexity of SVD  is O($D^3$) where D represents the dimensionality of the data. For application domains such as  time series data where the number of samples $\ll$ than the length of the sequences i.e the dimensionality of the sequences, the high computational cost  associated with performing SVD increases the run time of the classification algorithm. 
+\item Time complexity: The time complexity of SVD  is O($D^3$) where D represents the dimensionality of the data. For domains where the dimensionality of the data is really high, applying SVD as a preprocessing step increases the run time of a clustering/classification algorithm.
+
 
 %\item Distortion of time series sequences: Conventional methods  yield poor results in classifying and clustering time series sequences that are distorted by length,scale and speed. This makes methods that combine SVD and 1 nearest neighbours very unattractive to use.
-\item Dimensionality:  SVD cannot be directly applied to datasets where the individual data points do not share the same dimensionality. This issue is specially seen in time series data sets such as speech. The acoustics samples in such data sets vary in length.
+\item Variable  dimensionality:  SVD cannot be directly applied to datasets where the individual data points do not share the same dimensionality. This issue is specially seen in time series data sets such as speech. The acoustics samples in such data sets vary in length.
 \end{enumerate}
 
-To address the above issues and the drawbacks associated with performing nearest neighbours classification using conventional distance metrics, in the following three sections, I investigate :
+To address the above issues and the drawbacks associated with performing nearest neighbours classification on time series sequences, in the following three sections, I investigate :
 \begin{enumerate}[label=\roman{*}]
 \item methods to improve the time complexity of SVD in handling high dimensional sequences when the size of the data set is very small.
 \item preprocessing methods that can used along side the SVD feature extraction scheme to boost the accuracy of the classifier  
@@ -1061,35 +1062,34 @@ To address the above issues and the drawbacks associated with performing nearest
 
 
 \section {Improving Time Complexity}
-To minimise the time complexity, Bishop\citep{bishop2006pattern} offers the following solution:
+ For data sets where N(the number of samples) $\ll$ D(dimensionality of the data), Bishop \citep{bishop2006pattern} offers the following solution that reduces the time complexity of computing SVD from O($D^3$) to O($N^3$):
+  
+ Let  X  be the constructed  D by N  data matrix where D is the number dimensions and N is the number of samples and  D$\ll$N. By  factorizing X, we get X=$U \times D \times V^T$. To achieve dimensionality reduction, we need to consider only the  subset of  columns vectors of V   that are associated with the non-zero singular values. Since N $\ll$D, there will at most N-1 of these singular values. As stated earlier, the columns of the V are the eigenvectors of the covariance matrix $ XX^T$.
  
- If X  is  D by N  data matrix where D is the number dimensions and N is the number of samples and  D$\ll$N, the X will have at least N-1 singular values. In the previous chapter we have seen that when X factorizes to $U \times D \times V^T$ we can  achieve dimensionality reduction by considering only a subset of the columns vectors of V   that are associated with the non-zero singular values. The columns vectors of V are the eigenvectors  of the covariance matrix.Thus, dimensionality reduction can be achieved by mapping the data points to latent space spanned by the eigenvectors corresponding to the non-zero eigenvalues. 
-
-The eigen-decomposition of the covariance matrix is $ XX^T u_i= \lambda_i u_i$. $XX^T$ is N by N matrix and the computational complexity of computing the eigenvectors is O ($D^3$).
+ The eigen-decomposition of the covariance matrix is $ XX^T u_i= \lambda_i u_i$. $XX^T$ is D by D matrix and the computational complexity of computing the eigenvectors is O ($D^3$).
 
 Now if we multiply both sides by  $X^T$ we get :
 \[ (X^T X)X^T u_i = \lambda_i X^T u_i\]
 Setting $v_i =X^T u_i$ gives us the eigenvectors of $X^TX$.
 
-
-From the above expression, it can be observed that the eigenvectors of  $X^TX$ and  $XX^T$ share the same eigenvalues. Thus we can solve the eigenvector problem in spaces of lower dimensionality with computational cost O($N^3$) instead of O($D^3$). The required eigenvectors of the covariance matrix can then be computed by the using the following expression:
+From the above expression, it can be observed that the eigenvectors of  $X^TX$ and  $XX^T$ share the \textbf{same} eigenvalues. Using this insight,  we can thus solve the eigenvector problem in spaces of lower dimensionality with computational cost O($N^3$) instead of O($D^3$). The required eigenvectors of the covariance matrix can then be computed by the using the following expression:
 \[ u_i = \frac{1} {\lambda^(\frac{1}{2})} Xv_i\]
  
 To verify the above approach,  I have conducted the following experiment :
 
-\textbf{Objective} : The experiment is designed to verify  whether applying SVD as  a preprocessing step reduces the run-time of the classifier without decreasing the accuracy.
+\textbf{Objective} : The experiment is designed to verify  whether applying SVD as  a preprocessing step can improve the run time of 1 nearest neighbour classifier on time series data sets, without affecting its accuracy.
 
 \textbf{Data sets used} : InLineSkate and Cinc\_ECG\_TORSO. 
-Unlike the speech corpus, the intra class variance of the two UCR data sets is much lower as sequences of the same class share the same speed shown by the figure below. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO data set. Apart from sharing the shape, the  two sequences share the  same speed which in  other words means  that they share the same time localised trends. This allows classification algorithms to treat the problem as a  normal classification problem. Since sequences with in each data set share the same length, SVD can directly be applied to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of sample $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
+
+Unlike the speech corpus, the intra class variance of the time series sequences in the  UCR data sets are much lower. This is primarily due to the fact that sequences of the class can be described by the same time-localised trends. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO data set. Apart from having the same shape, the two sequences also posses the same speed i.e they have no time offset. From figure 6.1,it can seen that at around t=600, both patterns undergo a dip followed by a sharp peak. The fact that sequences share the same length and inter class sequences have no time offset  allow classification algorithms to treat the problem as a  normal classification problem. This also provide the context to apply SVD  directly to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.5]{611.jpg}
-  \caption{Run time in ln}
+  \caption{Time series sequences  corresponding to class `1' in the Cinc\_TORSO\_ECG data set}
   \end{figure}
 
  \textbf{Results}:
 \begin{table}[H]
-\caption {Table Title} \label{tab:title}
 \begin{tabular}{|c|c|c|}
 \hline \\
       & raw features & latent features \\
@@ -1099,11 +1099,13 @@ InlineSkate &  34.18 & 34.18 \\
 \hline
 
 \end{tabular}
+\caption {Accuracy} \label{Accuracy}
+
 \end{table}
 
- \textbf{Results}:
+ 
 \begin{table}[H]
-\caption {Table Title} \label{tab:title}
+
 \begin{tabular}{|c|c|c|}
 \hline \\
       & raw features & latent features \\
@@ -1113,6 +1115,7 @@ InlineSkate &  0.21& 0.92 \\
 \hline
 
 \end{tabular}
+\caption {Run times in seconds} \label{Run times in seconds}
 \end{table}
 
 
