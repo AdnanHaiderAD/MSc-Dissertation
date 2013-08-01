@@ -46,8 +46,8 @@ end
 time=toc
 tic
 %%perform wavelet decomposition: feature extraction
-testData=wavedecom(testData);
-trainData=wavedecom(trainData);
+%testData=wavedecom(testData);
+%trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
 %testData=fourierdecom(testData);
@@ -59,11 +59,30 @@ fingerprintSpace = principalcomponents(trainData);
 %% projection to principal subspace
 trainDataR= (fingerprintSpace'* trainData')';
 testDataR= (fingerprintSpace'* testData')';
+%testDataR=testData;
+%trainDataR=trainData;
 
 output=zeros(1,length(test_labels));
 time=time+toc
 tic
 
+
+function output=dtw(test_sample,train_sample)
+    costmatrix = zeros(length(test_sample)+1,length(train_sample)+1);
+    for p =2 :length(test_sample)+1
+        costmatrix(p,1)=Inf;
+    end
+    for p =2 :length(train_sample)+1
+       costmatrix(1,p)=Inf;
+    end
+    DTW(1,1)=0;
+    for j=2:length(test_sample)
+        for k=2:length(train_sample)
+            costmatrix(j,k) = (test_sample(j) -train_sample(k))^2 +min([costmatrix(j-1,k),costmatrix(j-1,k-1),costmatrix(j,k-1)]);
+        end
+    end
+    output =costmatrix(length(test_sample)+1,length(train_sample)+1)/(length(test_sample)+length(train_sample));
+end
 
 function match= nearest_neighbours(sample,data,train_labels)
 %% conducts 1 nearest neigbour search.
@@ -72,6 +91,7 @@ function match= nearest_neighbours(sample,data,train_labels)
     min_dist=Inf;
     for j=1 :samp
         dist= sum ((sample-data(j,:)).^2);
+        %dist= dtw(sample,data(j,:));
         if dist<min_dist
             nearestN = train_labels(j);
             min_dist=dist;
@@ -82,7 +102,7 @@ end
 
 time =time+toc
 tic
-perform 1 nearest neighbour
+%perform 1 nearest neighbour
 for i=1 :length(test_labels)
     if toc>300
         time=time+toc

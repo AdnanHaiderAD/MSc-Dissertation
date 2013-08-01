@@ -12,28 +12,25 @@ data =datamatrix*datamatrix';
 
 [U,S,V]= svd(data);
 clear V
-%% temporary fix to choosing the appropriate number of eigen vectors
+%% temporary fix to choosing the appropriate number of eigen vectors:only take the no-zero singular values;
 
 SingularValues= diag(S);
-count = sum(SingularValues~=0);
-%for i=2:length(SingularValues)
- %   if (sum(SingularValues(1:i))/sum(SingularValues))<0.95
- %       count=count+1;
-  %  else
-   %     break;
-   % end
-%end
+%count = sum(SingularValues~=0);
 
+%%take singular values that explains 95% of the data
+for i =1 :length(SingularValues)
+    
 
 U= U(:,1:count);
 
 singularvalues=SingularValues(1:count);
-singValueInv= 1./sqrt(singularvalues);
+singValueInv= diag(1./sqrt(singularvalues));
 
 
 
 
 % 1/(srqt(lambda)) * X'*U  
-eigenvectors=abs( datamatrix'*U*singValueInv);
+eigenvectors=( datamatrix'*U*singValueInv);
+
 
 end

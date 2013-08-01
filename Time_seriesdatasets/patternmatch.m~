@@ -16,53 +16,66 @@ trainData=train(:,2:end);
 function result=wavedecom(data)
 %% performs wavelet decomposition
   [samp ,dim]=size(data);
-  result=zeros(samp,1+ fix(dim/2));
+  %result=zeros(samp,1+ fix(dim/2));
   %result=zeros(samp,1+ dim);
-  
+  result=zeros(samp,1+3740);
   result(:,1)=data(:,1);
   for k=1 :samp
     sample= data(k,2:end);
-    [C,L] =wavedec(sample,13,'Haar');
-    result(k,2:end) = C(1:L(end-1));
+    [C,L] =wavedec(sample,14,'Haar');
+    result(k,2:end) = C(1:L(end-3));
     %result(k,2:end)=C(1:dim);
   end
 end
 
-function result=fourierdecom(data);
+function result=fourierdecom(data)
     
 [samp ,dim]=size(data);
-%result=zeros(samp,1+ fix(dim/2));
-result=zeros(samp,1+ dim);
+result=zeros(samp,1+ fix(dim/2));
+%result=zeros(samp,1+ dim);
   
 result(:,1)=data(:,1);
 for k=1 :samp
     sample= data(k,2:end);
     fouriercoeff = abs(fft(sample));
     
-    %result(k,2:end) = fouriercoeff(1:fix(dim/2));
-    result(k,2:length(fouriercoeff)+1)=fouriercoeff;
+    result(k,2:end) = fouriercoeff(1:fix(dim/2));
+    %result(k,2:length(fouriercoeff)+1)=fouriercoeff;
 end
 end
 time=toc
 tic
 %%perform wavelet decomposition: feature extraction
-%testData=wavedecom(testData);
-%trainData=wavedecom(trainData);
+testData=wavedecom(testData);
+trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
-testData=fourierdecom(testData);
-trainData=fourierdecom(trainData);
+%testData=fourierdecom(testData);
+%trainData=fourierdecom(trainData);
 
 time=time+toc;
 fingerprintSpace = principalcomponents(trainData);
 
-tic
 %% projection to principal subspace
 trainDataR= (fingerprintSpace'* trainData')';
 testDataR= (fingerprintSpace'* testData')';
+%testDataR=testData;
+%trainDataR=trainData;
+
 output=zeros(1,length(test_labels));
 time=time+toc
 tic
+
+
+function output=dtw(test_sample,train_sample)
+    costmatrix = zeros(length(test_sample)+1,length(train_sample)+1);
+    for p =2 :length(test_sample)+1
+    costmatrix(p,1)=Inf;
+    end
+    for l =2 :length(train_sample)+1
+    (l,1)=Inf;
+end
+DTW(1,1)=0;
 
 
 function match= nearest_neighbours(sample,data,train_labels)
@@ -82,7 +95,7 @@ end
 
 time =time+toc
 tic
-%%perform 1 nearest neighbour
+%perform 1 nearest neighbour
 for i=1 :length(test_labels)
     if toc>300
         time=time+toc
@@ -92,11 +105,12 @@ for i=1 :length(test_labels)
     if match ==test_labels(i)
         output(i)=1;
     end
-    
 end
+% output= DynamicTimeWarping(testDataR(:,2:end),trainDataR(:,2:end),testDataR(:,1),trainDataR(:,1));   
 
 
-toc
+
+time=time+toc
 end
     
     

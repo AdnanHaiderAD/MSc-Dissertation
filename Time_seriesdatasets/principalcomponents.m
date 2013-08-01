@@ -15,7 +15,14 @@ clear V
 %% temporary fix to choosing the appropriate number of eigen vectors:only take the no-zero singular values;
 
 SingularValues= diag(S);
-count = sum(SingularValues~=0);
+%count = sum(SingularValues~=0);
+
+%%take singular values that explains 95% of the data
+for i =1 :length(SingularValues)
+    if sum(SingularValues(1:i))/sum(SingularValues) >= 0.95
+        count=i;
+    end
+end
 
 
 U= U(:,1:count);
