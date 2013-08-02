@@ -17,13 +17,16 @@ function result=wavedecom(data)
 %% performs wavelet decomposition
   [samp ,dim]=size(data);
   %result=zeros(samp,1+ fix(dim/2));
-  %result=zeros(samp,1+ dim);
-  result=zeros(samp,1+3740);
+  result=zeros(samp,dim);
+  %result=zeros(samp,1+52);
   result(:,1)=data(:,1);
   for k=1 :samp
     sample= data(k,2:end);
-    [C,L] =wavedec(sample,14,'Haar');
-    result(k,2:end) = C(1:L(end-3));
+    
+  %  [C,L] =wavedec(sample,5,'Haar');
+     K=curvature([1:dim-1],[1:dim-1],sample, 'polynom',100);
+     K(~isfinite(K))=10^10;
+    result(k,2:end) =K;
     %result(k,2:end)=C(1:dim);
   end
 end
@@ -46,8 +49,8 @@ end
 time=toc
 tic
 %%perform wavelet decomposition: feature extraction
-%testData=wavedecom(testData);
-%trainData=wavedecom(trainData);
+testData=wavedecom(testData);
+trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
 %testData=fourierdecom(testData);
@@ -67,22 +70,7 @@ time=time+toc
 tic
 
 
-function output=dtw(test_sample,train_sample)
-    costmatrix = zeros(length(test_sample)+1,length(train_sample)+1);
-    for p =2 :length(test_sample)+1
-        costmatrix(p,1)=Inf;
-    end
-    for p =2 :length(train_sample)+1
-       costmatrix(1,p)=Inf;
-    end
-    DTW(1,1)=0;
-    for j=2:length(test_sample)
-        for k=2:length(train_sample)
-            costmatrix(j,k) = (test_sample(j) -train_sample(k))^2 +min([costmatrix(j-1,k),costmatrix(j-1,k-1),costmatrix(j,k-1)]);
-        end
-    end
-    output =costmatrix(length(test_sample)+1,length(train_sample)+1)/(length(test_sample)+length(train_sample));
-end
+
 
 function match= nearest_neighbours(sample,data,train_labels)
 %% conducts 1 nearest neigbour search.

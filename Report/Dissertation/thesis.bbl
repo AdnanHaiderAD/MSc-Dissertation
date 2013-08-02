@@ -64,10 +64,11 @@ F.~Itakura, ``{Minimum prediction residual principle applied to speech
   Processing}, vol.~23, pp.~67--72, Feb. 1975.
 
 \bibitem{TIDIGITS}
-``{TIDIGITS Readme File},'' 1993.
+R.~G.~L. Doddington and George, ``{TIDIGITS Readme File},'' 1993.
 
 \bibitem{UCR}
-``{UCR Time Series Data sets},'' 2003.
+L.~.~R. {Keogh, E., Zhu, Q., Hu, B., Hao. Y., Xi, X., Wei}, ``{UCR Time Series
+  Data sets},'' 2011.
 
 \bibitem{Keogh2004}
 E.~Keogh and C.~A. Ratanamahatana, ``{Exact indexing of dynamic time
@@ -78,6 +79,10 @@ E.~Keogh and C.~A. Ratanamahatana, ``{Exact indexing of dynamic time
 M.~Vlachos, G.~Kollios, and D.~Gunopulos, ``{Discovering similar
   multidimensional trajectories},'' in {\em Proceedings 18th International
   Conference on Data Engineering}, pp.~673--684, IEEE Comput. Soc, 2002.
+
+\bibitem{Marchette1999}
+D.~J. Marchette, ``{Local dimensionality reduction},'' vol.~14, ch.~Dimensiona,
+  p.~469, 1999.
 
 \bibitem{ChotiratAnnRatanamahatana}
 E.~K. {Chotirat Ann Ratanamahatana}, ``{Three Myths about Dynamic Time Warping
@@ -104,9 +109,5 @@ M.~A. Carlin, S.~Thomas, A.~Jansen, and H.~Hermansky, ``{Rapid Evaluation of
 C.~M. Bishop and N.~M. Nasrabadi, {\em {Pattern recognition and machine
   learning}}, vol.~1.
 \newblock springer New York, 2006.
-
-\bibitem{Marchette1999}
-D.~J. Marchette, ``{Local dimensionality reduction},'' vol.~14, ch.~Dimensiona,
-  p.~469, 1999.
 
 \end{thebibliography}

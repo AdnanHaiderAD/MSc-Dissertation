@@ -5,7 +5,7 @@ A level-1 auxiliary file: chapter1.aux
 A level-1 auxiliary file: chap3.aux
 A level-1 auxiliary file: chap2.aux
 Already encountered file chap3.aux
----line 41 of file thesis.aux
+---line 44 of file thesis.aux
  : \@input{chap3.aux
  :                  }
 I'm skipping whatever remains of this command
@@ -19,22 +19,22 @@ Warning--empty year in Salvador
 Warning--empty journal in Sakoe1990
 Warning--empty journal in Xie2010
 Warning--can't use both volume and number fields in Korn1997
-Warning--empty journal in Carlin
-Warning--empty year in Carlin
 Warning--empty booktitle in Marchette1999
 Warning--can't use both volume and number fields in Marchette1999
 Warning--empty publisher in Marchette1999
+Warning--empty journal in Carlin
+Warning--empty year in Carlin
 You've used 23 entries,
             1876 wiz_defined-function locations,
-            631 strings with 7470 characters,
-and the built_in function-call counts, 6329 in all, are:
-= -- 633
-> -- 214
+            633 strings with 7580 characters,
+and the built_in function-call counts, 6387 in all, are:
+= -- 636
+> -- 224
 < -- 0
-+ -- 81
-- -- 58
-* -- 462
-:= -- 849
++ -- 84
+- -- 61
+* -- 466
+:= -- 868
 add.period$ -- 22
 call.type$ -- 23
 change.case$ -- 22
@@ -42,18 +42,18 @@ chr.to.int$ -- 0
 cite$ -- 34
 duplicate$ -- 325
 empty$ -- 614
-format.name$ -- 58
-if$ -- 1539
+format.name$ -- 61
+if$ -- 1547
 int.to.chr$ -- 0
 int.to.str$ -- 23
 missing$ -- 22
 newline$ -- 73
-num.names$ -- 21
-pop$ -- 94
+num.names$ -- 23
+pop$ -- 92
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 245
+skip$ -- 246
 stack$ -- 0
 substring$ -- 470
 swap$ -- 135
@@ -62,7 +62,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 11
-while$ -- 65
+while$ -- 67
 width$ -- 25
-write$ -- 210
+write$ -- 212
 (There was 1 error message)

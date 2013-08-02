@@ -384,7 +384,7 @@ There are presently two groups of preprocessing techniques commonly used to addr
 \item Plotting simple statistics such as mean plots, standard deviation plots, box plots, and main effects plots of the raw data.
 \item Positioning such plots so as to maximise our natural pattern-recognition abilities, such as using multiple plots per page.
  \end{enumerate}
-Apart from removing redundant features, we can also construct more useful features from the existing ones. Feature extraction processes are concerned with  the range of techniques  that apply an appropriate functional mapping to the original attributes to extract new features. The intuition behind feature extraction is that the data vectors $\{x_n\}$ typically lie close to a non- linear manifold whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input features. Hence by using appropriate functional mapping, we obtain a smaller set of features that capture the intrinsic correlation between the input features. By doing so, we move from working in high dimensional spaces to working in low dimensional spaces. The choice  of appropriate functional mapping can  also improve the clustering of data. For example, lets consider figure 4.1: The left- hand plot represents the locations of two dimensional  data points  in the original input space. The colours red and blue denote the classes to which the data points belong to. To cluster the data with respect to their classes, it will be ideal if we can partition the input space into disjoint regions where  intraclass variation is small and interclass separation in large. For this example, this is achieved by mapping the points to a feature space spanned by  two gaussian basis functions(shown on the right). Now, we can partition the feature space into two disjoint regions, one of each cluster. 
+Apart from removing redundant features, we can also construct more useful features from the existing ones. Feature extraction processes are concerned with  the range of techniques  that apply an appropriate functional mapping to the original attributes to extract new features. The intuition behind feature extraction is that the data vectors $\{x_n\}$ typically lie close to a non- linear manifold whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input features. Hence by using appropriate functional mapping, we obtain a smaller set of features that capture the intrinsic correlation between the input features. By doing so, we move from working in high dimensional spaces to working in low dimensional spaces. The choice  of appropriate functional mapping can  also improve the clustering of data. For example, lets consider figure 4.1: The left- hand plot represents the locations of two dimensional  data points  in the original input space. The colours red and blue denote the classes to which the data points belong to. To cluster the data with respect to their classes, it will be ideal if we can partition the input space into disjoint regions where  intra class variation is small and inter class separation in large. For this example, this is achieved by mapping the points to a feature space spanned by  two gaussian basis functions(shown on the right). Now, we can partition the feature space into two disjoint regions, one of each cluster. 
 \begin{figure}[H]
   \centering
    
@@ -525,7 +525,7 @@ Observations:
 \item not integrating knowledge of the domain: The data set is comprised of speech utterances. It is a widely known fact that for speech data, the MFCC feature vectors capture the information of phones that make up a word. Since different lexical identities are composed of different phones, these use of MFCC vectors can increase the inter class variance of the samples. (details of MFCC to follow)\citep{Park2008,DeWachter2007,Zhang2010,DeWachter2004,Carlin}.
  \end{itemize}
 
- \item Removing `silence' segments improve \textbf{both} the accuracy and the run-time of the algorithm. While the decrease in run-time is quite obvious, the increase in accuracy is not. All utterances contain durations of silence. Taking the silence regions into account decreases the inter class variance as  they bring in an unwanted notion of similarity in dissimilar patterns.
+ \item Removing `silence' segments improve \textbf{both} the accuracy and the run-time of the algorithm. While the decrease in run-time is quite obvious, the increase in accuracy is not. All utterances contain durations of silence. Taking the silence regions into account decreases the inter class variance and in turn increase intra class variance as  they bring in an unwanted notion of similarity in dissimilar patterns.
  
 \end {itemize}
 
@@ -986,7 +986,7 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
  \section{Motivation}
 Unlike other data sets, clustering/classifying time  series sequences by conventional distance metrics, such as the euclidean,  may not result  in high accuracy. The scope of such metrics is quite  limited in the fact that they  require  sequences to share the same length and  comparison of sequences is based on a linear match of the  temporal dimensions of the two sequences. This represents a  substantial drawback as the metrics fail to take into account that similar patterns  may vary in terms of speed, length and scale. Therefore, this provides the motivation to look for  preprocessing feature extraction techniques that can extract translation and scale invariant features that capture information about  the intrinsic trends in the data.
 
-However, recent works have shown that there exists time series domains where the use of conventional methods can still achieve accurate results. Korn in his paper  \citep{Korn1997} has  shown that  for time series sequences that share the same \textbf{speed} and \textbf{length},  the conventional methods can achieve good clustering/classification performance. If  inter class sequences have the same speed i.e no time offsets then they will also share the same time localised trends(see figure 6.1). Applying SVD as a preprocessing step,  results in the  extraction of  latent factors that represent the  localised patterns in time.  Through mapping the time series sequences into the latent space, we can therefore construct a  simplified representation of the data which allows conventional methods such as the euclidean metric to cluster time sequences with lesser run time.
+However, recent works have shown that there exists time series domains where the use of conventional methods can still achieve accurate results. Korn in his paper  \citep{Korn1997} has  shown that  for time series sequences that share the same \textbf{speed} and \textbf{length},  the conventional methods can achieve good clustering/classification performance. If  intra class sequences have the same speed i.e no time offsets then they will also share the same time localised trends(see figure 6.1). Applying SVD as a preprocessing step,  results in the  extraction of  latent factors that represent the  localised patterns in time.  Through mapping the time series sequences into the latent space, we can therefore construct a  simplified representation of the data which allows conventional methods such as the euclidean metric to cluster time sequences with lesser run time.
 
 To see how SVD accomplishes this feat, lets consider the following toy example:
 
@@ -1081,7 +1081,7 @@ To verify the above approach,  I have conducted the following experiment :
 
 \textbf{Data sets used} : InLineSkate and Cinc\_ECG\_TORSO. 
 
-Unlike the speech corpus, the intra class variance of the time series sequences in the  UCR data sets are much lower. This is primarily due to the fact that sequences of the class can be described by the same time-localised trends. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO data set. Apart from having the same shape, the two sequences also posses the same speed i.e they have no time offset. From figure 6.1,it can seen that at around t=600, both patterns undergo a dip followed by a sharp peak. The fact that sequences share the same length and inter class sequences have no time offset  allow classification algorithms to treat the problem as a  normal classification problem. This also provide the context to apply SVD  directly to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
+Unlike the speech corpus, the intra class variance of the time series sequences in the  UCR data sets are much lower. This is primarily due to the fact that sequences of the same class can be described by the same time-localised trends. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO data set. Apart from having the same shape, the two sequences also posses the same speed i.e they have no time offset. From figure 6.1,it can seen that at around t=600, both patterns undergo a dip followed by a sharp peak. The fact that all sequences in the data set share the same length and intra class sequences have no time offset  allow classification algorithms to treat the problem as a  normal classification problem. This also provide the context to apply SVD  directly to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.5]{611.jpg}
@@ -1120,13 +1120,15 @@ InlineSkate &  0.21& 0.92 \\
 
 
 
-\textbf{Observation}
-From the  experimental results, applying SVD using bishops approach as a preprocessing step reduces the run time of the nearest neighbour algorithm. 
+\textbf{Observations}
 
+\begin{itemize}
+\item The accuracy of the 1 nearest classifier  in both cases is consistent with the  1NN error rate given for each of the data sets  in the UCR data source webpage.
+\item Applying SVD  as a preprocessing step has no effect on the accuracy on the algorithm  but  reduces the run time of the classifier. Thus using Bishop's  \citep{bishop2006pattern} formulation, we can use SVD to reduce the time complexity of clustering/classification algorithms  for high dimensional time series data sets that satisfy the constraint identified buy Korn\citep{Korn1997}.
 
- as the sequences within data set share the same length.
- 
-    \end{spacing} 
+\end{itemize}
+
+ \end{spacing} 
 %% ... etc ...
 
 %%%%%%%%

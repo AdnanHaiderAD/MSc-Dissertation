@@ -17,13 +17,14 @@ function result=wavedecom(data)
 %% performs wavelet decomposition
   [samp ,dim]=size(data);
   %result=zeros(samp,1+ fix(dim/2));
-  %result=zeros(samp,1+ dim);
-  result=zeros(samp,1+3740);
+  result=zeros(samp,dim);
+  %result=zeros(samp,1+52);
   result(:,1)=data(:,1);
   for k=1 :samp
     sample= data(k,2:end);
-    [C,L] =wavedec(sample,14,'Haar');
-    result(k,2:end) = C(1:L(end-3));
+    
+  %  [C,L] =wavedec(sample,5,'Haar');
+    result(k,2:end) = curvature([1:dim-1],[1:dim-1],sample, 'polynom',);
     %result(k,2:end)=C(1:dim);
   end
 end
@@ -67,15 +68,6 @@ time=time+toc
 tic
 
 
-function output=dtw(test_sample,train_sample)
-    costmatrix = zeros(length(test_sample)+1,length(train_sample)+1);
-    for p =2 :length(test_sample)+1
-    costmatrix(p,1)=Inf;
-    end
-    for l =2 :length(train_sample)+1
-    (l,1)=Inf;
-end
-DTW(1,1)=0;
 
 
 function match= nearest_neighbours(sample,data,train_labels)
@@ -85,6 +77,7 @@ function match= nearest_neighbours(sample,data,train_labels)
     min_dist=Inf;
     for j=1 :samp
         dist= sum ((sample-data(j,:)).^2);
+        %dist= dtw(sample,data(j,:));
         if dist<min_dist
             nearestN = train_labels(j);
             min_dist=dist;
