@@ -110,4 +110,9 @@ C.~M. Bishop and N.~M. Nasrabadi, {\em {Pattern recognition and machine
   learning}}, vol.~1.
 \newblock springer New York, 2006.
 
+\bibitem{Zhang2006}
+H.~Zhang, ``{Unsupervised Feature Extraction for Time Series Clustering Using
+  Orthogonal Wavelet Transform.},'' {\em Informatica (03505596)}, vol.~30,
+  no.~3, pp.~305--319, 2006.
+
 \end{thebibliography}

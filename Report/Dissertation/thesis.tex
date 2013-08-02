@@ -119,7 +119,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.1}
+ \begin{spacing}{1.05}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -1124,9 +1124,30 @@ InlineSkate &  0.21& 0.92 \\
 
 \begin{itemize}
 \item The accuracy of the 1 nearest classifier  in both cases is consistent with the  1NN error rate given for each of the data sets  in the UCR data source webpage.
-\item Applying SVD  as a preprocessing step has no effect on the accuracy on the algorithm  but  reduces the run time of the classifier. Thus using Bishop's  \citep{bishop2006pattern} formulation, we can use SVD to reduce the time complexity of clustering/classification algorithms  for high dimensional time series data sets that satisfy the constraint identified buy Korn\citep{Korn1997}.
+\item Applying SVD  as a preprocessing step has no effect on the accuracy on the algorithm  but  reduces the run time of the classifier. Thus using Bishop's\citep{bishop2006pattern} formulation, we can use SVD to reduce the time complexity of clustering/classification algorithms  for high dimensional time series data sets that satisfy the constraint identified by Korn\citep{Korn1997}.
 
 \end{itemize}
+%In order to analyze a nonstationary signal, we need to determine its behavior at any individual event. Multiresolution analysis provides one means to do this. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales. T he procedure is recursive. After removing the first set of detail information from f we are left with a slightly smoothed version of f. Iteratively removing detail information progressively generates more andmore smoothed versions of f. We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire  
+\include{chap7}
+\chapter{Improving 1 nearest neighbour classifier}
+In the last chapter,  we have seen that the 1 nearest neighbour classifier using single value decomposition achieves good performance in both accuracy and run time in  classifying sequences belonging to the  Cinc\_ECG\_TORSO. The Cinc\_ECG\_TORSO is a rare example of a time series data set where there is no  translation offset between sequences of the same class and intra class sequences share the same time localised local  and global trends(see figure 6.1). This allows sequences to be classified/clustered based only on a linear match of their temporal dimensions. 
+
+For most time series data sets however, clustering/classifying sequences based only on linear matches of the temporal dimensions  of sequences presents  a limitation. The intra class variances in most time series datasets  will be much higher as sequences of the same class may vary in size, shape and speed. The InlineSkate dataset is a prime example of such a dataset. Figure 6.2 shows examples of two instances of class 2 in the InlineSkate dataset. The two  instances of class `2' share a global shape but posses  different time localised trends: in the period between t= 400 to 600, the first sequence is experiencing an upward trend while the second sequences is seen to experience  a downward trend.  Performing comparison  by conducting only a linear match of the temporal dimensions  is inappropriate in such cases as they increase the degree of dissimilarity between similar patterns. This creates the motivation to investigate feature extraction methodologies that minimises the intra class variance of time series sequences by mapping the data to a feature space that captures information about  common their attributes such as global shape, trends etc. Through the construction of a such discrete feature set, the time series classification problem can then be converted to a general classification problem.
+
+ In the following chapter, I will be concentrating on constructing feature extraction techniques that capture information about the \textbf{global shape} of time series sequences. In the first half of this chapter, I will be exploring wavelet-based feature extraction techniques and will subsequently look into how they can be used alongside  SVD as preprocessing step to improve the accuracy of the 1nearest neighbour classifier. 
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.3]{631.jpg}
+  \caption{Time series sequences  corresponding to class `2' in the InlineSkate data set}
+  \end{figure}
+\section{Wavelet-based Feature Extraction}
+Wavelet transform  is a domain transform technique for hierarchically decomposing sequences\citep{Zhang2006}.
+
+The broad trend is preserved in the approximation part while the localised changes are kept in the detail part,The original signal can fully be reconstructed 
+Mathematical definition:
+\[\mbox{Let } L^2(R) \mbox{ be the set of all functions with finite energy}\]
+The details of $f$ at any scale \textbf{m} is a projection of  $f$ onto the subspace $W_m$ . The projection can be represented by the map $Q_m : L^2(R) \to W_m$. Furthermore there exists another operator $P_M$that maps $f$ to its approximation at scale m i.e    $P_M: L^2(R) \to V_M\subseteq L^2(R)$
 
  \end{spacing} 
 %% ... etc ...

@@ -345,3 +345,17 @@ Apply SVD
 perform nearest neighbours
 
 
+For Cinc data set : decompose the wave upto 11 scales
+			
+
+
+For Inline Skate : decompose the wave upto 4, take only the approximation
+		    compute curvatures
+		    Apply fourier transform and take half of the coefficients
+
+	Brief decription of poor results. 
+	invetigate wavelets
+	tests
+	analysis
+		    
+
