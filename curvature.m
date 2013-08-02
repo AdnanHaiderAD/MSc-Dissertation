@@ -130,6 +130,7 @@ if strcmp(method, 'polynom')
     % compute coefficients of first and second derivatives. In the case of a
     % polynom, it is possible to compute coefficient of derivative by
     % multiplying with a matrix.
+    degree=pp_y.order;
     derive = diag(degree:-1:0);
     xp = circshift(x0*derive, [0 1]);
     yp = circshift(y0*derive, [0 1]);

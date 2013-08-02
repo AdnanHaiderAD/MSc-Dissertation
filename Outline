@@ -338,4 +338,10 @@ An example:
 Results for UCR data sets
 
 
+Approach considered: 
+Apply wavelets to remove unneccessay detail
+Compute curvatures: Successfully computed curvatures
+Apply SVD
+perform nearest neighbours
+
 

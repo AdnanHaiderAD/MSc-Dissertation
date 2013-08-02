@@ -17,16 +17,15 @@ function result=wavedecom(data)
 %% performs wavelet decomposition
   [samp ,dim]=size(data);
   %result=zeros(samp,1+ fix(dim/2));
-  result=zeros(samp,dim);
+  result=zeros(samp,dim+1);
   %result=zeros(samp,1+52);
   result(:,1)=data(:,1);
   for k=1 :samp
-    sample= data(k,2:end);
+    sample= data(k,:);
     
   %  [C,L] =wavedec(sample,5,'Haar');
-     K=curvature([1:dim-1],[1:dim-1],sample, 'polynom',100);
-     K(~isfinite(K))=10^10;
-    result(k,2:end) =K;
+     
+    result(k,2:end) =compute_curvature([1:dim],sample);
     %result(k,2:end)=C(1:dim);
   end
 end
@@ -60,10 +59,10 @@ time=time+toc;
 fingerprintSpace = principalcomponents(trainData);
 
 %% projection to principal subspace
-%trainDataR= (fingerprintSpace'* trainData')';
-%testDataR= (fingerprintSpace'* testData')';
-testDataR=testData;
-trainDataR=trainData;
+trainDataR= (fingerprintSpace'* trainData')';
+testDataR= (fingerprintSpace'* testData')';
+%testDataR=testData;
+%trainDataR=trainData;
 
 output=zeros(1,length(test_labels));
 time=time+toc
