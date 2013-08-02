@@ -16,15 +16,13 @@ trainData=train(:,2:end);
 function result=wavedecom(data)
 %% performs wavelet decomposition
   [samp ,dim]=size(data);
-  %result=zeros(samp,1+ fix(dim/2));
-  result=zeros(samp,dim);
+  result=zeros(samp,1+ fix(dim/16));
   %result=zeros(samp,1+52);
-  result(:,1)=data(:,1);
+ 
   for k=1 :samp
-    sample= data(k,2:end);
-    
-  %  [C,L] =wavedec(sample,5,'Haar');
-    result(k,2:end) = curvature([1:dim-1],[1:dim-1],sample, 'polynom',);
+    sample= data(k,:);
+    [C,L] =wavedec(sample,4,'Haar');
+    result(k,1:L(1)) =compute_curvature([1:L(1)],C(1:L(1)));
     %result(k,2:end)=C(1:dim);
   end
 end
