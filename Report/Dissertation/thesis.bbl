@@ -132,4 +132,9 @@ I.~Daubechies, ``{Orthonormal bases of compactly supported wavelets},'' {\em
   Communications on Pure and Applied Mathematics}, vol.~41, pp.~909--996, Oct.
   1988.
 
+\bibitem{Gorman1988}
+J.~Gorman, O.~Mitchell, and F.~Kuhl, ``{Partial shape recognition using dynamic
+  programming},'' {\em IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, vol.~10, pp.~257--266, Mar. 1988.
+
 \end{thebibliography}

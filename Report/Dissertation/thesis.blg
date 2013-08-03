@@ -27,45 +27,45 @@ Warning--empty journal in Carlin
 Warning--empty year in Carlin
 Warning--empty booktitle in Chun-Lin2010
 Warning--empty publisher in Chun-Lin2010
-You've used 28 entries,
+You've used 29 entries,
             1876 wiz_defined-function locations,
-            665 strings with 8243 characters,
-and the built_in function-call counts, 7663 in all, are:
-= -- 771
-> -- 248
+            671 strings with 8432 characters,
+and the built_in function-call counts, 8000 in all, are:
+= -- 808
+> -- 259
 < -- 0
-+ -- 95
-- -- 67
-* -- 546
-:= -- 1033
-add.period$ -- 28
-call.type$ -- 28
-change.case$ -- 26
++ -- 99
+- -- 70
+* -- 572
+:= -- 1078
+add.period$ -- 29
+call.type$ -- 29
+change.case$ -- 27
 chr.to.int$ -- 0
-cite$ -- 41
-duplicate$ -- 399
-empty$ -- 753
-format.name$ -- 67
-if$ -- 1867
+cite$ -- 42
+duplicate$ -- 415
+empty$ -- 781
+format.name$ -- 70
+if$ -- 1949
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 28
-newline$ -- 89
-num.names$ -- 28
-pop$ -- 113
+int.to.str$ -- 29
+missing$ -- 29
+newline$ -- 92
+num.names$ -- 29
+pop$ -- 114
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 294
+skip$ -- 309
 stack$ -- 0
-substring$ -- 566
-swap$ -- 163
+substring$ -- 598
+swap$ -- 172
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 13
-while$ -- 81
-width$ -- 30
-write$ -- 260
+while$ -- 85
+width$ -- 31
+write$ -- 270
 (There was 1 error message)
