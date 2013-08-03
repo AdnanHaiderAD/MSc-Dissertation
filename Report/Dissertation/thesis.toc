@@ -22,4 +22,4 @@
 \contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{50}
 \contentsline {subsection}{\numberline {7.1.1}Background}{50}
 \contentsline {subsection}{\numberline {7.1.2}Wavelet-feature Extraction }{52}
-\contentsline {chapter}{Bibliography}{54}
+\contentsline {chapter}{Bibliography}{55}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  3 AUG 2013 18:57
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  3 AUG 2013 19:35
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -374,6 +374,14 @@ Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS)
 )
 (./thesis.aux (./chapter1.aux) (./chap3.aux) (./chap2.aux) (./chap3.aux)
 (./chap4.aux) (./chap5.aux) (./chap7.aux))
+Runaway argument?
+{\contentsline {section}{\numberline {7.1}Wavelet-based F 
+./thesis.tex:89: File ended while scanning use of \@writefile.
+<inserted text> 
+                \par 
+l.89 \begin{document}
+                     
+? 
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
@@ -385,7 +393,6 @@ LaTeX Font Info:    ... okay on input line 89.
 LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 89.
 LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 89
 .
-
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
@@ -489,82 +496,107 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 111.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 22.39185pt on input line 111.
- (./thesis.toc
-LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 1.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 3.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ppl.fd
-File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
-)
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 3.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omlzplm.fd
-File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
-)
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 3.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omszplm.fd
-File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
-)
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 3.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omxzplm.fd
-File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
-)
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/mt-ptm.cfg
-File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
-)
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 3.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 3.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 3.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 3.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 3.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 3.
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 3.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1zplm.fd
-File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-) [4
-
-])
+ (./thesis.toc)
 \tf@toc=\write3
 \openout3 = `thesis.toc'.
 
- [5]
+ [4
+
+]
 \openout2 = `chapter1.aux'.
 
 
 No file chapter1.tex.
 Chapter 1.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 128.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 128
+.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omlzplm.fd
+File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 128
+.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omszplm.fd
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 128
+.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omxzplm.fd
+File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/mt-ptm.cfg
+File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 128.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 128.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 128.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 128.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 128.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 128.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 128
+.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
+)
+LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <12> not available
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 128.
 LaTeX Font Info:    Try loading font information for OMS+pplx on input line 133
 .
 LaTeX Font Info:    No file OMSpplx.fd. on input line 133.
 
+
 LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
 (Font)              using `OMS/pzccm/m/n' instead
 (Font)              for symbol `textbullet' on input line 133.
+
+
+Package natbib Warning: Citation `GautamDas' on page 1 undefined on input line 
+133.
+
+
+Package natbib Warning: Citation `Fayyad1998' on page 1 undefined on input line
+ 134.
+
+
+Package natbib Warning: Citation `BRAZMA1998' on page 1 undefined on input line
+ 135.
+
+
+Package natbib Warning: Citation `Park2008' on page 1 undefined on input line 1
+41.
+
+
+Package natbib Warning: Citation `Zhang2010' on page 1 undefined on input line 
+141.
 
 [1
 
@@ -572,11 +604,51 @@ LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
 
 
 ]
+
+Package natbib Warning: Citation `Salvador' on page 2 undefined on input line 1
+46.
+
+
+Package natbib Warning: Citation `Sakoe1990' on page 2 undefined on input line 
+146.
+
+
+Package natbib Warning: Citation `Rabiner1978' on page 2 undefined on input lin
+e 146.
+
+
+Package natbib Warning: Citation `Xie2010' on page 2 undefined on input line 14
+6.
+
+
+Package natbib Warning: Citation `Xi2006' on page 2 undefined on input line 146
+.
+
+
+Package natbib Warning: Citation `Fu2007' on page 2 undefined on input line 146
+.
+
+
+Package natbib Warning: Citation `Korn1997' on page 2 undefined on input line 1
+47.
+
+
+Package natbib Warning: Citation `Itakura1975' on page 2 undefined on input lin
+e 149.
+
+
+Package natbib Warning: Citation `Sakoe1990' on page 2 undefined on input line 
+149.
+
+
+Package natbib Warning: Citation `Fu2007' on page 2 undefined on input line 149
+.
+
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 154.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
 (Font)              scaled to size 10.79993pt on input line 154.
- [2] [3]
+[2] [3]
 \openout2 = `chap3.aux'.
 
 
@@ -588,11 +660,22 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 190.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 190.
+
+Package natbib Warning: Citation `TIDIGITS' on page 4 undefined on input line 1
+91.
+
 [4
 
 
 
-] [5] [6]
+]
+
+Package natbib Warning: Citation `UCR' on page 5 undefined on input line 229.
+
+
+Package natbib Warning: Citation `UCR' on page 5 undefined on input line 229.
+
+[5] [6]
 \openout2 = `chap2.aux'.
 
 
@@ -604,11 +687,60 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 251.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 15.55188pt on input line 251.
+
+Package natbib Warning: Citation `Salvador' on page 7 undefined on input line 2
+53.
+
+
+Package natbib Warning: Citation `Keogh2004' on page 7 undefined on input line 
+267.
+
+
+Package natbib Warning: Citation `Keogh2004' on page 7 undefined on input line 
+270.
+
+
+Package natbib Warning: Citation `Sakoe1990' on page 7 undefined on input line 
+270.
+
+
+Package natbib Warning: Citation `Xi2006' on page 7 undefined on input line 270
+.
+
+
+Package natbib Warning: Citation `Itakura1975' on page 7 undefined on input lin
+e 270.
+
 [7
 
 
 
 ]
+
+Package natbib Warning: Citation `Keogh2004' on page 8 undefined on input line 
+273.
+
+
+Package natbib Warning: Citation `Sakoe1990' on page 8 undefined on input line 
+273.
+
+
+Package natbib Warning: Citation `Itakura1975' on page 8 undefined on input lin
+e 273.
+
+
+Package natbib Warning: Citation `Keogh2004' on page 8 undefined on input line 
+279.
+
+
+Package natbib Warning: Citation `Sakoe1990' on page 8 undefined on input line 
+279.
+
+
+Package natbib Warning: Citation `Itakura1975' on page 8 undefined on input lin
+e 279.
+
+
 Overfull \hbox (6.70589pt too wide) in paragraph at lines 284--285
 \OT1/pplx/m/n/12 (-20) align-ment be-tween two se-quences $\OML/zplm/m/it/12 X 
 \OT1/zplm/m/n/12 = (\OML/zplm/m/it/12 x[]\OT1/ppl/m/n/12 , \OML/zplm/m/it/12 x[
@@ -618,7 +750,15 @@ Overfull \hbox (6.70589pt too wide) in paragraph at lines 284--285
 \OT1/zplm/m/n/12 )$
  []
 
-[8] <DTWpicture.jpg, id=56, 239.4546pt x 241.8636pt>
+
+Package natbib Warning: Citation `Xi2006' on page 8 undefined on input line 286
+.
+
+
+Package natbib Warning: Citation `Keogh2004' on page 8 undefined on input line 
+286.
+
+[8] <DTWpicture.jpg, id=53, 239.4546pt x 241.8636pt>
 File: DTWpicture.jpg Graphic file (type jpg)
  <use DTWpicture.jpg>
 Package pdftex.def Info: DTWpicture.jpg used on input line 302.
@@ -627,35 +767,72 @@ Package microtype Info: Character `013' is missing
 (microtype)             in font `OT1/pplx/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
 
-<windowconstraint.jpg, id=57, 245.2362pt x 118.5228pt>
+
+Package natbib Warning: Citation `Sakoe1990' on page 9 undefined on input line 
+333.
+
+
+Package natbib Warning: Citation `Itakura1975' on page 9 undefined on input lin
+e 334.
+
+<windowconstraint.jpg, id=54, 245.2362pt x 118.5228pt>
 File: windowconstraint.jpg Graphic file (type jpg)
 
 <use windowconstraint.jpg>
 Package pdftex.def Info: windowconstraint.jpg used on input line 338.
 (pdftex.def)             Requested size: 196.18922pt x 94.81834pt.
- [9 <./DTWpicture.jpg>] [10 <./windowconstraint.jpg>] [11]
+ [9 <./DTWpicture.jpg>]
+
+Package natbib Warning: Citation `Salvador' on page 10 undefined on input line 
+341.
+
+
+Package natbib Warning: Citation `Vlachos2002' on page 10 undefined on input li
+ne 341.
+
+
+Package natbib Warning: Citation `Marchette1999' on page 10 undefined on input 
+line 345.
+
+
+Package natbib Warning: Citation `Korn1997' on page 10 undefined on input line 
+345.
+
+[10 <./windowconstraint.jpg>] [11]
 \openout2 = `chap3.aux'.
 
 
 No file chap3.tex.
 Chapter 4.
+
+Package natbib Warning: Citation `Sakoe1990' on page 12 undefined on input line
+ 370.
+
+
+Package natbib Warning: Citation `Itakura1975' on page 12 undefined on input li
+ne 370.
+
+
+Package natbib Warning: Citation `ChotiratAnnRatanamahatana' on page 12 undefin
+ed on input line 370.
+
 [12
 
 
 
-] <featuremapping.jpg, id=74, 317.988pt x 153.6942pt>
+] <featuremapping.jpg, id=71, 317.988pt x 153.6942pt>
 File: featuremapping.jpg Graphic file (type jpg)
 
 <use featuremapping.jpg>
 Package pdftex.def Info: featuremapping.jpg used on input line 391.
 (pdftex.def)             Requested size: 254.39073pt x 122.9555pt.
  [13] [14 <./featuremapping.jpg>]
-<Rawsample.jpg, id=82, 552.0625pt x 272.01625pt>
+<Rawsample.jpg, id=79, 552.0625pt x 272.01625pt>
 File: Rawsample.jpg Graphic file (type jpg)
  <use Rawsample.jpg>
 Package pdftex.def Info: Rawsample.jpg used on input line 410.
 (pdftex.def)             Requested size: 331.24005pt x 163.211pt.
- [15 <./Rawsample.jpg>] <Feature_selection.jpg, id=86, 900.36375pt x 305.14pt>
+ [15 <./Rawsample.jpg>] <Feature_selection.jpg, id=83, 900.36375pt x 305.14pt>
 File: Feature_selection.jpg Graphic file (type jpg)
 
 <use Feature_selection.jpg>
@@ -666,20 +843,53 @@ Overfull \hbox (37.6158pt too wide) in paragraph at lines 438--439
  [][] 
  []
 
-[16 <./Feature_selection.jpg>] <4111.jpg, id=90, 452.892pt x 276.0714pt>
-File: 4111.jpg Graphic file (type jpg)
+[16 <./Feature_selection.jpg>]
 
-<use 4111.jpg>
+Package natbib Warning: Citation `ChotiratAnnRatanamahatana' on page 17 undefin
+ed on input line 499.
+
+<4111.jpg, id=87, 452.892pt x 276.0714pt>
+File: 4111.jpg Graphic file (type jpg)
+ <use 4111.jpg>
 Package pdftex.def Info: 4111.jpg used on input line 505.
 (pdftex.def)             Requested size: 362.31409pt x 220.8574pt.
- <4112.jpg, id=91, 441.3288pt x 227.8914pt>
+
+<4112.jpg, id=88, 441.3288pt x 227.8914pt>
 File: 4112.jpg Graphic file (type jpg)
  <use 4112.jpg>
 Package pdftex.def Info: 4112.jpg used on input line 512.
 (pdftex.def)             Requested size: 308.92804pt x 159.52289pt.
+ [17]
 
-[17] [18 <./4111.jpg> <./4112.jpg>]
-<Feature_selection2.jpg, id=98, 813.0375pt x 427.5975pt>
+Package natbib Warning: Citation `Zhang2010' on page 18 undefined on input line
+ 524.
+
+
+Package natbib Warning: Citation `Park2008' on page 18 undefined on input line 
+524.
+
+
+Package natbib Warning: Citation `Park2008' on page 18 undefined on input line 
+525.
+
+
+Package natbib Warning: Citation `DeWachter2007' on page 18 undefined on input 
+line 525.
+
+
+Package natbib Warning: Citation `Zhang2010' on page 18 undefined on input line
+ 525.
+
+
+Package natbib Warning: Citation `DeWachter2004' on page 18 undefined on input 
+line 525.
+
+
+Package natbib Warning: Citation `Carlin' on page 18 undefined on input line 52
+5.
+
+[18 <./4111.jpg> <./4112.jpg>]
+<Feature_selection2.jpg, id=95, 813.0375pt x 427.5975pt>
 File: Feature_selection2.jpg Graphic file (type jpg)
 
 <use Feature_selection2.jpg>
@@ -691,31 +901,31 @@ Overfull \hbox (0.14462pt too wide) in paragraph at lines 542--545
 th an adap-tive win-dow con-straint(4.1)
  []
 
-[19 <./Feature_selection2.jpg>] <4121.jpg, id=103, 463.4916pt x 275.1078pt>
+[19 <./Feature_selection2.jpg>] <4121.jpg, id=99, 463.4916pt x 275.1078pt>
 File: 4121.jpg Graphic file (type jpg)
 
 <use 4121.jpg>
 Package pdftex.def Info: 4121.jpg used on input line 548.
 (pdftex.def)             Requested size: 324.4419pt x 192.57413pt.
- <4122.jpg, id=104, 419.166pt x 300.6432pt>
+ <4122.jpg, id=100, 419.166pt x 300.6432pt>
 File: 4122.jpg Graphic file (type jpg)
  <use 4122.jpg>
 Package pdftex.def Info: 4122.jpg used on input line 556.
 (pdftex.def)             Requested size: 251.50154pt x 180.3873pt.
 
-[20 <./4121.jpg> <./4122.jpg>] [21] <mfcc.jpg, id=111, 490.4724pt x 65.043pt>
+[20 <./4121.jpg> <./4122.jpg>] [21] <mfcc.jpg, id=108, 490.4724pt x 65.043pt>
 File: mfcc.jpg Graphic file (type jpg)
 
 <use mfcc.jpg>
 Package pdftex.def Info: mfcc.jpg used on input line 578.
 (pdftex.def)             Requested size: 392.37845pt x 52.03445pt.
- [22 <./mfcc.jpg>] <421.jpg, id=115, 434.1018pt x 363.759pt>
+ [22 <./mfcc.jpg>] <421.jpg, id=112, 434.1018pt x 363.759pt>
 File: 421.jpg Graphic file (type jpg)
 
 <use 421.jpg>
 Package pdftex.def Info: 421.jpg used on input line 613.
 (pdftex.def)             Requested size: 390.68802pt x 327.38008pt.
- [23] <422.jpg, id=119, 416.2752pt x 332.442pt>
+ [23] <422.jpg, id=116, 416.2752pt x 332.442pt>
 File: 422.jpg Graphic file (type jpg)
  <use 422.jpg>
 Package pdftex.def Info: 422.jpg used on input line 620.
@@ -727,40 +937,66 @@ Package pdftex.def Info: 422.jpg used on input line 620.
 
 No file chap4.tex.
 Chapter 5.
+
+Package natbib Warning: Citation `Xie2010' on page 27 undefined on input line 6
+63.
+
+
+Package natbib Warning: Citation `Xie2010' on page 27 undefined on input line 6
+69.
+
 [27
 
 
 
-] [28] <425.jpg, id=136, 435.5472pt x 274.1442pt>
+]
+
+Package natbib Warning: Citation `Xie2010' on page 28 undefined on input line 6
+71.
+
+
+Package natbib Warning: Citation `Xie2010' on page 28 undefined on input line 6
+82.
+
+[28]
+
+Package natbib Warning: Citation `Xie2010' on page 29 undefined on input line 6
+91.
+
+<425.jpg, id=133, 435.5472pt x 274.1442pt>
 File: 425.jpg Graphic file (type jpg)
  <use 425.jpg>
 Package pdftex.def Info: 425.jpg used on input line 715.
 (pdftex.def)             Requested size: 348.43822pt x 219.31564pt.
 
-<426.jpg, id=137, 459.6372pt x 344.9688pt>
+<426.jpg, id=134, 459.6372pt x 344.9688pt>
 File: 426.jpg Graphic file (type jpg)
  <use 426.jpg>
 Package pdftex.def Info: 426.jpg used on input line 720.
 (pdftex.def)             Requested size: 275.78444pt x 206.98286pt.
- [29] [30 <./425.jpg> <./426.jpg>] <427.jpg, id=144, 388.8126pt x 247.6452pt>
+ [29] [30 <./425.jpg> <./426.jpg>] <427.jpg, id=141, 388.8126pt x 247.6452pt>
 File: 427.jpg Graphic file (type jpg)
  <use 427.jpg>
 Package pdftex.def Info: 427.jpg used on input line 745.
 (pdftex.def)             Requested size: 233.28935pt x 148.58826pt.
 
-<428.jpg, id=145, 360.8682pt x 219.7008pt>
+<428.jpg, id=142, 360.8682pt x 219.7008pt>
 File: 428.jpg Graphic file (type jpg)
  <use 428.jpg>
 Package pdftex.def Info: 428.jpg used on input line 751.
 (pdftex.def)             Requested size: 288.69495pt x 175.76086pt.
- [31 <./427.jpg> <./428.jpg>] [32] <Example1.jpg, id=153, 549.05125pt x 566.115
-pt>
+ [31 <./427.jpg> <./428.jpg>]
+
+Package natbib Warning: Citation `Xie2010' on page 32 undefined on input line 7
+63.
+
+[32] <Example1.jpg, id=150, 549.05125pt x 566.115pt>
 File: Example1.jpg Graphic file (type jpg)
  <use Example1.jpg>
 Package pdftex.def Info: Example1.jpg used on input line 787.
 (pdftex.def)             Requested size: 219.61661pt x 226.44199pt.
 
-<Cross-section.jpg, id=154, 562.1pt x 420.57124pt>
+<Cross-section.jpg, id=151, 562.1pt x 420.57124pt>
 File: Cross-section.jpg Graphic file (type jpg)
  <use Cross-section.jpg>
 Package pdftex.def Info: Cross-section.jpg used on input line 793.
@@ -779,18 +1015,23 @@ Overfull \hbox (1.31384pt too wide) in alignment at lines 810--814
  [][][] []
  []
 
-[35] [36] <521.jpg, id=167, 418.6842pt x 295.8252pt>
+[35]
+
+Package natbib Warning: Citation `Xie2010' on page 36 undefined on input line 8
+77.
+
+[36] <521.jpg, id=164, 418.6842pt x 295.8252pt>
 File: 521.jpg Graphic file (type jpg)
  <use 521.jpg>
 Package pdftex.def Info: 521.jpg used on input line 884.
 (pdftex.def)             Requested size: 376.8123pt x 266.2402pt.
 
-<522.jpg, id=168, 416.757pt x 267.8808pt>
+<522.jpg, id=165, 416.757pt x 267.8808pt>
 File: 522.jpg Graphic file (type jpg)
  <use 522.jpg>
 Package pdftex.def Info: 522.jpg used on input line 890.
 (pdftex.def)             Requested size: 375.07784pt x 241.09048pt.
- [37 <./521.jpg> <./522.jpg>] <523.jpg, id=173, 479.391pt x 278.4804pt>
+ [37 <./521.jpg> <./522.jpg>] <523.jpg, id=169, 479.391pt x 278.4804pt>
 File: 523.jpg Graphic file (type jpg)
  <use 523.jpg>
 Package pdftex.def Info: 523.jpg used on input line 922.
@@ -799,40 +1040,74 @@ Package pdftex.def Info: 523.jpg used on input line 922.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<524.jpg, id=174, 451.4466pt x 237.0456pt>
+<524.jpg, id=170, 451.4466pt x 237.0456pt>
 File: 524.jpg Graphic file (type jpg)
  <use 524.jpg>
 Package pdftex.def Info: 524.jpg used on input line 928.
 (pdftex.def)             Requested size: 316.01045pt x 165.93077pt.
- [38] [39 <./523.jpg> <./524.jpg>] <525.jpg, id=181, 401.8212pt x 294.3798pt>
+ [38]
+
+Package natbib Warning: Citation `Xie2010' on page 39 undefined on input line 9
+43.
+
+[39 <./523.jpg> <./524.jpg>] <525.jpg, id=178, 401.8212pt x 294.3798pt>
 File: 525.jpg Graphic file (type jpg)
- <use 525.jpg>
+
+<use 525.jpg>
 Package pdftex.def Info: 525.jpg used on input line 954.
 (pdftex.def)             Requested size: 361.63573pt x 264.93936pt.
-
-<526.jpg, id=182, 397.9668pt x 271.7352pt>
+ <526.jpg, id=179, 397.9668pt x 271.7352pt>
 File: 526.jpg Graphic file (type jpg)
  <use 526.jpg>
 Package pdftex.def Info: 526.jpg used on input line 960.
 (pdftex.def)             Requested size: 358.16681pt x 244.5594pt.
  [40 <./525.jpg>]
+
+Package natbib Warning: Citation `Xie2010' on page 41 undefined on input line 9
+75.
+
 [41 <./526.jpg>] [42]
 \openout2 = `chap5.aux'.
 
 
 No file chap5.tex.
 Chapter 6.
+
+Package natbib Warning: Citation `bishop2006pattern' on page 43 undefined on in
+put line 983.
+
+
+Package natbib Warning: Citation `Korn1997' on page 43 undefined on input line 
+983.
+
+
+Package natbib Warning: Citation `Korn1997' on page 43 undefined on input line 
+989.
+
 [43
 
 
 
-] [44] [45] <611.jpg, id=203, 813.0375pt x 445.665pt>
+] [44]
+
+Package natbib Warning: Citation `bishop2006pattern' on page 45 undefined on in
+put line 1065.
+
+[45] <611.jpg, id=199, 813.0375pt x 445.665pt>
 File: 611.jpg Graphic file (type jpg)
  <use 611.jpg>
 Package pdftex.def Info: 611.jpg used on input line 1087.
 (pdftex.def)             Requested size: 406.51776pt x 222.83195pt.
- [46]
-[47 <./611.jpg>] [48]
+ [46] [47 <./611.jpg>]
+
+Package natbib Warning: Citation `bishop2006pattern' on page 48 undefined on in
+put line 1127.
+
+
+Package natbib Warning: Citation `Korn1997' on page 48 undefined on input line 
+1127.
+
+[48]
 \openout2 = `chap7.aux'.
 
 
@@ -842,33 +1117,71 @@ Chapter 7.
 
 
 
-] <631.jpg, id=217, 813.0375pt x 646.415pt>
+] <631.jpg, id=213, 813.0375pt x 646.415pt>
 File: 631.jpg Graphic file (type jpg)
  <use 631.jpg>
 Package pdftex.def Info: 631.jpg used on input line 1141.
 (pdftex.def)             Requested size: 406.51776pt x 323.20671pt.
- [50 <./631.jpg>]
-[51] <712.jpg, id=224, 813.0375pt x 463.7325pt>
+
+
+Package natbib Warning: Citation `Chun-Lin2010' on page 50 undefined on input l
+ine 1146.
+
+[50 <./631.jpg>]
+
+Package natbib Warning: Citation `Mallet1998' on page 51 undefined on input lin
+e 1164.
+
+
+Package natbib Warning: Citation `Zhang2006' on page 51 undefined on input line
+ 1164.
+
+
+Package natbib Warning: Citation `Chan1999' on page 51 undefined on input line 
+1164.
+
+
+Package natbib Warning: Citation `Daubechies1988' on page 51 undefined on input
+ line 1166.
+
+
+Package natbib Warning: Citation `Mallet1998' on page 51 undefined on input lin
+e 1166.
+
+[51]
+
+Package natbib Warning: Citation `Zhang2006' on page 52 undefined on input line
+ 1178.
+
+<712.jpg, id=221, 813.0375pt x 463.7325pt>
 File: 712.jpg Graphic file (type jpg)
  <use 712.jpg>
 Package pdftex.def Info: 712.jpg used on input line 1183.
 (pdftex.def)             Requested size: 406.51776pt x 231.86568pt.
  [52]
-<713.jpg, id=228, 1276.77pt x 482.80376pt>
+<713.jpg, id=225, 1276.77pt x 482.80376pt>
 File: 713.jpg Graphic file (type jpg)
  <use 713.jpg>
-Package pdftex.def Info: 713.jpg used on input line 1191.
-(pdftex.def)             Requested size: 510.69896pt x 193.11807pt.
+Package pdftex.def Info: 713.jpg used on input line 1190.
+(pdftex.def)             Requested size: 446.87619pt x 168.98384pt.
 
-Overfull \hbox (98.13399pt too wide) in paragraph at lines 1191--1192
+Overfull \hbox (34.31122pt too wide) in paragraph at lines 1190--1191
  [][] 
  []
 
-(./thesis.bbl [53 <./712.jpg> <./713.jpg>] [54
+[53 <./712.jpg> <./713.jpg>] (./thesis.bbl [54] [55
 
-] [55]) [56] (./thesis.aux
-(./chapter1.aux) (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux)
-(./chap5.aux) (./chap7.aux))
+] [56])
+
+Package natbib Warning: There were undefined citations.
+
+[57] (./thesis.aux (./chapter1.aux) (./chap3.aux) (./chap2.aux) (./chap3.aux)
+(./chap4.aux) (./chap5.aux) (./chap7.aux)
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -876,7 +1189,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  7690 strings out of 493633
  113983 string characters out of 3143377
- 206920 words of memory out of 3000000
+ 206481 words of memory out of 3000000
  10459 multiletter control sequences out of 15000+200000
  62880 words of font info for 304 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
@@ -895,7 +1208,7 @@ rw/helvetic/uhvro8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/pal
 atino/uplb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/u
 plr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/uplri8a.
 pfb>
-Output written on thesis.pdf (62 pages, 2269229 bytes).
+Output written on thesis.pdf (62 pages, 2267919 bytes).
 PDF statistics:
  287 PDF objects out of 1000 (max. 8388607)
  179 compressed objects within 2 object streams
