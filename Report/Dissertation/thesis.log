@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  3 AUG 2013 02:24
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  3 AUG 2013 03:13
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -848,24 +848,6 @@ File: 631.jpg Graphic file (type jpg)
 Package pdftex.def Info: 631.jpg used on input line 1141.
 (pdftex.def)             Requested size: 243.91313pt x 193.926pt.
  [50 <./631.jpg>]
-./thesis.tex:1163: Undefined control sequence.
-<recently read> \pii 
-                     
-l.1163 ...the translations of  Haar function $\pii
-                                                  (s't)$  $V_1$ is spanned b...
-
-? 
-./thesis.tex:1164: Missing $ inserted.
-<inserted text> 
-                $
-l.1164 
-       
-? 
-./thesis.tex:1168: Extra }, or forgotten \endgroup.
-l.1168 ...bf{Note} :To ensure that \{$\psi_{Mn}$|}
-                                                   forms an  orthogonal basi...
-
-? 
 [51] (./thesis.bbl [52] [53
 
 ] [54]) [55] (./thesis.aux (./chapter1.aux)
@@ -876,10 +858,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 7669 strings out of 493633
- 113650 string characters out of 3143377
- 206856 words of memory out of 3000000
- 10440 multiletter control sequences out of 15000+200000
+ 7680 strings out of 493633
+ 113875 string characters out of 3143377
+ 206920 words of memory out of 3000000
+ 10451 multiletter control sequences out of 15000+200000
  62880 words of font info for 304 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  43i,12n,40p,1536b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -897,7 +879,7 @@ rw/helvetic/uhvro8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/pal
 atino/uplb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/u
 plr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/uplri8a.
 pfb>
-Output written on thesis.pdf (61 pages, 2174097 bytes).
+Output written on thesis.pdf (61 pages, 2174755 bytes).
 PDF statistics:
  282 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams

@@ -110,9 +110,26 @@ C.~M. Bishop and N.~M. Nasrabadi, {\em {Pattern recognition and machine
   learning}}, vol.~1.
 \newblock springer New York, 2006.
 
+\bibitem{Chun-Lin2010}
+L.~Chun-Lin, ``{Chapter 1 Overview},'' ch.~wavelets I, 2010.
+
+\bibitem{Mallet1998}
+S.~Mallet, {\em {A Wavelet Tour of Signal Processing}}.
+\newblock Academic Press ,London, 1998.
+
 \bibitem{Zhang2006}
 H.~Zhang, ``{Unsupervised Feature Extraction for Time Series Clustering Using
   Orthogonal Wavelet Transform.},'' {\em Informatica (03505596)}, vol.~30,
   no.~3, pp.~305--319, 2006.
+
+\bibitem{Chan1999}
+K.-P. Chan and A.-C. Fu, ``{Efficient time series matching by wavelets},'' in
+  {\em Proceedings 15th International Conference on Data Engineering (Cat.
+  No.99CB36337)}, pp.~126--133, IEEE, 1999.
+
+\bibitem{Daubechies1988}
+I.~Daubechies, ``{Orthonormal bases of compactly supported wavelets},'' {\em
+  Communications on Pure and Applied Mathematics}, vol.~41, pp.~909--996, Oct.
+  1988.
 
 \end{thebibliography}

@@ -25,45 +25,47 @@ Warning--can't use both volume and number fields in Marchette1999
 Warning--empty publisher in Marchette1999
 Warning--empty journal in Carlin
 Warning--empty year in Carlin
-You've used 24 entries,
+Warning--empty booktitle in Chun-Lin2010
+Warning--empty publisher in Chun-Lin2010
+You've used 28 entries,
             1876 wiz_defined-function locations,
-            641 strings with 7745 characters,
-and the built_in function-call counts, 6701 in all, are:
-= -- 673
-> -- 228
+            665 strings with 8243 characters,
+and the built_in function-call counts, 7663 in all, are:
+= -- 771
+> -- 248
 < -- 0
-+ -- 86
-- -- 62
-* -- 487
-:= -- 908
-add.period$ -- 23
-call.type$ -- 24
-change.case$ -- 23
++ -- 95
+- -- 67
+* -- 546
+:= -- 1033
+add.period$ -- 28
+call.type$ -- 28
+change.case$ -- 26
 chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 342
-empty$ -- 644
-format.name$ -- 62
-if$ -- 1626
+cite$ -- 41
+duplicate$ -- 399
+empty$ -- 753
+format.name$ -- 67
+if$ -- 1867
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 23
-newline$ -- 76
-num.names$ -- 24
-pop$ -- 93
+int.to.str$ -- 28
+missing$ -- 28
+newline$ -- 89
+num.names$ -- 28
+pop$ -- 113
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 260
+skip$ -- 294
 stack$ -- 0
-substring$ -- 502
-swap$ -- 144
+substring$ -- 566
+swap$ -- 163
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 11
-while$ -- 71
-width$ -- 26
-write$ -- 223
+warning$ -- 13
+while$ -- 81
+width$ -- 30
+write$ -- 260
 (There was 1 error message)

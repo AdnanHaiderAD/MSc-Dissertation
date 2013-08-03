@@ -1142,11 +1142,12 @@ For most time series data sets however, clustering/classifying sequences based o
   \caption{Time series sequences  corresponding to class `2' in the InlineSkate data set}
   \end{figure}
 \section{Wavelet-based Feature Extraction}
-The inspiration for the wavelet transform came from the idea of  multiresolution analysis. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales.This type of decomposition is most easily understood by thinking of a picture (can be thought of as a two dimensional signal) and removing from the picture information that distinguishes the sharpest edges, leaving a new image  that is slightly blurred. This blurred version of the original picture is a rendering at a slightly coarser scale. We then recursively repeat the procedure. The wavelet transform specifies such a  multiresolution decomposition, with the wavelet functions defining the bandpass filter that determines the detail information. and associated with each wavelet is a smoothing function, which defines the complementary lowpass filter.
+\subsection{Background}
+The inspiration for the wavelet transform came from the idea of  multiresolution analysis\citep{Chun-Lin2010}. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales.This type of decomposition is most easily understood by thinking of a picture (can be thought of as a two dimensional signal) and removing from the picture information that distinguishes the sharpest edges, leaving a new image  that is slightly blurred. This blurred version of the original picture is a rendering at a slightly coarser scale. We then recursively repeat the procedure. The wavelet transform specifies such a  multiresolution decomposition, with the wavelet functions defining the bandpass filter that determines the detail information. and associated with each wavelet is a smoothing function, which defines the complementary lowpass filter.
 
 Mathematically, we can motivate the definition of  the wavelet transform  as follows:
 
-Let  $L^2(R)$ be the set of all functions with finite energy. Any  discrete function(signal) $f \in L^2(R)$, can be written as a linear combination of translations of the scaling function $\phi(st)$ as shown below:
+Let  $L^2(R)$ be the set of all  discrete functions with finite energy. Any  discrete function  $f \in L^2(R)$, can be written as a linear combination of translations of the scaling function $\phi(st)$ as shown below:
 
  $f(t) = \sum_{n=0}^N \alpha_n\phi(st-n)$  where $\phi(st)$ is defined as :
 \[ \phi(st)= \begin{cases} 
@@ -1157,30 +1158,24 @@ Let  $L^2(R)$ be the set of all functions with finite energy. Any  discrete func
  \begin{enumerate}[label=\roman{*}]
 \item The scaling function is orthogonal to its integer translates.
 \item As we increase the scale, the support of the function decreases.
-\item The subspaces spanned by the scaling function at low scales are nested within those spanned at higher scales. For example if restrict $s$ to powers of 2 then: $\phi_{-1}(t)= \phi(2^{-1}t)=\phi_0(t) +\phi_0(t-1)$. 
+\item The subspaces spanned by the scaling function at low scales are nested within those spanned at higher scales. For example if represent $s$ as powers of 2 then: $\phi_{-1}(t)= \phi(2^{-1}t)=\phi_0(t) +\phi_0(t-1)$. 
 \end{enumerate}
 
-Before proceeding any further, it is necessary to define the concept of the wavelet. A wavelet  is a smooth and quickly oscillating function with good localisation in both  frequency and time. To perform wavelet transformation the Haar function is commonly chosen as the mother wavelet $\psi$.  At the any scale $s$, the function $\psi(st)$ is orthogonal to the scalar function $\phi(st)$ but can be expressed in terms of $\phi(s't)$ where $s'>s$. Using this knowledge combined with (iii),  the wavelet transformation can be applied to  decompose a finite signal by projecting  $f$  onto  two orthogonal subspaces  $W_1$  and $V_1$of $L^2(R)$ where $L^2(R) = V_1\oplus W_1$. If   $f(t) = \sum_{n=0}^N \alpha_n\phi(st-n)$  then $W_1$ is spanned by the translations of  Haar function $\pii(s't)$  $V_1$ is spanned by the translations of  scaling function $\phi(s't) where $s'<s$ .
+Before proceeding any further, it is necessary to define the concept of the wavelet. A wavelet \citep{Mallet1998,Zhang2006,Chan1999} is a smooth and quickly oscillating function with good localisation in both  frequency and time. To perform wavelet transformation the Haar function is commonly chosen as the mother wavelet $\psi$. For any scale $s$, the function $\psi(st)$ is orthogonal to  $\phi(st)$ defined at the same scale  but can be expressed in terms of higher order scaling functions $\phi(s't)$ where $s'>s$. Using this knowledge alongside (iii),  the wavelet transformation is applied to  decompose a finite signal $f$  by projecting  $f$  onto  two orthogonal subspaces  $W_1$  and $V_1$of $L^2(R)$ where $L^2(R) = V_1\oplus W_1$. If   $f(t) = \sum_{n=0}^N \alpha_n\phi(st-n)$  then $W_1$ is spanned by  $\{\psi(s't-n)| n\in[1,.. N] \}$ and  $V_1$ is spanned by $\{\phi(s't)| n\in[1,,,N]\}$ where $s'<s$ .
 
- The process is recursive.  After removing the first set of detail information from $f$ we are left with a slightly smoothed version of $f$. We  iteratively remove detail information by applying the transform on the smoothed versions at each scale to progressively extract coarser details of $f$ . We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire. The details of $f$ at any scale \textbf{m} is a projection of  $f$ onto the subspace $W_M$.  The projection is represented by the map  $Q_M : L^2(R) \to W_M$ where $Q_M f =\sum_{n=1}^{K} \psi_{Mn}$. Thus $P_M$ is spanned by $\{\phi_Mn\}$.
-Hence the subspace $W_m$ at different scale are spanned by dilations and translations of the mother wavelet. 
+\textbf{Note} :To ensure that $\{\psi(s't-n)| n\in[1,.. N] \}$ forms an  orthogonal basis, the scales are restricted to powers of 2\citep{Daubechies1988,Mallet1998}.
 
-\textbf{Note} :To ensure that \{$\psi_{Mn}$|} forms an  orthogonal basis, the scales are restricted to powers of 2.
 
-Furthermore there exists another operator $P_M$that maps $f$ to its approximation at scale m i.e    $P_M: L^2(R) \to V_M\subseteq L^2(R)$. The functional space $L^2(R)$ is therefore 
+ The process is recursive.  After removing the first set of detail information from $f$, we are left with a slightly smoothed version of $f$. We  iteratively remove detail information by applying the transform on the smoothed versions at each scale to progressively extract coarser details of $f$ . We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire. Thus the subspaces $\{V_m\}|_{m=1}^M $ satisfy $V_i\subset V_j \iff i <j$. The details of $f$ at any scale \textbf{m} is a projection of  $f$ onto the subspace $W_M$.  The projection is represented by the map  $Q_M : L^2(R) \to W_M$ where $Q_M f =\sum_{n=1}^{K} <f.\psi_{Mn}>\psi_{Mn}$. Thus the subspaces $W_m$  are spanned by dilations and translations of the mother wavelet $\psi$. 
 
-Therefore, the signal $f$ can be now be expressed as :
+
+
+Furthermore there exists another operator $P_M$ that maps $f$ to its approximation at scale \textbf{m}:   $P_M: L^2(R) \to V_M\subseteq L^2(R)$. The functional space $L^2(R)$ can therefore be expressed as  $L^2(R)=  \oplus_{m=1}^{M} W_m \oplus V_M$.  where any finite  signal $f \in L^2(R)$ can be expressed as :
 \[f(t) = \sum_{n=0}^N \alpha_n\phi(t-n) =P_Mf + \sum_{m=1}Q_mf\]
 
 %The wavelet transform is a recursive process. After removing the first set of detail information from $f$ we are left with a slightly smoothed version of $f$. We  iteratively remove detail information by applying the transform on the smoothed versions at each scale to progressively extract coarser details of $f$ . We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire.   Once we have decomposed a signal this way, we may analyse the behaviour of the detail information across the different scales(frequency bands). We can extract informations  concerning about the regularity of a singularity which characterises the behaviour of the non-stationary signal at particular point in time. Unlike the fourier transform which is localised only  in frequency, the wavelet transform is localised in both time and frequently(we will see shortly). Furthermore, noise has a specific behaviour across different scales(frequencies). this allows us to  make a clean separation  of the  signal from the noise. 
 
 The broad trend is preserved in the approximation part while the localised changes are kept in the detail part,The original signal can fully be reconstructed 
-Mathematical definition:
-\[\mbox{Let } L^2(R) \mbox{ be the set of all functions with finite energy}\]
-
-
-The details of $f$ at any scale \textbf{m} is a projection of  $f$ onto the subspace $W_m$ . The projection can be represented by the map $Q_m : L^2(R) \to W_m$. Furthermore there exists another operator $P_M$that maps $f$ to its approximation at scale m i.e    $P_M: L^2(R) \to V_M\subseteq L^2(R)$
-
  \end{spacing} 
 %% ... etc ...
 
