@@ -119,7 +119,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.05}
+ \begin{spacing}{1.1}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -1247,10 +1247,12 @@ To address this issue, I propose the following  4 step feature extraction method
 \item  Apply fourier transform and consider only the first half of the fourier coefficients(details to follow).
 \item Apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the full variance of the feature vectors in the fourier feature space.
 
+In the following sections, I  provide  a detail description of the procedures specified in step (ii) and step (iii) of my proposed methodology. 
+
+
 \end{enumerate}
 Replacing the individual  amplitude values with the curvature estimates of the corresponding points  can allow  the euclidean metric to take into account the \textbf {shape} of the signals at corresponding points  when conducting a linear match of their temporal dimensions. The curvature of a geometric object is a  quantitive description of the shape of that object[].  It dictates the amount by which a geometric object deviates from being flat or straight. 
-
-The formal definition of the curvature of a curve is as follows:
+Formally, the curvature of a curve can be defined  as follows:
 
 Let $\gamma$ be a differentiable curve on  $\textbf E^3(\mbox{Euclidean Space})$ such that 
 	\[ \gamma : (-\epsilon,\epsilon) \to U \subseteq \textbf E^{ 3} \] 
@@ -1269,17 +1271,20 @@ Let $\gamma$ be a differentiable curve on  $\textbf E^3(\mbox{Euclidean Space})$
 
 Geometrically  one can imagine  $\kappa$ in the case of curve as a  parameter which value determines the amount of the bending of that the curve experiences in the flat euclidean space.
 
+
+
 \subsection{Extracting curvature based features}
-To extract the curvature at each point of the time series sequence,I performed a two step feature extraction process.
+To extract features that capture the \textbf{ shape} of the dominant trends in a sequence, I performed  the following two step feature extraction process.
 
-\textbf{Step 1}:
+\textbf{Step 1: Extraction of curvature estimates}
 
- In the first step, I  have fitted a \textbf{smoothed cubic spline} to each sequence. A spline is a sufficiently smooth polynomial function that is piecewise-defined, and possesses a high degree of smoothness at the places where the polynomial pieces connect []. A cubic spline is a type of spline which is  constructed using piecewise  polynomials of order 3. The objective here, is to extract features that represent the \textbf{global shape} of the sequence, thus for this problem, the shape information of local trends is not relevant. 
-
-To ensure that curvature values represent  information more about the global shape rather than the local trends, I have used smoothed cublic spline to fit the data.
-Mathematically, the smoothing spline estimate $\hat g(x)$ of the actual function $g(x)$ is defined to be the minimizer of :
+  To compute the  curvature estimates at each point in a  time series sequence, I  have fitted a \textbf{smoothed cubic spline} to each sequence. The motivation behind the use of spline function is as follows: a spline is a   polynomial function that is piecewise-defined, and possesses a high degree of smoothness at the places where the polynomial pieces connect []. A cubic spline is a  specific type of spline which is  constructed using piecewise  polynomials of order 3. 
+  Fitting a cubic spline directly on the sequences  will not be ideal as real data sets have noise embedded in them. The fitted will therefore not be smooth. To overcome this issue, I have  hence applied smoothed cubic spline to fit smooth curve to each sequence.
+  
+  
+ Mathematically, the smoothing spline estimate $\hat g(x)$ of the actual function $g(x)$ is defined to be the minimiser of :
 \[
-\lambda \sum_{i=1}^n \{ y_i - g(x_i) \}^2 + (1-\lambda) \int_a^b \{g''(t)\}^2 \,
+\lambda \sum_{i=1}^n \{ y_i - \hat g(x_i) \}^2 + (1-\lambda) \int_a^b \{\hat g''(t)\}^2 \,
 dt
 \]
 where $\lambda$ is a fixed constant
@@ -1289,8 +1294,41 @@ where $\lambda$ is a fixed constant
 \item As $\lambda \to 0$,the roughness penalty becomes paramount and the estimate converges to a linear least squares estimate.
 \end{itemize}
 
-The critical parameter here is $\lambda$. The values of $\lambda$ determines the nature of the fit. For the sequences in the  InLineSkate dataset, exact fitting is unnecessary as we are interested only the shape of the dominant global trends. Thus, in  this situation an ideal value of $\lambda$ will be than half.  For my analysis, I have chosen the value of 0.25.
- \end{spacing} 
+The critical parameter here is $\lambda$. The values of $\lambda$ determines the nature of the fit. For the sequences in the  InLineSkate dataset, exact fitting is unnecessary as the sequences have noise embedded in them. Ideally, we want to choose a value of  $\lambda$ that allows the estimated curvatures to directly correlate with significant events/trends in the time series sequence. 
+
+ For my analysis, I have chosen the value of 0.25.  Through conducting experiments, I have observed that  setting $\lambda$ to this value allows the computed curvatures to reflect significant events in the time series sequence. Figure 7.5  shows the plots of  an instance of class `7' from the InlineSkate dataset. The left hand plot corresponds to the  raw signal while the righthand plot represents   the curvatures computed at each of the time stamps. From the observation of the figure, it can be seen that the computed curvatures do reflect information about significant events in the time series sequence. At the global maximum, the  curvature  estimate of the corresponding point is close to 0 while the peak value on the curvature plot  at t=1650 is in accordance with the sharp bend in the time series curve  at the same time.
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.5]{721.jpg}
+  \caption{The left hand plot represents the time series sequence while the right plot corresponds to curvatures computed at each point in the time series sequence}
+  \end{figure}
+  The curvatures $\kappa$ at each point of the fitted smooth curve is computed using the following expression:
+  \[ \kappa =\frac{\hat g^{"}(x)}{(1+\hat g^{'}(x)^2)^\frac{3}{2}}\]
+  
+  \textbf{Step 2: Extract features that reflect the global shape}
+  
+  The main objective here is to extract features that reflect the \textbf{global} shape of the time series sequence. The above mechanism embeds  the  information of local curvatures to each point of the time series sequence. But what we are really interested in is in the extraction of  global shape descriptors. The shapes of the global trends  of  a signal are preserved in the low frequency bands while the  higher frequency bands encode information of local  shapes []. Thus, to extract global shape descriptors, I have applied the discrete fourier transform[] on the extracted curvature  sequences. 
+  
+The Fourier transform maps time into frequency and phase. For each frequency the fourier transform yields an amplitude and a phase value. Thus, the transform captures the behaviour of the signal at different frequency band. Since the amplitudes represent curvature values estimated at step 1, the fourier transform therefore capture the \textbf{behaviour} of the shape of the signal  at different \textbf{frequency} bandss.  The curvature-sequences can now be represented as the sum of sine and cosine  waves whose phase and `amplitude' are given by the fourier transform.
+ 
+ For any time series sequence, the coefficients of the discrete fourier transform for each frequency band is computed as follows:
+  \[  X_k =\sum_{i=1}^n x_n.e ^{-2\pi i k\frac{n}{N}} \]
+  
+ To extract global shape descriptors only the magnitudes of the fourier coefficients have been used and since  global trends[] are preserved in the lower bands, I have only selected the first 118 coefficients as features for nearest neighbour classification.  The set of features are reduced by SVD to a smaller latent feature that maps the data points in the 118 dimensional feature space to orthogonal plane that maximises the variance of the feature vectors.
+  
+ To summarise, the proposed feature extraction methodology is 4 step procedure
+ 
+ 
+ 
+ \textbf{Note}: Dimensionality reduction occurs at step 1,3 and 4. Redundant features are pruned away at this steps to finally result a small set of latent factors that be used to cluster/classify inter class sequences that are distinguished by global trends.
+ 
+ 
+ \subsection{Experimental results}
+  To investigate the effectiveness of using this preprocessing methodology in increasing the accuracy of the 1 nearest neighbour classifier, I performed 1 nearest neighbour classification using the extracted features on the InlineSkate dataset. The accuracy results were compared with the accuracy of the  base line 1 nearest classifier which employs no preprocessing technique and the highest recorded accuracy of the DTW algorithm[] for this dataset. A summary of the results is as follows:
+  
+  
+  
+  \end{spacing} 
 %% ... etc ...
 
 %%%%%%%%

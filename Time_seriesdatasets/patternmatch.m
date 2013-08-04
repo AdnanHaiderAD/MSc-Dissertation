@@ -22,9 +22,7 @@ function result=wavedecom(data)
   for k=1 :samp
     sample= data(k,:);
     [C,L] =wavedec(sample,4,'Haar');
-    result(k,1:L(1)) = C(1:L(1));
-    
-    %compute_curvature([1:L(end-1)],C(1:L(end-1)));
+    result(k,1:L(1)) = compute_curvature([1:L(1)],C(1:L(1)));
     %result(k,2:end)=C(1:dim);
   end
 end
@@ -32,7 +30,7 @@ end
 function result=fourierdecom(data)
     
 [samp ,dim]=size(data);
-result=zeros(samp,1+ fix(dim/7));
+result=zeros(samp,1+ fix(dim/10));
 %result=zeros(samp,1+ dim);
   
 result(:,1)=data(:,1);
@@ -40,19 +38,19 @@ for k=1 :samp
     sample= data(k,2:end);
     fouriercoeff = abs(fft(sample));
     
-    result(k,2:end) = fouriercoeff(1:fix(dim/7));
+    result(k,2:end) = fouriercoeff(1:fix(dim/10));
     %result(k,2:length(fouriercoeff)+1)=fouriercoeff;
 end
 end
 time=toc
 tic
 %%perform wavelet decomposition: feature extraction
-%testData=wavedecom(testData);
-%trainData=wavedecom(trainData);
+testData=wavedecom(testData);
+trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
-%testData=fourierdecom(testData);
-%trainData=fourierdecom(trainData);
+testData=fourierdecom(testData);
+trainData=fourierdecom(trainData);
 
 time=time+toc;
 fingerprintSpace = principalcomponents(trainData);
