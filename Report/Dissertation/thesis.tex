@@ -155,13 +155,13 @@ The purpose of this project is  to employ machine learning techniques to tackle 
 
 
 %The discovery of motifs in high dimensional time series data(i.e long sequences) that vary in length  is still a difficult problem to work with. To address the drawbacks of DTW and SVD, there has been some recent work conducted to improve these algorithms. In the paper `` \emph {Fast time series classification using numerosity reduction}", the authors address the drawbacks of DTW in handling high dimensional sequences. They propose an adaptive approach that initially uses a strict window constraint to reduce the search space of DTW but then gradually increase size of the window by discarding samples from the training set. Although this methodology improves the time complexity of the dynamic time warping algorithm by heuristically discarding regions in the input space, the methodology is more tailored to  smart data selection rather than improving the algorithm itself. In the case of SVD, for high dimensional time series sequences which vary in length, the  data matrix  suffers in being  incomplete. Carelessly addressing only the relatively few known entries is highly prone to over ﬁtting. Earlier works [21] relied on imputation to fill  in missing ratings and make the rating matrix dense. However, imputation can be very expensive as it significantly  increases the amount of data. In addition, the data may be considerably distorted due to inaccurate imputation. 
-For this project, I will be using 3 time series data sets (details in chapter 2):
+For this project, I will be using 3 time series datasets (details in chapter 2):
 \begin{itemize}
 \item TIGITS 
 \item INLINESKATE
 \item CINC\_ECG\_TORSO
 \end{itemize}
-The prime objective here is to improve the accuracy of the DTW and SVD algorithm in tackling high dimensional time series sequences that vary in length while minimising the run-time to a minimum. To evaluate and compare the merits of different proposed changes, I combined both algorithms with the  K nearest neighbour classifier and  partitioned each of the above data sets into two disjoints subsets: one to be used as  a test set and  the other as a training set.  The reason for choosing the nearest neighbour classifier is because it shares almost the same methodology as the algorithms  used to detect motifs. Motif detection algorithms are memory based i.e they rely on comparing each sequence with other sequences in the data set.  K nearest neighbours deters from motif detection on two aspects: each sequence in the test set is compared with sequences that belong only to the training data set and the entire process is supervised i.e correct label information are available to check the accuracy of the algorithm.  The availability of correct labels allow accuracy and run-time scores of the nearest neighbour methods to serve as a useful evaluation metric to compare and evaluate various adaptions of the DTW and SVD algorithm. Improvements in SVD and DTW that lead to greater classification accuracy scores and low run-times are mostly likely to result in better extraction of motifs in the unsupervised context. 
+The prime objective here is to improve the accuracy of the DTW and SVD algorithm in tackling high dimensional time series sequences that vary in length while minimising the run-time to a minimum. To evaluate and compare the merits of different proposed changes, I combined both algorithms with the  K nearest neighbour classifier and  partitioned each of the above datasets into two disjoints subsets: one to be used as  a test set and  the other as a training set.  The reason for choosing the nearest neighbour classifier is because it shares almost the same methodology as the algorithms  used to detect motifs. Motif detection algorithms are memory based i.e they rely on comparing each sequence with other sequences in the dataset.  K nearest neighbours deters from motif detection on two aspects: each sequence in the test set is compared with sequences that belong only to the training dataset and the entire process is supervised i.e correct label information are available to check the accuracy of the algorithm.  The availability of correct labels allow accuracy and run-time scores of the nearest neighbour methods to serve as a useful evaluation metric to compare and evaluate various adaptions of the DTW and SVD algorithm. Improvements in SVD and DTW that lead to greater classification accuracy scores and low run-times are mostly likely to result in better extraction of motifs in the unsupervised context. 
 
 
 
@@ -176,9 +176,9 @@ There are  two primary goals of this project :
 \item improve the performance of the DTW  algorithm on long time series sequences. 
 \item adapt SVD to create a  unique `fingerprint' scheme for each distinguished motif/time series pattern. 
 \end{itemize}
-For each of these algorithms, the performance of different adaptions was evaluated by combining them with the 1 nearest neighbours classifier. As I have mentioned in the previous chapter, the 1 nearest neighbour classifier shares the same methodology as the algorithms  used to detect motifs. Thus, if the proposed adaptions improve the performance of  1 nearest neighbour classifier then  it is highly likely that they will achieve better performance in detecting motifs.  The data sets used for evaluation were carefully chosen so that they contain time series sequences that have very long lengths.
+For each of these algorithms, the performance of different adaptions was evaluated by combining them with the 1 nearest neighbours classifier. As I have mentioned in the previous chapter, the 1 nearest neighbour classifier shares the same methodology as the algorithms  used to detect motifs. Thus, if the proposed adaptions improve the performance of  1 nearest neighbour classifier then  it is highly likely that they will achieve better performance in detecting motifs.  The datasets used for evaluation were carefully chosen so that they contain time series sequences that have very long lengths.
  
- The data sets used for this project are as follows:
+ The datasets used for this project are as follows:
 \begin{enumerate}
 \item TIDIGITS speech corpus
 \item   The UCR data set :CinC\_ECG\_torso
@@ -187,8 +187,8 @@ For each of these algorithms, the performance of different adaptions was evaluat
 All 3 data sets were partitioned into two disjoints sets: test set and training sets. Each sample in the training and test data set corresponds to a particular pattern. The class information of the training samples were used to evaluate the accuracy of the nearest neighbours classifier.
 
 The primary dataset that I have used for this project is the `TIGITS' corpus. In comparison to the UCR datasets, the length of the time series sequences in the TIGITS corpus are on average 100 times longer than the  time series sequences of the two UCR datasets. Description of the data sets is given below:
-\subsection { Brief description of TIDIGITS data set}
-The utterances in the TIDIGITS\citep{TIDIGITS} data set correspond to digit sequences. The corpus consists of :
+\subsection { Brief description of TIDIGITS dataset}
+The utterances in the TIDIGITS\citep{TIDIGITS} dataset correspond to digit sequences. The corpus consists of :
 \begin{itemize}
 \item 22 isolated digits (two tokens of each of the eleven digits)
 \item 11 two-digit sequences
@@ -198,7 +198,7 @@ The utterances in the TIDIGITS\citep{TIDIGITS} data set correspond to digit sequ
 \item  11 seven-digit sequences
 \end{itemize}
 In this corpus, the motifs correspond to individual digits. Thus for my experiments, I have considered  only the  isolated digit sequences for classification,  more specifically the digits from 0 to 9. The database  as I have mentioned earlier is divided into two subsets, one to be used for algorithm design and one to be used only for evaluation. Both sets contain samples belonging to different speaker categories i.e (men,women,boy,girl) who in turn have different dialect classifications.
-The table below shows the partitioning of speakers from different speaker categories in the training and test data set.:
+The table below shows the partitioning of speakers from different speaker categories in the training and test dataset.:
 
 \begin{tabular}{|c|c|c|c|c|}
 \hline \\
@@ -367,7 +367,7 @@ The data matrix X can be factorized as $X = U\times D'\times V'^T$ where D is no
 \chapter{Optimising DTW}
 The Dynamic Time Warping(DTW) algorithm is the one of the oldest algorithm that is used to compare and cluster sequences varying in time, scale and speed. Given two temporal sequences, the algorithm utilises the technique of dynamic programming to compute the cost of the optimum alignment path between them.  The computed cost gives an indication of the degree of similarity. The smaller the cost, the more similar the sequences are. Intuitively speaking, DTW can be seen as  a clustering algorithm that clusters patterns that share roughly the same shape. As I have stated in the previous chapter, the time and computational complexity of this algorithm is  \emph{O}($n^2$) where $n$ denotes the length of the sequences that are being compared. Thus for time series domains having high dimensions i.e long sequences, DTW becomes a very unattractive choice as it suffers from high computational and time costs. 
 
-To address the issue of the curse of dimensionality, DTW algorithms employ a window constraint to reduce the search space. The most commonly used  are Sakoe-Chuba Band\citep{Sakoe1990}  and the Itakura  window constraint \citep{Itakura1975}. Figure[3.2]  gives an illustration of the nature of these window constraints. Such constraints determine the allowable  shapes that a warping path can take by restricting the DTW to construct optimal warping paths only through a restricted number of cells around the diagonal region of the cost matrix. As the dimensionality(length) of the sequences increases, the size of the window is adjusted accordingly. Rigid  window constraints impose a more rigid alignment  that prevent an overly temporal skew between two sequences, by keeping frames of one sequence  from getting too far from the other. The vast majority of the data mining researchers use a Sakoe-Chiba Band with a 10\% width for the global constraint \citep{ChotiratAnnRatanamahatana} to constraint the time complexity of DTW to a minimum. For finding motifs in data sets  comprising of speech utterances, the use of rigid window constraints is highly undesirable. Utterances corresponding to the same lexical identity may suffer from large variations in speed, scale and time due to  the word(s) being spoken in difference contexts, by different speakers, in different environments etc.
+To address the issue of the curse of dimensionality, DTW algorithms employ a window constraint to reduce the search space. The most commonly used  are Sakoe-Chuba Band\citep{Sakoe1990}  and the Itakura  window constraint \citep{Itakura1975}. Figure[3.2]  gives an illustration of the nature of these window constraints. Such constraints determine the allowable  shapes that a warping path can take by restricting the DTW to construct optimal warping paths only through a restricted number of cells around the diagonal region of the cost matrix. As the dimensionality(length) of the sequences increases, the size of the window is adjusted accordingly. Rigid  window constraints impose a more rigid alignment  that prevent an overly temporal skew between two sequences, by keeping frames of one sequence  from getting too far from the other. The vast majority of the data mining researchers use a Sakoe-Chiba Band with a 10\% width for the global constraint \citep{ChotiratAnnRatanamahatana} to constraint the time complexity of DTW to a minimum. For finding motifs in datasets  comprising of speech utterances, the use of rigid window constraints is highly undesirable. Utterances corresponding to the same lexical identity may suffer from large variations in speed, scale and time due to  the word(s) being spoken in difference contexts, by different speakers, in different environments etc.
 Thus it is necessary to explore alternative techniques to window constraints that can reduce the time complexity of DTW without degrading its accuracy.
 
 Before investigating methods to improve the DTW algorithm itself, it is highly necessary to first understand the nature of the data sequences that the DTW is presented with.  Achieving a thorough understanding of the data can result in the extraction of a smaller set of relevant features that can be used to achieve better discrimination between different classes/motifs. In this chapter, I investigate domain-dependent preprocessing techniques to improve the performance of the baseline DTW algorithms in clustering patterns that have long lengths.
@@ -392,7 +392,7 @@ Apart from removing redundant features, we can also construct more useful featur
   \caption{The figure on the right corresponds to location of the data points in the feature space spanned by gaussian basis functions $\phi_1(x)$ and $\phi_2(x)$ }
   
 \end{figure}
-In the following sections, I investigate whether the  application of exploratory data analysis and the construction of features that integrate metadata  mainly knowledge of the domain  can aid the baseline DTW algorithm is achieving low run times and good accuracy on long time series sequences. The primary data set that I will be using is the TIDIGITS corpus as the time series sequences of this data set have lengths that are in the order of $10^4$.
+In the following sections, I investigate whether the  application of exploratory data analysis and the construction of features that integrate metadata  mainly knowledge of the domain  can aid the baseline DTW algorithm is achieving low run times and good accuracy on long time series sequences. The primary data set that I will be using is the TIDIGITS corpus as the time series sequences of this dataset have lengths that are in the order of $10^4$.
 %The DTW algorithm combined  with the  1 nearest neighbour classifier  is a memory based algorithm. Memory-based methods involve storing the entire training set in order to make predictions for future data points. They typically require a metric to be defined that measures the similarity of any two vectors in input space, and are generally fast to ‘train’ but slow at making predictions for test data points. The time and computational complexity associated with such methods is even higher when the dimensionality of the data points is high. Intuitively speaking, DTW is a clustering algorithm that clusters similar patterns varying in time and speed. In high- dimensional spaces, however, the contrast between the nearest and furthest points gets increasingly smaller, making it difficult to construct meaningful cluster groups. To address this issue, data dimensionality methods are used at the  preprocessing stage.
  
 \section{Feature Selection}
@@ -569,7 +569,7 @@ From the analysis conducted so far, it can be concluded that heuristically selec
 
 \subsection{Mel Cepstrum Cepstral Coefficients}
 
-The primary data set that I am working with is the TIGITS corpus which is composed of speech utterances. For speech, the most commonly used features are the MFCC features-mel cepstrum cepstral coefficients. This feature representation is based on the idea of the cepstrum. For human speech, a speech waveform is created when a glottal source waveform of a particular frequency is passed through the vocal tract which because of its shape has a particular  filtering characteristic. The exact position of the vocal tract is in fact the key attribute in providing useful information about phones(units of sounds). Cepstrum provides a useful way to separate the information of the vocal tract from the glottal source.
+The primary dataset that I am working with is the TIGITS corpus which is composed of speech utterances. For speech, the most commonly used features are the MFCC features-mel cepstrum cepstral coefficients. This feature representation is based on the idea of the cepstrum. For human speech, a speech waveform is created when a glottal source waveform of a particular frequency is passed through the vocal tract which because of its shape has a particular  filtering characteristic. The exact position of the vocal tract is in fact the key attribute in providing useful information about phones(units of sounds). Cepstrum provides a useful way to separate the information of the vocal tract from the glottal source.
 
 An outline of the MFCC feature extraction is given below:
 \begin{figure}[H]
@@ -589,7 +589,7 @@ An outline of the MFCC feature extraction is given below:
 
 The windowing process results in dimensionality reduction i.e the length of the time-series sequences is reduced. Each sequence is segmented into frames of length 20 to 30 ms. These frames are then mapped using the procedure above to MFCC feature vectors. Since the result sequence of vectors is much smaller than the length of the original sequence resulting in the size of the DTW cost matrix is much smaller than before which in turn lowers the time and computation cost incurred by the algorithm. The time complexity of DTW is now reduced from O($n^2$) to O ($u^2$) where $u= \frac{n}{l} $ (l denotes the length of the frame. 
 
-The experiments conducted in section 4.1.1 and 4.1.2, have shown that the  DTW algorithm performs very poorly in terms of accuracy on the TIDIGITS test data when it employs the narrow Sakoe-Chuba band to minimise  the time complexity. The reason for this low accuracy was credited to the influence of  one or  a combination of the following factors : using a narrow window constraint, using raw attribute values and not using domain-dependent features. Having already investigated the influence of using raw values(4.1), for this part of the project, I constructed the  following 3 models in order to investigate the relative isolated impacts of the other two factors. The models were  tested on the TIDIGITS data set, thus allowing the results to be compared with the results of the previous experiments so far :
+The experiments conducted in section 4.1.1 and 4.1.2, have shown that the  DTW algorithm performs very poorly in terms of accuracy on the TIDIGITS test data when it employs the narrow Sakoe-Chuba band to minimise  the time complexity. The reason for this low accuracy was credited to the influence of  one or  a combination of the following factors : using a narrow window constraint, using raw attribute values and not using domain-dependent features. Having already investigated the influence of using raw values(4.1), for this part of the project, I constructed the  following 3 models in order to investigate the relative isolated impacts of the other two factors. The models were  tested on the TIDIGITS dataset, thus allowing the results to be compared with the results of the previous experiments so far :
 \begin{enumerate}[label=\roman{*}]
 \item Model 1  employs the  MFCC feature extraction mapping as a preprocessing step. The extracted features are used  by the valued-based DTW algorithm augmented with the adaptive Sakoe-Chuba band constraint described in 4.1.1 to cluster similar patterns. The performance of this model can be compared to the  performance of the base line model  to measure the relative impact  on the accuracy and run-time of the DTW  of replacing each numerical value associated with  each time index with a domain dependent feature vector.
  \item  Model 2 employs a two stage preprocessing step. The feature selection procedure  discussed in 4.1.1  is first applied to remove redundant features followed by MFCC feature extraction that achieves further dimensionality reduction. In this model dimensionality reduction occurs at both stages of the pre-processing step. The downsampling method discussed in 4.1.2  was deemed not necessary as a  feature selection step since the feature extraction phase allows further reduction in dimensionality without any loss of information. The sequence of vectors are then used by the  DTW  algorithm to find optimal warping along the main diagonal of the DTW cost matrix. 
@@ -634,7 +634,7 @@ Experimental setup:
   \item Removing redundant features have greater relative impact on the accuracy than employing domain dependent MFCC features. This is evident  if we compare the results of using model 1 with the model discussed in 4.1.1. The presence of silence regions force the optimal warping paths between  patterns of the same lexical identity to lie outside the regions in the cost matrix bounded by the Sakoe-Chuba band. This forces the DTW to find an \textbf{approximate} optimal path with in the allowed regions which in turn leads to an increase in the error rate.
  
    \item Combining  attribute/feature selection with MFCC feature extraction as a preprocessing step achieves greater improvement in accuracy and speed than using either of these approaches alone. In comparison to just using MFCC feature extraction as a preprocessing step, the accuracy has been boosted up by 15.17\% on average  while the $ln(time)$ have been reduced by 2.36.  Similarly, in comparison  to just using feature selection as a preprocessing step, the accuracy has  increased  by 12.9\% on average  while the $ln(time)$ have been reduced by 6.5.
-  \item  From the above observation alone, we can deduce two facts for this data set, one of which is not that obvious: removing redundant features have a greater relative impact  on improving the performance of a constrained DTW than employing domain dependent features and the second fact which is quite obvious is the strong dependency between the algorithm's accuracy and the size of the window constraint. It can be concluded that  the use of the rigid window constraint is the main contributing factor for achieving small accuracy rates.
+  \item  From the above observation alone, we can deduce two facts for this dataset, one of which is not that obvious: removing redundant features have a greater relative impact  on improving the performance of a constrained DTW than employing domain dependent features and the second fact which is quite obvious is the strong dependency between the algorithm's accuracy and the size of the window constraint. It can be concluded that  the use of the rigid window constraint is the main contributing factor for achieving small accuracy rates.
  
 Since the main goal is to improve  \textbf{both} the accuracy and  speed of DTW in handling sequences of high-dimensionality i.e long lengths, removal of silence segments provides an ideal mechanism to improve  \textbf{both}  the time complexity and the accuracy of the algorithm. Dropping the window constraint although will lead to considerable increase in the accuracy by will result in longer run-times. This is not ideal when working on large high dimensional datasets.
   
@@ -653,7 +653,7 @@ To summarise, to improve the performance of the DTW algorithm:
 
 \item I have investigated the  investigated the relative isolated impacts of using raw values, employing a rigid window constraint and using domain dependent features on the performance of the DTW algorithm
 
-\item I have observed that although the DTW algorithm is domain independent,  augmenting the DTW with a  domain dependent preprocessing technique can greatly improve its performance in terms of \textbf{both} accuracy and speed with out the need of any global constraints.  For the TIDIGITS data set, employing the preprocessing steps of `silence' removal followed by MFCC feature extraction allows DTW to improve not only its accuracy but also speed  even without the use of global window constraints.
+\item I have observed that although the DTW algorithm is domain independent,  augmenting the DTW with a  domain dependent preprocessing technique can greatly improve its performance in terms of \textbf{both} accuracy and speed with out the need of any global constraints.  For the TIDIGITS dataset, employing the preprocessing steps of `silence' removal followed by MFCC feature extraction allows DTW to improve not only its accuracy but also speed  even without the use of global window constraints.
 \end{itemize}
 
 
@@ -666,7 +666,7 @@ So far, we have investigated methodologies  that  improve both the speed and acc
 
 Ideally, we require features that reflect information about the structure of the data. This allows the DTW to built a complete picture of the data point in relation to the rest of the sequence and hence achieve  optimal alignments that are close to the diagonal  for similar sequences. The fundamental problem of baseline (value-based) DTW  is that the  `raw' numerical value associated with each point in the  time series sequence is not a complete picture of the data point  in relation to the rest of the sequence. The context such as the position of the points in relation to their neighbours is ignored. To fix  this issue, an alternative  form of DTW known as \emph{derivative} DTW is proposed but  it  too fails to achieve better performance across all domains as it ignores to take into account the common sub-patterns between two sequences (mainly global trends). 
 
-To address these drawbacks, recent works have been conducted to extract good feature extraction methods that are entirely data-driven. One particular approach that has been seen to achieve good accuracies across multiple domains is  the method proposed  Xie and Wiltgen in their  paper \citep{Xie2010}. The authors highlight a domain-independent feature extraction process where each point in the time series sequence is replaced by a 4 dimensional vector. This 4-d vector attempts to provide a complete picture of a point in  the relation to the rest of the sequence. The  first two features in this vector hold information of the local trends around a point while the last two features reflect information about the global trends. From experiments conducted on the UCR data sets,  they have observed that embedding DTW with this feature extraction process yields greater accuracy across all datasets. 
+To address these drawbacks, recent works have been conducted to extract good feature extraction methods that are entirely data-driven. One particular approach that has been seen to achieve good accuracies across multiple domains is  the method proposed  Xie and Wiltgen in their  paper \citep{Xie2010}. The authors highlight a domain-independent feature extraction process where each point in the time series sequence is replaced by a 4 dimensional vector. This 4-d vector attempts to provide a complete picture of a point in  the relation to the rest of the sequence. The  first two features in this vector hold information of the local trends around a point while the last two features reflect information about the global trends. From experiments conducted on the UCR datasets,  they have observed that embedding DTW with this feature extraction process yields greater accuracy across all datasets. 
 
 Definition of local feature given in \citep{Xie2010} is as follows:
 \[ f_{\mbox{local}}(r_i)= (r_i-r_{i-1}, r_i-r_{i+1})\]
@@ -698,12 +698,12 @@ Compare the affect of using global and local features to using raw values on the
 \begin{itemize}
 \item   Experiment 1
 
-\textbf{Datasets}: TIDIGITS data set(4.1.1)
+\textbf{Datasets}: TIDIGITS dataset(4.1.1)
 
 \textbf{Setup}
 Prior to extracting these domain independent features , I performed the feature selection step of removing segments of utterances that correspond to silence. When conducting experiments using MFCC feature vectors, removing redundancy allows the optimal warping paths between similar patterns to lie closer to the main diagonal. Using this feature selection step also has the advantage of dimensionality reduction.
 
- By comparing the experimental results of this model with the baseline model and the model of 4.1, we can observe whether for this data set, removing redundant features is more significant to using features that capture information about the global and local trends. Also we be able to investigate whether using such feature allows a constrained DTW algorithm to achieve higher accuracies  than using raw values.
+ By comparing the experimental results of this model with the baseline model and the model of 4.1, we can observe whether for this dataset, removing redundant features is more significant to using features that capture information about the global and local trends. Also we be able to investigate whether using such feature allows a constrained DTW algorithm to achieve higher accuracies  than using raw values.
 
   
 
@@ -755,7 +755,7 @@ The results are as follows:
  \textbf{Observations} 
   \begin{itemize}
 \item The differences between performances of  the two versions of DTW are consistent  with the observations made in the previous experiment. 
-\item In comparison to the base line method, there is only a minimum improvement in the accuracy of the window constrained DTW.  For the Cinc\_ECG\_Torso  time series data set, using global and local features improves the accuracy by only 3.2\%  whereas  for the InlineSkate data set, the accuracy improves by only 1.92\%.
+\item In comparison to the base line method, there is only a minimum improvement in the accuracy of the window constrained DTW.  For the Cinc\_ECG\_Torso  time series dataset, using global and local features improves the accuracy by only 3.2\%  whereas  for the InlineSkate dataset, the accuracy improves by only 1.92\%.
   \end{itemize}
 
 \textbf{Conclusion}:
@@ -775,7 +775,7 @@ The feature extraction methodology discussed  in the previous section  offers no
 Using the MFCC feature extraction method as motivation, I propose the following methodology:
 \begin{enumerate}[label=\roman*]
 \item Apply the feature extraction process of 5.1 to embed the information of local and global trends.
-\item Partition the sequence of vectors into frames of width $m$. The default value of $m$ is set to 50. For speech utterances in the TIGITS data set, this is equivalent to having frames of size 5ms.  Unlike the windowing process of MFCC extraction, the frames here correspond to sequence of vectors rather sequence of numerical values. This partitioning process reduces the length of the sequences by $m$ times and hence decreases the time complexity of the DTW algorithm from O($n^2$) to O${(\frac{n}{m})}^2$.
+\item Partition the sequence of vectors into frames of width $m$. The default value of $m$ is set to 50. For speech utterances in the TIGITS dataset, this is equivalent to having frames of size 5ms.  Unlike the windowing process of MFCC extraction, the frames here correspond to sequence of vectors rather sequence of numerical values. This partitioning process reduces the length of the sequences by $m$ times and hence decreases the time complexity of the DTW algorithm from O($n^2$) to O${(\frac{n}{m})}^2$.
 \item Adapt the cost metric of the DTW algorithm to work on series of frames  rather than series of vectors 
 \end{enumerate}
 
@@ -872,7 +872,7 @@ To investigate whether the proposed changes does provide a better alternative to
 
 \textbf{Experiment 1}
 
-\textbf{Data set used} : The TIDIGITS data set.
+\textbf{Dataset used} : The TIDIGITS dataset.
 
 \textbf{Model used} : The model discussed in section 5.1: the  framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed  by the domain  independent feature extraction methodology proposed in \citep{Xie2010}
 
@@ -910,7 +910,7 @@ A summary of the results are as follows:
 
 \textbf{Experiment 2}
 
-\textbf{Data set used} : The TIDIGITS test and training data.
+\textbf{Dataset used} : The TIDIGITS test and training data.
 
 \textbf{Model} : The model framework consists of single preprocessing step that involves the extraction  of MFCC features
 
@@ -932,11 +932,11 @@ A summary of the results are as follows:
 \textbf{Observation}
 The results are consistent with the findings in the previous experiment. The accuracy of the DTW algorithm has improved by over 60\% on average and the average run time  has decreased exponentially by an order of  3.12. Hence in comparison to the window constrained DTW, the new framework takes better advantage  of employing domain dependent features.
 
- However, since the tests so far has been conducted on the TIDIGITS test set, it is possible that this new approach is only tailored for this particular data set. Thus to confirm  that the boost in the performance is not tailored for this particular time-series data set, I have the following experiments using the model of experiments on the  UCR data sets: InlineSkate and CINC\_ECG\_TORSO.
+ However, since the tests so far has been conducted on the TIDIGITS test set, it is possible that this new approach is only tailored for this particular dataset. Thus to confirm  that the boost in the performance is not tailored for this particular time-series dataset, I have the following experiments using the model of experiments on the  UCR datasets: InlineSkate and CINC\_ECG\_TORSO.
 
 \textbf{Experiment 3}
 
-\textbf{Data sets used} : InlineSkate and CINC\_ECG\_TORSO
+\textbf{Datasets used} : InlineSkate and CINC\_ECG\_TORSO
 
 \textbf{Setup} : 
 
@@ -972,7 +972,7 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 \begin{itemize}
 \item In chapter 3, we have seen that under the window constraint the time complexity of the algorithm decreases from O($n^2$) to O(wn). From the  experimental results, it can be observed that the new proposed changes allow DTW to achieve run times that are exponential lower than the run times achieved by the window constrained DTW. Thus it can be concluded that the  time complexity of the proposed DTW variant is smaller that O(wn). 
 
-\item  We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance to find local optimal warp path only through the constraint window.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a model that can applied for \textbf{different types} of time series data sets. 
+\item  We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance to find local optimal warp path only through the constraint window.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a model that can applied for \textbf{different types} of time series datasets. 
 
 \end{itemize}
 
@@ -980,11 +980,11 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 \include{chap5}
  \chapter{Improving the speed of the 1 nearest neighbour classifier}
 
- High dimensional data vectors $\{x_n\}$  typically lie close to a non- linear manifold \citep{bishop2006pattern} whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input variables. In data mining, to understand this intrinsic dimensionality of the data, the Single Value Decomposition(SVD) algorithm is widely used. SVD  simplifies the data representation by showing only the number of important dimensions that captures the \textbf{variance} of the data. Intuitively speaking, SVD projects the high dimensional data vectors to an orthogonal subspace that maximises the variance of the data. Recent works\citep{Korn1997} have shown that SVD can be applied to achieve dimensionality reduction in time sequences given that  the sequences satisfy certain constraints. Applying SVD as a preprocessing step  to such time series data sets can result in a significant reduction of the  runtime of a classification/clustering algorithm.  The focus of this chapter is to investigate compatible preprocessing methods that can be used alongside SVD to improve the accuracy of the 1 nearest neighbour classifier while minimising its run time.
+ High dimensional data vectors $\{x_n\}$  typically lie close to a non- linear manifold \citep{bishop2006pattern} whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input variables. In data mining, to understand this intrinsic dimensionality of the data, the Single Value Decomposition(SVD) algorithm is widely used. SVD  simplifies the data representation by showing only the number of important dimensions that captures the \textbf{variance} of the data. Intuitively speaking, SVD projects the high dimensional data vectors to an orthogonal subspace that maximises the variance of the data. Recent works\citep{Korn1997} have shown that SVD can be applied to achieve dimensionality reduction in time sequences given that  the sequences satisfy certain constraints. Applying SVD as a preprocessing step  to such time series datasets can result in a significant reduction of the  runtime of a classification/clustering algorithm.  The focus of this chapter is to investigate compatible preprocessing methods that can be used alongside SVD to improve the accuracy of the 1 nearest neighbour classifier while minimising its run time.
   
  
  \section{Motivation}
-Unlike other data sets, clustering/classifying time  series sequences by conventional distance metrics, such as the euclidean,  may not result  in high accuracy. The scope of such metrics is quite  limited in the fact that they  require  sequences to share the same length and  comparison of sequences is based on a linear match of the  temporal dimensions of the two sequences. This represents a  substantial drawback as the metrics fail to take into account that similar patterns  may vary in terms of speed, length and scale. Therefore, this provides the motivation to look for  preprocessing feature extraction techniques that can extract translation and scale invariant features that capture information about  the intrinsic trends in the data.
+Unlike other datasets, clustering/classifying time  series sequences by conventional distance metrics, such as the euclidean,  may not result  in high accuracy. The scope of such metrics is quite  limited in the fact that they  require  sequences to share the same length and  comparison of sequences is based on a linear match of the  temporal dimensions of the two sequences. This represents a  substantial drawback as the metrics fail to take into account that similar patterns  may vary in terms of speed, length and scale. Therefore, this provides the motivation to look for  preprocessing feature extraction techniques that can extract translation and scale invariant features that capture information about  the intrinsic trends in the data.
 
 However, recent works have shown that there exists time series domains where the use of conventional methods can still achieve accurate results. Korn in his paper  \citep{Korn1997} has  shown that  for time series sequences that share the same \textbf{speed} and \textbf{length},  the conventional methods can achieve good clustering/classification performance. If  intra class sequences have the same speed i.e no time offsets then they will also share the same time localised trends(see figure 6.1). Applying SVD as a preprocessing step,  results in the  extraction of  latent factors that represent the  localised patterns in time.  Through mapping the time series sequences into the latent space, we can therefore construct a  simplified representation of the data which allows conventional methods such as the euclidean metric to cluster time sequences with lesser run time.
 
@@ -1050,19 +1050,19 @@ For SVD to be applied successfully across all time series datasets , there are t
 
 
 %\item Distortion of time series sequences: Conventional methods  yield poor results in classifying and clustering time series sequences that are distorted by length,scale and speed. This makes methods that combine SVD and 1 nearest neighbours very unattractive to use.
-\item Variable  dimensionality:  SVD cannot be directly applied to datasets where the individual data points do not share the same dimensionality. This issue is specially seen in time series data sets such as speech. The acoustics samples in such data sets vary in length.
+\item Variable  dimensionality:  SVD cannot be directly applied to datasets where the individual data points do not share the same dimensionality. This issue is specially seen in time series data sets such as speech. The acoustics samples in such datasets vary in length.
 \end{enumerate}
 
 To address the above issues and the drawbacks associated with performing nearest neighbours classification on time series sequences, in the following three sections, I investigate :
 \begin{enumerate}[label=\roman{*}]
-\item methods to improve the time complexity of SVD in handling high dimensional sequences when the size of the data set is very small.
+\item methods to improve the time complexity of SVD in handling high dimensional sequences when the size of the dataset is very small.
 \item preprocessing methods that can used along side the SVD feature extraction scheme to boost the accuracy of the classifier  
 \item techniques to adapt SVD in handling  time series sequences of variable length 
 \end{enumerate}
 
 
 \section {Improving Time Complexity}
- For data sets where N(the number of samples) $\ll$ D(dimensionality of the data), Bishop \citep{bishop2006pattern} offers the following solution that reduces the time complexity of computing SVD from O($D^3$) to O($N^3$):
+ For datasets where N(the number of samples) $\ll$ D(dimensionality of the data), Bishop \citep{bishop2006pattern} offers the following solution that reduces the time complexity of computing SVD from O($D^3$) to O($N^3$):
   
  Let  X  be the constructed  D by N  data matrix where D is the number dimensions and N is the number of samples and  D$\ll$N. By  factorizing X, we get X=$U \times D \times V^T$. To achieve dimensionality reduction, we need to consider only the  subset of  columns vectors of V   that are associated with the non-zero singular values. Since N $\ll$D, there will at most N-1 of these singular values. As stated earlier, the columns of the V are the eigenvectors of the covariance matrix $ XX^T$.
  
@@ -1077,15 +1077,15 @@ From the above expression, it can be observed that the eigenvectors of  $X^TX$ a
  
 To verify the above approach,  I have conducted the following experiment :
 
-\textbf{Objective} : The experiment is designed to verify  whether applying SVD as  a preprocessing step can improve the run time of 1 nearest neighbour classifier on time series data sets, without affecting its accuracy.
+\textbf{Objective} : The experiment is designed to verify  whether applying SVD as  a preprocessing step can improve the run time of 1 nearest neighbour classifier on time series datasets, without affecting its accuracy.
 
-\textbf{Data sets used} : InLineSkate and Cinc\_ECG\_TORSO. 
+\textbf{Datasets used} : InLineSkate and Cinc\_ECG\_TORSO. 
 
-Unlike the speech corpus, the intra class variance of the time series sequences in the  UCR data sets are much lower. This is primarily due to the fact that sequences of the same class can be described by the same time-localised trends. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO data set. Apart from having the same shape, the two sequences also posses the same speed i.e they have no time offset. From figure 6.1,it can seen that at around t=600, both patterns undergo a dip followed by a sharp peak. The fact that all sequences in the data set share the same length and intra class sequences have no time offset  allow classification algorithms to treat the problem as a  normal classification problem. This also provide the context to apply SVD  directly to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
+Unlike the speech corpus, the intra class variance of the time series sequences in the  UCR datasets are much lower. This is primarily due to the fact that sequences of the same class can be described by the same time-localised trends. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO dataset. Apart from having the same shape, the two sequences also posses the same speed i.e they have no time offset. From figure 6.1,it can seen that at around t=600, both patterns undergo a dip followed by a sharp peak. The fact that all sequences in the dataset share the same length and intra class sequences have no time offset  allow classification algorithms to treat the problem as a  normal classification problem. This also provide the context to apply SVD  directly to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.5]{611.jpg}
-  \caption{Time series sequences  corresponding to class `1' in the Cinc\_TORSO\_ECG data set}
+  \caption{Time series sequences  corresponding to class `1' in the Cinc\_TORSO\_ECG dataset}
   \end{figure}
 
  \textbf{Results}:
@@ -1123,8 +1123,8 @@ InlineSkate &  0.21& 0.92 \\
 \textbf{Observations}
 
 \begin{itemize}
-\item The accuracy of the 1 nearest classifier  in both cases is consistent with the  1NN error rate given for each of the data sets  in the UCR data source webpage.
-\item Applying SVD  as a preprocessing step has no effect on the accuracy on the algorithm  but  reduces the run time of the classifier. Thus using Bishop's\citep{bishop2006pattern} formulation, we can use SVD to reduce the time complexity of clustering/classification algorithms  for high dimensional time series data sets that satisfy the constraint identified by Korn\citep{Korn1997}.
+\item The accuracy of the 1 nearest classifier  in both cases is consistent with the  1NN error rate given for each of the datasets  in the UCR data source webpage.
+\item Applying SVD  as a preprocessing step has no effect on the accuracy on the algorithm  but  reduces the run time of the classifier. Thus using Bishop's\citep{bishop2006pattern} formulation, we can use SVD to reduce the time complexity of clustering/classification algorithms  for high dimensional time series datasets that satisfy the constraint identified by Korn\citep{Korn1997}.
 
 \end{itemize}
 %In order to analyze a nonstationary signal, we need to determine its behavior at any individual event. Multiresolution analysis provides one means to do this. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales. T he procedure is recursive. After removing the first set of detail information from f we are left with a slightly smoothed version of f. Iteratively removing detail information progressively generates more andmore smoothed versions of f. We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire  
@@ -1139,7 +1139,7 @@ For most time series data sets however, the above approach presents a limitation
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.5]{631.jpg}
-  \caption{Time series sequences  corresponding to class `2' in the InlineSkate data set}
+  \caption{Time series sequences  corresponding to class `2' in the InlineSkate dataset}
   \end{figure}
 \section{Wavelet-based Feature Extraction}
 \subsection{Background}
@@ -1251,7 +1251,7 @@ In the following sections, I  provide  a detail description of the procedures sp
 
 
 \end{enumerate}
-Replacing the individual  amplitude values with the curvature estimates of the corresponding points  can allow  the euclidean metric to take into account the \textbf {shape} of the signals at corresponding points  when conducting a linear match of their temporal dimensions. The curvature of a geometric object is a  quantitive description of the shape of that object[].  It dictates the amount by which a geometric object deviates from being flat or straight. 
+Replacing the individual  amplitude values with the curvature estimates of the corresponding points  can allow  the euclidean metric to take into account the \textbf {shape} of the signals at corresponding points  when conducting a linear match of their temporal dimensions. The curvature of a geometric object is a  quantitive description of the shape of that object\citep{Adnan}.  It dictates the amount by which a geometric object deviates from being flat or straight. 
 Formally, the curvature of a curve can be defined  as follows:
 
 Let $\gamma$ be a differentiable curve on  $\textbf E^3(\mbox{Euclidean Space})$ such that 
@@ -1278,8 +1278,8 @@ To extract features that capture the \textbf{ shape} of the dominant trends in a
 
 \textbf{Step 1: Extraction of curvature estimates}
 
-  To compute the  curvature estimates at each point in a  time series sequence, I  have fitted a \textbf{smoothed cubic spline} to each sequence. The motivation behind the use of spline function is as follows: a spline is a   polynomial function that is piecewise-defined, and possesses a high degree of smoothness at the places where the polynomial pieces connect []. A cubic spline is a  specific type of spline which is  constructed using piecewise  polynomials of order 3. 
-  Fitting a cubic spline directly on the sequences  will not be ideal as real data sets have noise embedded in them. The fitted will therefore not be smooth. To overcome this issue, I have  hence applied smoothed cubic spline to fit smooth curve to each sequence.
+  To compute the  curvature estimates at each point in a  time series sequence, I  have fitted a \textbf{smoothed cubic spline} to each sequence. The motivation behind the use of spline function is as follows: a spline is a   polynomial function that is piecewise-defined, and possesses a high degree of smoothness at the places where the polynomial pieces connect \cite{Boor1978}. A cubic spline is a  specific type of spline which is  constructed using piecewise  polynomials of order 3. 
+  Fitting a cubic spline directly on the sequences  will not be ideal as real datasets have noise embedded in them. The fitted will therefore not be smooth. To overcome this issue, I have  hence applied smoothed cubic spline to fit smooth curve to each sequence.
   
   
  Mathematically, the smoothing spline estimate $\hat g(x)$ of the actual function $g(x)$ is defined to be the minimiser of :
@@ -1307,26 +1307,35 @@ The critical parameter here is $\lambda$. The values of $\lambda$ determines the
   
   \textbf{Step 2: Extract features that reflect the global shape}
   
-  The main objective here is to extract features that reflect the \textbf{global} shape of the time series sequence. The above mechanism embeds  the  information of local curvatures to each point of the time series sequence. But what we are really interested in is in the extraction of  global shape descriptors. The shapes of the global trends  of  a signal are preserved in the low frequency bands while the  higher frequency bands encode information of local  shapes []. Thus, to extract global shape descriptors, I have applied the discrete fourier transform[] on the extracted curvature  sequences. 
+  The main objective here is to extract features that reflect the \textbf{global} shape of the time series sequence. The above mechanism embeds  the  information of local curvatures to each point of the time series sequence. But what we are really interested in is in the extraction of  global shape descriptors. The shapes of the global trends  of  a signal are preserved in the low frequency bands while the  higher frequency bands encode information of local  shapes \citep{Osowski2002}. Thus, to extract global shape descriptors, I have applied the discrete fourier transform\citep{Bracewell1986} on the extracted curvature  sequences. 
   
-The Fourier transform maps time into frequency and phase. For each frequency the fourier transform yields an amplitude and a phase value. Thus, the transform captures the behaviour of the signal at different frequency band. Since the amplitudes represent curvature values estimated at step 1, the fourier transform therefore capture the \textbf{behaviour} of the shape of the signal  at different \textbf{frequency} bandss.  The curvature-sequences can now be represented as the sum of sine and cosine  waves whose phase and `amplitude' are given by the fourier transform.
+The Fourier transform maps time into frequency and phase. For each frequency the fourier transform yields an amplitude and a phase value. Thus, the transform captures the behaviour of the signal at different frequency band. Since the amplitudes represent curvature values estimated at step 1, the fourier transform therefore capture the \textbf{behaviour} of the shape of the signal  at different \textbf{frequency} bands.  The curvature-sequences can now be represented as the sum of sine and cosine  waves whose phase and `amplitude' are given by the fourier transform.
  
  For any time series sequence, the coefficients of the discrete fourier transform for each frequency band is computed as follows:
   \[  X_k =\sum_{i=1}^n x_n.e ^{-2\pi i k\frac{n}{N}} \]
   
  To extract global shape descriptors only the magnitudes of the fourier coefficients have been used and since  global trends[] are preserved in the lower bands, I have only selected the first 118 coefficients as features for nearest neighbour classification.  The set of features are reduced by SVD to a smaller latent feature that maps the data points in the 118 dimensional feature space to orthogonal plane that maximises the variance of the feature vectors.
   
- To summarise, the proposed feature extraction methodology is 4 step procedure
+ The  proposed feature extraction methodology is summarised as follows:
+  \begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.6]{722.jpg}
  
+  \end{figure}
+
  
  
  \textbf{Note}: Dimensionality reduction occurs at step 1,3 and 4. Redundant features are pruned away at this steps to finally result a small set of latent factors that be used to cluster/classify inter class sequences that are distinguished by global trends.
  
  
  \subsection{Experimental results}
-  To investigate the effectiveness of using this preprocessing methodology in increasing the accuracy of the 1 nearest neighbour classifier, I performed 1 nearest neighbour classification using the extracted features on the InlineSkate dataset. The accuracy results were compared with the accuracy of the  base line 1 nearest classifier which employs no preprocessing technique and the highest recorded accuracy of the DTW algorithm[] for this dataset. A summary of the results is as follows:
+  To investigate the effectiveness of using this preprocessing methodology in increasing the accuracy of the 1 nearest neighbour classifier, I performed 1 nearest neighbour classification using the extracted features on the InlineSkate dataset. The accuracy results were compared with the accuracy of the  base line 1 nearest classifier which employs no preprocessing technique and the highest recorded accuracy of the DTW algorithm\citep{UCR} for this dataset. A summary of the results is as follows:
   
-  
+   \begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.7]{723.jpg}
+ \caption{Accuracy}
+  \end{figure}
   
   \end{spacing} 
 %% ... etc ...

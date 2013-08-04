@@ -137,4 +137,22 @@ J.~Gorman, O.~Mitchell, and F.~Kuhl, ``{Partial shape recognition using dynamic
   programming},'' {\em IEEE Transactions on Pattern Analysis and Machine
   Intelligence}, vol.~10, pp.~257--266, Mar. 1988.
 
+\bibitem{Adnan}
+M.~A. Haider, {\em {Morphometric analysis of temporally varying shapes in 3
+  dimensions}}.
+\newblock Bsc honors project, University of Edinburgh, 2012.
+
+\bibitem{Boor1978}
+C.~D. Boor, {\em {A practical guide to splines}}.
+\newblock 1978.
+
+\bibitem{Osowski2002}
+S.~Osowski and D.~D. Nghia, ``{Fourier and wavelet descriptors for shape
+  recognition using neural networks—a comparative study},'' {\em Pattern
+  Recognition}, vol.~35, pp.~1949--1957, Sept. 2002.
+
+\bibitem{Bracewell1986}
+R.~Bracewell, {\em {The Fourier transform and its applications}}.
+\newblock 1986.
+
 \end{thebibliography}
