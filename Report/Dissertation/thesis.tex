@@ -1238,7 +1238,7 @@ The sequence $A_j$ corresponds to an approximation(smoothed version) of the sign
 \end{itemize}
 
 \section{Curvature-based Feature extraction}
-In the previous section, we have observed that for datasets such as  the InlineSkate dataset, the main commonality between intra class sequences is the global shape. Applying wavelet decomposition and considering only the approximation part of the signal $A_4$ although allows us to achieve dimensionality reduction without any decrement in accuracy but at the same time it doesn't lead to any improvement in recall. The low accuracy achieved by the classifier  is primarily due to limitations incurred in comparing sequences  using the euclidean.metric. The individual amplitude values on their own are not reflective of the global shape of the sequence. This provides the motivation to explore feature extraction methodologies that capture information about the shape of the sequence.
+In the previous section, we have observed that for datasets such as  the InlineSkate dataset, the main commonality between intra class sequences is the global shape. Applying wavelet decomposition and considering only the approximation part of the signal $A_4$ although allows us to achieve dimensionality reduction without any decrement in accuracy but at the same time  doesn't lead to any improvement in recall. The low accuracy achieved by the classifier  is primarily due to the limitations incurred in comparing sequences  using the euclidean metric. The individual amplitude values on their own are not reflective of the global shape of the sequence. This creates  the motivation to explore feature extraction methodologies that capture information about the shape of the sequence.
 
 To address this issue, I propose the following  4 step feature extraction methodology to extract useful features from the InlineSkate dataset:
 \begin{enumerate}[label=\roman{*}]
@@ -1246,11 +1246,11 @@ To address this issue, I propose the following  4 step feature extraction method
 \item  Replace the amplitude values  of the approximated signal with curvature values of the corresponding points(details to follow).
 \item  Apply fourier transform and consider only the first half of the fourier coefficients(details to follow).
 \item Apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the full variance of the feature vectors in the fourier feature space.
-\end{enumerate}
-\subsection {Motivation for curvature extraction}
-Curvature is a  quantitive description about the shape of a geometric object.  It dictates the amount by which a geometric object deviates from being flat or straight. 
 
-Mathematically, it is defined as follows:
+\end{enumerate}
+Replacing the individual  amplitude values with the curvature estimates of the corresponding points  can allow  the euclidean metric to take into account the \textbf {shape} of the signals at corresponding points  when conducting a linear match of their temporal dimensions. The curvature of a geometric object is a  quantitive description of the shape of that object[].  It dictates the amount by which a geometric object deviates from being flat or straight. 
+
+The formal definition of the curvature of a curve is as follows:
 
 Let $\gamma$ be a differentiable curve on  $\textbf E^3(\mbox{Euclidean Space})$ such that 
 	\[ \gamma : (-\epsilon,\epsilon) \to U \subseteq \textbf E^{ 3} \] 
@@ -1263,25 +1263,33 @@ Let $\gamma$ be a differentiable curve on  $\textbf E^3(\mbox{Euclidean Space})$
 	                                    y'(t) \\
 	                                    z'(t) \end{array}  \right) $ is the velocity of this curve.  	                                  
 	                                    
-	                                    Thus by assuming that this curve is parameterised by arc length (i.e. the curve is parameterised to have unit velocity $\| \gamma'(t)\| =1 $ ) we can define the \emph {curvature}  of as curve
+	                                    Thus by assuming that this curve is parameterised by arc length (i.e. the curve is parameterised to have unit velocity $\| \gamma'(t)\| =1 $ ) we define the \emph {curvature}  of as curve
 	                                    as  \[\kappa = \| \gamma''(t)\| \]
 	             which in fact is none other than the magnitude of the acceleration of a curve.
 
-Geometrically  one can imagine  $\kappa$ as a  parameter whose value determines the amount of the bending of the curve in the flat Euclidean space.
+Geometrically  one can imagine  $\kappa$ in the case of curve as a  parameter which value determines the amount of the bending of that the curve experiences in the flat euclidean space.
 
-Replacing the individual  amplitude values with the curvature estimates of the corresponding points  can allow  the euclidean metric to take into account the \textbf {shape} of the signals at corresponding points  when conducting a linear match of their temporal dimensions.
+\subsection{Extracting curvature based features}
+To extract the curvature at each point of the time series sequence,I performed a two step feature extraction process.
 
+\textbf{Step 1}:
+
+ In the first step, I  have fitted a \textbf{smoothed cubic spline} to each sequence. A spline is a sufficiently smooth polynomial function that is piecewise-defined, and possesses a high degree of smoothness at the places where the polynomial pieces connect []. A cubic spline is a type of spline which is  constructed using piecewise  polynomials of order 3. The objective here, is to extract features that represent the \textbf{global shape} of the sequence, thus for this problem, the shape information of local trends is not relevant. 
+
+To ensure that curvature values represent  information more about the global shape rather than the local trends, I have used smoothed cublic spline to fit the data.
+Mathematically, the smoothing spline estimate $\hat g(x)$ of the actual function $g(x)$ is defined to be the minimizer of :
 \[
-\sum_{i=1}^n \{ y_i - g(x_i) \}^2 + \lambda \int_a^b \{g''(t)\}^2 \,
+\lambda \sum_{i=1}^n \{ y_i - g(x_i) \}^2 + (1-\lambda) \int_a^b \{g''(t)\}^2 \,
 dt
 \]
-where $\lambda$ is a fixed constant, and $a \leq x_1 \leq \dots \leq
-x_n \leq b$. It can be shown (Reinsch 1967) that the solution to this
-problem is a 
-natural cubic spline with knots at the values of $x_i$ (so there are
-$n-2$ interior knots and $n-1$ intervals). Here $a$ and
-$b$ are arbitrary as long as they contain the data.
+where $\lambda$ is a fixed constant
 
+\begin{itemize}
+\item As $\lambda \to 1$,the smoothing spline converges to the interpolating spline. 
+\item As $\lambda \to 0$,the roughness penalty becomes paramount and the estimate converges to a linear least squares estimate.
+\end{itemize}
+
+The critical parameter here is $\lambda$. The values of $\lambda$ determines the nature of the fit. For the sequences in the  InLineSkate dataset, exact fitting is unnecessary as we are interested only the shape of the dominant global trends. Thus, in  this situation an ideal value of $\lambda$ will be than half.  For my analysis, I have chosen the value of 0.25.
  \end{spacing} 
 %% ... etc ...
 
