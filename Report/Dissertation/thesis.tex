@@ -1247,6 +1247,40 @@ To address this issue, I propose the following  4 step feature extraction method
 \item  Apply fourier transform and consider only the first half of the fourier coefficients(details to follow).
 \item Apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the full variance of the feature vectors in the fourier feature space.
 \end{enumerate}
+\subsection {Motivation for curvature extraction}
+Curvature is a  quantitive description about the shape of a geometric object.  It dictates the amount by which a geometric object deviates from being flat or straight. 
+
+Mathematically, it is defined as follows:
+
+Let $\gamma$ be a differentiable curve on  $\textbf E^3(\mbox{Euclidean Space})$ such that 
+	\[ \gamma : (-\epsilon,\epsilon) \to U \subseteq \textbf E^{ 3} \] 
+	\[ \gamma(t) =\left ( \begin{array}{c}
+	                                    x(t) \\
+	                                    y(t) \\
+	                                    z(t) \end{array}  \right) \]
+ The derivative of this function  $ \gamma'(t) =\left ( \begin{array}{c}
+	                                    x'(t) \\
+	                                    y'(t) \\
+	                                    z'(t) \end{array}  \right) $ is the velocity of this curve.  	                                  
+	                                    
+	                                    Thus by assuming that this curve is parameterised by arc length (i.e. the curve is parameterised to have unit velocity $\| \gamma'(t)\| =1 $ ) we can define the \emph {curvature}  of as curve
+	                                    as  \[\kappa = \| \gamma''(t)\| \]
+	             which in fact is none other than the magnitude of the acceleration of a curve.
+
+Geometrically  one can imagine  $\kappa$ as a  parameter whose value determines the amount of the bending of the curve in the flat Euclidean space.
+
+Replacing the individual  amplitude values with the curvature estimates of the corresponding points  can allow  the euclidean metric to take into account the \textbf {shape} of the signals at corresponding points  when conducting a linear match of their temporal dimensions.
+
+\[
+\sum_{i=1}^n \{ y_i - g(x_i) \}^2 + \lambda \int_a^b \{g''(t)\}^2 \,
+dt
+\]
+where $\lambda$ is a fixed constant, and $a \leq x_1 \leq \dots \leq
+x_n \leq b$. It can be shown (Reinsch 1967) that the solution to this
+problem is a 
+natural cubic spline with knots at the values of $x_i$ (so there are
+$n-2$ interior knots and $n-1$ intervals). Here $a$ and
+$b$ are arbitrary as long as they contain the data.
 
  \end{spacing} 
 %% ... etc ...
