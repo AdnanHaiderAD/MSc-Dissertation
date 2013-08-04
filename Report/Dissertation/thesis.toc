@@ -21,5 +21,6 @@
 \contentsline {chapter}{\numberline {7}Improving the accuracy of the 1 nearest neighbour classifier}{49}
 \contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{50}
 \contentsline {subsection}{\numberline {7.1.1}Background}{50}
-\contentsline {subsection}{\numberline {7.1.2}Wavelet-feature Extraction }{52}
-\contentsline {chapter}{Bibliography}{56}
+\contentsline {subsection}{\numberline {7.1.2}Wavelet-based Features }{52}
+\contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{56}
+\contentsline {chapter}{Bibliography}{57}

@@ -21,8 +21,8 @@ function result=wavedecom(data)
  
   for k=1 :samp
     sample= data(k,:);
-    [C,L] =wavedec(sample,10,'Haar');
-    result(k,1:L(end-1)) = C(1:L(end-1));
+    [C,L] =wavedec(sample,4,'Haar');
+    result(k,1:L(1)) = C(1:L(1));
     
     %compute_curvature([1:L(end-1)],C(1:L(end-1)));
     %result(k,2:end)=C(1:dim);
@@ -47,8 +47,8 @@ end
 time=toc
 tic
 %%perform wavelet decomposition: feature extraction
-testData=wavedecom(testData);
-trainData=wavedecom(trainData);
+%testData=wavedecom(testData);
+%trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
 %testData=fourierdecom(testData);
@@ -58,10 +58,10 @@ time=time+toc;
 fingerprintSpace = principalcomponents(trainData);
 
 %% projection to principal subspace
-trainDataR= (fingerprintSpace'* trainData')';
-testDataR= (fingerprintSpace'* testData')';
-%testDataR=testData;
-%trainDataR=trainData;
+%trainDataR= (fingerprintSpace'* trainData')';
+%testDataR= (fingerprintSpace'* testData')';
+testDataR=testData;
+trainDataR=trainData;
 
 output=zeros(1,length(test_labels));
 time=time+toc
