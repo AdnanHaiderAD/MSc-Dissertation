@@ -105,6 +105,10 @@ M.~{De Wachter}, K.~Demuynck, P.~Wambacq, and D.~{Van Compernolle}, ``{A
 M.~A. Carlin, S.~Thomas, A.~Jansen, and H.~Hermansky, ``{Rapid Evaluation of
   Speech Representations for Spoken Term Discovery},''
 
+\bibitem{Keogh2001}
+E.~Keogh and M.~Pazzani, ``{Derivative dynamic time warping},'' {\em the 1st
+  SIAM Int. Conf. on Data Mining (SDM- \ldots}, 2001.
+
 \bibitem{bishop2006pattern}
 C.~M. Bishop and N.~M. Nasrabadi, {\em {Pattern recognition and machine
   learning}}, vol.~1.

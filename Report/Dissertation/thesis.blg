@@ -29,45 +29,45 @@ Warning--empty booktitle in Chun-Lin2010
 Warning--empty publisher in Chun-Lin2010
 Warning--empty publisher in Boor1978
 Warning--empty publisher in Bracewell1986
-You've used 33 entries,
+You've used 34 entries,
             1876 wiz_defined-function locations,
-            695 strings with 8909 characters,
-and the built_in function-call counts, 8777 in all, are:
-= -- 892
-> -- 279
+            701 strings with 9040 characters,
+and the built_in function-call counts, 8926 in all, are:
+= -- 904
+> -- 287
 < -- 0
-+ -- 108
-- -- 75
-* -- 614
-:= -- 1186
-add.period$ -- 36
-call.type$ -- 33
-change.case$ -- 29
++ -- 111
+- -- 77
+* -- 623
+:= -- 1211
+add.period$ -- 37
+call.type$ -- 34
+change.case$ -- 30
 chr.to.int$ -- 0
-cite$ -- 48
-duplicate$ -- 458
-empty$ -- 861
-format.name$ -- 75
-if$ -- 2140
+cite$ -- 49
+duplicate$ -- 467
+empty$ -- 878
+format.name$ -- 77
+if$ -- 2175
 int.to.chr$ -- 0
-int.to.str$ -- 33
-missing$ -- 34
-newline$ -- 107
-num.names$ -- 33
-pop$ -- 132
+int.to.str$ -- 34
+missing$ -- 35
+newline$ -- 110
+num.names$ -- 34
+pop$ -- 136
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 331
+skip$ -- 333
 stack$ -- 0
 substring$ -- 638
-swap$ -- 186
+swap$ -- 187
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 15
-while$ -- 92
-width$ -- 35
-write$ -- 306
+while$ -- 93
+width$ -- 36
+write$ -- 314
 (There was 1 error message)
