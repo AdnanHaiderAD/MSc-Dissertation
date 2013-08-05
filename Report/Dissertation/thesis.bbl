@@ -52,23 +52,21 @@ A.~W.-C. Fu, E.~Keogh, L.~Y.~H. Lau, C.~A. Ratanamahatana, and R.~C.-W. Wong,
   ``{Scaling and time warping in time series querying},'' {\em The VLDB
   Journal}, vol.~17, pp.~899--921, Mar. 2007.
 
-\bibitem{Korn1997}
-F.~Korn, H.~V. Jagadish, and C.~Faloutsos, ``{Efficiently supporting ad hoc
-  queries in large datasets of time sequences},'' in {\em Proceedings of the
-  1997 ACM SIGMOD international conference on Management of data - SIGMOD '97},
-  vol.~26, (New York, New York, USA), pp.~289--300, ACM Press, June 1997.
-
 \bibitem{Itakura1975}
 F.~Itakura, ``{Minimum prediction residual principle applied to speech
   recognition},'' {\em IEEE Transactions on Acoustics, Speech, and Signal
   Processing}, vol.~23, pp.~67--72, Feb. 1975.
 
+\bibitem{Cadzow1983}
+P.~J.~A. Cadzow, B.~Baseghi, and T.~Hsu, ``{Singular-value decomposition
+  approach to time series modelling},'' vol.~130, no.~3, 1983.
+
 \bibitem{TIDIGITS}
 R.~G.~L. Doddington and George, ``{TIDIGITS Readme File},'' 1993.
 
-\bibitem{UCR}
-L.~.~R. {Keogh, E., Zhu, Q., Hu, B., Hao. Y., Xi, X., Wei}, ``{UCR Time Series
-  Data sets},'' 2011.
+\bibitem{Morchen2006}
+F.~M\"{o}rchen, {\em {Time series knowledge mining}}.
+\newblock 2006.
 
 \bibitem{Keogh2004}
 E.~Keogh and C.~A. Ratanamahatana, ``{Exact indexing of dynamic time
@@ -83,6 +81,12 @@ M.~Vlachos, G.~Kollios, and D.~Gunopulos, ``{Discovering similar
 \bibitem{Marchette1999}
 D.~J. Marchette, ``{Local dimensionality reduction},'' vol.~14, ch.~Dimensiona,
   p.~469, 1999.
+
+\bibitem{Korn1997}
+F.~Korn, H.~V. Jagadish, and C.~Faloutsos, ``{Efficiently supporting ad hoc
+  queries in large datasets of time sequences},'' in {\em Proceedings of the
+  1997 ACM SIGMOD international conference on Management of data - SIGMOD '97},
+  vol.~26, (New York, New York, USA), pp.~289--300, ACM Press, June 1997.
 
 \bibitem{ChotiratAnnRatanamahatana}
 E.~K. {Chotirat Ann Ratanamahatana}, ``{Three Myths about Dynamic Time Warping
@@ -158,5 +162,9 @@ S.~Osowski and D.~D. Nghia, ``{Fourier and wavelet descriptors for shape
 \bibitem{Bracewell1986}
 R.~Bracewell, {\em {The Fourier transform and its applications}}.
 \newblock 1986.
+
+\bibitem{UCR}
+L.~.~R. {Keogh, E., Zhu, Q., Hu, B., Hao. Y., Xi, X., Wei}, ``{UCR Time Series
+  Data sets},'' 2011.
 
 \end{thebibliography}

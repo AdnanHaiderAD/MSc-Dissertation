@@ -119,7 +119,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.1}
+ \begin{spacing}{1.2}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -146,7 +146,7 @@ To identify and extract motifs from time series data, various clustering algorit
 However, the DTW algorithm also experiences from severe drawbacks. The algorithm suffers from large run-times when the length of the time series sequences are very long. This is because  the  time complexity of the algorithm  is quadratic i.e O($n^2$ ) where n is the length of the  sequence.  In comparison, standard metrics like the euclidean  has a time complexity of O(n), making them computational less expensive to employ. To address the  quadratic time complexity of the DTW algorithm  window constraints (Itakura parallelogram\citep{Itakura1975}, Sakoe-Chiba band\citep{Sakoe1990}) have been proposed to  reduce the  size of the search space of DTW  by forcing the algorithm to look for optimal paths that are along the diagonal. Although introducing such window constraints does improve the time complexity, the reduction in the search space however  leads to a substantial decrease in the accuracy of the algorithm since all optimal paths may not exist around the diagonal region\citep{Fu2007}.
 
 
-The goal of this project is  to employ machine learning techniques to tackle and resolve the individual drawbacks associated with using the DTW algorithm and the euclidean metric  to compute the similarity between high dimensional time series sequences. In the  first half of the project, I will be solely concentrating  on improving the performance of the DTW algorithm for problem domains where the minimising the time complexity is as high priority as achieving good accuracy. In the latter half  of the project, I will be concentrating on improving the  performance of  the  euclidean metric in  time series domains where intra class sequences share the same global shape. To be precise, I will be exploring feature extraction techniques to  extract a smaller set of independent  features from the raw sequences that can  capture information about the global shape allow sequences to be accurately compared  only through a linear match of the feature dimensions. 
+The goal of this project is  to employ machine learning techniques to tackle and resolve the individual drawbacks associated with using the DTW algorithm and the euclidean metric  to compute the similarity between high dimensional time series sequences. In the  first half of the project, I will be solely concentrating  on improving the performance of the DTW algorithm for problem domains where the minimising the time complexity is as high priority as achieving good accuracy. In the latter half  of the project, I will be concentrating on improving the  performance of  the  euclidean metric in  time series domains where intra class sequences share the same global shape. To be precise, I will be exploring feature extraction techniques to  extract a smaller set of independent  features from the raw sequences that can  capture information about the global shape and be used by the euclidean metric to cluster/classify intra class sequences that share global trends.
 %The discovery of motifs in high dimensional time series data(i.e long sequences) that vary in length  is still a difficult problem to work with. To address the drawbacks of DTW and SVD, there has been some recent work conducted to improve these algorithms. In the paper `` \emph {Fast time series classification using numerosity reduction}", the authors address the drawbacks of DTW in handling high dimensional sequences. They propose an adaptive approach that initially uses a strict window constraint to reduce the search space of DTW but then gradually increase size of the window by discarding samples from the training set. Although this methodology improves the time complexity of the dynamic time warping algorithm by heuristically discarding regions in the input space, the methodology is more tailored to  smart data selection rather than improving the algorithm itself. In the case of SVD, for high dimensional time series sequences which vary in length, the  data matrix  suffers in being  incomplete. Carelessly addressing only the relatively few known entries is highly prone to over Þtting. Earlier works [21] relied on imputation to fill  in missing ratings and make the rating matrix dense. However, imputation can be very expensive as it significantly  increases the amount of data. In addition, the data may be considerably distorted due to inaccurate imputation. 
 
  For this project, I will be primarily using 3 time series datasets (details given in chapter 2):
@@ -156,7 +156,7 @@ The goal of this project is  to employ machine learning techniques to tackle and
 \item Cinc\_ECG\_TORSO
 \end{itemize}
 
- To evaluate and compare the merits of different proposed changes, I have  partitioned each of the above datasets into  a training set and a test set  and employed the 1 nearest neighbour classifier to classify the test instances. In the first half of the project, the DTW was used as the similarity metric while for the later analysis, the euclidean metric was employed as the similarity metric. The performance of the classifier has been used to compare  different proposed adaptions of the DTW and evaluate  the performance of using different feature sets  when employing  the euclidean metric.  The reason for choosing the 1 nearest neighbour classifier is that it shares almost the same methodology as the algorithms used to detect motifs. Motif detection algorithms are memory based i.e like 1NN classifier, they rely on comparing each sequence with other sequences in the dataset. Hence, methodologies that tend to achieve good performance on 1 NN classification can be expected to achieve equivalent performance in motif detection. 
+ To evaluate and compare the merits of different proposed changes, I have  partitioned each of the above datasets into  a training set and a test set  and employed the 1 nearest neighbour classifier to classify the test instances. In the first half of the project, the DTW was used as the similarity metric while for the later analysis, the euclidean metric was employed as the similarity metric. The performance of the classifier has been used to compare  different proposed adaptions of the DTW and evaluate  the performance of using different feature sets  when employing  the euclidean metric.  The reason for choosing the 1 nearest neighbour classifier is that it shares almost the same methodology as the algorithms used to detect motifs. Motif detection algorithms are memory based i.e like 1NN classifier, they rely on comparing each sequence with other sequences in the dataset. Hence, methodologies that tend to achieve good performance on 1NN classification can be expected to achieve equivalent performance in motif detection. 
  
  
  %However, the 1 nearest neighbour classifier deters from motif detection on two aspects: each sequence in the test set is compared with sequences of the training dataset and not the entire data set. The entire process is supervised i.e correct label information are available to check the accuracy of the algorithm. Secondly, when conducting 1NN classification, each sample is considered as a single motif  but in real motif detection problems a single sample can contain multiple motifs.
@@ -164,16 +164,16 @@ The goal of this project is  to employ machine learning techniques to tackle and
   %For a majority portion of the analysis, the TIDIGITS corpus will serve as  the primary dataset used  to investigate the performances of different models. The reason being the TIGITS corpus consists  of long time series sequences that vary in length . Since each  time sequence corresponds to a speech utterance spoken by a speaker, as result of environment, context and speaker differences the length of the time series sequences will not be the same. In comparison, the sequences with in each UCR data set share the same dimensionality i.e length. Furthermore, the length of the time series sequences on average is much higher in the TIDIGITS corpus than sequences of any data set in the UCR time series database.Thus the TIDIGITS data set is an ideal choice to investigate  the performance of different models in my project.
  %The discovery of motifs in high dimensional time series data that vary in length  is still a difficult problem to work with. Current works have only tried to address the issue of high-dimensional spaces. The state of the art algorithms have been to designed to work on high-dimensional time series sequences that all share the same length. To my knowledge, there exits no algorithm apart from DTW that can applied to high-dimensional sequences varying in length.  Using this as motivation, the aim of this project is to investigate methods  that can improve the discovery of motifs in  high-dimensional time-series sequences that vary in length. In this project, I particularly focus on improving the performance of the DTW algorithm in high dimensional spaces and in the later chapters investigate on  how to adapt unsupervised parametric models to high dimensional  data sets  that vary in length. 
 
-The  dissertation is  organised as follows: Chapter 2 gives a brief description of the  time-series datasets used for this project. Chapter 4  provides a detailed background description of the DTW algorithm.  Chapter 3 and 4 investigates methods to improve the performance of the DTW algorithm in terms of both accuracy and speed. Chapter 5 explores the noble technique of single value  decomposition in the context of time series domains and explores whether it can be applied to extract a smaller set of latent features that can minimise  the run time of the 1NN classifier,using the euclidean metric to classify sequences, without decreasing the accuracy. Chapter 6 focusses on improving the accuracy of the classification of 1NN classifier on time series sequences when it employes  the euclidean metric. In this chapter, I mainly explore preprocessing techniques  that can extract noble features which capture the  global properties of sequences.  Finally in the last chapter, I present my conclusions and present scope for future work.
+The  dissertation is  organised as follows: Chapter 2 gives a brief description of the  time-series datasets used for this project. Chapter 4  provides a detailed background description of the DTW algorithm.  Chapter 3 and 4 investigates methods to improve the performance of the DTW algorithm in terms of both accuracy and speed. Chapter 5 explores the noble technique of single value  decomposition in the context of time series domains and explores whether it can be applied to extract a smaller set of latent features that can minimise  the run time of the 1NN classifier when using the euclidean metric to classify sequences. Chapter 6 focusses on improving the accuracy of the classification of 1NN classifier on time series sequences when it employes  the euclidean metric. In this chapter, I mainly explore preprocessing techniques  that can extract noble features which capture the  global properties of sequences.  Finally in the last chapter, I present my conclusions and present scope for future work.
 
 \include{chap3}
 \chapter{Datasets Used}
 There are  two primary goals of this project : 
 \begin{itemize}
 \item improve the performance of the DTW  algorithm on long time series sequences. 
-\item adapt SVD to create a  unique `fingerprint' scheme for each distinguished motif/time series pattern. 
+\item explore the use feature extraction methods to generate a small set of descriptive latent  features\citep{Cadzow1983}  that can be used by the euclidean metric to cluster intra class sequences that share global trends more accurately.
 \end{itemize}
-For each of these algorithms, the performance of different adaptions was evaluated by combining them with the 1 nearest neighbours classifier. As I have mentioned in the previous chapter, the 1 nearest neighbour classifier shares the same methodology as the algorithms  used to detect motifs. Thus, if the proposed adaptions improve the performance of  1 nearest neighbour classifier then  it is highly likely that they will achieve better performance in detecting motifs.  The datasets used for evaluation were carefully chosen so that they contain time series sequences that have very long lengths.
+The performance of the 1 NN classifier has been used to compare different proposed adaptions of the DTW and evaluate the performance of using different feature sets when employing the euclidean metric. For this project,  the datasets used for evaluation were carefully chosen so that they contain time series sequences that have very\textbf{ high} dimensions i.e long lengths.
  
  The datasets used for this project are as follows:
 \begin{enumerate}
@@ -183,7 +183,11 @@ For each of these algorithms, the performance of different adaptions was evaluat
 \end{enumerate}
 All 3 data sets were partitioned into two disjoints sets: test set and training sets. Each sample in the training and test data set corresponds to a particular pattern. The class information of the training samples were used to evaluate the accuracy of the nearest neighbours classifier.
 
-The primary dataset that I have used for this project is the `TIGITS' corpus. In comparison to the UCR datasets, the length of the time series sequences in the TIGITS corpus are on average 100 times longer than the  time series sequences of the two UCR datasets. Description of the data sets is given below:
+For the first half of the project, the primary dataset that was mostly used is the `TIDIGITS' corpus. In comparison to the sequences in the two UCR datasets, the length of the time series sequences in the TIDIGITS corpus are on average 100 times longer. This forces the DTW algorithm to suffer from high time complexity when handling the speech utterances.  The TIDIGITS corpus is a prime example where the minimisation of the run time is as high priority as getting good accuracy. In chapter 4 and 5, I will be investigating domain dependent and independent methodologies to improve the performance of the DTW in high dimensional time series datasets such as the TIDIGITS corpus. 
+
+The TIDIGITS corpus consists of time series sequences that are of variable length. Since the application of the euclidean metric is restricted to time series sequences  share the same length, for the later half of the project, I will be focussing mainly on the UCR datasets when exploring the use of various feature extraction methods that can improve the accuracy of the euclidean metric in computing the similarity between intra class sequences that share the same length.
+
+Description of the data sets is given below:
 \subsection { Brief description of TIDIGITS dataset}
 The utterances in the TIDIGITS\citep{TIDIGITS} dataset correspond to digit sequences. The corpus consists of :
 \begin{itemize}
@@ -223,10 +227,18 @@ The test data subset used for evaluation consists of
 \end{itemize}
   
 \subsection{Brief description CinC\_ECG\_torso and InLineSkate dataset}
-The UCR data resource  has been  funded by an NSF(National Science Foundation) since 2003 and is the largest public collection of time series data sets that have been made available to the data mining/machine learning community, to encourage reproducible research for time series classification and clustering.  To evaluate the performance  of different adaptations of the two algorithms on high dimensional sequences, we require data sets that contain extremely long sequences.  The UCR data sets `CinC\_ECG\_torso'\citep{UCR} and the 'InLineSkate' \citep{UCR} therefore are an excellent choice as they contain  time  series sequences that have the longest lengths. 
+The UCR data resource  has been  funded by an NSF(National Science Foundation) since 2003 and is the largest public collection of time series data sets that have been made available to the data mining/machine learning community, to encourage reproducible research for time series classification and clustering.  
 
-  \begin{enumerate}
-  \item CinC\_ECG\_torso
+The InLineSkate dataset represents the EMG data of 7 major leg extensor and flexor muscles of the right side of the body from six athletes collected  by attaching  bipolar surface electrodes to the relevant muscles\citep{Morchen2006}.The sampling rate was 1 kHz. The Cinc\_ECG\_Torso presents the ECG data collected by attaching  electrodes to 4 distinct regions on the torso  from  multiple participants.
+
+\textbf{InLineSkate}:
+  \begin{itemize}
+    \item Length of the time series:1882
+  \item Size of test set:550
+  \item Size of training set:100
+  \item Number of classes:7 
+   \end{itemize}
+   \textbf{CinC\_ECG\_torso}:
   
   \begin{itemize}
     \item Length of the time series:1639
@@ -234,14 +246,8 @@ The UCR data resource  has been  funded by an NSF(National Science Foundation) s
   \item Size of training set:40
   \item Number of classes:4
   \end{itemize}
-  \item  InLineSkate
-  \begin{itemize}
-    \item Length of the time series:1882
-  \item Size of test set:550
-  \item Size of training set:100
-  \item Number of classes:7 
-  \end{itemize}
- \end{enumerate}
+  
+
   \include{chap2}
 
 \chapter{Background}
@@ -337,29 +343,7 @@ the Itakura parallelogram \citep{Itakura1975} . Figure 3.2  gives an illustratio
     \end{figure}
  The shaded areas in the above figure represent the cells of the cost matrix that are filled in by the DTW algorithm for each constraint. The width of each shaded area/window, is specified by a  window parameter. When these constraints are used, the DTW algorithm finds the optimal warp path only through the constraint window. However, the globally optimal warp path will not be found if it is not entirely inside the window\citep{Salvador}. The window parameter therefore determines the accuracy of the DTW algorithm. Decreasing the width decreases the accuracy. If the width is 0 and the series are of equal length then the DTW generalises to the euclidean distance which is a notoriously inaccurate similarity measure for time series data\citep{Vlachos2002}. To constraint the time complexity to a minimum, the vast majority of the data mining researchers use a Sakoe-Chiba Band with a 10\% width. This reduces the time complexity from O($n^2$) to O (wn) where w is the size of the window parameter.
  
- \section{Single Value Decomposition}
-
-\textbf{The formal definition of SVD as stated in\citep{Marchette1999,Korn1997} is given as follows}:
- 
- Any $M \times N $ real matrix  X  can be factorized  of the form $X = U D V ^T$ 
- where 
- \begin{itemize}
- \item  U is a $M \times M $ orthogonal matrix. The columns of U are the eigenvectors of $XX^T$
- \item D is a $M \times N $  rectangular matrix  with :
- \[D_{ij}= 
-\begin{cases}
-     \sigma^2,& \text{if } j= i\\
-    0,              & \text{otherwise} \end{cases}\]
- Here D is a diagonal matrix  where the diagonal entities are called singular values and are  ranked from greatest to least. The number of non-zero singular values determine the rank  of the original matrix. 
- 
-  \item  V is a $N \times N $ orthogonal matrix. The columns of V are the eigenvectors of $X^TX$. Since $X^TX$ is the covariance matrix, these eigenvectors span the linear subspace that maximises the variance of the data.
- \end{itemize}
- 
-Dimensionality reduction is achieved by discarding the eigenvectors in V i.e the columns that are associated with the smallest or zero singular values. Thus, each sample can now be represented by fewer dimensions. For data matrices where M $\ll$ N, there exists at most M-1 singular values. In such situations, considering only the non zero columns in the diagonal matrix  D  and the associated columns in V achieves dimensionality reduction without any loss of function.
-The data matrix X can be factorized as $X = U\times D'\times V'^T$ where D is now an M by K diagonal matrix containing only positive values on its diagonal and V' is the corresponding N by K matrix. The matrix $V'^TV$ captures the full  covariance of the data. 
-
-
- 
+  
   \include{chap3}
 \chapter{Optimising DTW}
 The Dynamic Time Warping(DTW) algorithm is the one of the oldest algorithm that is used to compare and cluster sequences varying in time, scale and speed. Given two temporal sequences, the algorithm utilises the technique of dynamic programming to compute the cost of the optimum alignment path between them.  The computed cost gives an indication of the degree of similarity. The smaller the cost, the more similar the sequences are. Intuitively speaking, DTW can be seen as  a clustering algorithm that clusters patterns that share roughly the same shape. As I have stated in the previous chapter, the time and computational complexity of this algorithm is  \emph{O}($n^2$) where $n$ denotes the length of the sequences that are being compared. Thus for time series domains having high dimensions i.e long sequences, DTW becomes a very unattractive choice as it suffers from high computational and time costs. 
@@ -975,12 +959,36 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 
 
 \include{chap5}
- \chapter{Improving the speed of the 1 nearest neighbour classifier}
+ \chapter{Exploring the use of SVD in time series sequences}
+In the previous chapter, we have explored techniques that can improve the performance of the DTW algorithm in handling high dimensional time series sequences. In this and the following chapters, I will be concentrating of improving the accuracy and run-time of the  1NN classifier equipped with the euclidean metric  on time series sequences. To be precise, I will be exploring feature extraction techniques to extract a smaller set of independent features from the raw sequences that can capture information about the global shape. This formulation will not only achieve dimensionality reduction but  will also allow the time series classification to be treated like a normal classification problem.
 
- High dimensional data vectors $\{x_n\}$  typically lie close to a non- linear manifold \citep{bishop2006pattern} whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input variables. In data mining, to understand this intrinsic dimensionality of the data, the Single Value Decomposition(SVD) algorithm is widely used. SVD  simplifies the data representation by showing only the number of important dimensions that captures the \textbf{variance} of the data. Intuitively speaking, SVD projects the high dimensional data vectors to an orthogonal subspace that maximises the variance of the data. Recent works\citep{Korn1997} have shown that SVD can be applied to achieve dimensionality reduction in time sequences given that  the sequences satisfy certain constraints. Applying SVD as a preprocessing step  to such time series datasets can result in a significant reduction of the  runtime of a classification/clustering algorithm.  The focus of this chapter is to investigate compatible preprocessing methods that can be used alongside SVD to improve the accuracy of the 1 nearest neighbour classifier while minimising its run time.
-  
+High dimensional data vectors $\{x_n\}$  typically lie close to a non- linear manifold \citep{bishop2006pattern} whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input variables. In data mining, to understand this intrinsic dimensionality of the data, the Single Value Decomposition(SVD) algorithm is widely used. SVD  simplifies the data representation by showing only the number of important dimensions that captures the \textbf{variance} of the data. Intuitively speaking, SVD projects the high dimensional data vectors to an orthogonal subspace that maximises the variance of the data. The focus of this chapter is to investigate whether SVD can be applied to time series datasets to extract independent  latent features that  minimise the run time of the 1NN classifier augmented with the euclidean metric.
+
+
+\section{ Background}
+
+\textbf{The formal definition of SVD as stated in\citep{Marchette1999,Korn1997} is given as follows}:
  
- \section{Motivation}
+ Any $M \times N $ real matrix  X  can be factorized  of the form $X = U D V ^T$ 
+ where 
+ \begin{itemize}
+ \item  U is a $M \times M $ orthogonal matrix. The columns of U are the eigenvectors of $XX^T$
+ \item D is a $M \times N $  rectangular matrix  with :
+ \[D_{ij}= 
+\begin{cases}
+     \sigma^2,& \text{if } j= i\\
+    0,              & \text{otherwise} \end{cases}\]
+ Here D is a diagonal matrix  where the diagonal entities are called singular values and are  ranked from greatest to least. The number of non-zero singular values determine the rank  of the original matrix. 
+ 
+  \item  V is a $N \times N $ orthogonal matrix. The columns of V are the eigenvectors of $X^TX$. Since $X^TX$ is the covariance matrix, these eigenvectors span the linear subspace that maximises the variance of the data.
+ \end{itemize}
+ 
+Dimensionality reduction is achieved by discarding the eigenvectors in V i.e the columns that are associated with the smallest or zero singular values. Thus, each sample can now be represented by fewer dimensions. For data matrices where M $\ll$ N, there exists at most M-1 singular values. In such situations, considering only the non zero columns in the diagonal matrix  D  and the associated columns in V achieves dimensionality reduction without any loss of function.
+The data matrix X can be factorized as $X = U\times D'\times V'^T$ where D is now an M by K diagonal matrix containing only positive values on its diagonal and V' is the corresponding N by K matrix. The matrix $V'^TV$ captures the full  covariance of the data. 
+
+
+
+ \section{Motivation: Application in  time series datasets}
 Unlike other datasets, clustering/classifying time  series sequences by conventional distance metrics, such as the euclidean,  may not result  in high accuracy. The scope of such metrics is quite  limited in the fact that they  require  sequences to share the same length and  comparison of sequences is based on a linear match of the  temporal dimensions of the two sequences. This represents a  substantial drawback as the metrics fail to take into account that similar patterns  may vary in terms of speed, length and scale. Therefore, this provides the motivation to look for  preprocessing feature extraction techniques that can extract translation and scale invariant features that capture information about  the intrinsic trends in the data.
 
 However, recent works have shown that there exists time series domains where the use of conventional methods can still achieve accurate results. Korn in his paper  \citep{Korn1997} has  shown that  for time series sequences that share the same \textbf{speed} and \textbf{length},  the conventional methods can achieve good clustering/classification performance. If  intra class sequences have the same speed i.e no time offsets then they will also share the same time localised trends(see figure 6.1). Applying SVD as a preprocessing step,  results in the  extraction of  latent factors that represent the  localised patterns in time.  Through mapping the time series sequences into the latent space, we can therefore construct a  simplified representation of the data which allows conventional methods such as the euclidean metric to cluster time sequences with lesser run time.
@@ -1050,12 +1058,14 @@ For SVD to be applied successfully across all time series datasets , there are t
 \item Variable  dimensionality:  SVD cannot be directly applied to datasets where the individual data points do not share the same dimensionality. This issue is specially seen in time series data sets such as speech. The acoustics samples in such datasets vary in length.
 \end{enumerate}
 
-To address the above issues and the drawbacks associated with performing nearest neighbours classification on time series sequences, in the following three sections, I investigate :
-\begin{enumerate}[label=\roman{*}]
-\item methods to improve the time complexity of SVD in handling high dimensional sequences when the size of the dataset is very small.
-\item preprocessing methods that can used along side the SVD feature extraction scheme to boost the accuracy of the classifier  
-\item techniques to adapt SVD in handling  time series sequences of variable length 
-\end{enumerate}
+In the rest of this chapter, I will be focussing on addressing the first issue : the problem of high time complexity that is associated  with  SVD  when handling datasets with long time series sequences.
+
+%To address the above issues and the drawbacks associated with performing nearest neighbours classification on time series sequences, in the following three sections, I investigate :
+%\begin{enumerate}[label=\roman{*}]
+%\item methods to improve the time complexity of SVD in handling high dimensional sequences when the size of the dataset is very small.
+%\%item preprocessing methods that can used along side the SVD feature extraction scheme to boost the accuracy of the classifier  
+%\item techniques to adapt SVD in handling  time series sequences of variable length 
+%\end{enumerate}
 
 
 \section {Improving Time Complexity}
@@ -1072,18 +1082,20 @@ Setting $v_i =X^T u_i$ gives us the eigenvectors of $X^TX$.
 From the above expression, it can be observed that the eigenvectors of  $X^TX$ and  $XX^T$ share the \textbf{same} eigenvalues. Using this insight,  we can thus solve the eigenvector problem in spaces of lower dimensionality with computational cost O($N^3$) instead of O($D^3$). The required eigenvectors of the covariance matrix can then be computed by the using the following expression:
 \[ u_i = \frac{1} {\lambda^(\frac{1}{2})} Xv_i\]
  
+ \subsection{Experimental results}
 To verify the above approach,  I have conducted the following experiment :
 
 \textbf{Objective} : The experiment is designed to verify  whether applying SVD as  a preprocessing step can improve the run time of 1 nearest neighbour classifier on time series datasets, without affecting its accuracy.
 
 \textbf{Datasets used} : InLineSkate and Cinc\_ECG\_TORSO. 
 
-Unlike the speech corpus, the intra class variance of the time series sequences in the  UCR datasets are much lower. This is primarily due to the fact that sequences of the same class can be described by the same time-localised trends. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO dataset. Apart from having the same shape, the two sequences also posses the same speed i.e they have no time offset. From figure 6.1,it can seen that at around t=600, both patterns undergo a dip followed by a sharp peak. The fact that all sequences in the dataset share the same length and intra class sequences have no time offset  allow classification algorithms to treat the problem as a  normal classification problem. This also provide the context to apply SVD  directly to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
-\begin{figure}[H]
-  \centering
-      \includegraphics[scale=0.5]{611.jpg}
-  \caption{Time series sequences  corresponding to class `1' in the Cinc\_TORSO\_ECG dataset}
-  \end{figure}
+Unlike the speech corpus, the time series sequences of each dataset share the same length. This allows metrics such as the euclidean to compare the similarity between two sequences by matching their values  at each of the temporal dimensions.
+%Unlike the speech corpus, the intra class variance of the time series sequences in the  UCR datasets are much lower. This is primarily due to the fact that sequences of the same class can be described by the same time-localised trends. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO dataset. Apart from having the same shape, the two sequences also posses the same speed i.e they have no time offset. From figure 6.1,it can seen that at around t=600, both patterns undergo a dip followed by a sharp peak. The fact that all sequences in the dataset share the same length and intra class sequences have no time offset  allow classification algorithms to treat the problem as a  normal classification problem. This also provide the context to apply SVD  directly to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
+%\begin{figure}[H]
+  %\centering
+    %  \includegraphics[scale=0.5]{611.jpg}
+  %\caption{Time series sequences  corresponding to class `1' in the Cinc\_TORSO\_ECG dataset}
+  %\end{figure}
 
  \textbf{Results}:
 \begin{table}[H]
@@ -1122,11 +1134,13 @@ InlineSkate &  0.21& 0.92 \\
 \begin{itemize}
 \item The accuracy of the 1 nearest classifier  in both cases is consistent with the  1NN error rate given for each of the datasets  in the UCR data source webpage.
 \item Applying SVD  as a preprocessing step has no effect on the accuracy on the algorithm  but  reduces the run time of the classifier. Thus using Bishop's\citep{bishop2006pattern} formulation, we can use SVD to reduce the time complexity of clustering/classification algorithms  for high dimensional time series datasets that satisfy the constraint identified by Korn\citep{Korn1997}.
+\item 1NN classifier equipped with euclidean metric achieves very high accuracy for the Cinc\_TORSO\_ECG dataset. From the accuracy score, we can conclude that intra class sequences    tend to  share the similar \textbf{time localised } local  and global trends since sequences to be classified fairly accurately by performing only a linear match of their temporal dimensions.
+\item Using the euclidean metric, the 1 NN classifier is seen to achieve very low accuracy for InlineSkate dataset.This shows that unlike the Cinc\_TORSO\_ECG datasets, the intra class sequences do not share \textbf{both} local and global trends.
 
 \end{itemize}
 %In order to analyze a nonstationary signal, we need to determine its behavior at any individual event. Multiresolution analysis provides one means to do this. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales. T he procedure is recursive. After removing the first set of detail information from f we are left with a slightly smoothed version of f. Iteratively removing detail information progressively generates more andmore smoothed versions of f. We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire  
 \include{chap7}
-\chapter{Improving  the accuracy of  the 1 nearest neighbour classifier}
+\chapter{Improving the accuracy of the euclidean metric }
 In the last chapter,  we have seen that the 1 nearest neighbour classifier using single value decomposition achieves good performance in both accuracy and run time in  classifying sequences belonging to the  Cinc\_ECG\_TORSO. The Cinc\_ECG\_TORSO is a rare example of a time series data set where there is no  translation offset between sequences of the same class and intra class sequences share the same \textbf{time localised } local  and global trends(see figure 6.1). This allows sequences to be fairly accurately classified/clustered based only on a linear match of their temporal dimensions. 
 
 For most time series data sets however, the above approach presents a limitation. The intra class variances in most time series datasets  will be much higher as sequences of the same class may vary in size, shape or speed. The InlineSkate dataset is a prime example of such a dataset. Figure 6.2 shows examples of two instances of class 2 in the InlineSkate dataset. The two  instances of class `2' share the same time localised global trend but posses  different local time localised trends: in the period between t= 400 to 600, the first sequence is experiencing an upward trend while the second sequence is seen to experience  a downward trend.  Performing comparison  by conducting only a linear match of the temporal dimensions  is inappropriate in such cases as they increase the degree of dissimilarity between similar patterns. This creates the motivation to investigate feature extraction methodologies that minimises the intra class variance of time series sequences by mapping the data to a feature space that captures information about  common class  attributes such as global shape, trends etc. The construction of a such  discrete feature sets allows the time series classification problem to be approached as  a general classification problem.
