@@ -22,9 +22,9 @@ kappa = A2./(1 + A1.^2).^(3/2);
 
 
  %Graphic check
- figure(5)
-subplot(1,2,1)
-plot(x,y,'r',x,ppval(x,s),'b');
-subplot(1,2,2)
-plot(x,kappa);
+ %figure(5)
+%subplot(1,2,1)
+%plot(x,y,'r',x,ppval(x,s),'b');
+%subplot(1,2,2)
+%plot(x,kappa);
 

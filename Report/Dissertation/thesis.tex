@@ -1073,7 +1073,7 @@ In the rest of this chapter, I will be focussing on addressing the first issue :
   
  Let  X  be the constructed  D by N  data matrix where D is the number dimensions and N is the number of samples and  D$\ll$N. By  factorizing X, we get X=$U \times D \times V^T$. To achieve dimensionality reduction, we need to consider only the  subset of  columns vectors of V   that are associated with the non-zero singular values. Since N $\ll$D, there will at most N-1 of these singular values. As stated earlier, the columns of the V are the eigenvectors of the covariance matrix $ XX^T$.
  
- The eigen-decomposition of the covariance matrix is $ XX^T u_i= \lambda_i u_i$. $XX^T$ is D by D matrix and the computational complexity of computing the eigenvectors is O ($D^3$).
+ The eigendecomposition of the covariance matrix is $ XX^T u_i= \lambda_i u_i$. $XX^T$ is D by D matrix and the computational complexity of computing the eigenvectors is O ($D^3$).
 
 Now if we multiply both sides by  $X^T$ we get :
 \[ (X^T X)X^T u_i = \lambda_i X^T u_i\]
@@ -1089,7 +1089,9 @@ To verify the above approach,  I have conducted the following experiment :
 
 \textbf{Datasets used} : InLineSkate and Cinc\_ECG\_TORSO. 
 
-Unlike the speech corpus, the time series sequences of each dataset share the same length. This allows metrics such as the euclidean to compare the similarity between two sequences by matching their values  at each of the temporal dimensions.
+Unlike the speech corpus, the time series sequences of each dataset share the same length. This allows metrics such as the euclidean to compare the similarity between two sequences by matching their values  at each of the temporal dimensions. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space. For the UCR datasets, I have considered the first k eigenvectors  of the covariance matrix that capture \textbf{95\%} variation of the data as latent features.
+
+
 %Unlike the speech corpus, the intra class variance of the time series sequences in the  UCR datasets are much lower. This is primarily due to the fact that sequences of the same class can be described by the same time-localised trends. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO dataset. Apart from having the same shape, the two sequences also posses the same speed i.e they have no time offset. From figure 6.1,it can seen that at around t=600, both patterns undergo a dip followed by a sharp peak. The fact that all sequences in the dataset share the same length and intra class sequences have no time offset  allow classification algorithms to treat the problem as a  normal classification problem. This also provide the context to apply SVD  directly to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
 %\begin{figure}[H]
   %\centering
@@ -1209,7 +1211,7 @@ To investigate whether applying wavelet decomposition prior to SVD as preprocess
  
  \textbf{Datasets}: Cinc\_ECG\_TORSO and InlineSkate
  
- \textbf{Preprocessing}: Wavelet decomposition followed by single value decomposition. 
+ \textbf{Preprocessing}: Wavelet decomposition followed by the single value decomposition procedure discussed in 6.3. 
  
  \begin{itemize}
  \item  For  sequences in the Cinc\_ECG\_TORSO dataset, I have applied wavelet decomposition up to the lowest possible scale. Applying the transformation on the smoothed versions at each scale progressively extracts coarser details from the signal. The  local trends will be  captured by the detail  coefficients in the upper levels while the coarser details such as global trends will be captured by the detail coefficients in the lower levels. For this analysis, I have omitted the detail coefficients corresponding to scale 1 i.e $D_1$. The reason being  regions in high frequency have a lot of noise embedded in them. Since the first level details capture information about the behaviour of the signal in the highest frequency bands, discarding those details achieves reduction in both the noise  and  the dimensionality of the sequence.
@@ -1256,7 +1258,7 @@ To address this issue, I propose the following  4 step feature extraction method
 \item  Apply wavelet decomposition up to scale 4 and consider only the approximation part of the signal $A_4$. This achieves dimensionality reduction by pruning away unwanted details.
 \item  Replace the amplitude values  of the approximated signal with curvature values of the corresponding points(details to follow).
 \item  Apply fourier transform and consider only the first half of the fourier coefficients(details to follow).
-\item Apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the full variance of the feature vectors in the fourier feature space.
+\item Apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the 95\% variation of the feature vectors in the fourier feature space.
 
 In the following sections, I  provide  a detail description of the procedures specified in step (ii) and step (iii) of my proposed methodology. 
 
@@ -1347,7 +1349,17 @@ The Fourier transform maps time into frequency and phase. For each frequency the
       \includegraphics[scale=0.7]{723.jpg}
  \caption{Accuracy}
   \end{figure}
-  
+ 
+ \begin{table} [H]
+\begin{tabular}{|c|c|c|}
+\hline \\
+      & 1NN baseline &1NN using proposed feature extraction method \\
+\hline\\
+InlineSkate &  0.92s & 4.81s \\
+\hline
+\end{tabular}
+\caption{Run time}
+\end{table}
 
  \textbf{Observation}
  \begin{itemize}
@@ -1357,6 +1369,9 @@ The Fourier transform maps time into frequency and phase. For each frequency the
   
 As we have discussed in the previous section, for time series sequences, the DTW algorithm makes a richer comparison than the euclidean metric. By warping the time axis, the DTW algorithm compares each point in one sequence with points at different temporal regions in the second sequence whereas the euclidean metric is only restricted to conducting linear matches between the temporal dimensions.  The experimental results shows that by using the latent global shape descriptors, for the InlineSkate datasets, using the euclidean is equivalent to applying the DTW algorithm  equipped with the best warping window on the raw sequences.
   \end{itemize}
+  
+  
+  
      \end{spacing}
 %% ... etc ...
 
