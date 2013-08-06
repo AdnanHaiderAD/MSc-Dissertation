@@ -25,6 +25,6 @@
 \contentsline {subsection}{\numberline {7.1.2}Wavelet-based Features }{57}
 \contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{61}
 \contentsline {subsection}{\numberline {7.2.1}Extracting curvature based features}{63}
-\contentsline {subsection}{\numberline {7.2.2}Experimental results}{65}
+\contentsline {subsection}{\numberline {7.2.2}Experimental results}{66}
 \contentsline {chapter}{\numberline {8}Things to do}{68}
 \contentsline {chapter}{Bibliography}{69}

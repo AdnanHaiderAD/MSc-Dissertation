@@ -357,5 +357,13 @@ For Inline Skate : decompose the wave upto 4, take only the approximation
 	invetigate wavelets
 	tests
 	analysis
-		    
+	Inline best 39.64%  with 116 fourier coefficients	    
 
+For CBF
+	 best performance : 95.22%
+	 wavelet at decomposition 3 : consider only the approximation part
+	 				compute curvature
+	 				fourier decomposition not taken becuase the length of the sequences is very small.
+
+
+	 				
