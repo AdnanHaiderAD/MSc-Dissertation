@@ -1,30 +1,30 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Datasets Used}{5}
-\contentsline {subsection}{\numberline {2.0.1} Brief description of TIDIGITS dataset}{6}
-\contentsline {subsection}{\numberline {2.0.2}Brief description CinC\_ECG\_torso and InLineSkate dataset}{7}
-\contentsline {chapter}{\numberline {3}Background}{9}
-\contentsline {section}{\numberline {3.1}Dynamic Time Warping Algorithm}{9}
-\contentsline {chapter}{\numberline {4}Optimising DTW}{14}
-\contentsline {section}{\numberline {4.1}Feature Selection}{17}
-\contentsline {subsection}{\numberline {4.1.1}Signal Filter}{18}
-\contentsline {subsection}{\numberline {4.1.2}Downsampling}{21}
-\contentsline {section}{\numberline {4.2}Domain Dependent Feature extraction}{23}
-\contentsline {subsection}{\numberline {4.2.1}Mel Cepstrum Cepstral Coefficients}{24}
-\contentsline {chapter}{\numberline {5}Improving DTW}{30}
-\contentsline {section}{\numberline {5.1} Domain-independent feature extraction}{30}
-\contentsline {section}{\numberline {5.2}Extending DTW}{36}
-\contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{40}
-\contentsline {chapter}{\numberline {6}Exploring the use of SVD in time series sequences}{47}
-\contentsline {section}{\numberline {6.1} Background}{48}
-\contentsline {section}{\numberline {6.2}Motivation: Application in time series datasets}{48}
-\contentsline {section}{\numberline {6.3}Improving Time Complexity}{51}
-\contentsline {subsection}{\numberline {6.3.1}Experimental results}{51}
-\contentsline {chapter}{\numberline {7}Improving the accuracy of the euclidean metric }{54}
-\contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{55}
-\contentsline {subsection}{\numberline {7.1.1}Background}{55}
-\contentsline {subsection}{\numberline {7.1.2}Wavelet-based Features }{57}
-\contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{62}
-\contentsline {subsection}{\numberline {7.2.1}Extracting curvature based features}{64}
-\contentsline {subsection}{\numberline {7.2.2}Experimental results}{67}
-\contentsline {chapter}{\numberline {8}Things to do}{69}
-\contentsline {chapter}{Bibliography}{70}
+\contentsline {chapter}{\numberline {2}Datasets Used}{4}
+\contentsline {subsection}{\numberline {2.0.1} Brief description of TIDIGITS dataset}{5}
+\contentsline {subsection}{\numberline {2.0.2}Brief description CinC\_ECG\_torso and InLineSkate dataset}{6}
+\contentsline {chapter}{\numberline {3}Background}{7}
+\contentsline {section}{\numberline {3.1}Dynamic Time Warping Algorithm}{7}
+\contentsline {chapter}{\numberline {4}Optimising DTW}{12}
+\contentsline {section}{\numberline {4.1}Feature Selection}{14}
+\contentsline {subsection}{\numberline {4.1.1}Signal Filter}{15}
+\contentsline {subsection}{\numberline {4.1.2}Downsampling}{19}
+\contentsline {section}{\numberline {4.2}Domain Dependent Feature extraction}{21}
+\contentsline {subsection}{\numberline {4.2.1}Mel Cepstrum Cepstral Coefficients}{22}
+\contentsline {chapter}{\numberline {5}Improving DTW}{28}
+\contentsline {section}{\numberline {5.1} Domain-independent feature extraction}{28}
+\contentsline {section}{\numberline {5.2}Extending DTW}{33}
+\contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{37}
+\contentsline {chapter}{\numberline {6}Exploring The Use Of SVD In Time Series Sequences}{44}
+\contentsline {section}{\numberline {6.1} Background}{44}
+\contentsline {section}{\numberline {6.2}Motivation: Application in time series datasets}{45}
+\contentsline {section}{\numberline {6.3}Improving Time Complexity}{47}
+\contentsline {subsection}{\numberline {6.3.1}Experimental results}{48}
+\contentsline {chapter}{\numberline {7}Improving The Accuracy Of The Baseline 1NN Classifier }{50}
+\contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{51}
+\contentsline {subsection}{\numberline {7.1.1}Background}{51}
+\contentsline {subsection}{\numberline {7.1.2}Wavelet-based Features }{53}
+\contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{58}
+\contentsline {subsection}{\numberline {7.2.1}Extracting curvature based features}{60}
+\contentsline {subsection}{\numberline {7.2.2}Experimental results}{62}
+\contentsline {chapter}{\numberline {8}Things to do}{65}
+\contentsline {chapter}{Bibliography}{66}

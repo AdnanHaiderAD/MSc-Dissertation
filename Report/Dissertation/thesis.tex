@@ -119,7 +119,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.2}
+ \begin{spacing}{1.1}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -959,7 +959,7 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 
 
 \include{chap5}
- \chapter{Exploring the use of SVD in time series sequences}
+ \chapter{Exploring The Use Of SVD In Time Series Sequences}
 In the previous chapter, we have explored techniques that can improve the performance of the DTW algorithm in handling high dimensional time series sequences. In this and the following chapters, I will be concentrating of improving the accuracy and run-time of the  1NN classifier equipped with the euclidean metric  on time series sequences. To be precise, I will be exploring feature extraction techniques to extract a smaller set of independent features from the raw sequences that can capture information about the global shape. This formulation will not only achieve dimensionality reduction but  will also allow the time series classification to be treated like a normal classification problem.
 
 High dimensional data vectors $\{x_n\}$  typically lie close to a non- linear manifold \citep{bishop2006pattern} whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input variables. In data mining, to understand this intrinsic dimensionality of the data, the Single Value Decomposition(SVD) algorithm is widely used. SVD  simplifies the data representation by showing only the number of important dimensions that captures the \textbf{variance} of the data. Intuitively speaking, SVD projects the high dimensional data vectors to an orthogonal subspace that maximises the variance of the data. The focus of this chapter is to investigate whether SVD can be applied to time series datasets to extract independent  latent features that  minimise the run time of the 1NN classifier augmented with the euclidean metric.
@@ -1142,12 +1142,12 @@ InlineSkate &  0.21& 0.92 \\
 \end{itemize}
 %In order to analyze a nonstationary signal, we need to determine its behavior at any individual event. Multiresolution analysis provides one means to do this. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales. T he procedure is recursive. After removing the first set of detail information from f we are left with a slightly smoothed version of f. Iteratively removing detail information progressively generates more andmore smoothed versions of f. We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire  
 \include{chap7}
-\chapter{Improving the accuracy of the euclidean metric }
-In the last chapter,  we have seen that the 1 nearest neighbour classifier using single value decomposition achieves good performance in both accuracy and run time in  classifying sequences belonging to the  Cinc\_ECG\_TORSO. The Cinc\_ECG\_TORSO is a rare example of a time series data set where  the local and global trends of intra class sequences are nearly time aligned(see figure 6.1). This allows sequences to be fairly accurately classified/clustered based only on a linear match of their temporal dimensions. 
+\chapter{Improving The Accuracy Of The Baseline 1NN Classifier }
+In the last chapter,  we have seen that the 1 nearest neighbour classifier using single value decomposition achieves good performance in both accuracy and run time in  classifying sequences belonging to the  Cinc\_ECG\_TORSO. The Cinc\_ECG\_TORSO is a rare example of a time series data set where  the local and global trends of intra class sequences are nearly  aligned with respect to the time axis(see figure 6.1). This allows sequences to be fairly accurately classified based only on a linear match of their temporal dimensions. 
 
-For most time series data sets however, the above approach presents a limitation. The intra class variances in most time series datasets  will be much higher as sequences of the same class may vary in size, shape or speed. The InlineSkate dataset is a prime example of such a dataset. Figure 6.2 shows examples of two instances of class 2 in the InlineSkate dataset. The two  instances of class `2' share the same time localised global trend but posses  different local time localised trends: in the period between t= 400 to 600, the first sequence is experiencing an upward trend while the second sequence is seen to experience  a downward trend.  Performing comparison  by conducting only a linear match of the temporal dimensions  is inappropriate in such cases as they increase the degree of dissimilarity between similar patterns. This creates the motivation to investigate feature extraction methodologies that minimises the intra class variance of time series sequences by mapping the data to a feature space that captures information about  common class  attributes such as global shape, trends etc. The construction of a such  discrete feature sets allows the time series classification problem to be approached as  a general classification problem.
+For most time series data sets however, conducting linear matches of time series sequences presents a limitation. The intra class variances   will in general be very high  as sequences of the same class may vary in size, shape or speed. The InlineSkate dataset is a prime example of such a dataset. Figure 6.2 shows examples of two instances of class 2 in the InlineSkate dataset. The two  instances share the same  global trend but posses  different local trends: in the period between t= 400 to 600, the first sequence is experiencing an upward trend while the second sequence is seen to experience  a downward trend.  Performing comparison  through only a linear match of the temporal dimensions  is inappropriate in such cases as the differences in the local trends  increase the degree of dissimilarity between the two patterns. This creates the motivation to investigate feature extraction methodologies that map the sequences to a an appropriate feature space that captures information about common class  attributes such as global shape, trends etc.  In doing so we can  minimise the intra class variance of time series sequences by   allow the time series classification problem to be approached as  a general classification problem.
 
- In the following chapter, I will be concentrating on constructing feature extraction techniques that capture information about the \textbf{global shape} of time series sequences. In the first half of this chapter, I will be exploring wavelet-based feature extraction techniques and will subsequently look into how they can be used alongside  SVD as preprocessing step to improve the accuracy of the 1 nearest neighbour classifier. 
+ The focus of this chapter is to explore  feature extraction techniques that can  capture information about the \textbf{global shape} of time series sequences. In the first half of this chapter, I will be exploring wavelet-based feature extraction techniques and will subsequently look into how they can be used alongside  SVD to improve the accuracy of the 1 nearest neighbour classifier for datasets that share the same time localised trends.  While, in the later half of this chapter, I will be investigating further feature extraction methodologies that  can be combined with SVD and  the wavelet transform to  capture information about the shape of the dominant trends of sequences.   This is intended to improve the accuracy of the 1NN classifier for time series datasets where intra class sequences share global trends that are not aligned with respect to the time axis.
 
 \begin{figure}[H]
   \centering
@@ -1190,22 +1190,22 @@ Furthermore there exists another operator $P_M$ that maps $f$ to its approximati
 \subsection{Wavelet-based Features }
 The wavelet transformation allows a time series sequence to be described in terms of an approximation of the original sequence plus a set of details ranging from fine to coarse. For given any  time series $X$, the wavelet coefficients $H_j(X)$ at any  scale j  can be represented by the series $\{A_j,D_j,D_{j-1}...D_1\} \mbox{ where } A_j$ are the coefficients of the scaling function at scale j and $D_j...D_1$ are the  coefficients of Haar wavelet at different scales . The broad trends of the sequence such as global shape are \textbf{preserved} in the approximation part of the signal i.e $A_j(X)$ while the\textbf{ localised} changes are kept in the detail parts i.e $\{D_j...,D_1\}$\citep{Zhang2006}.  .The decomposition presents \textbf{no loss} of information. The original signal can be fully reconstructed from the approximation part and the detail parts. 
 
-The transformation achieves both time and frequency localisation of a time series hence  allowing us to analyse singularities at both specific times and frequency bands. Each scale corresponds to particular band of frequencies. The coefficients of $\psi$ and $\phi$ at different scales hence capture the behaviour of the signal at different frequency bands. For signals that are nonzero only during finite spans of time, the wavelet transform has nonzero elements that are concentrated around that time for all scales. This allows us to analyse singularities at particular points in time.  Thus as a feature extraction step, performing wavelet decomposition can be highly advantageous as it allows us to decompose a signal and inspect its behaviour at both different frequencies and different times.
+The wavelet transformation achieves both time and frequency localisation of a time series. This allows us to analyse singularities specific to both times and frequency bands. The singularities at different frequency ranges are captured by coefficients of  the details and the approximation signals at different scales.  Whereas for signals that are nonzero only during finite spans of time, the wavelet transform has nonzero elements that are concentrated around that time for all scales. This allows us to analyse singularities  localised in different time intervals.  Thus as a feature extraction step, performing wavelet decomposition can be highly advantageous as it allows us to decompose a signal and provide a richer description of its behaviour.  
 
-As we have discussed in the previous section, the intra class sequences in the Cinc\_ECG\_TORSO dataset share both local and global trends. In such problem domains, the coefficients of both $\psi$ and $\phi$ at different scales are required to form accurate comparison. Figure 7.2  show examples of two instances belonging to class `3' and  two instances belonging to class `4'. From an observation of the plots, it can been seen that apart from sharing global trends, intra class sequences also tend to share similar local trends. Information about the global shape is captured by the coefficients of $\phi$ which behave as global trend descriptors while the  finer details are expressed by the coefficients of $\psi$. Thus, to make accurate comparison, it is necessary to take the coefficients of both $\psi$ and $\phi$ into account.
+As we have discussed in the previous section, the intra class sequences in the Cinc\_ECG\_TORSO dataset share similar local and global trends. In such problem domains, the coefficients of both $\psi$ and $\phi$ at different scales are required to form accurate comparison. Figure 7.2  show examples of two instances belonging to class `3' and  two instances belonging to class `4'. From an observation of the plots, it can been seen that apart from sharing global trends, intra class sequences also tend to share similar local trends. Information about the global shape is captured by the coefficients of $\phi$ which behave as global trend descriptors while the  finer details are expressed by the coefficients of $\psi$. Thus, to make accurate comparison, it is necessary to take the coefficients of both $\psi$ and $\phi$ into account.
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.5]{712.jpg}
   \caption{The top two plots corresponds to instances of class `3' while the bottom two plots correspond to instances of class `4'}
   \end{figure}
 
-However, for the the InlineSkate dataset, the global shape is  the only commonality between sequences in the same class. Here intra class sequences only share global time-localised trends. Figure 7.3 shows examples of samples belonging to the class `2'. The red lines represent smoothed fitted curves to the time sequences to  to capture the overall shape. Both instances share a global  trend(shown in the figure) around the same time but differ in the local trends. 
+However, for the the InlineSkate dataset, the global shape is  the only commonality between sequences in the same class. Here intra class sequences  share only  global  similar trends. Figure 7.3 shows examples of samples belonging to the class `2'. The red lines represent smoothed curves fitted to the time sequences to  to capture the overall shape. Both instances share trends that are roughly cubic in nature.
 \begin{figure}[H]
   \centering
  \includegraphics[scale=0.35]{713.jpg}
   \caption{The plots correspond to instances of class '2' of the InlineSkate dataset}
   \end{figure}
-In such cases, it can be assumed that the coefficients of $\phi$ play a greater role in discriminating classes the coefficients of the wavelets.
+In such cases, it can be assumed that the coefficients of $\phi$ play a greater role in discriminating classes than the coefficients of the wavelets.
 
 To investigate whether applying wavelet decomposition prior to SVD as preprocessing step  improves the performance of the 1 nearest neighbour, I conducted the following experiment:
  
@@ -1216,7 +1216,7 @@ To investigate whether applying wavelet decomposition prior to SVD as preprocess
  \begin{itemize}
  \item  For  sequences in the Cinc\_ECG\_TORSO dataset, I have applied wavelet decomposition up to the lowest possible scale. Applying the transformation on the smoothed versions at each scale progressively extracts coarser details from the signal. The  local trends will be  captured by the detail  coefficients in the upper levels while the coarser details such as global trends will be captured by the detail coefficients in the lower levels. For this analysis, I have omitted the detail coefficients corresponding to scale 1 i.e $D_1$. The reason being  regions in high frequency tend to have a lot of noise embedded in them. Since the first level details capture information about the behaviour of the signal in the highest frequency bands, discarding those details achieves reduction in both the noise  and  the dimensionality of the sequence.
  
- \item  For sequences in the InLineSkate  dataset,  I have applied wavelet decomposition  up to a depth of  4 levels. Since the commonality of the classes is captured by the global shape. I have only considered the approximation coefficients $\phi$ at scale 4. 
+ \item  For sequences in the InLineSkate  dataset,  I have applied wavelet decomposition  up to a depth of  5 levels. Since the commonality of the classes is captured by the global shape. I have only considered the approximation coefficients $\phi$ at scale 5. 
  
  \end{itemize}
  The results of the experiments are as follows:
@@ -1243,14 +1243,31 @@ InlineSkate &  0.21s & 2.22s \\
 \item As evident from the run time results, applying the  wavelet feature extraction as prior step to SVD does increase the run time but this increase is minimal  since the run time is only increased by few seconds.
 \item For the  Cinc\_ECG\_TORSO data set, removing the detail coefficients of scale 1 i.e $D_1$ leads to a fractional improvement in the accuracy of the 1 nearest neighbour classifier. From this observation, we can deduce two facts:  
 \begin{enumerate}
-\item Because  the accuracy has not decreased, we can conclude that the information contained in the finer details of sequences fail to serve as a discriminator between inter class sequences
+\item Because  the accuracy has not decreased, we can conclude that the information contained in the finer details of sequences present redundant information.
+
 \item Removing such information has the affect of  decreasing  the intra class variance as evident from the increase in accuracy.
 
 \end{enumerate}
 
-\item  In the case of the InlineSkate data set, considering only the approximation part of signal i.e $A_4$ have no effect on the accuracy of the 1 nearest neighbour. This shows that when comparing sequences using the euclidean metric, the details in the first 3 levels: $D_3,D_2 $ and $D_1$ play no role in the classification process. Hence, we can conclude that the commonality between the intra class sequences are governed by the global trends. 
+\item  In the case of the InlineSkate data set, considering only the approximation part of signal i.e $A_5$ results in no decrement in the accuracy of the 1 NN classifier. This shows that when comparing sequences using the euclidean metric, the details in the first 3 levels: $D_3,D_2 $ and $D_1$ play no role in the classification process. To investigate whether applying further wavelet decomposition can improve  the accuracy of the classifier, I repeated the experiment for the InlineSkate dataset again but this time  I have considered  the coefficients of $A_6$( which is approximation of $A_5$). A summary of the results is given below:
 
-The sequence $A_j$ corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients of $A_j$ are the amplitude values of the smoothed signal. These coefficients  can be  considered as  global trend descriptors when intra class sequences share the same time aligned global trends. The fact that using $A_4$ to perform linear matches between sequences has resulted in no change in the accuracy shows that the global trends of the sequences of the same class are not localised with in the same intervals of time.  Metrics such as the euclidean will thus be  inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences.  
+ \begin{table} [H]
+\begin{tabular}{|c|c|c|}
+\hline \\
+   Dataset   &Using $A_6$ & Using $A_ 5$\\
+\hline\\
+InlineSkate &  33.82 \%&34.18\%  \\
+\hline
+\end{tabular}
+\caption{Accuracy results}
+\end{table}
+\begin{itemize}
+\item Discarding  the coarse details from the wavelet decomposition  of $A_5$ decreases the accuracy of the 1NN classifier. This shows that the coefficient $D_5$ captures aspects of the global trend  that is relevant for classification. Therefore   $A_5$ is the maximum level of decomposition that ca be achieved without decreasing the accuracy of the baseline 1NN classifier.
+\end{itemize}
+ 
+
+
+The sequence $A_j$ corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients of $A_j$ are the amplitude values of the smoothed signal. These coefficients  can be  considered as  global trend descriptors when intra class sequences share the same time aligned global trends. The fact that using $A_4$ to perform linear matches between sequences has resulted in no change in the accuracy shows that the global trends of the sequences of the same class are not localised with in the same intervals of time.  Metrics such as the euclidean will thus be  inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences.   To inv
 \end{itemize}
 
 But on the other hand, for datasets in which sequences of the same class  share the same time localised/aligned global trends, we can expect that applying the wavelet decomposition as prior feature extraction step to performing SVD can yield high accuracies. To verify this assertation, I performed an additional experiment where I ran the baseline 1NN classifier using the two step feature extraction approach on the UCR dataset `Synthetic Control'\citep{UCR} and compared the classifier's accuracy against the accuracy of the baseline 1NN classifier and the  best accuracy of 1NN classifier using the DTW algorithm. The 'Synthetic Control' dataset have been chosen because experiments have shown\citep{Xie2010} that the intra class sequences of the dataset are linked with each other through time aligned global trends.
@@ -1274,7 +1291,7 @@ In the previous section, we have observed that for datasets such as  the InlineS
 
 To address this issue, I propose the following  4 step feature extraction methodology to extract useful features from the InlineSkate dataset:
 \begin{enumerate}[label=\roman{*}]
-\item  Apply wavelet decomposition up to scale 4 and consider only the approximation part of the signal $A_4$. This achieves dimensionality reduction by pruning away unwanted details.
+\item  Apply wavelet decomposition up to scale j and consider only the approximation part of the signal $A_j$. This achieves dimensionality reduction by pruning away unwanted details.
 \item  Replace the amplitude values  of the approximated signal with curvature values of the corresponding points(details to follow).
 \item  Apply fourier transform and consider only the first half of the fourier coefficients(details to follow).
 \item Apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the 95\% variation of the feature vectors in the fourier feature space.
@@ -1283,7 +1300,7 @@ In the following sections, I  provide  a detail description of the procedures sp
 
 
 \end{enumerate}
-Replacing the individual  amplitude values with the curvature estimates of the corresponding points  can allow  the euclidean metric to take into account the \textbf {shape} of the signals at corresponding points  when conducting a linear match of their temporal dimensions. The curvature of a geometric object is a  quantitive description of the shape of that object\citep{Adnan}.  It dictates the amount by which a geometric object deviates from being flat or straight. 
+Replacing the individual  amplitude values with the curvature estimates of the corresponding points  can allow  the euclidean metric to take into account the \textbf {shape} of the signals at the corresponding points  when conducting a linear match. The curvature of a geometric object is a  quantitive description of the shape of that object\citep{Adnan}.  It dictates the amount by which a geometric object deviates from being flat or straight. 
 Formally, the curvature of a curve can be defined  as follows:
 
 Let $\gamma$ be a differentiable curve on  $\textbf E^3(\mbox{Euclidean Space})$ such that 
@@ -1310,8 +1327,11 @@ To extract features that capture the \textbf{ shape} of the dominant trends in a
 
 \textbf{Step 1: Extraction of curvature estimates}
 
-  To compute the  curvature estimates at each point in a  time series sequence, I  have fitted a \textbf{smoothed cubic spline} to each sequence. The motivation behind the use of spline function is as follows: a spline is a   polynomial function that is piecewise-defined, and possesses a high degree of smoothness at the places where the polynomial pieces connect \cite{Boor1978}. A cubic spline is a  specific type of spline which is  constructed using piecewise  polynomials of order 3. 
-  Fitting a cubic spline directly on the sequences  will not be ideal as real datasets as due to factors such as noise, the resultant curve will not be smooth. To overcome this issue, I have  hence applied smoothed cubic spline to fit smooth curve to each sequence.
+  To compute the  curvature estimates at each point in a  time series sequence, I  have fitted a \textbf{smoothed cubic spline} to each sequence. A spline is a   polynomial function that is piecewise-defined, and possesses a high degree of smoothness at the places where the polynomial pieces connect \cite{Boor1978}. A cubic spline is a  specific type of spline which is  constructed using piecewise  polynomials of order 3. 
+ 
+Although applying the wavelet decomposition reduces the degree of noise, fitting a cubic spline directly on the sequences  will still not be ideal as the approximated signals extracted from applying wavelet decomposition is still wiggly not be ideal for time series sequences in  real datasets  as they have noise embedded in them. 
+ 
+ The resultant curve will not be smooth. To overcome this issue, I have  hence applied smoothed cubic spline to fit smooth curve to each sequence.
   
   
  Mathematically, the smoothing spline estimate $\hat g(x)$ of the actual function $g(x)$ is defined to be the minimiser of :
@@ -1328,7 +1348,7 @@ where $\lambda$ is a fixed constant
 
 The critical parameter here is $\lambda$. The values of $\lambda$ determines the nature of the fit. For the sequences in the  InLineSkate dataset, exact fitting is unnecessary as the sequences have noise embedded in them. Ideally, we want to choose a value of  $\lambda$ that allows the estimated curvatures to directly correlate with significant events/trends in the time series sequence. 
 
- For my analysis, I have chosen the value of 0.2.  Through conducting experiments, I have observed that  setting $\lambda$ to this value allows the computed curvatures to reflect significant events in the time series sequence. Figure 7.5  shows the plots of  an instance of class `7' from the InlineSkate dataset. The left hand plot corresponds to the  raw signal while the righthand plot represents   the curvatures computed at each of the time stamps. From the observation of the figure, it can be seen that the computed curvatures do reflect information about significant events in the time series sequence. At the global maximum, the  curvature  estimate of the corresponding point is close to 0 while the peak value on the curvature plot  at t=1650 is in accordance with the sharp bend in the time series curve  at the same time.
+ For my analysis, I have chosen the value of 0.2.  Through conducting experiments, I have observed that  setting $\lambda$ to this value allows the computed curvatures to reflect significant events in the time series sequence. Figure 7.6  shows the plots of  an instance of class `7' from the InlineSkate dataset. The left hand plot corresponds to the  raw signal while the righthand plot represents   the curvatures computed at each of the time stamps. From the observation of the figure, it can be seen that the computed curvatures do reflect information about significant events in the time series sequence. At the global maximum, the  curvature  estimate of the corresponding point is close to 0 while the peak value on the curvature plot  at t=1650 is in accordance with the sharp bend in the time series curve  at the same time.
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.5]{721.jpg}
