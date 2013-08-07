@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  7 AUG 2013 19:02
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  7 AUG 2013 22:00
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -880,43 +880,67 @@ File: 724.jpg Graphic file (type jpg)
 Package pdftex.def Info: 724.jpg used on input line 1280.
 (pdftex.def)             Requested size: 250.3452pt x 207.27196pt.
  [57] [58 <./724.jpg>] [59]
-<721.jpg, id=252, 945.5325pt x 413.545pt>
+<725.jpg, id=252, 454.69875pt x 419.5675pt>
+File: 725.jpg Graphic file (type jpg)
+ <use 725.jpg>
+Package pdftex.def Info: 725.jpg used on input line 1339.
+(pdftex.def)             Requested size: 272.82135pt x 251.74243pt.
+ [60 <./725.jpg>]
+<721.jpg, id=256, 945.5325pt x 413.545pt>
 File: 721.jpg Graphic file (type jpg)
  <use 721.jpg>
-Package pdftex.def Info: 721.jpg used on input line 1357.
+Package pdftex.def Info: 721.jpg used on input line 1361.
 (pdftex.def)             Requested size: 472.76509pt x 206.77199pt.
 
-Overfull \hbox (60.20012pt too wide) in paragraph at lines 1357--1358
+Overfull \hbox (60.20012pt too wide) in paragraph at lines 1361--1362
  [][] 
  []
 
-[60] [61 <./721.jpg>] <722.jpg, id=260, 418.2024pt x 243.7908pt>
+[61] [62 <./721.jpg>] <722.jpg, id=264, 418.2024pt x 243.7908pt>
 File: 722.jpg Graphic file (type jpg)
  <use 722.jpg>
-Package pdftex.def Info: 722.jpg used on input line 1377.
+Package pdftex.def Info: 722.jpg used on input line 1382.
 (pdftex.def)             Requested size: 250.92337pt x 146.2756pt.
 
-[62 <./722.jpg>] <723.jpg, id=264, 451.4466pt x 378.213pt>
+[63 <./722.jpg>] <723.jpg, id=268, 451.4466pt x 378.213pt>
 File: 723.jpg Graphic file (type jpg)
  <use 723.jpg>
-Package pdftex.def Info: 723.jpg used on input line 1391.
+Package pdftex.def Info: 723.jpg used on input line 1396.
 (pdftex.def)             Requested size: 361.15776pt x 302.5708pt.
 
-Overfull \hbox (9.94293pt too wide) in paragraph at lines 1396--1403
+Overfull \hbox (9.94293pt too wide) in paragraph at lines 1401--1408
 [][] 
  []
 
-[63 <./723.jpg>] [64]
+[64 <./723.jpg>]
+Missing character: There is no Õ in font pplr9t!
+Missing character: There is no Õ in font pplr9t!
+ <726.jpg, id=272, 967.615pt x 439.6425pt>
+File: 726.jpg Graphic file (type jpg)
+ <use 726.jpg>
+Package pdftex.def Info: 726.jpg used on input line 1432.
+(pdftex.def)             Requested size: 483.80632pt x 219.82071pt.
+
+Overfull \hbox (71.24135pt too wide) in paragraph at lines 1432--1433
+ [][] 
+ []
+
+[65]
+Overfull \hbox (27.35492pt too wide) in paragraph at lines 1441--1449
+ [][] 
+ []
+
+[66 <./726.jpg>]
 Chapter 8.
-(./thesis.bbl [65
+(./thesis.bbl [67
 
-] [66
+] [68
 
-] [67] [68]
+] [69] [70]
 Missing character: There is no â in font pplr9t!
 Missing character: There is no € in font pplr9t!
 Missing character: There is no ” in font pplr9t!
-) [69] (./thesis.aux (./chapter1.aux)
+) [71] (./thesis.aux (./chapter1.aux)
 (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux) (./chap5.aux)
 (./chap7.aux))
 
@@ -924,11 +948,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 7759 strings out of 493633
- 114892 string characters out of 3143377
+ 7772 strings out of 493633
+ 115024 string characters out of 3143377
  207055 words of memory out of 3000000
- 10507 multiletter control sequences out of 15000+200000
- 65045 words of font info for 319 fonts, out of 3000000 for 9000
+ 10515 multiletter control sequences out of 15000+200000
+ 65158 words of font info for 321 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  43i,12n,40p,1536b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -945,10 +969,10 @@ rw/helvetic/uhvro8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/pal
 atino/uplb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/u
 plr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/uplri8a.
 pfb>
-Output written on thesis.pdf (75 pages, 2639894 bytes).
+Output written on thesis.pdf (77 pages, 2708068 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 208 compressed objects within 3 object streams
+ 342 PDF objects out of 1000 (max. 8388607)
+ 212 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 53414 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 53424 words of extra memory for PDF output out of 61914 (max. 10000000)
 
