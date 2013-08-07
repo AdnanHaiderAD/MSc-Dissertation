@@ -1216,7 +1216,7 @@ To investigate whether applying wavelet decomposition prior to SVD as preprocess
  \begin{itemize}
  \item  For  sequences in the Cinc\_ECG\_TORSO dataset, I have applied wavelet decomposition up to the lowest possible scale. Applying the transformation on the smoothed versions at each scale progressively extracts coarser details from the signal. The  local trends will be  captured by the detail  coefficients in the upper levels while the coarser details such as global trends will be captured by the detail coefficients in the lower levels. For this analysis, I have omitted the detail coefficients corresponding to scale 1 i.e $D_1$. The reason being  regions in high frequency tend to have a lot of noise embedded in them. Since the first level details capture information about the behaviour of the signal in the highest frequency bands, discarding those details achieves reduction in both the noise  and  the dimensionality of the sequence.
  
- \item  For sequences in the InLineSkate  dataset,  I have applied wavelet decomposition  up to a depth of  5 levels. Since the commonality of the classes is captured by the global shape. I have only considered the approximation coefficients $\phi$ at scale 5. 
+ \item  For sequences in the InLineSkate  dataset,  I have applied wavelet decomposition  up to a depth of  4 levels. Since the commonality of the classes is captured by the global shape. I have only considered the approximation coefficients $\phi$ at scale 4. 
  
  \end{itemize}
  The results of the experiments are as follows:
@@ -1249,28 +1249,29 @@ InlineSkate &  0.21s & 2.22s \\
 
 \end{enumerate}
 
-\item  In the case of the InlineSkate data set, considering only the approximation part of signal i.e $A_5$ results in no decrement in the accuracy of the 1 NN classifier. This shows that when comparing sequences using the euclidean metric, the details in the first 3 levels: $D_3,D_2 $ and $D_1$ play no role in the classification process. To investigate whether applying further wavelet decomposition can improve  the accuracy of the classifier, I repeated the experiment for the InlineSkate dataset again but this time  I have considered  the coefficients of $A_6$( which is approximation of $A_5$). A summary of the results is given below:
+\item  In the case of the InlineSkate data set, considering only the approximation part of signal i.e $A_4$ results in no decrement in the accuracy of the 1 NN classifier. This shows that when comparing sequences using the euclidean metric, the details in the first 3 levels: $D_3,D_2 $ and $D_1$ play no role in the classification process. To investigate whether applying further wavelet decomposition can improve  the accuracy of the classifier, I repeated the experiment for the InlineSkate dataset again but this time  I have considered  the coefficients of $A_5$( which is approximation of $A_4$)and $A_6$(the approximation of $A_5$). A summary of the results is given below:
 
  \begin{table} [H]
-\begin{tabular}{|c|c|c|}
+ \centering
+\begin{tabular}{|c|c|c|c|}
 \hline \\
-   Dataset   &Using $A_6$ & Using $A_ 5$\\
+   Dataset   &Using $A_6$ & Using $A_ 5$& Using $A_4$\\
 \hline\\
-InlineSkate &  33.82 \%&34.18\%  \\
+InlineSkate &  33.82 \%&34.18\%  & 34.18\%\\
 \hline
 \end{tabular}
 \caption{Accuracy results}
 \end{table}
 \begin{itemize}
-\item Discarding  the coarse details from the wavelet decomposition  of $A_5$ decreases the accuracy of the 1NN classifier. This shows that the coefficient $D_5$ captures aspects of the global trend  that is relevant for classification. Therefore   $A_5$ is the maximum level of decomposition that ca be achieved without decreasing the accuracy of the baseline 1NN classifier.
-\end{itemize}
- 
+\item Discarding  coarser details from the approximated signal  $A_4$ decreases the accuracy of the 1NN classifier as we increase the number of decompositions. This shows that for this dataset, we cant achieve any improvement in the accuracy of the 1NN classifier by considering approximations from further decompositions using the wavelet transform.
 
-
-The sequence $A_j$ corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients of $A_j$ are the amplitude values of the smoothed signal. These coefficients  can be  considered as  global trend descriptors when intra class sequences share the same time aligned global trends. The fact that using $A_4$ to perform linear matches between sequences has resulted in no change in the accuracy shows that the global trends of the sequences of the same class are not localised with in the same intervals of time.  Metrics such as the euclidean will thus be  inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences.   To inv
 \end{itemize}
 
-But on the other hand, for datasets in which sequences of the same class  share the same time localised/aligned global trends, we can expect that applying the wavelet decomposition as prior feature extraction step to performing SVD can yield high accuracies. To verify this assertation, I performed an additional experiment where I ran the baseline 1NN classifier using the two step feature extraction approach on the UCR dataset `Synthetic Control'\citep{UCR} and compared the classifier's accuracy against the accuracy of the baseline 1NN classifier and the  best accuracy of 1NN classifier using the DTW algorithm. The 'Synthetic Control' dataset have been chosen because experiments have shown\citep{Xie2010} that the intra class sequences of the dataset are linked with each other through time aligned global trends.
+\end{itemize}
+
+The sequence $A_j$ corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients of $A_j$ are the amplitude values of the smoothed signal. These coefficients  can be  considered as  global trend descriptors when intra class sequences share the same time aligned global trends. The fact that using the coefficients of the approximation $A_4$ in the case of  the InlineSkate dataset has  resulted in no change in the accuracy of the 1NN classifier, we can conclude  that the global trends shared by intra class sequences are not localised with in the same intervals of time.  Metrics such as the euclidean will thus be  inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences
+
+However, for datasets in which sequences of the same class  share the same time localised/aligned global trends, we can expect that applying the wavelet decomposition as prior feature extraction step to performing SVD can yield high accuracies as we have seen for the Cinc\_ECG\_TORSO dataset. To further verify this assertion, I performed an additional experiment where I ran the baseline 1NN classifier using our two step feature extraction approach on the UCR dataset `Synthetic Control'\citep{UCR} and compared the classifier's accuracy against the accuracy of the baseline 1NN classifier and the  best accuracy of 1NN classifier using the DTW algorithm. The 'Synthetic Control' dataset have been chosen because experiments have shown\citep{Xie2010} that the intra class sequences of the dataset are linked with each other through time aligned global trends.
 
 \textbf{Summary of the results are as follows:}
 
@@ -1287,7 +1288,7 @@ But on the other hand, for datasets in which sequences of the same class  share 
 
 
 \section{Curvature-based Feature extraction}
-In the previous section, we have observed that for datasets such as  the InlineSkate dataset, the main commonality between intra class sequences is the global shape. Applying wavelet decomposition and considering only the approximation part of the signal $A_4$ although allows us to achieve dimensionality reduction without any decrement in accuracy but at the same time  doesn't lead to any improvement in recall. The low accuracy achieved by the classifier  is primarily due to the limitations incurred in comparing sequences  using the euclidean metric. The individual amplitude values on their own are not reflective of the global shape of the sequence. This creates  the motivation to explore feature extraction methodologies that capture information about the shape of the sequence.
+In the previous section, we have observed that for datasets such as  the InlineSkate dataset, the main commonality between intra class sequences is the global shape. Applying wavelet decomposition and considering only the approximation part of the signal $A_4$  allows us to achieve dimensionality reduction but without any improvement  in accuracy. The low accuracy achieved by the classifier  is primarily due to the limitations incurred in comparing sequences  using the euclidean metric. The individual amplitude values on their own are not reflective of the global shape of the sequence. This creates  the motivation to explore feature extraction methodologies that capture information about the shape of the sequence.
 
 To address this issue, I propose the following  4 step feature extraction methodology to extract useful features from the InlineSkate dataset:
 \begin{enumerate}[label=\roman{*}]
@@ -1300,6 +1301,8 @@ In the following sections, I  provide  a detail description of the procedures sp
 
 
 \end{enumerate}
+
+\subsection{Motivation for curvature based features}
 Replacing the individual  amplitude values with the curvature estimates of the corresponding points  can allow  the euclidean metric to take into account the \textbf {shape} of the signals at the corresponding points  when conducting a linear match. The curvature of a geometric object is a  quantitive description of the shape of that object\citep{Adnan}.  It dictates the amount by which a geometric object deviates from being flat or straight. 
 Formally, the curvature of a curve can be defined  as follows:
 
@@ -1318,7 +1321,7 @@ Let $\gamma$ be a differentiable curve on  $\textbf E^3(\mbox{Euclidean Space})$
 	                                    as  \[\kappa = \| \gamma''(t)\| \]
 	             which in fact is none other than the magnitude of the acceleration of a curve.
 
-Geometrically  one can imagine  $\kappa$ in the case of curve as a  parameter which value determines the amount of the bending of that the curve experiences in the flat euclidean space.
+Geometrically  one can imagine  $\kappa$ as a  parameter determines the amount of the bending of that the curve experiences in the flat euclidean space.
 
 
 
