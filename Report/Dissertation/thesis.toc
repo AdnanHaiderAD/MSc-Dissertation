@@ -23,8 +23,8 @@
 \contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{55}
 \contentsline {subsection}{\numberline {7.1.1}Background}{55}
 \contentsline {subsection}{\numberline {7.1.2}Wavelet-based Features }{57}
-\contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{61}
-\contentsline {subsection}{\numberline {7.2.1}Extracting curvature based features}{63}
-\contentsline {subsection}{\numberline {7.2.2}Experimental results}{66}
-\contentsline {chapter}{\numberline {8}Things to do}{68}
-\contentsline {chapter}{Bibliography}{69}
+\contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{62}
+\contentsline {subsection}{\numberline {7.2.1}Extracting curvature based features}{64}
+\contentsline {subsection}{\numberline {7.2.2}Experimental results}{67}
+\contentsline {chapter}{\numberline {8}Things to do}{69}
+\contentsline {chapter}{Bibliography}{70}

@@ -364,6 +364,7 @@ For CBF
 	 wavelet at decomposition 3 : consider only the approximation part
 	 				compute curvature
 	 				fourier decomposition not taken becuase the length of the sequences is very small.
-
+Synthethic control : best result: 98.67%
+			only wavelet decomposition : level 2
 
 	 				

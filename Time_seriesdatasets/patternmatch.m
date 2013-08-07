@@ -21,8 +21,9 @@ function result=wavedecom(data)
  
   for k=1 :samp
     sample= data(k,:);
-    [C,L] =wavedec(sample,4,'Haar');
-    result(k,1:L(1)) = compute_curvature([1:L(1)],C(1:L(1)));
+    [C,L] =wavedec(sample,2,'Haar');
+    result(k,1:L(1))=C(1:L(1));
+    %result(k,1:L(1)) = compute_curvature([1:L(1)],C(1:L(1)));
     %result(k,2:end)=C(1:dim);
   end
 end
@@ -49,8 +50,8 @@ testData=wavedecom(testData);
 trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
-testData=fourierdecom(testData);
-trainData=fourierdecom(trainData);
+%testData=fourierdecom(testData);
+%trainData=fourierdecom(trainData);
 
 time=time+toc;
 fingerprintSpace = principalcomponents(trainData);
