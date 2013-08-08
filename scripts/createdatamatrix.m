@@ -16,9 +16,8 @@ women=data{4};
 
 
 %% find the maximum length of the sequences.
-maximum_length=-Inf;
-minimum_length=Inf;
 
+total_length=0;
 
 
 %% counter keeps track of the total size of the training set
@@ -28,28 +27,23 @@ minimum_length=Inf;
  
  %% changes made : normalization and removing silence: translation invariance
  
-    function cg_data= findmaxlength(cg_data)
+function cg_data= findmaxlength(cg_data)
 %% records the maximum length of the sequence seen in the data so far
 % output : is now the same data where sequences are translted and
 % normalised
 
-    [categories, classes, production] =size(cg_data);
-    for c=1 : categories
-        for  i=1 : classes
-            labels{count} =i;
-            count=count+1;
-            sample= cg_data{c,i,1};
-            sample= sample(sample~=0); % translation
-            sample=1/norm(sample)*sample;
-            seqlen= length(sample);
-            if seqlen>maximum_length
-                maximum_length= seqlen;
-            end
-            if seqlen<minimum_length
-                minimum_length=seqlen;
-            end
-        end
-    end
+    [samples] =length(cg_data);
+    for s=1:samples
+        entry= cg_data{s};
+        sample=entry{2};
+        labels{count}= entry{1};
+        count=count+1;
+        sample= sample(sample~=0); % translation
+        %sample=1/norm(sample)*sample;
+         seqlen= length(sample);
+         total_length=total_length+seqlen;
+     end
+   
 end
 tic
 boy=findmaxlength(boy);
@@ -64,7 +58,7 @@ tic
 
 women=findmaxlength(women);
 toc
-optimum_length= (maximum_length+minimum_length)/2;
+optimum_length= fix((total_length)/(count-1));
 %% creates the data matrix
 data= zeros ( count-1, optimum_length+1);
 data(:,1)= cell2mat(labels);% 1st column contains label information
@@ -75,16 +69,16 @@ counter=1;
 function fillmatrix(cg_data)
   
 %% fills in the matrix after resampling     
-    [categories, classes, production] =size(cg_data);
-    for c=1:categories 
-         for i=1:classes
-             sample=cg_data{c,i,1};
+    [samples] =length(cg_data);
+    for s=1:samples 
+       entry=cg_data{s};  
+        sample=entry{2};
              %sampleLen=length(sample);
              %data(counter,2:sampleLen+1)=sample; 
-             data(counter,2:end) = resample(sample,optimum_length,length(sample));
-             counter=counter+1;
-         end
+        data(counter,2:end) = resample(sample,optimum_length,length(sample));
+         counter=counter+1;
     end
+    
 end
 tic
 fillmatrix(boy);

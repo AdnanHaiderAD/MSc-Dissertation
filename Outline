@@ -367,4 +367,18 @@ For CBF
 Synthethic control : best result: 98.67%
 			only wavelet decomposition : level 2
 
+
+for tidigits dataset:
+              0) remove silence
+	 	1)extract envelope
+	 	: partiition the wave into  two parts: apply abs(hilbert)transform on the positive part and then on the negative
+	 	2) perform wavelet decomposition
+	 	3) fit spline
+
+datamatrix creation:
+		scale all sequences to the mean length size;
+		removes silence: translation invariant;
+		(---possibly could try sclae invariant)
+		
+	 	
 	 				

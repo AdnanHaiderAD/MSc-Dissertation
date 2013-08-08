@@ -16,12 +16,13 @@ trainData=train(:,2:end);
 function result=wavedecom(data)
 %% performs wavelet decomposition
   [samp ,dim]=size(data);
-  result=zeros(samp,1+ fix(dim/2));
+  result=zeros(samp,1+ fix(dim/1));
   %result=zeros(samp,1+52);
  
   for k=1 :samp
     sample= data(k,:);
     [C,L] =wavedec(sample,4,'Haar');
+    %result(k,1:L(1))=C(1:L(1));
     result(k,1:L(1)) = compute_curvature([1:L(1)],C(1:L(1)));
     %result(k,2:end)=C(1:dim);
   end
@@ -30,15 +31,15 @@ end
 function result=fourierdecom(data)
     
 [samp ,dim]=size(data);
-result=zeros(samp,1+ fix(dim/));
+result=zeros(samp, fix(116));
 %result=zeros(samp,1+ dim);
   
-result(:,1)=data(:,1);
+%result(:,1)=data(:,1);
 for k=1 :samp
-    sample= data(k,2:end);
+    sample= data(k,:);
     fouriercoeff = abs(fft(sample));
     
-    result(k,2:end) = fouriercoeff(1:fix(dim/2));
+    result(k,:) = fouriercoeff(1:116);
     %result(k,2:length(fouriercoeff)+1)=fouriercoeff;
 end
 end
@@ -56,10 +57,10 @@ time=time+toc;
 fingerprintSpace = principalcomponents(trainData);
 
 %% projection to principal subspace
-%trainDataR= (fingerprintSpace'* trainData')';
-%testDataR= (fingerprintSpace'* testData')';
-testDataR=testData;
-trainDataR=trainData;
+trainDataR= (fingerprintSpace'* trainData')';
+testDataR= (fingerprintSpace'* testData')';
+%testDataR=testData;
+%trainDataR=trainData;
 
 output=zeros(1,length(test_labels));
 time=time+toc
