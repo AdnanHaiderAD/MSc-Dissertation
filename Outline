@@ -380,5 +380,20 @@ datamatrix creation:
 		removes silence: translation invariant;
 		(---possibly could try sclae invariant)
 		
-	 	
+---a) Compare instances of the same class to check whether they share the same shape
+  ---> they dont actually have the same shape ..compared instances of 9
+
+
+Baseline:14.24%
+	i)silence removed: translation invariant
+	ii) SVD
+
+
+  --Best performance: 20.29%
+  Preporcessing : i) silence removed: translation invariant
+  		    ii) rescaled to mean of the lengths 
+  		    iii)extraction of envelope: abs(hilbert_transform)
+  		    iv) wavelet decomposition : 8
+  		    v) curbature extaction with lambda=0.2 
+  		    vi) SVD	 	
 	 				

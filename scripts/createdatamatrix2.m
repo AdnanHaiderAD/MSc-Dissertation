@@ -48,7 +48,7 @@ for i=1 : length(datacell)
     sample=datacell{i};
     %sampleLen=length(sample);
     sample= sample(sample~=0);
-    sample= 1/norm(sample)*sample;
+   % sample= 1/norm(sample)*sample;
     result(i,2:end) = resample(sample,max_length,length(sample));
     %result(i,2:sampleLen+1) = sample;
 end
