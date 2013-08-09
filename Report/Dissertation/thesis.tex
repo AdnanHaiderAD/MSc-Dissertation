@@ -123,7 +123,8 @@ Igor, my faithful lab assistant.
 \include{chapter1}
 \chapter{Introduction}
 
-Over the course of the last decade, the mining of time-series data have received considerable attention within the  data mining and machine learning community. The term 'time series' denotes a set of observations concurring any activity against different  periods of time. The duration of time period may be  either in the order of milliseconds or monthly or even annually depending on the domain. 
+
+Over the course of the last decade, the mining of time-series data has received considerable attention within the  data mining and machine learning community. The term 'time series'  represents a  sequence of numerical data points collected at regular intervals over a period of time. The duration of time period may be  either in the order of milliseconds or monthly or even annually depending on the domain. 
 
 Mathematically, a time series is defined by the values $y_1, y_2...y_n$ at times  $t_1,t_2... t_n$  where $y=f(t)$.  The time $t_i$  acts as an independent variable to estimate dependent variables $y_i$. The dimensionality of the  series is denoted as \textbf{n} where the value of  `\textbf{n}' is equal to the length of the sequence. 
 
@@ -141,7 +142,7 @@ Mathematically, a time series is defined by the values $y_1, y_2...y_n$ at times
 In the analysis of speech data, motifs  also play a very important role. Recent research have shown that detecting and isolating motifs in speech  utterances is equivalent to identifying  words that are specific to genres or  in the case of recordings of individual speakers, detecting  words that  are frequently spoken by them. \citep{Park2008,Zhang2010}. %The methodology proposed in these papers  is based on constructing  a framework that is entirely data driven  i.e there is no intermediate recognition stage  that maps an audio signal to a symbolic representation such as the `phone' states in the HMM model. This  results in   the word acquisition process to be unsupervised which presents a  completely   different approach to the current speech recognition systems that are built using a supervised  training methodology employing  manually transcribed speech to model the underlying speech process.
 
   
-To identify and extract motifs from time series data, various clustering algorithms have been proposed. Among them, the most widely used is the Dynamic time warping  algorithm(DTW) \citep{Salvador,Sakoe1990,Rabiner1978,Xie2010,Xi2006,Fu2007} that clusters similar sequences separated by time shifts, length or scale. For time series sequences, the algorithm performs a much richer comparison between sequences than standard metrics such as the euclidean. By warping the time axis, the  DTW algorithm  compares each point in one sequence with  points at different temporal regions   in the second sequence.  This allows the algorithm to be invariant to changes of speed, length or scale between similar patterns. Metrics such as the euclidean on the other hand are constrained to performing only linear matches between the temporal dimensions of sequences and they require the all sequences to share the same length. This provides a limitation on the type of time series domains such metrics can be applied to.  The speech corpus is an  prime example of one such domain where metrics such as the euclidean cannot be applied directly. Data sets comprised of  speech utterances are a good example where recorded utterances do not share the same  dimensionality (i.e  the same length) as  acoustically similar signals may be contracted/expanded versions of each other due to speaker variations, context etc. 
+To identify and extract motifs from time series data, various metrics have been proposed to match similar time series sequences. Among them, the most widely used  is the  Dynamic time warping  algorithm(DTW) \citep{Salvador,Sakoe1990,Rabiner1978,Xie2010,Xi2006,Fu2007} which  matches similar sequences separated by time shifts, length or scale. By warping the time axis, the  DTW algorithm  compares each point in one sequence with  points at different temporal regions   in the second sequence.  This allows the algorithm to be invariant to changes of speed, length or scale between similar patterns and thus provide a much richer comparison between time series sequences in comparison to standard metrics such as the Euclidean distance .  Metrics such as the Euclidean distance  are constrained to performing only linear matches between the temporal dimensions of sequences and  require the all sequences to share the same length. This provides a limitation on the type of time series domains such metrics can be applied to.  The speech corpus is an  prime example of one such domain where distance metrics such as the Euclidean cannot be applied directly. In such data sets, recorded utterances of the same same lexical identity may not necessarily share the same  dimensionality (i.e  the same length) and thus may be contracted/expanded versions of each other due to speaker variations, context etc. 
 
 However, the DTW algorithm also experiences from severe drawbacks. The algorithm suffers from large run-times when the length of the time series sequences are very long. This is because  the  time complexity of the algorithm  is quadratic i.e O($n^2$ ) where n is the length of the  sequence.  In comparison, standard metrics like the euclidean  has a time complexity of O(n), making them computational less expensive to employ. To address the  quadratic time complexity of the DTW algorithm  window constraints (Itakura parallelogram\citep{Itakura1975}, Sakoe-Chiba band\citep{Sakoe1990}) have been proposed to  reduce the  size of the search space of DTW  by forcing the algorithm to look for optimal paths that are along the diagonal. Although introducing such window constraints does improve the time complexity, the reduction in the search space however  leads to a substantial decrease in the accuracy of the algorithm since all optimal paths may not exist around the diagonal region\citep{Fu2007}.
 
@@ -164,14 +165,14 @@ The goal of this project is  to employ machine learning techniques to tackle and
   %For a majority portion of the analysis, the TIDIGITS corpus will serve as  the primary dataset used  to investigate the performances of different models. The reason being the TIGITS corpus consists  of long time series sequences that vary in length . Since each  time sequence corresponds to a speech utterance spoken by a speaker, as result of environment, context and speaker differences the length of the time series sequences will not be the same. In comparison, the sequences with in each UCR data set share the same dimensionality i.e length. Furthermore, the length of the time series sequences on average is much higher in the TIDIGITS corpus than sequences of any data set in the UCR time series database.Thus the TIDIGITS data set is an ideal choice to investigate  the performance of different models in my project.
  %The discovery of motifs in high dimensional time series data that vary in length  is still a difficult problem to work with. Current works have only tried to address the issue of high-dimensional spaces. The state of the art algorithms have been to designed to work on high-dimensional time series sequences that all share the same length. To my knowledge, there exits no algorithm apart from DTW that can applied to high-dimensional sequences varying in length.  Using this as motivation, the aim of this project is to investigate methods  that can improve the discovery of motifs in  high-dimensional time-series sequences that vary in length. In this project, I particularly focus on improving the performance of the DTW algorithm in high dimensional spaces and in the later chapters investigate on  how to adapt unsupervised parametric models to high dimensional  data sets  that vary in length. 
 
-The  dissertation is  organised as follows: Chapter 2 gives a brief description of the  time-series datasets used for this project. Chapter 4  provides a detailed background description of the DTW algorithm.  Chapter 3 and 4 investigates methods to improve the performance of the DTW algorithm in terms of both accuracy and speed. Chapter 5 explores the noble technique of single value  decomposition in the context of time series domains and explores whether it can be applied to extract a smaller set of latent features that can minimise  the run time of the 1NN classifier when using the euclidean metric to classify sequences. Chapter 6 focusses on improving the accuracy of the classification of 1NN classifier on time series sequences when it employes  the euclidean metric. In this chapter, I mainly explore preprocessing techniques  that can extract noble features which capture the  global properties of sequences.  Finally in the last chapter, I present my conclusions and present scope for future work.
+The  dissertation is  organised as follows: Chapter 2 gives a brief description of the  time-series datasets used for this project. Chapter 4  provides a detailed background description of the DTW algorithm.  Chapter 3 and 4 investigates methods to improve the performance of the DTW algorithm in terms of both accuracy and speed. Chapter 5 explores the novel technique of single value  decomposition in the context of time series domains and explores whether it can be applied to extract a smaller set of latent features that can minimise  the run time of the 1NN classifier when using the euclidean metric to classify sequences. Chapter 6 focusses on improving the accuracy of the classification of 1NN classifier on time series sequences when it employes  the euclidean metric. In this chapter, I mainly explore preprocessing techniques  that can extract novel features which capture the  global properties of sequences.  Finally in the last chapter, I present my conclusions and present scope for future work.
 
 \include{chap3}
 \chapter{Datasets Used}
 There are  two primary goals of this project : 
 \begin{itemize}
 \item improve the performance of the DTW  algorithm on long time series sequences. 
-\item explore the use feature extraction methods to generate a small set of descriptive latent  features\citep{Cadzow1983}  that can be used by the euclidean metric to cluster intra class sequences that share global trends more accurately.
+\item explore the use of feature extraction methods to generate a small set of descriptive latent  features\citep{Cadzow1983}  that can be used by the euclidean metric to cluster intra class sequences that share global trends more accurately.
 \end{itemize}
 The performance of the 1 NN classifier has been used to compare different proposed adaptions of the DTW and evaluate the performance of using different feature sets when employing the euclidean metric. For this project,  the datasets used for evaluation were carefully chosen so that they contain time series sequences that have very\textbf{ high} dimensions i.e long lengths.
  
@@ -185,11 +186,11 @@ All 3 data sets were partitioned into two disjoints sets: test set and training 
 
 For the first half of the project, the primary dataset that was mostly used is the `TIDIGITS' corpus. In comparison to the sequences in the two UCR datasets, the length of the time series sequences in the TIDIGITS corpus are on average 100 times longer. This forces the DTW algorithm to suffer from high time complexity when handling the speech utterances.  The TIDIGITS corpus is a prime example where the minimisation of the run time is as high priority as getting good accuracy. In chapter 4 and 5, I will be investigating domain dependent and independent methodologies to improve the performance of the DTW in high dimensional time series datasets such as the TIDIGITS corpus. 
 
-The TIDIGITS corpus consists of time series sequences that are of variable length. Since the application of the euclidean metric is restricted to time series sequences  share the same length, for the later half of the project, I will be focussing mainly on the UCR datasets when exploring the use of various feature extraction methods that can improve the accuracy of the euclidean metric in computing the similarity between intra class sequences that share the same length.
+The TIDIGITS corpus consists of time series sequences that are of variable length. Since the application of the euclidean metric is restricted to time series sequences  that share the same length, for the later half of the project, I will be focussing mainly on the UCR datasets when exploring the use of various feature extraction methods that can improve the accuracy of the Euclidean metric in computing the similarity between intra class sequences that share the same length.
 
 Description of the data sets is given below:
-\subsection { Brief description of TIDIGITS dataset}
-The utterances in the TIDIGITS\citep{TIDIGITS} dataset correspond to digit sequences. The corpus consists of :
+\section { Brief description of TIDIGITS dataset}
+The TIDIGITS dataset is a large speech database  that has been collected for the  use in designing and evaluating algorithms for speaker-independent recognition of connected digit sequences. This dialectically balanced database consists of more than 25 thousand digit sequences spoken by over 300 men, women, and children. The data were collected in a quiet environment and digitised at 20 kHz\citep{TIDIGITS}. The vocabulary of the corpus consists of :
 \begin{itemize}
 \item 22 isolated digits (two tokens of each of the eleven digits)
 \item 11 two-digit sequences
@@ -198,8 +199,9 @@ The utterances in the TIDIGITS\citep{TIDIGITS} dataset correspond to digit seque
 \item  11 five-digit sequences
 \item  11 seven-digit sequences
 \end{itemize}
-In this corpus, the motifs correspond to individual digits. Thus for my experiments, I have considered  only the  isolated digit sequences for classification,  more specifically the digits from 0 to 9. The database  as I have mentioned earlier is divided into two subsets, one to be used for algorithm design and one to be used only for evaluation. Both sets contain samples belonging to different speaker categories i.e (men,women,boy,girl) who in turn have different dialect classifications.
-The table below shows the partitioning of speakers from different speaker categories in the training and test dataset.:
+In this corpus, the motifs correspond to individual digits. Thus for my experiments, I have considered  only the  isolated digit sequences for classification,  more specifically the digits from 0 to 9. The database was divided into two subsets, one to be used for algorithm design and one to be used only for evaluation. The division was based on speaker category $\{men,women,boy,girl\}$ and dialect classification, and yielded two sets of speakers, each containing approximately half the speakers of each category.
+
+ The table below shows the partitioning of speakers from different speaker categories in the training and test dataset.:
 
 \begin{tabular}{|c|c|c|c|c|}
 \hline \\
@@ -210,8 +212,7 @@ Subset  &    Man &   Woman &Boy &   Girl  \\
  \hline
  \end{tabular}
 
-For this project, the entire training set was used for nearest neighbour classification, although only samples from one production was taken.
-To ensure that the experiments completed with in a reasonable time, I have only used $\frac{1}{3}$ of the samples of the test set.
+For this project, only samples from one production have been used. To perform 1 NN classification, the entire training set have been used . However,  to ensure that the experiments completed with in a reasonable time, I have only used $\frac{1}{3}$ of the samples of the test set.
 
 The test data subset used for evaluation consists of 
 \begin{itemize}
@@ -222,11 +223,11 @@ The test data subset used for evaluation consists of
 \end{itemize}
 \textbf{Note}: The samples were not  chosen exactly randomly. When subsampling from each category, I have ensured that:
 \begin{itemize}
-\item the samples   belong to a number of different speakers 
+\item  the test set contained samples from a rich variety  of  different speakers. 
 \item  the chosen subset consists of  enough examples of all 10 digits.
 \end{itemize}
   
-\subsection{Brief description CinC\_ECG\_torso and InLineSkate dataset}
+\section{Brief description CinC\_ECG\_torso and InLineSkate dataset}
 The UCR data resource  has been  funded by an NSF(National Science Foundation) since 2003 and is the largest public collection of time series data sets that have been made available to the data mining/machine learning community, to encourage reproducible research for time series classification and clustering.  
 
 The InLineSkate dataset represents the EMG data of 7 major leg extensor and flexor muscles of the right side of the body from six athletes collected  by attaching  bipolar surface electrodes to the relevant muscles\citep{Morchen2006}.The sampling rate was 1 kHz. The Cinc\_ECG\_Torso presents the ECG data collected by attaching  electrodes to 4 distinct regions on the torso  from  multiple participants.
@@ -247,13 +248,16 @@ The InLineSkate dataset represents the EMG data of 7 major leg extensor and flex
   \item Number of classes:4
   \end{itemize}
   
+\section{Evaluation}
+The focus of this project is investigate methods to improve the performance of  the DTW and the Euclidean metric in time series  problem domains where minimising the time complexity is as important as improving accuracy. To evaluate and compare the merits of different proposed methods to improve the accuracy and the computational cost in  comparing time series sequences when using the DTW or the Euclidean distance,  the accuracy and  time incurred by the 1NN classifier to classify all the instances in the respective test sets has been  used as an evaluation criteria. As I have already mentioned in the previous chapter, motif detection algorithms like 1 NN  are memory based i.e each sequence is compared with all sequences in the dataset. Thus, methods that improve  the performance of  the DTW and the Euclidean metrics in classifying sequences that have high dimensionality can be expected to improve the performance of these metrics in detecting motifs in high dimensional time series datasets.
+
 
   \include{chap2}
 
 \chapter{Background}
 \section {Dynamic Time Warping Algorithm}
 
-The Dynamic Time Warping algorithm is  a similarity  metric that is  used cluster similar time series sequences varying in length, scale and speed. The problem formulation \citep{Salvador} of the algorithm is stated as follows: Given two time series X, and Y, of lengths $|X|$ and $|Y|$,
+The Dynamic Time Warping algorithm is  a distance metric that computes the similarity between  time series sequences varying in length, scale and speed. The problem formulation \citep{Salvador} of the algorithm is stated as follows: Given two time series X, and Y, of lengths $|X|$ and $|Y|$,
 \begin{eqnarray}
 X &= &x_1,x_2...x_{|X|}\\
 Y &= &y_1,y_2...y_{|Y|}
@@ -305,7 +309,7 @@ The figure below illustrates the working of the DTW algorithm.
      \includegraphics[scale=0.8]{DTWpicture.jpg}
   \caption{The DTW cost matrix with the minimum-distance warp path traced through it.  }
   \end{figure}
-Generally as a cost metric, the euclidean metric is mostly  widely used.  For this project, I will hence consider the basic  DTW algorithm equipped with the euclidean metric as my baseline model. An outline of the base line  DTW algorithm is given below:
+Generally as a cost metric, the euclidean metric is mostly widely used to compare the values between the time.  For this project, I will hence consider the basic  DTW algorithm equipped with the euclidean metric as my baseline \textbf{DTW algorithm}. An outline of the base line  DTW algorithm is given below:
 
  \begin{algorithm}[H]
 
@@ -345,10 +349,10 @@ the Itakura parallelogram \citep{Itakura1975} . Figure 3.2  gives an illustratio
  
   
   \include{chap3}
-\chapter{Optimising DTW}
-The Dynamic Time Warping(DTW) algorithm is the one of the oldest algorithm that is used to compare and cluster sequences varying in time, scale and speed. Given two temporal sequences, the algorithm utilises the technique of dynamic programming to compute the cost of the optimum alignment path between them.  The computed cost gives an indication of the degree of similarity. The smaller the cost, the more similar the sequences are. Intuitively speaking, DTW can be seen as  a clustering algorithm that clusters patterns that share roughly the same shape. As I have stated in the previous chapter, the time and computational complexity of this algorithm is  \emph{O}($n^2$) where $n$ denotes the length of the sequences that are being compared. Thus for time series domains having high dimensions i.e long sequences, DTW becomes a very unattractive choice as it suffers from high computational and time costs. 
+\chapter{Domain-dependent methods for improving DTW}
+%The Dynamic Time Warping(DTW) algorithm is the one of the oldest algorithm that is used to compare and cluster sequences varying in time, scale and speed. Given two temporal sequences, the algorithm utilises the technique of dynamic programming to compute the cost of the optimum alignment path between them.  The computed cost gives an indication of the degree of similarity. The smaller the cost, the more similar the sequences are. Intuitively speaking, DTW can be seen as  a clustering algorithm that clusters patterns that share roughly the same shape. As I have stated in the previous chapter, the time and computational complexity of this algorithm is  \emph{O}($n^2$) where $n$ denotes the length of the sequences that are being compared. Thus for time series domains having high dimensions i.e long sequences, DTW becomes a very unattractive choice as it suffers from high computational and time costs. 
 
-To address the issue of the curse of dimensionality, DTW algorithms employ a window constraint to reduce the search space. The most commonly used  are Sakoe-Chuba Band\citep{Sakoe1990}  and the Itakura  window constraint \citep{Itakura1975}. Figure[3.2]  gives an illustration of the nature of these window constraints. Such constraints determine the allowable  shapes that a warping path can take by restricting the DTW to construct optimal warping paths only through a restricted number of cells around the diagonal region of the cost matrix. As the dimensionality(length) of the sequences increases, the size of the window is adjusted accordingly. Rigid  window constraints impose a more rigid alignment  that prevent an overly temporal skew between two sequences, by keeping frames of one sequence  from getting too far from the other. The vast majority of the data mining researchers use a Sakoe-Chiba Band with a 10\% width for the global constraint \citep{ChotiratAnnRatanamahatana} to constraint the time complexity of DTW to a minimum. For finding motifs in datasets  comprising of speech utterances, the use of rigid window constraints is highly undesirable. Utterances corresponding to the same lexical identity may suffer from large variations in speed, scale and time due to  the word(s) being spoken in difference contexts, by different speakers, in different environments etc.
+%To address the issue of the curse of dimensionality, DTW algorithms employ a window constraint to reduce the search space. The most commonly used  are Sakoe-Chuba Band\citep{Sakoe1990}  and the Itakura  window constraint \citep{Itakura1975}. Figure[3.2]  gives an illustration of the nature of these window constraints. Such constraints determine the allowable  shapes that a warping path can take by restricting the DTW to construct optimal warping paths only through a restricted number of cells around the diagonal region of the cost matrix. As the dimensionality(length) of the sequences increases, the size of the window is adjusted accordingly. Rigid  window constraints impose a more rigid alignment  that prevent an overly temporal skew between two sequences, by keeping frames of one sequence  from getting too far from the other. The vast majority of the data mining researchers use a Sakoe-Chiba Band with a 10\% width for the global constraint \citep{ChotiratAnnRatanamahatana} to constraint the time complexity of DTW to a minimum. For finding motifs in datasets  comprising of speech utterances, the use of rigid window constraints is highly undesirable. Utterances corresponding to the same lexical identity may suffer from large variations in speed, scale and time due to  the word(s) being spoken in difference contexts, by different speakers, in different environments etc.
 Thus it is necessary to explore alternative techniques to window constraints that can reduce the time complexity of DTW without degrading its accuracy.
 
 Before investigating methods to improve the DTW algorithm itself, it is highly necessary to first understand the nature of the data sequences that the DTW is presented with.  Achieving a thorough understanding of the data can result in the extraction of a smaller set of relevant features that can be used to achieve better discrimination between different classes/motifs. In this chapter, I investigate domain-dependent preprocessing techniques to improve the performance of the baseline DTW algorithms in clustering patterns that have long lengths.
