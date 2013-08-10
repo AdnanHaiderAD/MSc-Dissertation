@@ -119,7 +119,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.1}
+ \begin{spacing}{1.2}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -454,9 +454,18 @@ From the visual and auditory analysis, I have made the following  observations:
  women & 513 \\
   \end{tabular}
   \end{center}
-  \item
-  An outline of DTW  used algorithm used for this experiment  is given below.  
- \begin{algorithm}[H]
+  
+  \item \textbf{Objective}: Investigating the effect of removing silence regions from the raw utterances on the accuracy and run time of the 1NN classifier using the base line DTW algorithm.
+  
+  \item \textbf{Algorithm:}
+  
+  The  main objective of my research is to improve the accuracy of the DTW algorithm while reducing the time and computational cost to a \textbf{ minimum}. Even after applying the feature selection process, from initial experiments on few samples, I have found that the computational cost incurred by the algorithm is still very high. Hence to minimise the run time, I  employed the Sakoe-Chuba band that has an adaptive   window size of  : w = max($\lceil{0.1*max(n.m)}\rceil$, abs(n-m)). 
+  
+  The lower bound of the window size is set to 10\%   of the size of the longest sequence which is the standard width used by the  vast majority of the data mining researchers \citep{ChotiratAnnRatanamahatana}   to keep the time complexity of DTW to a minimum.
+  
+  An outline of   DTW  algorithm augmented with the adaptive window constraint is given below:
+  
+   \begin{algorithm}[H]
 
 \begin{algorithmic}[1]
 \Procedure{Value-based}{$seq1,seq2$}\Comment{two raw sequences }
@@ -482,7 +491,7 @@ From the visual and auditory analysis, I have made the following  observations:
 \end{algorithmic}
 \caption{Value-Based DTW}
 \end{algorithm}
-Note : The  main objective of my research is to improve the accuracy of the DTW algorithm while reducing the time and computational cost to a \textbf{ minimum}. Even after applying the feature selection process, from initial experiments on few samples, I have found that the computational cost incurred by the algorithm is still very high. Hence to minimise run time, I  employed the Sakoe-Chuba band that has an adaptive   window size of  : w = max($\lceil{0.1*max(n.m)}\rceil$, abs(n-m)). The lower bound of the window size is set to 10\%   of the size of the longest sequence which is the standard size that  vast majority of the data mining researchers \citep{ChotiratAnnRatanamahatana} use  to keep the time complexity of DTW to a minimum.
+
 \item RESULTS:
 
  \begin{figure}[H]
@@ -511,7 +520,7 @@ Observations:
 \item not integrating knowledge of the domain: The data set is comprised of speech utterances. It is a widely known fact that for speech data, the MFCC feature vectors capture the information of phones that make up a word. Since different lexical identities are composed of different phones, these use of MFCC vectors can increase the inter class variance of the samples. (details of MFCC to follow)\citep{Park2008,DeWachter2007,Zhang2010,DeWachter2004,Carlin}.
  \end{itemize}
 
- \item Removing `silence' segments improve \textbf{both} the accuracy and the run-time of the algorithm. While the decrease in run-time is quite obvious, the increase in accuracy is not. All utterances contain durations of silence. Taking the silence regions into account decreases the inter class variance and in turn increase intra class variance as  they bring in an unwanted notion of similarity in dissimilar patterns.
+ \item Removing `silence' segments improve \textbf{both} the accuracy and the run-time of the algorithm. While the reason for the decrease in run-time is quite obvious, the increase in accuracy is not. All utterances contain durations of silence. Including the silence regions decreases the inter class variance and in turn increase intra class variance as  they bring in an unwanted notion of similarity in dissimilar patterns.
  
 \end {itemize}
 
@@ -525,9 +534,9 @@ From conducting further exploratory data analysis,  I have observed that if  I d
   \end{figure}
 To investigate  the effect of performing further dimensionality reduction on the time series sequences through down sampling on the accuracy of the DTW, I performed the following experiment:
 
-\textbf{Dataset}: The TIDIGITS training and set used in 4.1\\
-\textbf{Algorithm} : baseline DTW augmented with an adaptive window constraint(4.1)
-\textbf{Approaches being compared}: Removing silence utterances  VS  Removing silence utterance + downsampling VS baseline
+\textbf{Dataset}: The TIDIGITS training and set used in 4.1.1\\
+\textbf{Algorithm} : baseline DTW augmented with an adaptive window constraint(4.1.1)
+\textbf{Approaches being compared}: Removing silence utterances which we denote as method \textbf{M1}  VS  Removing silence utterance + downsampling VS baseline which we denote as method \textbf{M2}.
 
 \textbf{Results}:
 \begin{figure}[H]
@@ -539,9 +548,9 @@ To investigate  the effect of performing further dimensionality reduction on the
  Performing the two stage feature selection step that involves removing `silence' utterances followed by downsampling allow DTW to still  construct more optimal paths that are aligned along the main diagonal for similar patterns than using the entire `raw' time series sequences.  This procedure results in  a 4\% increase in  accuracy on average. Furthermore,  the loss of local information through downsampling the non-silence regions leads to a minimal decrease in the accuracy of the algorithm in comparison to using  the entire non silence regions for pattern matching.  This supports the claim that the classes  are differentiated mainly  by their global shape.  
   
  \begin{figure}[H]
-  \includegraphics[scale=0.6]{4122.jpg}
+  \includegraphics[scale=0.7]{4122.jpg}
      
-  \caption{ Integrating downsampling  decreases the ln(run time)}
+  \caption{ Integrating downsampling  decreases the ln of the run time that is measured in seconds}
 \end{figure}
 Augmenting the down sampling procedure to the feature selection process leads to a further decrease of 1.5  in the ln( run time) of the DTW algorithm in comparison to just removing silence regions as a preprocessing step. This is expected since in the first stage of the preprocessing phase, redundant features are dropped which reduces the dimensionality(i.e length ) of the sequences. The length of the sequences is reduced even further through downsampling the the output sequences of stage 1. Since the computational cost of DTW is directly dependent on the length of the sequences,  thus decrements in dimensionality leads to a decrease in the computational cost.
 
@@ -555,7 +564,7 @@ From the analysis conducted so far, it can be concluded that heuristically selec
 
 \subsection{Mel Cepstrum Cepstral Coefficients}
 
-The primary dataset that I am working with is the TIGITS corpus which is composed of speech utterances. For speech, the most commonly used features are the MFCC features-mel cepstrum cepstral coefficients. This feature representation is based on the idea of the cepstrum. For human speech, a speech waveform is created when a glottal source waveform of a particular frequency is passed through the vocal tract which because of its shape has a particular  filtering characteristic. The exact position of the vocal tract is in fact the key attribute in providing useful information about phones(units of sounds). Cepstrum provides a useful way to separate the information of the vocal tract from the glottal source.
+The primary dataset that I am working for this part of my project is the TIDIGITS corpus which is composed of speech utterances. For speech, the most commonly used features are the MFCC features-mel cepstrum cepstral coefficients. This feature representation is based on the idea of the cepstrum. For human speech, a speech waveform is created when a glottal source waveform of a particular frequency is passed through the vocal tract which because of its shape has a particular  filtering characteristic. The exact position of the vocal tract is in fact the key attribute in providing useful information about phones(units of sounds). Cepstrum provides a useful way to separate the information of the vocal tract from the glottal source.
 
 An outline of the MFCC feature extraction is given below:
 \begin{figure}[H]
@@ -573,16 +582,18 @@ An outline of the MFCC feature extraction is given below:
 \item Cepstrum : separate the information of the vocal tract from the glottal source. The first 12 cepstral values from spectrum of the log of the spectrum  are used
 \end{enumerate}
 
-The windowing process results in dimensionality reduction i.e the length of the time-series sequences is reduced. Each sequence is segmented into frames of length 20 to 30 ms. These frames are then mapped using the procedure above to MFCC feature vectors. Since the result sequence of vectors is much smaller than the length of the original sequence resulting in the size of the DTW cost matrix is much smaller than before which in turn lowers the time and computation cost incurred by the algorithm. The time complexity of DTW is now reduced from O($n^2$) to O ($u^2$) where $u= \frac{n}{l} $ (l denotes the length of the frame. 
+The windowing process  reduces the length of the time-series sequences. Each sequence is segmented into frames of length 20 to 30 ms. The individual frames are then mapped using the procedure above to MFCC feature vectors where each MFCC vector is extracted from a particular frame. These feature vectors capture information about the positions of the vocal tract of speakers which as I have stated  above is a key attribute in identifying phones. Since the result sequence of vectors is much smaller than the length of the original sequence, the size of the DTW cost matrix is much smaller than before which in turn lowers the time and computation cost incurred by the algorithm. The time complexity of DTW is now reduced from O($n^2$) to O ($u^2$) where $u= \frac{n}{l} $ (l denotes the length of the frame. 
 
-The experiments conducted in section 4.1.1 and 4.1.2, have shown that the  DTW algorithm performs very poorly in terms of accuracy on the TIDIGITS test data when it employs the narrow Sakoe-Chuba band to minimise  the time complexity. The reason for this low accuracy was credited to the influence of  one or  a combination of the following factors : using a narrow window constraint, using raw attribute values and not using domain-dependent features. Having already investigated the influence of using raw values(4.1), for this part of the project, I constructed the  following 3 models in order to investigate the relative isolated impacts of the other two factors. The models were  tested on the TIDIGITS dataset, thus allowing the results to be compared with the results of the previous experiments so far :
+The experiments conducted in section 4.1.1 and 4.1.2, have shown that the  DTW algorithm performs very poorly in terms of accuracy on the TIDIGITS test data when it employs the narrow Sakoe-Chuba band to minimise  the time complexity. The reason for this low accuracy was credited to the influence of  one or  a combination of the following factors : using a narrow window constraint, using raw attribute values and not using domain-dependent features. Having already investigated the influence of using raw values(4.1), for this part of the project, I constructed the  following 3 methods in order to investigate the relative isolated impacts of the other two factors. The methods were  tested on the TIDIGITS dataset, thus allowing the results to be compared with the results of the previous experiments so far :
 \begin{enumerate}[label=\roman{*}]
-\item Model 1  employs the  MFCC feature extraction mapping as a preprocessing step. The extracted features are used  by the valued-based DTW algorithm augmented with the adaptive Sakoe-Chuba band constraint described in 4.1.1 to cluster similar patterns. The performance of this model can be compared to the  performance of the base line model  to measure the relative impact  on the accuracy and run-time of the DTW  of replacing each numerical value associated with  each time index with a domain dependent feature vector.
- \item  Model 2 employs a two stage preprocessing step. The feature selection procedure  discussed in 4.1.1  is first applied to remove redundant features followed by MFCC feature extraction that achieves further dimensionality reduction. In this model dimensionality reduction occurs at both stages of the pre-processing step. The downsampling method discussed in 4.1.2  was deemed not necessary as a  feature selection step since the feature extraction phase allows further reduction in dimensionality without any loss of information. The sequence of vectors are then used by the  DTW  algorithm to find optimal warping along the main diagonal of the DTW cost matrix. 
+\item The first method  denoted as \textbf{M3} employs the  MFCC feature extraction mapping as a preprocessing step. The extracted features are used  by the valued-based DTW algorithm augmented with the adaptive Sakoe-Chuba band constraint described in 4.1.1 to cluster similar patterns. The performance of this model can be compared to the  performance of the base line model  to measure the relative impact  on the accuracy and run-time of the DTW  of replacing each numerical value associated with  each time index with a domain dependent feature vector.
+ \item The second method denoted as \textbf{M4} employs a two stage preprocessing step. The feature selection procedure  discussed in 4.1.1  is first applied to remove redundant features followed by MFCC feature extraction that achieves further dimensionality reduction. In this methodology, dimensionality reduction occurs at both stages of the pre-processing step. The downsampling method discussed in 4.1.2  was deemed not necessary as a  feature selection step since the feature extraction phase allows further reduction in dimensionality without any loss of information. The sequence of vectors are then used by the  DTW  algorithm to find optimal warping along the main diagonal of the DTW cost matrix. 
  
- By comparing the results of this model with the results of model 1 and the model discussed in 4.1, the optimum preprocessing strategy can be determined.
-\item  Model 3  is identical to the version 2  with the exception that this version does not employ the window constraint. 
-The main purpose of using this model is to check the relative impact  of using window constraints. The difference in the performance between using model 2 and model 3 can be used to check to what degree is employing such a rigid window constraint affect the accuracy and run-time of the algorithm.   
+ By comparing the results of this method with the results of  \textbf{M3} and \textbf{M1}, the optimum preprocessing strategy can be determined.
+\item  The third method denoted as \textbf{M5} is identical to \textbf{M4} with the exception that this version does not employ the window constraint. 
+The main purpose of using this method is to check the relative impact  of using window constraints. The difference in the performance between using method \textbf{M4} and \textbf{M5} can be used to check to what degree is employing such a rigid window constraint affects the accuracy and run-time of the algorithm. 
+
+The reason why I opted not to compare the performance of the classifier when it uses  the baseline DTW algorithm(Chapter 3) with raw features against when it employs the window constrained DTW(discussed in 4.1.1) with raw features is that this particular dataset contains  `raw' sequences whose average length is about 7000. If no window constraint is applied, the run time incurred by the 1NN classifier using the baseline DTW algorithm on the `raw' sequences  will be very high. Thus to investigate the improvement in the accuracy of the DTW algorithm, without being disadvantaged with high run times, I have compared the accuracies of 1NN classifier when it employs method \textbf{M4} and when it employs method \textbf{M5} instead. 
 
 \end{enumerate}
 Experimental setup:
@@ -596,37 +607,41 @@ Experimental setup:
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.9]{421.jpg}
-  \caption{Accuracy achieved by all models}
+     \includegraphics[scale=0.7]{421.jpg}
+  \caption{Accuracy achieved by combining 1NN classifier using the DTW distance metrics with the various methods}
   \end{figure}
   
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.8]{422.jpg}
-  \caption{The ln( run time) incurred by all models}
+     \includegraphics[scale=0.7]{422.jpg}
+  \caption{The ln of the run time(measured in seconds) incurred by the 1NN classiier}
   \end{figure}
 
   Observations:
 
   
   \begin{itemize}
- \item  Making DTW domain-dependent has little significance on the accuracy when constraints are employed to minimise the time complexity.
+ \item By comparing the baseline method \textbf{M0} with method \textbf{M3}, we can observe that making DTW domain-dependent has little significance on the accuracy when constraints are employed to minimise the time complexity.
  
- -In comparison to the base-line model, the accuracy of the window-constrained DTW  only increases by 1.3\% on average  across all 4 categories. 
+ -In comparison to the base-line method \textbf{M0}, the accuracy of the window-constrained DTW  only increases by 1.3\% on average  across all 4 categories. 
  
- -The run-time on the other hand has improved considerably. In comparison to the baseline model, the average ln(run time) has decreased by 5.7. This is obvious since the acoustic signal is mapped to smaller sequence of frames.  
+ -The run-time on the other hand has improved considerably. The average ln(run time) has decreased by 5.7. This is obvious since the acoustic signal is mapped to smaller sequence of frames.  
  
   \item Removing redundant features have greater relative impact on the accuracy than employing domain dependent MFCC features. This is evident  if we compare the results of using model 1 with the model discussed in 4.1.1. The presence of silence regions force the optimal warping paths between  patterns of the same lexical identity to lie outside the regions in the cost matrix bounded by the Sakoe-Chuba band. This forces the DTW to find an \textbf{approximate} optimal path with in the allowed regions which in turn leads to an increase in the error rate.
  
-   \item Combining  attribute/feature selection with MFCC feature extraction as a preprocessing step achieves greater improvement in accuracy and speed than using either of these approaches alone. In comparison to just using MFCC feature extraction as a preprocessing step, the accuracy has been boosted up by 15.17\% on average  while the $ln(time)$ have been reduced by 2.36.  Similarly, in comparison  to just using feature selection as a preprocessing step, the accuracy has  increased  by 12.9\% on average  while the $ln(time)$ have been reduced by 6.5.
+   \item Combining  attribute/feature selection with MFCC feature extraction as a preprocessing step (i.e methods \textbf{M4} and \textbf{M5} ) achieves greater improvement in accuracy and speed than using either of these approaches alone. 
+   
+ -In comparison to just using MFCC feature extraction as a preprocessing step( method \textbf{M3}), the accuracy has been boosted up by 15.17\% on average  while the $ln(time)$ have been reduced by 2.36.  
+   
+-- Similarly, in comparison  to just using  silence removal as a preprocessing step i.e method \textbf{M1}, the accuracy has  increased  by 12.9\% on average  while the $ln(time)$ have been reduced by 6.5.
   \item  From the above observation alone, we can deduce two facts for this dataset, one of which is not that obvious: removing redundant features have a greater relative impact  on improving the performance of a constrained DTW than employing domain dependent features and the second fact which is quite obvious is the strong dependency between the algorithm's accuracy and the size of the window constraint. It can be concluded that  the use of the rigid window constraint is the main contributing factor for achieving small accuracy rates.
  
-Since the main goal is to improve  \textbf{both} the accuracy and  speed of DTW in handling sequences of high-dimensionality i.e long lengths, removal of silence segments provides an ideal mechanism to improve  \textbf{both}  the time complexity and the accuracy of the algorithm. Dropping the window constraint although will lead to considerable increase in the accuracy by will result in longer run-times. This is not ideal when working on large high dimensional datasets.
+Since the main goal is to improve  \textbf{both} the accuracy and  speed of DTW in handling sequences of high-dimensionality i.e long lengths, removal of silence segments provides an ideal mechanism to improve  \textbf{both}  the time complexity and the accuracy of the algorithm. Dropping the window constraint on the other hand, will although lead to considerable increase in the accuracy by will result longer run-times. This is not ideal when working on large high dimensional datasets.
   
-  \item Model 3 achieves almost near perfect accuracy. Dropping the window constraint improves the accuracy by 67.15\% on average over model 2.  In other words 67.15\% of the  time on average, the optimum warping path lie outside the regions bounded by the Sakoe-Chuba band constraints, This confirms  that  patterns belonging to the same lexical identity can have an overly temporal askew between them as result of the different contexts in which the words are spoken and/or as a result of different speakers speaking the same word.
+  \item Employing Method 3 achieves almost near perfect accuracy. Dropping the window constraint improves the accuracy by 67.15\% on average over model 2.  In other words 67.15\% of the  time on average, the optimum warping path lie outside the regions bounded by the Sakoe-Chuba band constraints, This confirms  that  patterns belonging to the same lexical identity can have an \emph{overly temporal askew} between them as result of the different contexts in which the words are spoken and/or as a result of different speakers speaking the same word.
   
- \item The run time of model 3 is lower than the run time of  all models with the exception of model 2. Model 3  therefore provides the best balance in the fulfilling  the two  conflicting objectives  of high accuracy and high speed  that any of the other investigated models.
+ \item The run time incurred by the 1NN classifier using method \textbf{M5} is lower than the run time of  all proposed methods with the exception of using method \textbf{M4}. Method \textbf{M5} therefore provides the best balance in the fulfilling  the two  conflicting objectives  of high accuracy and high speed  that any of the other investigated models.
  \end{itemize}
 
 \textbf{ Conclusion}
@@ -644,7 +659,7 @@ To summarise, to improve the performance of the DTW algorithm:
 
 
  \include{chap4}
- \chapter{Improving DTW}
+ \chapter{Domain Independent methods for Improving DTW}
  
 So far, we have investigated methodologies  that  improve both the speed and accuracy of the DTW algorithm by integrating meta data (i.e knowledge of the domain) in the preprocessing stage. The problem with such methodologies is that  the same algorithm cannot be extended across multiple domains: the MFCC feature extraction discussed in the previous chapter is only applicable to time series sequences that correspond to speech utterances. To develop a framework that can be extended across multiple domains, it is necessary to use features that are entirely data driven. In the first half of this chapter, I investigate in detail a  recently proposed data driven feature extraction methodology \citep{Xie2010} that is aimed to improve the accuracy of the DTW across multiple domains. In the second half of this chapter, I investigate alternative measures to using window constraints that can improve the performance of the  algorithm in  terms of \textbf{both} time and accuracy across different  time series domains.
 
