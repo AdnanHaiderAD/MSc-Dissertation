@@ -14,19 +14,20 @@
 \contentsline {chapter}{\numberline {5}Domain Independent methods for Improving DTW}{31}
 \contentsline {section}{\numberline {5.1} Domain-independent feature extraction}{31}
 \contentsline {section}{\numberline {5.2}Extending DTW}{37}
-\contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{41}
-\contentsline {chapter}{\numberline {6}Exploring The Use Of SVD In Time Series Sequences}{48}
-\contentsline {section}{\numberline {6.1} Background}{49}
-\contentsline {section}{\numberline {6.2}Motivation: Application in time series datasets}{49}
-\contentsline {section}{\numberline {6.3}Improving Time Complexity}{52}
-\contentsline {subsection}{\numberline {6.3.1}Experimental results}{52}
-\contentsline {chapter}{\numberline {7}Improving The Accuracy Of The Baseline 1NN Classifier }{55}
-\contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{57}
-\contentsline {subsection}{\numberline {7.1.1}Background}{57}
-\contentsline {subsection}{\numberline {7.1.2}Wavelet-based Features }{58}
-\contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{64}
-\contentsline {subsection}{\numberline {7.2.1}Motivation for curvature based features}{65}
-\contentsline {subsection}{\numberline {7.2.2}Extracting curvature based features}{66}
-\contentsline {subsection}{\numberline {7.2.3}Experimental results}{70}
-\contentsline {chapter}{\numberline {8}Things to do}{74}
-\contentsline {chapter}{Bibliography}{75}
+\contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{42}
+\contentsline {subsection}{\numberline {5.2.2}Conclusion}{48}
+\contentsline {chapter}{\numberline {6}Exploring The Use Of SVD In Time Series Sequences}{49}
+\contentsline {section}{\numberline {6.1} Background}{50}
+\contentsline {section}{\numberline {6.2}Motivation: Application in time series datasets}{50}
+\contentsline {section}{\numberline {6.3}Improving Time Complexity}{53}
+\contentsline {subsection}{\numberline {6.3.1}Experimental results}{53}
+\contentsline {chapter}{\numberline {7}Improving The Accuracy Of The Baseline 1NN Classifier }{56}
+\contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{58}
+\contentsline {subsection}{\numberline {7.1.1}Background}{58}
+\contentsline {subsection}{\numberline {7.1.2}Wavelet-based Features }{59}
+\contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{65}
+\contentsline {subsection}{\numberline {7.2.1}Motivation for curvature based features}{66}
+\contentsline {subsection}{\numberline {7.2.2}Extracting curvature based features}{67}
+\contentsline {subsection}{\numberline {7.2.3}Experimental results}{71}
+\contentsline {chapter}{\numberline {8}Things to do}{75}
+\contentsline {chapter}{Bibliography}{76}

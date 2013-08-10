@@ -665,12 +665,12 @@ So far, we have investigated methodologies  that  improve both the speed and acc
 
  \section{ Domain-independent feature extraction}
 
-Ideally, we require features that reflect information about the structure of the data. This allows the DTW to built a complete picture of the data point in relation to the rest of the sequence and hence achieve  optimal alignments that are close to the diagonal  for similar sequences. The fundamental problem of baseline (value-based) DTW  is that the  `raw' numerical value associated with each point in the  time series sequence is not a complete picture of the data point  in relation to the rest of the sequence. The context such as the position of the points in relation to their neighbours is ignored. To fix  this issue, an alternative  form of DTW known as \emph{derivative} DTW\citep{Keogh2001} is proposed but  it  too fails to achieve better performance across all domains as it ignores to take into account the common sub-patterns between two sequences (mainly global trends). 
+Ideally, we require features that reflect information about the structure of the data. This allows the DTW to construct a complete `picture' of the data point by capturing its relation to the rest of the sequence. Thus, by doing so we can achieve  optimal alignments that are close to the diagonal  for similar sequences. The fundamental problem of baseline (value-based) DTW  is that the  `raw' numerical value associated with each point in the  time series sequence is not a complete picture of the data point  in relation to the rest of the sequence. The context such as the position of the points in relation to their neighbours is ignored. To fix  this issue, an alternative  form of DTW known as \emph{derivative} DTW\citep{Keogh2001} is proposed but  it  too fails to achieve better performance across all domains as it ignores to take into account the common sub-patterns between two sequences (mainly global trends). 
 
-To address these drawbacks, recent works have been conducted to extract good feature extraction methods that are entirely data-driven. One particular approach that has been seen to achieve good accuracies across multiple domains is  the method proposed  Xie and Wiltgen in their  paper \citep{Xie2010}. The authors highlight a domain-independent feature extraction process where each point in the time series sequence is replaced by a 4 dimensional vector. This 4-d vector attempts to provide a complete picture of a point in  the relation to the rest of the sequence. The  first two features in this vector hold information of the local trends around a point while the last two features reflect information about the global trends. From experiments conducted on the UCR datasets,  they have observed that embedding DTW with this feature extraction process yields greater accuracy across all datasets. 
+To address these drawbacks, recent works have been conducted to construct good feature extraction methods that are entirely data-driven. One particular approach that has been seen to achieve good accuracies across multiple domains is  the method proposed  by Xie and Wiltgen in their  paper \citep{Xie2010}. The authors highlight a domain-independent feature extraction process where each point in the time series sequence is replaced by a 4 dimensional vector. This 4-d vector attempts to provide a complete picture of a point in  the relation to the rest of the sequence. The  first two features in this vector hold information of the local trends around a point while the last two features reflect information about the global trends. From experiments conducted on the UCR datasets,  they have observed that embedding DTW with this feature extraction process yields greater accuracy across all datasets. 
 
 Definition of local feature given in \citep{Xie2010} is as follows:
-\[ f_{\mbox{local}}(r_i)= (r_i-r_{i-1}, r_i-r_{i+1})\]
+\[ f_{\mbox{local}}(t_i)= (y_i-y_{i-1}, y_i-y_{i+1})\]
 The first feature reflects the difference between the  values of the current index and the previous index while the second feature corresponds to the difference between the value of the current index and the succeeding index.
 
 The  extraction of global features however, is constrained by two factors:
@@ -681,7 +681,7 @@ The  extraction of global features however, is constrained by two factors:
 \end{itemize}
 \end{spacing}
 In \citep{Xie2010}, the authors used the following method to extract global features from the time series sequence:
-\[ f_{\mbox{global}}(r_i)= (r_i -\sum_{k=1}^{i-1}\frac{r_k}{i-1} , r_i-\sum_{k=i+1}^M \frac{r_k}{M-i})\]
+\[ f_{\mbox{global}}(t_i)= (y_i -\sum_{k=1}^{i-1}\frac{y_k}{i-1} , y_i-\sum_{k=i+1}^M \frac{y_k}{M-i})\]
 The first  feature represents the deviation of the value at time i from the mean of the values of the sequence that has  been seen so far while the second feature represents the  deviation  of the value at time i from the mean of the values that is yet to be seen. This formulation allows the detection of significant `drops' or `rises' in the series.
 
 
@@ -694,7 +694,7 @@ Xie and Witgen \citep{Xie2010} have already shown that  augmenting this feature 
 To investigate the effect of introducing this prior feature selection step,  I conducted the following 2 experiments:
 
 \textbf{Objective}
-Compare the affect of using global and local features to using raw values on the performance of a \textbf{window constrained} DTW algorithm.
+Compare the affect between using global and local features and using raw values on the performance of the 1 NN classifier employing a \textbf{window constrained} DTW algorithm.
 
 \begin{itemize}
 \item   Experiment 1
@@ -702,9 +702,9 @@ Compare the affect of using global and local features to using raw values on the
 \textbf{Datasets}: TIDIGITS dataset(4.1.1)
 
 \textbf{Setup}
-Prior to extracting these domain independent features , I performed the feature selection step of removing segments of utterances that correspond to silence. When conducting experiments using MFCC feature vectors, removing redundancy allows the optimal warping paths between similar patterns to lie closer to the main diagonal. Using this feature selection step also has the advantage of dimensionality reduction.
+Prior to extracting these domain independent features, I performed the feature selection step (\textbf{M1}) which involves removing segments of utterances that correspond to silence. When conducting experiments using MFCC feature vectors, removing redundancy allows the optimal warping paths between similar patterns to lie closer to the main diagonal. Using this feature selection step also has the advantage of dimensionality reduction.
 
- By comparing the experimental results of this model with the baseline model and the model of 4.1, we can observe whether for this dataset, removing redundant features is more significant to using features that capture information about the global and local trends. Also we be able to investigate whether using such feature allows a constrained DTW algorithm to achieve higher accuracies  than using raw values.
+ By comparing the experimental results of this proposed method, which I denote as method \textbf{M6} for simplicity purposes,  with the baseline method \textbf{M0} and method \textbf{M1}, we can observe whether for the TIDIGITS dataset, removing redundant features is more significant to using features that capture information about the global and local trends. Plus, this will allows us  to investigate whether using such features allow a constrained DTW algorithm to achieve higher accuracies  than using raw values.
 
   
 
@@ -713,21 +713,21 @@ Prior to extracting these domain independent features , I performed the feature 
 A summary of the results are given below:
 \begin{figure}[H]
   \centering
-      \includegraphics[scale=0.8]{425.jpg}
+      \includegraphics[scale=0.7]{425.jpg}
   \caption{}
   \end{figure}
 \begin{figure}[H]
   \centering
-     \includegraphics[scale=0.6]{426.jpg}
-  \caption{ln of the run time}
+     \includegraphics[scale=0.7]{426.jpg}
+  \caption{ln of the run time(measured in seconds): $log_e(time)$}
   
 \end{figure}
 \textbf{Observations}:
 \begin{itemize}
-\item Removing redundant features i.e  removing regions of silence  is a greater contributing factor in improving the performance of a window constrained DTW than applying a feature extraction process that integrates meta data(4.2.1) or that captures information about local and global trends.  
-\item All 3 models achieve very low accuracies. As concluded from previous experiments, the low accuracy is primarily credited to the use of the rigid window constraint
+\item Removing redundant features i.e  removing regions of silence  is a greater contributing factor in improving the performance of a window constrained DTW than applying a feature extraction process that integrates meta data(\textbf{M3})  or that captures information about local and global trends(\textbf{M6}).  
+\item All 3 models achieve very low accuracies. As concluded from previous experiments, the low accuracy is primarily credited to the use of the rigid window constraint.
 \item  
-The computational cost incurred by the algorithm is higher than the version used for  the model of 4.1.1 One possible explanation is that the cost of applying the euclidean metric on vectors $> $cost of applying the euclidean metric on points. Since the euclidean metric is applied $mn$ times. The overall computational cost increases.
+The computational cost incurred by the 1NN classifier using method \textbf{M6} is higher than when it uses method \textbf{M1}. One possible explanation is that the cost of applying the euclidean metric on vectors $> $cost of applying the euclidean metric on points. Since the euclidean metric is applied $mn$ times where \emph{m} and \emph{n} represent the length of the respective sequences, the  overall computational cost therefore increases.
 
 
 \end{itemize}
@@ -743,14 +743,14 @@ The results are as follows:
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.6]{427.jpg}
+     \includegraphics[scale=0.7]{427.jpg}
   \caption{Using features that reflect information of trends improves the accuracy of the algorithm}
   \end{figure}
 \begin{figure}[H]
   \centering
    
-     \includegraphics[scale=0.8]{428.jpg}
-  \caption{The computation time incurred }
+     \includegraphics[scale=0.7]{428.jpg}
+  \caption{ln of the run time(measured in seconds): $log_e(time)$ }
   \end{figure}
  
  \textbf{Observations} 
@@ -761,7 +761,7 @@ The results are as follows:
 
 \textbf{Conclusion}:
 
- The experiments conducted by Xie and Witgen\citep{Xie2010} on the UCR datasets have shown that using their feature extraction methodology allow DTW to achieve much higher accuracies than using just `raw' values . Optimal paths that closer to the diagonal region of the cost matrix have smaller distances than paths that are further away from the diagonal. The improved accuracy is credited to the construction of optimal paths that are closer to the diagonal than before for sequences belonging to the same class. However the results from their experiments do not provide any information on the degree of translation undergone by these warping paths. The results from my experiments provides this insight. Using the domain independent methodology only leads to a fractional increase in the accuracy of the DTW when it employs a window constraint. This shows that for similar patterns, the degree of translation undergone by the optimal warping paths is very small as very few ideal optimal paths enter the region defined by  Sakoe-Chuba band.
+ The experiments conducted by Xie and Witgen\citep{Xie2010} on the UCR datasets have shown that using their feature extraction methodology allow DTW to achieve much higher accuracies than using just `raw' values . Optimal paths that closer to the diagonal region of the cost matrix have smaller distances than paths that are further away from the diagonal. The improved accuracy is credited to the construction of optimal paths that are closer to the diagonal than before for sequences belonging to the same class. However the results from their experiments do not provide any information on the degree of translation undergone by these warping paths. The results from my experiments provides this \textbf{insight}. Using the domain independent methodology only leads to a fractional increase in the accuracy of the DTW when it employs a window constraint. This shows that for similar patterns, the degree of translation undergone by the optimal warping paths is very small since very few ideal optimal paths enter the region defined by  Sakoe-Chuba band.
  
   
  The low accuracies of the DTW can be improved by increasing the width of the Sakoe-Chuba band. But increasing the width also leads  to a  reduction in speed. This provides the motivation to investigate alternative methods that can a better balance between the two conflicting goals of accuracy and speed. 
@@ -776,7 +776,7 @@ The feature extraction methodology discussed  in the previous section  offers no
 Using the MFCC feature extraction method as motivation, I propose the following methodology:
 \begin{enumerate}[label=\roman*]
 \item Apply the feature extraction process of 5.1 to embed the information of local and global trends.
-\item Partition the sequence of vectors into frames of width $m$. The default value of $m$ is set to 50. For speech utterances in the TIGITS dataset, this is equivalent to having frames of size 5ms.  Unlike the windowing process of MFCC extraction, the frames here correspond to sequence of vectors rather sequence of numerical values. This partitioning process reduces the length of the sequences by $m$ times and hence decreases the time complexity of the DTW algorithm from O($n^2$) to O${(\frac{n}{m})}^2$.
+\item Partition the sequence of vectors into frames of width $m$. The default value of $m$ is set to 50.  Results from experiment 3 discussed later in the chapter have shown that choosing  the default value  to be 50 is a safe option in improving the DTW algorithm's accuracy and speed. For speech utterances in the TIDIGITS dataset, this is equivalent to having frames of size 5ms.  Unlike the windowing process of MFCC extraction, the frames here correspond to sequence of vectors rather sequence of numerical values. This partitioning process reduces the length of the sequences by $m$ times and hence decreases the time complexity of the DTW algorithm from O($n^2$) to O${(\frac{n}{m})}^2$.
 \item Adapt the cost metric of the DTW algorithm to work on series of frames  rather than series of vectors 
 \end{enumerate}
 
@@ -788,7 +788,7 @@ The problem can now be shifted to finding  an appropriate kernel that can be use
    \includegraphics[scale=0.4]{Example1.jpg}
   \caption{Two signals separated by translation}
  \end{figure}
-The signal denoted by the `red' color is a `slower' version of the signal denoted by the `blue' color . Using a euclidean metric in this scenario is inappropriate. The euclidean metric  in this context is identical to  linear time warping where the  two subsequences/frames will be compared based on a linear match of the  temporal dimensions of the two sequences/frames.  In our context, we need a kernel that computes the similarity between two sub-sequences by warping the time axis. Intuitively speaking, the kernel must behave like a DTW algorithm that compares the global and local properties associated with a point in one frame with the global and local properties of all points in the second frame as illustrated by the figure below.\\
+The signal denoted by the `red' color is a `slower' version of the signal denoted by the `blue' color. Consider the frames  corresponding to the subsequences annotated by the double arrows(see figure 5.5), in each of the two signals, in this scenario  using  the Euclidean metric to perform a linear comparison of the two frames is inappropriate. The Euclidean metric  in this context is identical to  linear time warping where the  two subsequences/frames will be compared based on a linear match of the  temporal dimensions of the two sequences/frames.  In our context, we need a kernel that computes the similarity between two sub-sequences by warping the time axis. Intuitively speaking, the kernel must behave like a DTW algorithm that compares the global and local properties associated with a point in one frame with the global and local properties of all points in the second frame as illustrated by the figure below.\\
 \begin{figure}[H]
   \centering
    \includegraphics[scale=0.6]{Cross-section.jpg}
@@ -834,10 +834,10 @@ An inspection of the kernel function shows the function represents the sum of do
 \[ \theta = \frac{ <X,Z>}{|X||Z|} \]
 where $\theta$ is the \emph{arc-cosine} distance, $X = \sum_{i=1}^{n}x_i$ and $Z =\sum_{j=1}^{n}z_i$.
 
-A formal outline of the entire methodology is given by the algorithm below:
+A formal outline of the proposed methodology is  given by the following algorithm:
 
- \begin{algorithm}
-\begin{algorithmic}[1]
+ \begin{algorithm}[H]
+\begin{algorithmic}
 \Procedure{Value-based}{$seq1,seq2$}\Comment{two sequences of feature vectors}
 \State  seq\_1$\leftarrow$segment(seq1,n)\Comment{ Segment the sequences using a window of size n}
  \State seq\_2$\leftarrow$segment(seq2,n)
@@ -866,7 +866,7 @@ A formal outline of the entire methodology is given by the algorithm below:
 
 
 \subsection{Testing the methodology}
-The primary objective is  to improve the performance of the DTW algorithm in problem domains where minimising time complexity has a high priority.
+The primary objective is  to improve the performance of the DTW algorithm in problem domains where minimising time complexity shares equal priority with improving accuracy.
 To investigate whether the proposed changes does provide a better alternative to using the Sakoe-Chuba band window constraint, I have conducted the following experiments:
 
 
@@ -875,7 +875,7 @@ To investigate whether the proposed changes does provide a better alternative to
 
 \textbf{Dataset used} : The TIDIGITS dataset.
 
-\textbf{Model used} : The model discussed in section 5.1: the  framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed  by the domain  independent feature extraction methodology proposed in \citep{Xie2010}
+\textbf{Method used} : The  preprocessing method discussed in 5.1 i.e \textbf{M6}: the  framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed  by the domain  independent feature extraction methodology proposed in \citep{Xie2010}
 
 \textbf{Variables being compared}: Sakoe-Chuba band window constraint VS the proposed methodology
 
@@ -889,20 +889,20 @@ RESULTS:
 \begin{figure}[H]
   \centering
      \includegraphics[scale=0.9]{522.jpg}
-  \caption{ $log_e(\mbox{run time})$}
+  \caption{ln of the run time(measured in seconds): $log_e(time)$}
   \end{figure}
 
 There are quite number of interesting observations that can made from  figures 5.7 and 5.8. 
 
 \begin{itemize}
 \item In comparison to employing the Sakoe-Chuba band window constraint, the alternative method allows DTW to improve its accuracy across all 4 categories by 6.54\% on average.
-\item  Equipped with the new changes, the run time  of the algorithm has decreased exponentially  by an \textbf{order} of 3.1 on average. The reduction of the time complexity is mainly due to the partitioning of the sequence into time slices of width 5 ms. The reduction in the length of the sequences by an order of 50 results in the shrinkage of the search space of DTW thus causing the algorithm to improves its speed.
+\item  Equipped with the new changes, the run time  of the algorithm has decreased exponentially  by an \textbf{order} of 3.1 on average. The reduction of the time complexity is mainly due to the partitioning of the sequence into time slices of width 5 ms.The reduction in the length of the sequences by an order of 50 results in the shrinkage of the search space of DTW thus causing the algorithm to improves its speed.
 
 % In Chapter 3, I have shown that the time complexity of the algorithm  equipped with Sakoe-Chuba band constraint is O(n+wn) where w is the size of the adaptive window. The analysis shows that the time complexity associated with the proposed method is smaller than O(n+wn).
 
 \end{itemize}
 %As we have seen so far, increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance between points/vectors confined by the window constraint.
-The proposed methodology can also be adapted to use domain-dependent features.  As I have stated earlier, the main motivation for constructing this framework is to provide better performance  in terms of both accuracy and run-time for time series problem domains where the use of rigid window constraints is deemed necessary. In the previous chapter, we have seen that  when the MFCC feature extraction is used as the only preprocessing step, to minimise the run-time, the use of the adaptive window constraint was deemed necessary. However from the experimental results, it can been seen enforcing such a rigid constraint results in a high error rate. To check that the new changes allow DTW to perform equally well when using domain dependent features,   I have repeated the same experiment again but this time, as  a preprocessing step  I have  just used  the MFCC feature extraction. 
+The proposed methodology can also be adapted to use domain-dependent features.  As I have stated earlier, the main motivation for constructing this framework is to provide better performance  in terms of both accuracy and run-time for time series problem domains where the use of rigid window constraints is deemed necessary to minimise the computational cost. In the previous chapter, I have discussed that when the MFCC feature extraction is used as the only preprocessing step, the use of the adaptive window constraint was deemed necessary  to minimise the run-time. However from the experimental results in the previous chapter, it was observed that  enforcing such a rigid constraint results in a high error rate. To verify that the new proposed changes  to the  DTW algorithm allow it to perform equally well when using domain dependent features,   I have repeated the same experiment again but this time, as  a preprocessing step  I have  just used  the MFCC feature extraction i.e method \textbf{M3}. 
 
 
 
@@ -913,27 +913,27 @@ A summary of the results are as follows:
 
 \textbf{Dataset used} : The TIDIGITS test and training data.
 
-\textbf{Model} : The model framework consists of single preprocessing step that involves the extraction  of MFCC features
+\textbf{Method} :  \textbf{M3} which consists of single preprocessing step that involves the extraction  of MFCC features
 
 \textbf{Variables being compared}: employing window constraints vs the  new proposed changes
 
 \textbf{Results}
 \begin{figure}[h!]
   \centering
-      \includegraphics[scale=0.7]{523.jpg}
+      \includegraphics[scale=0.8]{523.jpg}
   \caption{Accuracy}
   \end{figure}
 
 \begin{figure}[H]
   \centering
-     \includegraphics[scale=0.7]{524.jpg}
-  \caption{ln of the run time: $log_e(time)$}
+     \includegraphics[scale=0.8]{524.jpg}
+  \caption{ln of the run time(measured in seconds): $log_e(time)$}
   \end{figure}
 
 \textbf{Observation}
 The results are consistent with the findings in the previous experiment. The accuracy of the DTW algorithm has improved by over 60\% on average and the average run time  has decreased exponentially by an order of  3.12. Hence in comparison to the window constrained DTW, the new framework takes better advantage  of employing domain dependent features.
 
- However, since the tests so far has been conducted on the TIDIGITS test set, it is possible that this new approach is only tailored for this particular dataset. Thus to confirm  that the boost in the performance is not tailored for this particular time-series dataset, I have the following experiments using the model of experiments on the  UCR datasets: InlineSkate and CINC\_ECG\_TORSO.
+ However, since the tests so far has been conducted on the TIDIGITS test set, it is possible that this new approach is only tailored for this particular dataset. Thus to confirm  that the boost in the performance is not tailored for this particular time-series dataset, I have performed classification using the proposed DTW algorithm on the UCR datasets: InlineSkate and CINC\_ECG\_TORSO and compared the performance against the performance achieved by the 1 NN classifier using the baseline DTW metric augmented with Sakoe-Chuba band constraint discussed in 4.1.1.
 
 \textbf{Experiment 3}
 
@@ -941,7 +941,7 @@ The results are consistent with the findings in the previous experiment. The acc
 
 \textbf{Setup} : 
 
-Model used : The model discussed in section 5.1: the  framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed  by the domain  independent feature extraction methodology proposed in \citep{Xie2010}
+Method used : The  preprocessing method discussed in 5.1 i.e \textbf{M6}: the  framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed  by the domain  independent feature extraction methodology proposed in \citep{Xie2010}.
 
 In the  proposed approach,  the width of the time slices has been kept fixed at a default value of 50 so far. In this experiment, I also investigate the influence of this parameter on the performance of the DTW. Decreasing its value reduces  the size of the time slices which in  principal should increase both accuracy and time-complexity .
 The core kernel used by the new algorithm is based on the function: 
@@ -959,23 +959,23 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.9]{526.jpg}
-  \caption{Run time in ln}
+  \caption{n of the run time(measured in seconds): $log_e(time)$}
   \end{figure}
 
 \textbf{Observation}
 
 \begin{itemize}
-\item The proposed changes does provide  a \textbf{ better} alternative approach  to using rigid constraints  for problem domains where the time complexity is of high priority and the use of window constraints can not be avoided. The accuracy of the DTW algorithm under the new methodology is significantly higher then employing a window constrained DTW on sequences of extracted local and global feature vectors.  
+\item The proposed changes do provide  a \textbf{ better} alternative   to using rigid constraints  for problem domains where the time complexity is of high priority and the use of window constraints can not be avoided. The accuracy of the DTW algorithm under the new methodology is significantly higher then employing a window constrained DTW on sequences of extracted local and global feature vectors.  
 \item Decreasing the size of the time slices only leads to a minimal increase in accuracy. Thus using the default value of 50  seems to be safe option as the algorithm better accuracy and speed than using the rigid Sakoe-Chuba band constraint .
 
 \end{itemize}
-\textbf{Conclusion}
-\begin{itemize}
-\item In chapter 3, we have seen that under the window constraint the time complexity of the algorithm decreases from O($n^2$) to O(wn). From the  experimental results, it can be observed that the new proposed changes allow DTW to achieve run times that are exponential lower than the run times achieved by the window constrained DTW. Thus it can be concluded that the  time complexity of the proposed DTW variant is smaller that O(wn). 
+\subsection{Conclusion}
 
-\item  We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance to find local optimal warp path only through the constraint window.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a model that can applied for \textbf{different types} of time series datasets. 
+In chapter 3, we have seen that under the window constraint the time complexity of the algorithm decreases from O($n^2$) to O(wn). From the  experimental results, it can be observed that the new proposed changes allow DTW to achieve run times that are exponential lower than the run times achieved by the window constrained DTW. Thus it can be concluded that the  time complexity of the proposed DTW variant is smaller that O(wn). 
 
-\end{itemize}
+ We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance to find local optimal warp path only through the constraint window.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a model that can applied for \textbf{different types} of time series datasets. 
+
+
 
 
 \include{chap5}
