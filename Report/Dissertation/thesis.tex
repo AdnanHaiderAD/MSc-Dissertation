@@ -973,15 +973,17 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 
 In chapter 3, we have seen that under the window constraint the time complexity of the algorithm decreases from O($n^2$) to O(wn). From the  experimental results, it can be observed that the new proposed changes allow DTW to achieve run times that are exponential lower than the run times achieved by the window constrained DTW. Thus it can be concluded that the  time complexity of the proposed DTW variant is smaller that O(wn). 
 
- We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance to find local optimal warp path only through the constraint window.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a method that can applied for \textbf{different types} of time series datasets. 
+ We have seen so far  that increasing the speed of DTW negatively impacts the accuracy of the algorithm . The new methodology actually provides an exception. The use of the kernel function improves the accuracy of the DTW   which implies that matching frames using the new cost function is a better alternative than employing the euclidean distance to find local optimal warp path only through the constraint window.  Combining this approach with the feature extraction method discussed in \citep{Xie2010}  results in the construction of a model  that can applied for \textbf{different types} of time series datasets. 
 
 
 
 
 \include{chap5}
- \chapter{Exploring The Use Of SVD In Time Series Sequences}
-In the previous chapter, we have explored techniques that can improve the performance of the DTW algorithm in handling high dimensional time series sequences. In this and the following chapters, I will be concentrating of improving the accuracy and run-time of the  1NN classifier equipped with the euclidean metric  on time series sequences. To be precise, I will be exploring feature extraction techniques to extract a smaller set of independent features from the raw sequences that can capture information about the global shape. This formulation will not only achieve dimensionality reduction but  will also allow the time series classification to be treated like a normal classification problem.
+ \chapter{SVD For Time Series Feature Extraction  }
+In the previous chapter, we have explored techniques that can improve the performance of the DTW algorithm in handling high dimensional time series sequences. In this and the following chapters, I will be concentrating in improving the accuracy and run-time of the  1NN classifier equipped with the Euclidean metric  on time series sequences. To be precise, I will be exploring feature extraction techniques to extract a smaller set of independent features from the raw sequences that can capture information about the global shape. This formulation will not only achieve dimensionality reduction but  will also allow the time series classification to be treated like a normal classification problem.
 
+
+\subsection{Motivation}
 High dimensional data vectors $\{x_n\}$  typically lie close to a non- linear manifold \citep{bishop2006pattern} whose intrinsic dimensionality is smaller than that of the input space as a result of strong correlations between the input variables. In data mining, to understand this intrinsic dimensionality of the data, the Single Value Decomposition(SVD) algorithm is widely used. SVD  simplifies the data representation by showing only the number of important dimensions that captures the \textbf{variance} of the data. Intuitively speaking, SVD projects the high dimensional data vectors to an orthogonal subspace that maximises the variance of the data. The focus of this chapter is to investigate whether SVD can be applied to time series datasets to extract independent  latent features that  minimise the run time of the 1NN classifier augmented with the euclidean metric.
 
 
@@ -1008,7 +1010,7 @@ The data matrix X can be factorized as $X = U\times D'\times V'^T$ where D is no
 
 
 
- \section{Motivation: Application in  time series datasets}
+ \section{Motivation for applying SVD to  time series datasets}
 Unlike other datasets, clustering/classifying time  series sequences by conventional distance metrics, such as the euclidean,  may not result  in high accuracy. The scope of such metrics is quite  limited in the fact that they  require  sequences to share the same length and  comparison of sequences is based on a linear match of the  temporal dimensions of the two sequences. This represents a  substantial drawback as the metrics fail to take into account that similar patterns  may vary in terms of speed, length and scale. Therefore, this provides the motivation to look for  preprocessing feature extraction techniques that can extract translation and scale invariant features that capture information about  the intrinsic trends in the data.
 
 However, recent works have shown that there exists time series domains where the use of conventional methods can still achieve accurate results. Korn in his paper  \citep{Korn1997} has  shown that  for time series sequences that share the same \textbf{speed} and \textbf{length},  the conventional methods can achieve good clustering/classification performance. If  intra class sequences have the same speed i.e no time offsets then they will also share the same time localised trends(see figure 6.1). Applying SVD as a preprocessing step,  results in the  extraction of  latent factors that represent the  localised patterns in time.  Through mapping the time series sequences into the latent space, we can therefore construct a  simplified representation of the data which allows conventional methods such as the euclidean metric to cluster time sequences with lesser run time.
@@ -1033,7 +1035,7 @@ X = \begin{tabular}{|c|c|c|c|c|c|}
 
 \textbf{Observation}
 \begin{itemize}
-\item There are only distinct time localised trends. From this we can infer that there are two groups of customers: one group  makes calls only during week days while the other group makes calls only  during weekends.
+\item There are only two distinct time localised trends. From this we can infer that there are two groups of customers: one group  makes calls only during week days while the other group makes calls only  during weekends.
 \end{itemize}
 Using SVD to factorize the matrix gives:
 
@@ -1093,7 +1095,7 @@ In the rest of this chapter, I will be focussing on addressing the first issue :
   
  Let  X  be the constructed  D by N  data matrix where D is the number dimensions and N is the number of samples and  D$\ll$N. By  factorizing X, we get X=$U \times D \times V^T$. To achieve dimensionality reduction, we need to consider only the  subset of  columns vectors of V   that are associated with the non-zero singular values. Since N $\ll$D, there will at most N-1 of these singular values. As stated earlier, the columns of the V are the eigenvectors of the covariance matrix $ XX^T$.
  
- The eigendecomposition of the covariance matrix is $ XX^T u_i= \lambda_i u_i$. $XX^T$ is D by D matrix and the computational complexity of computing the eigenvectors is O ($D^3$).
+ The eigen decomposition of the covariance matrix is $ XX^T u_i= \lambda_i u_i$. $XX^T$ is D by D matrix and the computational complexity of computing the eigenvectors is O ($D^3$).
 
 Now if we multiply both sides by  $X^T$ we get :
 \[ (X^T X)X^T u_i = \lambda_i X^T u_i\]
@@ -1102,6 +1104,7 @@ Setting $v_i =X^T u_i$ gives us the eigenvectors of $X^TX$.
 From the above expression, it can be observed that the eigenvectors of  $X^TX$ and  $XX^T$ share the \textbf{same} eigenvalues. Using this insight,  we can thus solve the eigenvector problem in spaces of lower dimensionality with computational cost O($N^3$) instead of O($D^3$). The required eigenvectors of the covariance matrix can then be computed by the using the following expression:
 \[ u_i = \frac{1} {\lambda^(\frac{1}{2})} Xv_i\]
  
+ For each of the time series datasets used in this project, using Bishop's solution, I have extracted  the first k eigenvectors that capture 95\% variation of the data with minimal computation cost. By projecting the time series sequences to the orthogonal subspace spanned by the eigenvectors, I have hence constructed  a compact representation of each time series sequence. This compact representation in turn allows the 1NN classifier to reduce its time complexity from \textbf{O}(ND) to \textbf{O}($N^2$) where N is number the samples,  D is the length of the sequences and $N\ll D$.  
  \subsection{Experimental results}
 To verify the above approach,  I have conducted the following experiment :
 
@@ -1109,9 +1112,11 @@ To verify the above approach,  I have conducted the following experiment :
 
 \textbf{Datasets used} : InLineSkate and Cinc\_ECG\_TORSO. 
 
-Unlike the speech corpus, the time series sequences of each dataset share the same length. This allows metrics such as the euclidean to compare the similarity between two sequences by matching their values  at each of the temporal dimensions. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space. For the UCR datasets, I have considered the first k eigenvectors  of the covariance matrix that capture \textbf{95\%} variation of the data as latent features.
+Unlike the speech corpus, the time series sequences of each dataset share the same length. This allows metrics such as the euclidean to compare the similarity between two sequences by conducting a linear match of their temporal dimensions. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space. For the UCR datasets, I have considered the first k eigenvectors  of the covariance matrix that capture \textbf{95\%} variation of the data as latent features.
 
+\textbf{Metric Used}: Euclidean distance
 
+\textbf{Methods Compared}: 1NN classifier using SVD as a preprocessing step Vs 1NN classifier
 %Unlike the speech corpus, the intra class variance of the time series sequences in the  UCR datasets are much lower. This is primarily due to the fact that sequences of the same class can be described by the same time-localised trends. Figure 6.1 shows examples of two sequences belonging to class `1' in the  Cinc\_ECG\_TORSO dataset. Apart from having the same shape, the two sequences also posses the same speed i.e they have no time offset. From figure 6.1,it can seen that at around t=600, both patterns undergo a dip followed by a sharp peak. The fact that all sequences in the dataset share the same length and intra class sequences have no time offset  allow classification algorithms to treat the problem as a  normal classification problem. This also provide the context to apply SVD  directly to achieve dimensionality reduction. For this experiment, SVD has been applied to extract all the eigenvectors of the covariance matrix that corresponds to non-zero singular values. Since the number of samples $\ll$ the length of the sequences, the size of the latent space will be smaller than the original input space leading to dimensionality reduction without any loss of information. 
 %\begin{figure}[H]
   %\centering
@@ -1123,8 +1128,8 @@ Unlike the speech corpus, the time series sequences of each dataset share the sa
 \begin{table}[H]
 \begin{tabular}{|c|c|c|}
 \hline \\
-      & raw features & latent features \\
-\hline\\
+      & SVD+1NN classifier &1NN classiifer \\
+      \hline\\
 Cinc\_ECG\_TORSO & 89.71 & 89.71 \\
 InlineSkate &  34.18 & 34.18 \\
 \hline
@@ -1139,10 +1144,10 @@ InlineSkate &  34.18 & 34.18 \\
 
 \begin{tabular}{|c|c|c|}
 \hline \\
-      & latent features & raw features \\
+      & SVD+1NN classifier &1NN classiifer \\
 \hline\\
-Cinc\_ECG\_TORSO & 0.24 & 0.72 \\
-InlineSkate &  0.21& 0.92 \\
+Cinc\_ECG\_TORSO & 6.60s & 6.67s \\
+InlineSkate &  1.27s& 1.56s \\
 \hline
 
 \end{tabular}
@@ -1154,7 +1159,7 @@ InlineSkate &  0.21& 0.92 \\
 \textbf{Observations}
 
 \begin{itemize}
-\item The accuracy of the 1 nearest classifier  in both cases is consistent with the  1NN error rate given for each of the datasets  in the UCR data source webpage.
+\item The accuracy of the 1 nearest classifier  in both cases is consistent with the  1NN error rate given for each of the datasets  in the UCR data source webpage\citep{UCR}.
 \item Applying SVD  as a preprocessing step has no effect on the accuracy on the algorithm  but  reduces the run time of the classifier. Thus using Bishop's\citep{bishop2006pattern} formulation, we can use SVD to reduce the time complexity of clustering/classification algorithms  for high dimensional time series datasets that satisfy the constraint identified by Korn\citep{Korn1997}.
 \item 1NN classifier equipped with euclidean metric achieves very high accuracy for the Cinc\_TORSO\_ECG dataset. The similarity of intra class  sequences  for this dataset can be classified fairly accurately by performing only a linear match of their temporal dimensions. From this observation, we can conclude sequences belonging to the same class   tend to  share the similar \textbf{time localised }i.e time aligned local  and global trends.
 \item Using the euclidean metric, the 1 NN classifier is seen to achieve very low accuracy for InlineSkate dataset.This shows that unlike the Cinc\_TORSO\_ECG datasets, the intra class sequences are not aligned with respect to the time axis.

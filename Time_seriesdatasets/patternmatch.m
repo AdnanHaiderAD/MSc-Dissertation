@@ -63,21 +63,22 @@ end
 time=toc
 tic
 %%perform wavelet decomposition: feature extraction
-testData=wavedecom(testData);
-trainData=wavedecom(trainData);
+%testData=wavedecom(testData);
+%trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
 %testData=fourierdecom(testData);
 %trainData=fourierdecom(trainData);
 
 time=time+toc;
-fingerprintSpace = principalcomponents(trainData);
+DATA=[trainData;testData];
+fingerprintSpace = principalcomponents(DATA);
 
 %% projection to principal subspace
 trainDataR= (fingerprintSpace'* trainData')';
 testDataR= (fingerprintSpace'* testData')';
-%testDataR=testData;
-%trainDataR=trainData;
+testDataR=testData;
+trainDataR=trainData;
 
 output=zeros(1,length(test_labels));
 time=time+toc

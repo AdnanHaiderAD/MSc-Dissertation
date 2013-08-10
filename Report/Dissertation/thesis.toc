@@ -16,11 +16,12 @@
 \contentsline {section}{\numberline {5.2}Extending DTW}{37}
 \contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{42}
 \contentsline {subsection}{\numberline {5.2.2}Conclusion}{48}
-\contentsline {chapter}{\numberline {6}Exploring The Use Of SVD In Time Series Sequences}{49}
+\contentsline {chapter}{\numberline {6}SVD For Time Series Feature Extraction }{49}
+\contentsline {subsection}{\numberline {6.0.3}Motivation}{49}
 \contentsline {section}{\numberline {6.1} Background}{50}
-\contentsline {section}{\numberline {6.2}Motivation: Application in time series datasets}{50}
+\contentsline {section}{\numberline {6.2}Motivation for applying SVD to time series datasets}{50}
 \contentsline {section}{\numberline {6.3}Improving Time Complexity}{53}
-\contentsline {subsection}{\numberline {6.3.1}Experimental results}{53}
+\contentsline {subsection}{\numberline {6.3.1}Experimental results}{54}
 \contentsline {chapter}{\numberline {7}Improving The Accuracy Of The Baseline 1NN Classifier }{56}
 \contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{58}
 \contentsline {subsection}{\numberline {7.1.1}Background}{58}
