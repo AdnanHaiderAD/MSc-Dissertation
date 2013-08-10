@@ -119,7 +119,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.2}
+ \begin{spacing}{1.25}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -1153,22 +1153,22 @@ InlineSkate &  1.27s& 1.56s \\
 \end{tabular}
 \caption {Run times in seconds} \label{Run times in seconds}
 \end{table}
-
+Note: The time complexity associated with the Euclidean metric is \textbf{O}(N) which is much smaller than \textbf{O}($N^2$) - the time complexity of the DTW algorithm. Thus, the  associated run times associated with the 1NN classifier using the Euclidean metric will be very small in comparison to the run times incurred by the classifier when it employs the DTW metric. Therefore to make effective comparisons of the run times incurred by 1NN classifier equipped with the Euclidean distance  metric for embedding different preprocessing techniques, from now on I will be comparing the run times directly and not the ln of the run times.
 
 
 \textbf{Observations}
 
 \begin{itemize}
 \item The accuracy of the 1 nearest classifier  in both cases is consistent with the  1NN error rate given for each of the datasets  in the UCR data source webpage\citep{UCR}.
-\item Applying SVD  as a preprocessing step has no effect on the accuracy on the algorithm  but  reduces the run time of the classifier. Thus using Bishop's\citep{bishop2006pattern} formulation, we can use SVD to reduce the time complexity of clustering/classification algorithms  for high dimensional time series datasets that satisfy the constraint identified by Korn\citep{Korn1997}.
-\item 1NN classifier equipped with euclidean metric achieves very high accuracy for the Cinc\_TORSO\_ECG dataset. The similarity of intra class  sequences  for this dataset can be classified fairly accurately by performing only a linear match of their temporal dimensions. From this observation, we can conclude sequences belonging to the same class   tend to  share the similar \textbf{time localised }i.e time aligned local  and global trends.
+\item Applying SVD  as a preprocessing step has no effect on the accuracy on the 1NN classifier but succeeds in reducing the run time of the classifier. Thus using Bishop's\citep{bishop2006pattern} formulation, we can use SVD to reduce the time complexity of clustering/classification algorithms  for high dimensional time series datasets that satisfy the constraints identified by Korn\citep{Korn1997}.
+\item 1NN classifier equipped with Euclidean metric achieves very high accuracy for the Cinc\_TORSO\_ECG dataset. The similarity of intra class  sequences  for this dataset can be classified fairly accurately by performing only a linear match of their temporal dimensions. From this observation, we can conclude sequences belonging to the same class   tend to  share the similar \textbf{time localised }i.e time aligned local  and global trends.
 \item Using the euclidean metric, the 1 NN classifier is seen to achieve very low accuracy for InlineSkate dataset.This shows that unlike the Cinc\_TORSO\_ECG datasets, the intra class sequences are not aligned with respect to the time axis.
 
 \end{itemize}
 %In order to analyze a nonstationary signal, we need to determine its behavior at any individual event. Multiresolution analysis provides one means to do this. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales. T he procedure is recursive. After removing the first set of detail information from f we are left with a slightly smoothed version of f. Iteratively removing detail information progressively generates more andmore smoothed versions of f. We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire  
 \include{chap7}
-\chapter{Improving The Accuracy Of The Baseline 1NN Classifier }
-In the last chapter,  we have seen that the 1 nearest neighbour classifier using single value decomposition achieves good performance in both accuracy and run time in  classifying sequences belonging to the  Cinc\_ECG\_TORSO. The Cinc\_ECG\_TORSO is a rare example of a time series data set where  the local and global trends of intra class sequences are nearly  aligned with respect to the time axis(see figure 6.1). This allows sequences to be fairly accurately classified based only on a linear match of their temporal dimensions. 
+\chapter{Improving The Accuracy Of The Euclidean Metric  }
+In the last chapter,  we have seen that the 1 nearest neighbour classifier using single value decomposition achieves good performance in both accuracy and run time in  classifying sequences belonging to the  Cinc\_ECG\_TORSO. The Cinc\_ECG\_TORSO is a rare example of a time series data set where  the local and global trends of intra class sequences are nearly  aligned with respect to the time axis(see figure 7.1). This allows sequences to be fairly accurately classified based only on a linear match of their temporal dimensions. 
 
 For most time series data sets however, conducting linear matches of time series sequences presents a limitation. The intra class variances   will in general be very high  as sequences of the same class may vary in size, shape or speed. The InlineSkate dataset is a prime example of such a dataset. Figure 6.2 shows examples of two instances of class 2 in the InlineSkate dataset. The two  instances share the same  global trend but posses  different local trends: in the period between t= 400 to 600, the first sequence is experiencing an upward trend while the second sequence is seen to experience  a downward trend.  Performing comparison  through only a linear match of the temporal dimensions  is inappropriate in such cases as the differences in the local trends  increase the degree of dissimilarity between the two patterns. This creates the motivation to investigate feature extraction methodologies that map the sequences to a an appropriate feature space that captures information about common class  attributes such as global shape, trends etc.  In doing so we can  minimise the intra class variance of time series sequences by   allow the time series classification problem to be approached as  a general classification problem.
 
