@@ -17,7 +17,8 @@ trainData=train(:,2:end);
 function result=wavedecom(data)
   %% performs wavelet decomposition 
   [samp ,dim]=size(data);
-  result=zeros(samp,1+fix(30));
+  result=zeros(samp,1);
+  size(result)
   %result=zeros(samp,1+52);
  
   for k=1 :samp
@@ -26,9 +27,9 @@ function result=wavedecom(data)
    % y= abs(hilbert(sample(sample>0)));
     %y1= abs(hilbert(sample(sample<=0)));
     %envelope=[y -1*y1];
-    [C,L] =wavedec(sample,1,'Haar');
+    [C,L] =wavedec(sample,4,'Haar');
     %[C,L] =wavedec(envelope,14,'Haar');
-    %signal= C(1:L(1));
+    signal= C(1:L(1));
     %figure(4)
     %subplot(4,1,1)
     %plot(sample)
@@ -38,16 +39,17 @@ function result=wavedecom(data)
     %plot(signal)
     %subplot(4,1,4)
     
-    result(k,1:L(1))=C(1:L(1));
-    %result(k,1:L(1)) = compute_curvature([1:L(1)],signal);
+    %result(k,1:L(1))=C(1:L(1));
+    result(k,1:L(1)) = compute_curvature([1:L(1)],signal);
     %result(k,2:end)=C(1:dim);
   end
+   size(result)
 end
 
 function result=fourierdecom(data)
     
 [samp ,dim]=size(data);
-result=zeros(samp, fix(77));
+result=zeros(samp, fix(116));
 %result=zeros(samp,1+ dim);
   
 %result(:,1)=data(:,1);
@@ -55,7 +57,7 @@ for k=1 :samp
     sample= data(k,:);
     fouriercoeff = abs(fft(sample));
     
-    result(k,:) = fouriercoeff(1:77);
+    result(k,:) = fouriercoeff(1:116);
     %result(k,2:length(fouriercoeff)+1)=fouriercoeff;
 end
 end
@@ -66,8 +68,8 @@ testData=wavedecom(testData);
 trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
-%testData=fourierdecom(testData);
-%trainData=fourierdecom(trainData);
+testDataR=fourierdecom(testData);
+trainDataR=fourierdecom(trainData);
 
 
 DATA=[trainData;testData];
@@ -78,8 +80,7 @@ fingerprintSpace = principalcomponents(DATA);
 %testDataR= (fingerprintSpace'* testData')';
 testDataR=test(:,2:end);
 trainDataR=train(:,2:end);
-size(trainDataR)
-size(testDataR)
+
 output=zeros(1,length(test_labels));
 
 function cost=dtw(sample1,sample2)
@@ -111,8 +112,8 @@ function match= nearest_neighbours(sample,data,train_labels)
     nearestN=NaN;
     min_dist=Inf;
     for j=1 :samp
-        %dist= sum ((sample-data(j,:)).^2);
-        dist= dtw(sample,data(j,:));
+        dist= sum ((sample-data(j,:)).^2);
+        %dist= dtw(sample,data(j,:));
         if dist<min_dist
             nearestN = train_labels(j);
             min_dist=dist;

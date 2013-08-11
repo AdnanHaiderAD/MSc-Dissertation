@@ -1399,7 +1399,7 @@ To address this issue, I propose the following  4 step feature extraction method
 
 \textbf{Note}: This step should  only considered when we are working with time series datasets that have very high dimensionality.
  
-\item Apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the 95\% variation of the feature vectors in the fourier feature space.
+\item If the dimension/length of the sequences $\gg$ than the number of samples after the first 3 steps then apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the 95\% variation of the feature vectors in the fourier feature space.
 
 In the following sections, I  provide  a detail description of the procedures specified in step (ii) and step (iii) of my proposed methodology. 
 
@@ -1480,9 +1480,11 @@ The Fourier transform maps time into frequency and phase. For each frequency the
  For any time series sequence, the coefficients of the discrete fourier transform for each frequency band is computed as follows:
   \[  X_k =\sum_{i=1}^n x_n.e ^{-2\pi i k\frac{n}{N}} \]
   
- To extract global shape descriptors only the magnitudes of the fourier coefficients have been used, Since  global trends \citep{Mallet1998,Osowski2002} are preserved in the lower bands,  only the first few fourier coefficients have been considered. For the InlineSkate dataset, I have only selected the first 116 coefficients as features for nearest neighbour classification.  Using SVD, the data points are reduced to a even more compact representation. The feature vectors in 116 dimensional feature space are mapped to a smaller latent subspace that captures 95\% variation of the feature vectors.
+ To extract global shape descriptors only the magnitudes of the fourier coefficients have been used, Since  global trends \citep{Mallet1998,Osowski2002} are preserved in the lower bands,  only the first few fourier coefficients have been considered. For the InlineSkate dataset, I have only selected the first 116 coefficients as features for nearest neighbour classification.  Since the number of fourier coefficients is smaller than the number of samples, for this dataset, the 4th step i.e SVD was deemed not necessary.
  
- To investigate whether using  the 4 step feature extraction method  improves the accuracy of the 1 nearest neighbour classifier, I re-ran the experiment again on the InlineSkate  dataset but using the proposed feature extraction method as a prior preprocessing step. The details of the conducted experiment are as follows:
+
+ 
+ To investigate whether using  the 3 step feature extraction method  improves the accuracy of the 1 nearest neighbour classifier, I re-ran the experiment again on the InlineSkate  dataset but using the proposed feature extraction method as a prior preprocessing step. The details of the conducted experiment are as follows:
  
  \subsection{Experiments}
  
@@ -1492,7 +1494,7 @@ The Fourier transform maps time into frequency and phase. For each frequency the
  
 \begin{figure}[H]
   \centering
-      \includegraphics[scale=0.6]{722.jpg}
+      \includegraphics[scale=0.8]{722.jpg}
  
   \end{figure}
    \textbf{Note}: Dimensionality reduction occurs at step 1,3 and 4. Redundant features are pruned away at this steps to finally result a small set of latent factors that be used to cluster/classify inter class sequences that are distinguished by global trends.
@@ -1504,18 +1506,19 @@ The performance of 1NN classifier using  4 step feature extraction method as a p
   
    \begin{figure}[H]
   \centering
-      \includegraphics[scale=0.8]{723.jpg}
+      \includegraphics[scale=0.7]{723.jpg}
  \caption{Accuracy}
   \end{figure}
  
- \begin{table} [H]
-\begin{tabular}{|c|c|c|}
+ \begin{table}[H]
+\scalebox{0.6}{
+\begin{tabular}{|c|c|c|c|}
 \hline \\
-      & 1NN baseline &1NN using proposed feature extraction method \\
+ Dataset  & 1NN +Euclidean distance &1NN + Euclidean distance +proposed feature extraction method & 1NN +DTW metric\\
 \hline\\
-InlineSkate &  0.92s & 4.81s \\
+InlineSkate & 1.03s & 0.199s & 3.290 $\times 10^6$ \\
 \hline
-\end{tabular}
+\end{tabular}}
 \caption{Run time}
 \end{table}
 

@@ -3,7 +3,6 @@ function output = patternmatch(test,train)
 %% performs 1 nearest neighbour match after mapping the instance to latent factors using a 4 step feature extraction phase.
 
 
-tic
 
 test_labels=test(:,1);
 testData=test(:,2:end);
@@ -18,7 +17,7 @@ trainData=train(:,2:end);
 function result=wavedecom(data)
   %% performs wavelet decomposition 
   [samp ,dim]=size(data);
-  result=zeros(samp,1+fix(30));
+  result=zeros(samp,1+fix());
   %result=zeros(samp,1+52);
  
   for k=1 :samp
@@ -29,7 +28,7 @@ function result=wavedecom(data)
     %envelope=[y -1*y1];
     [C,L] =wavedec(sample,1,'Haar');
     %[C,L] =wavedec(envelope,14,'Haar');
-    %signal= C(1:L(1));
+    signal= C(1:L(1));
     %figure(4)
     %subplot(4,1,1)
     %plot(sample)
@@ -39,8 +38,8 @@ function result=wavedecom(data)
     %plot(signal)
     %subplot(4,1,4)
     
-    result(k,1:L(1))=C(1:L(1));
-    %result(k,1:L(1)) = compute_curvature([1:L(1)],signal);
+    %result(k,1:L(1))=C(1:L(1));
+    result(k,1:L(1)) = compute_curvature([1:L(1)],signal);
     %result(k,2:end)=C(1:dim);
   end
 end
@@ -75,13 +74,14 @@ DATA=[trainData;testData];
 fingerprintSpace = principalcomponents(DATA);
 
 %% projection to principal subspace
-trainDataR= (fingerprintSpace'* trainData')';
-testDataR= (fingerprintSpace'* testData')';
-%testDataR=test(:,2:end);
-%trainDataR=train(:,2:end);
-
+%trainDataR= (fingerprintSpace'* trainData')';
+%testDataR= (fingerprintSpace'* testData')';
+testDataR=test(:,2:end);
+trainDataR=train(:,2:end);
+size(trainDataR)
+size(testDataR)
 output=zeros(1,length(test_labels));
-%
+
 function cost=dtw(sample1,sample2)
         cost_matrix=zeros(length(sample1)+1,length(sample2)+1);
         
@@ -99,7 +99,7 @@ function cost=dtw(sample1,sample2)
         end
         cost = cost_matrix(end,end)/(length(sample1)+length(sample2));
 end
-tic        
+        
         
     
 
@@ -111,8 +111,8 @@ function match= nearest_neighbours(sample,data,train_labels)
     nearestN=NaN;
     min_dist=Inf;
     for j=1 :samp
-        dist= sum ((sample-data(j,:)).^2);
-        %dist= dtw(sample,data(j,:));
+        %dist= sum ((sample-data(j,:)).^2);
+        dist= dtw(sample,data(j,:));
         if dist<min_dist
             nearestN = train_labels(j);
             min_dist=dist;
@@ -127,7 +127,7 @@ end
 %perform 1 nearest neighbour
 
 
-
+tic
 
 for i=1 :length(test_labels)
     
