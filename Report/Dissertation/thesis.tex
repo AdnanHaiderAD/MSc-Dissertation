@@ -1256,7 +1256,6 @@ In such cases, it can be assumed that the coefficients of $\phi$ play a greater 
 
 To investigate whether applying wavelet decomposition prior to SVD as preprocessing step  improves the performance of the 1 nearest neighbour, I conducted the following experiment:
  
- \textbf{Objective}: Compare the performance of 1NN classifier using SVD and wavelet transform as preprocessing step VS the performance of 1NN classifier using SVD as a preprocessing step VS 1NN classifier.
  
  \textbf{Datasets}: Cinc\_ECG\_TORSO and InlineSkate
  
@@ -1288,9 +1287,10 @@ To investigate whether applying wavelet decomposition prior to SVD as preprocess
  
  \end{enumerate}
  
-\textbf{Results} 
+  The performance of 1NN classifier using SVD and wavelet transform as preprocessing step was compared with  the performance of 1NN classifier using SVD as a preprocessing step and the baseline 1NN classifier. A summary of the results are as follows:
+
+
  
- The accuracy  and the run time results incurred by 1 NN classifier at each of the 3 situations are as follows:  
  \begin{figure}[H]
   \centering
       \includegraphics[scale=0.9]{714.jpg}
@@ -1342,22 +1342,22 @@ InlineSkate &  33.82 \%&34.18\%  & 34.18\%\\
 
 The subsequence $A_j$ as I have mentioned before corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients of $A_j$ are the amplitude values of the smoothed signal. These coefficients   are constructed by averaging every two adjacent values of the approximated signal corresponding to j-1 and  can be  considered as  global trend descriptors when intra class sequences share the \textbf{same} time aligned global trends. 
 
-From the analysis above, replacing the original sequences with the smaller approximated sequences $A_j$  doesn't improve  the accuracy of the 1NN classifier for   the InlineSkate dataset. And in fact, the accuracy of the classifier decreases when we consider approximations from the lower scales i.e  j $>$4. Thus, we can conclude  that the global trends shared by intra class sequences are not localised with in the same intervals of time.  Metrics such as the euclidean will  be hence inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences
+From the analysis above, replacing the original sequences with the smaller approximated sequences $A_j$  doesn't improve  the accuracy of the 1NN classifier for   the InlineSkate dataset. And in fact, the accuracy of the classifier decreases when we consider approximations from the lower scales i.e  j $>$4. Thus, we can conclude  that the global trends shared by intra class sequences are not localised with in the \textbf{same} intervals of time.  Metrics such as the euclidean will  be hence inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences
 
-However, for datasets in which sequences of the same class  share the same time localised/aligned global trends, we can expect that applying the wavelet decomposition as prior feature extraction step to performing SVD can yield high accuracies when we conduct 1 NN classification. To  verify this assertion, I performed an additional experiment  on the UCR dataset 'Synthetic Control'.
+However, for datasets in which intra class sequences  share the same time localised/aligned global trends, we can expect that by applying the wavelet decomposition as a preprocessing step and considering the approximated part of the signal at a scale j, the accuracy of the baseline 1NN classifier can be improved. To  verify this assertion, I performed an additional experiment  on the UCR dataset 'Synthetic Control'. This dataset have been chosen because experiments have shown\citep{Xie2010} that the intra class sequences of the dataset are linked with each other through time aligned global trends.
 
-To clarify, the  objective here is to verify whether using wavelet coefficients allow the 1NN classifier equipped with the euclidean metric to  achieve better performance in terms of accuracy and speed over the  baseline 1 NN classifier and  the 1NN classifier  combined with the DTW metric. 
+
+
  
-\textbf{Dataset}: `Synthetic Control'. This dataset have been chosen because experiments have shown\citep{Xie2010} that the intra class sequences of the dataset are linked with each other through time aligned global trends.
+ 
+\textbf{Preprocessing Steps}
+
+The dimension i.e the length of the time series sequences is 60 which is very small. Hence the wavelet decomposition has been applied only up to level 1 i.e only the coefficients of $A_1$ are considered. The application of SVD was deemed not necessary for this dataset since the sequences have very small lengths.
+
+The performance of 1NN classifier using  wavelet transform as a preprocessing step was compared with  the performance of the baseline 1NN classifier and the performance of the  1NN classifier combined with the DTW metric. A summary of the results are as follows:
 
 
 
-
-\textbf{Preprocessing}
-
-The dimension i.e the length of the time series sequences is 60 which is very small. Hence the wavelet decomposition has been applied only up to level 1 i.e only the coefficients of $A_1$ are considered. Furthermore due to the low dimensionality of the time series sequences, the application of SVD was deemed not necessary.
-
-\textbf{Summary of the results are as follows:}
 
 \begin{figure}[H]
   \centering
@@ -1379,10 +1379,11 @@ Synthetic control &  0.32s & 0.30s  & 777.3s\\
 
 \textbf{Observation}
 \begin{itemize}
-\item Removing unnecessary details by smoothing the signals improves the accuracy of the 1NN classifier by 10\%. The resultant accuracy is  identical to the best accuracy achieved by combining 1NN classifier with the DTW algorithm. The run time
+\item Removing unnecessary details by smoothing the signals improves the accuracy of the 1NN classifier by 10\%. The resultant accuracy is  identical to the best accuracy achieved by combining 1NN classifier with the DTW algorithm. Furthermore, the run time of 1NN classifier using the Euclidean metric is $10^4$ times smaller than the 1NN classifier combined with the DTW metric.
 
+This proves  that by applying the  wavelet transform as a preprocessing step, the 1NN equipped with the Euclidean metric can identify intra class sequences that  roughly share the same time aligned global trends with  high accuracy without being subjected to high run times.
 
- This proves that for intra class time series sequences that share the same time aligned global trends, applying wavelet decomposition can allow sequences to be accurately compared through conducting only a linear match of their temporal dimensions.  
+ 
 \end{itemize}
 
 
@@ -1392,9 +1393,12 @@ In the previous section, we have observed that for datasets such as  the InlineS
 
 To address this issue, I propose the following  4 step feature extraction methodology to extract useful features from the InlineSkate dataset:
 \begin{enumerate}[label=\roman{*}]
-\item  Apply wavelet decomposition up to scale j and consider only the approximation part of the signal $A_j$. This achieves dimensionality reduction by pruning away unwanted details.
-\item  Replace the amplitude values  of the approximated signal with curvature values of the corresponding points(details to follow).
+\item  Apply wavelet decomposition up to scale j and consider only the approximation part of the signal $A_j$. This achieves dimensionality reduction by  pruning away unwanted details while preserving information about global trends.
+\item  Replace the amplitude value associated with each point of the approximated signal with curvature value of the smoothed signal associated with the corresponding point(details to follow).
 \item  Apply fourier transform and consider only the first half of the fourier coefficients(details to follow).
+
+\textbf{Note}: This step should  only considered when we are working with time series datasets that have very high dimensionality.
+ 
 \item Apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the 95\% variation of the feature vectors in the fourier feature space.
 
 In the following sections, I  provide  a detail description of the procedures specified in step (ii) and step (iii) of my proposed methodology. 
@@ -1432,7 +1436,7 @@ To extract features that capture the \textbf{ shape} of the dominant trends in a
 
   To compute the  curvature estimates at each point in a  time series sequence, I  have fitted a \textbf{smoothed cubic spline} to each sequence. A spline is a   polynomial function that is piecewise-defined, and possesses a high degree of smoothness at the places where the polynomial pieces connect \cite{Boor1978}. A cubic spline is a  specific type of spline which is  constructed using piecewise  polynomials of order 3. 
  
-Although applying the wavelet decomposition reduces the degree of noise, fitting a cubic spline directly on the sequences  will still not be ideal as the approximated signals may still have jagged regions as shown by figure 7.6. The figure shows the approximated  signal and its associated fitted curve of an instance in the InlineSkate dataset. To overcome this issue, I have thus applied smoothed cubic spline to fit smooth curve to each sequence(given by the blue plot in the figure) .
+Although applying the wavelet decomposition reduces the degree of noise, fitting a cubic spline directly on the sequences  will still not be ideal as the approximated signals may still have jagged regions as shown by figure 7.6. The figure shows the approximated  signal and its associated fitted curve of an instance in the InlineSkate dataset. To overcome this issue, I have thus applied smoothed cubic spline to fit smooth curve to each sequence(given by the blue plot in figure 7.6) .
   
 \begin{figure}[H]
   \centering
@@ -1446,17 +1450,18 @@ Although applying the wavelet decomposition reduces the degree of noise, fitting
 \lambda \sum_{i=1}^n \{ y_i - \hat g(x_i) \}^2 + (1-\lambda) \int_a^b \{\hat g''(t)\}^2 \,
 dt
 \]
-where $\lambda$ is a fixed constant
+where  $\lambda \in[0,1]$
 
 \begin{itemize}
 \item As $\lambda \to 1$,the smoothing spline converges to the interpolating spline. 
 \item As $\lambda \to 0$,the roughness penalty becomes paramount and the estimate converges to a linear least squares estimate.
 \end{itemize}
 
-The critical parameter here is $\lambda$. The values of $\lambda$ determines the nature of the fit. For the sequences in the  InLineSkate dataset, exact fitting is unnecessary as the sequences have jagged regions in them. Ideally, we want to choose a value of  $\lambda$ that allows the estimated curvatures to directly correlate with significant events/trends in the time series sequence. 
+The critical parameter here is $\lambda$ and it's value determines the nature of the fit. For the sequences in the  InLineSkate dataset, exact fitting is unnecessary as the sequences have jagged regions in them. Ideally, we want to choose a value of  $\lambda$ that allows the estimated curvatures to directly correlate with significant events/trends in the time series sequence. 
 
- For my analysis, I have chosen the value of 0.2.  Through conducting experiments, I have observed that  setting $\lambda$ to this value allows the computed curvatures to reflect significant events in the time series sequence as shown in figure 7.7. The plots correspond to an instance of class '7' from the InlineSkate dataset. The left hand plot corresponds to the  raw signal while the righthand plot represents   the curvatures computed at each of the time stamps. From the observation of the figure, it can be seen that the computed curvatures do reflect information about significant events in the time series sequence. At the global maximum, the  curvature  estimate of the corresponding point is close to 0 while the peak value on the curvature plot  at t=1650 is in accordance with the sharp bend in the time series curve  at the same time.
-\begin{figure}[H]
+ For my analysis, I have chosen the value of 0.2.  Through conducting experiments, I have observed that  setting $\lambda$ to this value allows the computed curvatures to reflect significant events in the time series sequence. An illustration of this can be seen  in figure 7.7. The plots correspond to an instance of class '7' from the InlineSkate dataset. The left hand plot corresponds to the approximated signal $A_4$ extracted through wavelet decomposition  while the righthand plot represents   the curvatures computed at each of the time stamps. From the observation of the figure, it can be seen that the computed curvatures do reflect information about significant events in the time series sequence. For instance the peak value on the curvature plot at t=148  is in accordance with the sharp bend of the signal at that time.
+ 
+ \begin{figure}[H]
   \centering
       \includegraphics[scale=0.5]{721.jpg}
   \caption{The left hand plot represents the time series sequence while the right plot corresponds to curvatures computed at each point in the time series sequence}
@@ -1466,30 +1471,36 @@ The critical parameter here is $\lambda$. The values of $\lambda$ determines the
   
   \textbf{Step 2: Extract features that reflect the global shape}
   
-  The main objective here is to extract features that reflect the \textbf{global} shape of the time series sequence.  Although applying the wavelet decomposition reduces the dimension (i.e the length) to $\frac{1}{16}$ of the original length, the resultant sequences especially in the case of high dimensional time series sequences may still be long enough to retain some local trends. The above mechanism embeds  the  information of local curvatures to each point of the time series sequence. Hence for datasets where intra class sequences are connected by just by global trends, the curvature associated local trends increases the intra class variance. But what we are really interested in is in the extraction of  global shape descriptors. The shapes of the global trends  of  a signal are preserved in the low frequency bands while the  higher frequency bands encode information of local  shapes \citep{Osowski2002}. Thus, to extract global shape descriptors, I have applied the discrete fourier transform\citep{Bracewell1986} on the extracted curvature  sequences. 
+  The main objective here is to extract features that reflect the \textbf{global} shape of the time series sequence.  Although applying the wavelet decomposition reduces the dimension (i.e the length) to $\frac{1}{16}$ of the original length, the resultant sequences especially in the case of \textbf{high} dimensional time series sequences may still be long enough to retain some local trends. The above mechanism embeds  the  information of local curvatures to each point of the time series sequence. Hence for datasets where intra class sequences are connected by just by global trends, the curvature associated local trends may increase the intra class variance. 
   
-The Fourier transform maps time into frequency and phase. For each frequency the fourier transform yields an amplitude and a phase value. Thus, the transform captures the behaviour of the signal at different frequency band. Since the amplitudes represent curvature values estimated at step 1, the fourier transform therefore capture the \textbf{behaviour} of the shape of the signal  at different \textbf{frequency} bands.  The curvature-sequences can now be represented as the sum of sine and cosine  waves whose phase and `amplitude' are given by the fourier transform.
+  What we are really interested in is in the extraction of  global shape descriptors. The shapes of the global trends  of  a signal are preserved in the low frequency bands while the  higher frequency bands encode information of local  shapes \citep{Osowski2002}. Thus, to extract global shape descriptors, I have applied the discrete fourier transform\citep{Bracewell1986} on the extracted curvature  sequences. 
+  
+The Fourier transform maps time into frequency and phase. For each frequency the fourier transform yields an amplitude and a phase value. Thus, the transform captures the behaviour of the signal at different frequency band. Since the amplitudes represent curvature values estimated at step 1, the fourier transform therefore capture the behaviour of the \textbf{shape} of the signal  at different \textbf{frequency} bands.  The curvature-sequences can now be represented as the sum of sine and cosine  waves whose phase and `amplitude' are given by the fourier transform.
  
  For any time series sequence, the coefficients of the discrete fourier transform for each frequency band is computed as follows:
   \[  X_k =\sum_{i=1}^n x_n.e ^{-2\pi i k\frac{n}{N}} \]
   
- To extract global shape descriptors only the magnitudes of the fourier coefficients have been used, Since  global trends \citep{Mallet1998,Osowski2002} are preserved in the lower bands,  only the first few fourier coefficients have been considered. For the InlineSkate dataset, I have only selected the first 116 coefficients as features for nearest neighbour classification.  The set of features are reduced by SVD to a smaller latent feature set that maps the data points in the k (k=116 in the case for the InlineSkate dataset)dimensional fourier feature space to orthogonal plane that maximises the variance of the feature vectors.
-  
-  
- To summarise, for the InlineSkate dataset, the 4 step feature extraction methodology can represented as follows:
- \begin{figure}[H]
+ To extract global shape descriptors only the magnitudes of the fourier coefficients have been used, Since  global trends \citep{Mallet1998,Osowski2002} are preserved in the lower bands,  only the first few fourier coefficients have been considered. For the InlineSkate dataset, I have only selected the first 116 coefficients as features for nearest neighbour classification.  Using SVD, the data points are reduced to a even more compact representation. The feature vectors in 116 dimensional feature space are mapped to a smaller latent subspace that captures 95\% variation of the feature vectors.
+ 
+ To investigate whether using  the 4 step feature extraction method  improves the accuracy of the 1 nearest neighbour classifier, I re-ran the experiment again on the InlineSkate  dataset but using the proposed feature extraction method as a prior preprocessing step. The details of the conducted experiment are as follows:
+ 
+ \subsection{Experiments}
+ 
+ \textbf{Dataset used:} InLineSkate dataset
+ 
+ \textbf{Preprocessing step}
+ 
+\begin{figure}[H]
   \centering
       \includegraphics[scale=0.6]{722.jpg}
  
   \end{figure}
    \textbf{Note}: Dimensionality reduction occurs at step 1,3 and 4. Redundant features are pruned away at this steps to finally result a small set of latent factors that be used to cluster/classify inter class sequences that are distinguished by global trends.
  
+The performance of 1NN classifier using  4 step feature extraction method as a preprocessing step was compared with  the performance of the baseline 1NN classifier and the performance of the  1NN classifier combined with the DTW metric. A summary of the results are as follows:
 
-  
- \subsection{Experimental results}
- 
- 
-  To investigate whether using  this model improves the accuracy of the 1 nearest neighbour classifier, I re-ran the experiment again on the InlineSkate  dataset but using the proposed feature extraction method as a prior preprocessing step.   The accuracy results were compared with the accuracy of the  base line 1 nearest classifier which employs no preprocessing technique and the highest recorded accuracy of the DTW algorithm\citep{UCR} for this dataset. A summary of the results is as follows:
+
+
   
    \begin{figure}[H]
   \centering
