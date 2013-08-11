@@ -30,5 +30,6 @@
 \contentsline {subsection}{\numberline {7.2.1}Motivation for curvature based features}{73}
 \contentsline {subsection}{\numberline {7.2.2}Extracting curvature based features}{73}
 \contentsline {subsection}{\numberline {7.2.3}Experiments}{77}
-\contentsline {chapter}{\numberline {8}Things to do}{81}
-\contentsline {chapter}{Bibliography}{82}
+\contentsline {section}{\numberline {7.3}Conclusion}{81}
+\contentsline {chapter}{\numberline {8}Things to do}{82}
+\contentsline {chapter}{Bibliography}{83}

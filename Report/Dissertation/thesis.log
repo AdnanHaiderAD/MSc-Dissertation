@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  11 AUG 2013 20:57
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  11 AUG 2013 22:27
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -934,29 +934,34 @@ Missing character: There is no Õ in font pplr9t!
  <726.jpg, id=316, 967.615pt x 439.6425pt>
 File: 726.jpg Graphic file (type jpg)
  <use 726.jpg>
-Package pdftex.def Info: 726.jpg used on input line 1549.
+Package pdftex.def Info: 726.jpg used on input line 1556.
 (pdftex.def)             Requested size: 483.80632pt x 219.82071pt.
 
-Overfull \hbox (71.24135pt too wide) in paragraph at lines 1549--1550
+Overfull \hbox (71.24135pt too wide) in paragraph at lines 1556--1557
  [][] 
  []
 
 [79]
-Overfull \hbox (27.35492pt too wide) in paragraph at lines 1558--1566
+Overfull \hbox (7.92694pt too wide) in paragraph at lines 1566--1574
  [][] 
  []
 
-[80 <./726.jpg>]
+
+Overfull \hbox (7.92694pt too wide) in paragraph at lines 1579--1587
+ [][] 
+ []
+
+[80 <./726.jpg>] [81]
 Chapter 8.
-(./thesis.bbl [81
+(./thesis.bbl [82
 
-] [82
+] [83
 
-] [83] [84]
+] [84] [85]
 Missing character: There is no â in font pplr9t!
 Missing character: There is no € in font pplr9t!
 Missing character: There is no ” in font pplr9t!
-) [85] (./thesis.aux (./chapter1.aux)
+) [86] (./thesis.aux (./chapter1.aux)
 (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux) (./chap5.aux)
 (./chap7.aux))
 
@@ -985,10 +990,10 @@ rw/helvetic/uhvro8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/pal
 atino/uplb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/u
 plr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/uplri8a.
 pfb>
-Output written on thesis.pdf (91 pages, 2865378 bytes).
+Output written on thesis.pdf (92 pages, 2867498 bytes).
 PDF statistics:
- 387 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
+ 390 PDF objects out of 1000 (max. 8388607)
+ 245 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  53424 words of extra memory for PDF output out of 61914 (max. 10000000)
 

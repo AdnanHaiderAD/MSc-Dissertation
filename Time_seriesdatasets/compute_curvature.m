@@ -1,6 +1,6 @@
 function kappa= compute_curvature(x,y)
 %s=spline(x,y);
- s= csaps(x,y,0.2);
+ s= csaps(x,y,0.35);
 % first derivative, pp form
 s1 = s;
 s1.order = s.order-1; 

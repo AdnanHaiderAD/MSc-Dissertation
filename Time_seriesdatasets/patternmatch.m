@@ -27,7 +27,7 @@ function result=wavedecom(data)
    % y= abs(hilbert(sample(sample>0)));
     %y1= abs(hilbert(sample(sample<=0)));
     %envelope=[y -1*y1];
-    [C,L] =wavedec(sample,4,'Haar');
+    [C,L] =wavedec(sample,3,'Haar');
     %[C,L] =wavedec(envelope,14,'Haar');
     signal= C(1:L(1));
     %figure(4)
@@ -64,12 +64,12 @@ end
 
 
 %%perform wavelet decomposition: feature extraction
-testData=wavedecom(testData);
-trainData=wavedecom(trainData);
+testDataR=wavedecom(testData);
+trainDataR=wavedecom(trainData);
 
 %% perform fourier transfor,
-testDataR=fourierdecom(testData);
-trainDataR=fourierdecom(trainData);
+%testDataR=fourierdecom(testData);
+%trainDataR=fourierdecom(trainData);
 
 
 DATA=[trainData;testData];
@@ -112,8 +112,8 @@ function match= nearest_neighbours(sample,data,train_labels)
     nearestN=NaN;
     min_dist=Inf;
     for j=1 :samp
-        dist= sum ((sample-data(j,:)).^2);
-        %dist= dtw(sample,data(j,:));
+        %dist= sum ((sample-data(j,:)).^2);
+        dist= dtw(sample,data(j,:));
         if dist<min_dist
             nearestN = train_labels(j);
             min_dist=dist;
