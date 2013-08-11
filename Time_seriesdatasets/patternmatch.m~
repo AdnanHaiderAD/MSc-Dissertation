@@ -18,7 +18,7 @@ trainData=train(:,2:end);
 function result=wavedecom(data)
   %% performs wavelet decomposition 
   [samp ,dim]=size(data);
-  result=zeros(samp,1+fix(dim/2));
+  result=zeros(samp,1+fix(30));
   %result=zeros(samp,1+52);
  
   for k=1 :samp
@@ -27,7 +27,7 @@ function result=wavedecom(data)
    % y= abs(hilbert(sample(sample>0)));
     %y1= abs(hilbert(sample(sample<=0)));
     %envelope=[y -1*y1];
-    [C,L] =wavedec(sample,17,'Haar');
+    [C,L] =wavedec(sample,1,'Haar');
     %[C,L] =wavedec(envelope,14,'Haar');
     %signal= C(1:L(1));
     %figure(4)
@@ -39,7 +39,7 @@ function result=wavedecom(data)
     %plot(signal)
     %subplot(4,1,4)
     
-    result(k,1:L(end-1))=C(1:L(end-1));
+    result(k,1:L(1))=C(1:L(1));
     %result(k,1:L(1)) = compute_curvature([1:L(1)],signal);
     %result(k,2:end)=C(1:dim);
   end
@@ -77,33 +77,31 @@ fingerprintSpace = principalcomponents(DATA);
 %% projection to principal subspace
 trainDataR= (fingerprintSpace'* trainData')';
 testDataR= (fingerprintSpace'* testData')';
-testDataR=test(:,2:end);
-trainDataR=train(:,2:end);
+%testDataR=test(:,2:end);
+%trainDataR=train(:,2:end);
 
 output=zeros(1,length(test_labels));
-
-tic
-
-    function cost=dtw(sample1,sample2)
-        cost_matrix=zeros(length(sample1),length(sample2));
+%
+function cost=dtw(sample1,sample2)
+        cost_matrix=zeros(length(sample1)+1,length(sample2)+1);
         
-        for i=1:length(sample1)
-           cost_matrix(i,1)=Inf;
+        for k=2:length(sample1)+1
+           cost_matrix(k,1)=Inf;
         end
-        for j=1:length(sample2)
+        for j=2:length(sample2)+1
             cost_matrix(1,j)=Inf;
         end
-        cost(1,1)=0;
-        for i=2:length(sample1)+1
-        for j-2:length(sample2)+1
-            cost_matrix(i,j)= (sample1(i)-sample2(j)).^2 + min([cost_matrix(i-1,j),cost_matrix(i-1,j-1),cost_matrix(i,j-1)]);
+        cost_matrix(1,1)=0;
+        for k=2:length(sample1)+1
+        for j=2:length(sample2)+1
+            cost_matrix(k,j)= (sample1(k-1)-sample2(j-1)).^2 + min([cost_matrix(k-1,j),cost_matrix(k-1,j-1),cost_matrix(k,j-1)]);
         end
         end
         cost = cost_matrix(end,end)/(length(sample1)+length(sample2));
+end
+tic        
         
-        
-        
-    end
+    
 
 
 
@@ -121,15 +119,18 @@ function match= nearest_neighbours(sample,data,train_labels)
         end
     end
     match =nearestN;
+
+
 end
 
 
 %perform 1 nearest neighbour
+
+
+
+
 for i=1 :length(test_labels)
-    if toc>300
-        time=time+toc;
-        tic
-    end
+    
     match =nearest_neighbours(testDataR(i,:),trainDataR,train_labels);
     if match ==test_labels(i)
         output(i)=1;

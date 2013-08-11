@@ -1256,11 +1256,13 @@ In such cases, it can be assumed that the coefficients of $\phi$ play a greater 
 
 To investigate whether applying wavelet decomposition prior to SVD as preprocessing step  improves the performance of the 1 nearest neighbour, I conducted the following experiment:
  
+ \textbf{Objective}: Compare the performance of 1NN classifier using SVD and wavelet transform as preprocessing step VS the performance of 1NN classifier using SVD as a preprocessing step VS 1NN classifier.
+ 
  \textbf{Datasets}: Cinc\_ECG\_TORSO and InlineSkate
  
  \textbf{Distance metric used}: Euclidean distance
  
- \textbf{Objective}: Compare the performance of 1NN classifier using SVD and wavelet transform as preprocessing step VS the performance of 1NN classifier using SVD as a preprocessing step VS 1NN classifier.
+
  
  \textbf{Preprocessing}: Wavelet decomposition followed by the single value decomposition procedure discussed in 6.3. 
  
@@ -1278,7 +1280,7 @@ To investigate whether applying wavelet decomposition prior to SVD as preprocess
 
  \item Step 2: Extracting latent features from wavelet coefficients
  
- As I have mentioned in the previous section, the wavelet  transform can be seen as a series of averaging and differencing operations on a discrete time function.  At the first level, the discrete function is decomposed into  two subsequences \{$A_1$\} and \{$D_1$\} of equal length. The  coefficients of $A_1$ represent the amplitudes of the smoothed signal obtained by averaging every two adjacent values of the original signal. The process is recursive and decomposition is applied again on the approximated signal to separate even more coarser details . Thus after level  j of the wavelet decomposition, we obtain a smooth  signal that is $2^{-j}$ smaller than the original sequences. 
+ As I have mentioned in the previous section, the wavelet  transform can be seen as a series of averaging and differencing operations on a discrete time function.  At the first level, the discrete function is decomposed into  two subsequences \{$A_1$\} and \{$D_1$\} of equal length. The  coefficients of $A_1$ represent the amplitudes of the smoothed signal obtained by averaging every two adjacent values of the original signal. The process is recursive and decomposition is applied again on the approximated signal to separate even more coarser details . Thus after level  j of the wavelet decomposition, we obtain a smooth  signal that is $2^{-j}$ smaller than the original sequence. 
  
  For the InlineSkate and Cinc\_ECG\_TORSO datasets, the sequences within each dataset share the same length. Thus the resultant data matrix constructed using the coefficients extracted from the wavelet decomposition will be full but however in the case of Cinc\_ECG\_TORSO dataset,  the number of columns(this corresponds to the dimension of the data) will be reduced to half, while for the InlineSkate dataset, the number of columns will reduced to $2^{-4}$.  SVD is then applied to each of the data matrix to extract latent features that capture 95\% variation of the data in  the constructed wavelet feature space. 
  
@@ -1338,22 +1340,49 @@ InlineSkate &  33.82 \%&34.18\%  & 34.18\%\\
 
 \end{itemize}
 
-The sequence $A_j$ as I have mentioned before corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients of $A_j$ are the amplitude values of the smoothed signal. These coefficients   are constructed by averaging every two adjacent values of the approximated signal corresponding to j-1 and  can be  considered as  global trend descriptors when intra class sequences share the \textbf{same} time aligned global trends. 
+The subsequence $A_j$ as I have mentioned before corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients of $A_j$ are the amplitude values of the smoothed signal. These coefficients   are constructed by averaging every two adjacent values of the approximated signal corresponding to j-1 and  can be  considered as  global trend descriptors when intra class sequences share the \textbf{same} time aligned global trends. 
 
-From our analysis above, we have seen that  the coefficients of the approximated signal $A_j$ in the case of  the InlineSkate dataset doesn't improve  the accuracy of the 1NN classifier and in fact lowers the accuracy of the classifier when j $>$4. Thus, we can conclude  that the global trends shared by intra class sequences are not localised with in the same intervals of time.  Metrics such as the euclidean will  be hence inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences
+From the analysis above, replacing the original sequences with the smaller approximated sequences $A_j$  doesn't improve  the accuracy of the 1NN classifier for   the InlineSkate dataset. And in fact, the accuracy of the classifier decreases when we consider approximations from the lower scales i.e  j $>$4. Thus, we can conclude  that the global trends shared by intra class sequences are not localised with in the same intervals of time.  Metrics such as the euclidean will  be hence inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences
 
-However, for datasets in which sequences of the same class  share the same time localised/aligned global trends, we can expect that applying the wavelet decomposition as prior feature extraction step to performing SVD can yield high accuracies when we conduct 1 NN classification. To  verify this assertion, I performed an additional experiment where I ran the baseline 1NN classifier using our two step feature extraction approach on the UCR dataset `Synthetic Control'\citep{UCR} and compared the classifier's accuracy against the accuracy of the baseline 1NN classifier and the  best accuracy of 1NN classifier using the DTW algorithm\citep{Xie2010}. The 'Synthetic Control' dataset have been chosen because experiments have shown\citep{Xie2010} that the intra class sequences of the dataset are linked with each other through time aligned global trends.
+However, for datasets in which sequences of the same class  share the same time localised/aligned global trends, we can expect that applying the wavelet decomposition as prior feature extraction step to performing SVD can yield high accuracies when we conduct 1 NN classification. To  verify this assertion, I performed an additional experiment  on the UCR dataset 'Synthetic Control'.
+
+To clarify, the  objective here is to verify whether using wavelet coefficients allow the 1NN classifier equipped with the euclidean metric to  achieve better performance in terms of accuracy and speed over the  baseline 1 NN classifier and  the 1NN classifier  combined with the DTW metric. 
+ 
+\textbf{Dataset}: `Synthetic Control'. This dataset have been chosen because experiments have shown\citep{Xie2010} that the intra class sequences of the dataset are linked with each other through time aligned global trends.
+
+
+
+
+\textbf{Preprocessing}
+
+The dimension i.e the length of the time series sequences is 60 which is very small. Hence the wavelet decomposition has been applied only up to level 1 i.e only the coefficients of $A_1$ are considered. Furthermore due to the low dimensionality of the time series sequences, the application of SVD was deemed not necessary.
 
 \textbf{Summary of the results are as follows:}
 
 \begin{figure}[H]
   \centering
-      \includegraphics[scale=0.6]{724.jpg}
+      \includegraphics[scale=0.7]{724.jpg}
   \caption{Accuracy}
   \end{figure}
+  
+  \begin{table} [H]
+ \centering
+\begin{tabular}{|c|c|c|c|}
+\hline \\
+   Dataset   & 1NN +Euclidean & 1 NN +Euclidean + Wavelet&1 NN +DTW\\
+\hline\\
+Synthetic control &  0.32s & 0.30s  & 777.3s\\
+\hline
+\end{tabular}
+\caption{The run time}
+\end{table}
+
 \textbf{Observation}
 \begin{itemize}
-\item Removing unnecessary details by smoothing the signals improves the accuracy of the 1NN classifier by 10\%. The resultant accuracy is almost identical to the best accuracy achieved by combining 1NN classifier with the DTW algorithm. This proves that for intra class time series sequences that share the same time aligned global trends, applying wavelet decomposition can allow sequences to be accurately compared through conducting only a linear match of their temporal dimensions.  
+\item Removing unnecessary details by smoothing the signals improves the accuracy of the 1NN classifier by 10\%. The resultant accuracy is  identical to the best accuracy achieved by combining 1NN classifier with the DTW algorithm. The run time
+
+
+ This proves that for intra class time series sequences that share the same time aligned global trends, applying wavelet decomposition can allow sequences to be accurately compared through conducting only a linear match of their temporal dimensions.  
 \end{itemize}
 
 

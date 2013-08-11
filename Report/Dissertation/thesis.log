@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  11 AUG 2013 16:21
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  11 AUG 2013 17:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -877,81 +877,86 @@ Overfull \hbox (34.31122pt too wide) in paragraph at lines 1255--1256
 File: 714.jpg Graphic file (type jpg)
 
 <use 714.jpg>
-Package pdftex.def Info: 714.jpg used on input line 1297.
+Package pdftex.def Info: 714.jpg used on input line 1299.
 (pdftex.def)             Requested size: 378.54677pt x 290.95631pt.
 
-Overfull \hbox (31.78288pt too wide) in paragraph at lines 1301--1309
+Overfull \hbox (31.78288pt too wide) in paragraph at lines 1303--1311
 [][] 
  []
 
-[67] [68 <./714.jpg>] [69] <724.jpg, id=283, 417.2388pt x 345.4506pt>
+[67] [68 <./714.jpg>] [69] <724.jpg, id=283, 417.7206pt x 344.0052pt>
 File: 724.jpg Graphic file (type jpg)
 
 <use 724.jpg>
-Package pdftex.def Info: 724.jpg used on input line 1354.
-(pdftex.def)             Requested size: 250.3452pt x 207.27196pt.
- [70 <./724.jpg>] [71] [72]
-<725.jpg, id=293, 454.69875pt x 419.5675pt>
-File: 725.jpg Graphic file (type jpg)
- <use 725.jpg>
-Package pdftex.def Info: 725.jpg used on input line 1413.
-(pdftex.def)             Requested size: 272.82135pt x 251.74243pt.
- [73 <./725.jpg>]
-<721.jpg, id=298, 945.5325pt x 413.545pt>
-File: 721.jpg Graphic file (type jpg)
- <use 721.jpg>
-Package pdftex.def Info: 721.jpg used on input line 1435.
-(pdftex.def)             Requested size: 472.76509pt x 206.77199pt.
-
-Overfull \hbox (60.20012pt too wide) in paragraph at lines 1435--1436
+Package pdftex.def Info: 724.jpg used on input line 1367.
+(pdftex.def)             Requested size: 292.40242pt x 240.80199pt.
+ [70]
+Overfull \hbox (33.24695pt too wide) in paragraph at lines 1373--1380
  [][] 
  []
 
-[74 <./721.jpg>] [75] <722.jpg, id=305, 418.2024pt x 243.7908pt>
-File: 722.jpg Graphic file (type jpg)
- <use 722.jpg>
-Package pdftex.def Info: 722.jpg used on input line 1456.
-(pdftex.def)             Requested size: 250.92337pt x 146.2756pt.
+[71 <./724.jpg>] [72] [73] <725.jpg, id=297, 454.69875pt x 419.5675pt>
+File: 725.jpg Graphic file (type jpg)
 
-<723.jpg, id=306, 451.4466pt x 378.213pt>
+<use 725.jpg>
+Package pdftex.def Info: 725.jpg used on input line 1442.
+(pdftex.def)             Requested size: 272.82135pt x 251.74243pt.
+ <721.jpg, id=298, 945.5325pt x 413.545pt>
+File: 721.jpg Graphic file (type jpg)
+ <use 721.jpg>
+Package pdftex.def Info: 721.jpg used on input line 1464.
+(pdftex.def)             Requested size: 472.76509pt x 206.77199pt.
+
+Overfull \hbox (60.20012pt too wide) in paragraph at lines 1464--1465
+ [][] 
+ []
+
+[74 <./725.jpg>] [75 <./721.jpg>] <722.jpg, id=305, 418.2024pt x 243.7908pt>
+File: 722.jpg Graphic file (type jpg)
+
+<use 722.jpg>
+Package pdftex.def Info: 722.jpg used on input line 1485.
+(pdftex.def)             Requested size: 250.92337pt x 146.2756pt.
+ [76] <723.jpg, id=309, 451.4466pt x 378.213pt>
 File: 723.jpg Graphic file (type jpg)
  <use 723.jpg>
-Package pdftex.def Info: 723.jpg used on input line 1470.
+Package pdftex.def Info: 723.jpg used on input line 1499.
 (pdftex.def)             Requested size: 361.15776pt x 302.5708pt.
- [76 <./722.jpg>]
-Overfull \hbox (9.94293pt too wide) in paragraph at lines 1475--1482
+
+[77 <./722.jpg>]
+Overfull \hbox (9.94293pt too wide) in paragraph at lines 1504--1511
 [][] 
  []
 
-[77 <./723.jpg>]
+[78 <./723.jpg>]
 Missing character: There is no Õ in font pplr9t!
 Missing character: There is no Õ in font pplr9t!
- <726.jpg, id=313, 967.615pt x 439.6425pt>
+ <726.jpg, id=316, 967.615pt x 439.6425pt>
 File: 726.jpg Graphic file (type jpg)
  <use 726.jpg>
-Package pdftex.def Info: 726.jpg used on input line 1506.
+Package pdftex.def Info: 726.jpg used on input line 1535.
 (pdftex.def)             Requested size: 483.80632pt x 219.82071pt.
 
-Overfull \hbox (71.24135pt too wide) in paragraph at lines 1506--1507
+Overfull \hbox (71.24135pt too wide) in paragraph at lines 1535--1536
  [][] 
  []
 
-[78]
-Overfull \hbox (27.35492pt too wide) in paragraph at lines 1515--1523
+[79]
+Overfull \hbox (27.35492pt too wide) in paragraph at lines 1544--1552
  [][] 
  []
 
-[79 <./726.jpg>]
+[80 <./726.jpg>]
 Chapter 8.
-(./thesis.bbl [80
+(./thesis.bbl [81
 
-] [81
+] [82
 
-] [82] [83]
+] [83] [84]
 Missing character: There is no â in font pplr9t!
 Missing character: There is no € in font pplr9t!
 Missing character: There is no ” in font pplr9t!
-) [84] (./thesis.aux (./chapter1.aux)
+) [85] (./thesis.aux (./chapter1.aux)
 (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux) (./chap5.aux)
 (./chap7.aux))
 
@@ -980,10 +985,10 @@ rw/helvetic/uhvro8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/pal
 atino/uplb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/u
 plr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/uplri8a.
 pfb>
-Output written on thesis.pdf (90 pages, 2902216 bytes).
+Output written on thesis.pdf (91 pages, 2904815 bytes).
 PDF statistics:
- 383 PDF objects out of 1000 (max. 8388607)
- 240 compressed objects within 3 object streams
+ 387 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  53424 words of extra memory for PDF output out of 61914 (max. 10000000)
 
