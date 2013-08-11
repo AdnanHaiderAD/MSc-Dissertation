@@ -1146,8 +1146,8 @@ InlineSkate &  34.18 & 34.18 \\
 \hline \\
       & SVD+1NN classifier &1NN classiifer \\
 \hline\\
-Cinc\_ECG\_TORSO & 6.60s & 6.67s \\
-InlineSkate &  1.27s& 1.56s \\
+Cinc\_ECG\_TORSO & 0.77s & 0.88s \\
+InlineSkate &  0.48s& 1.03s \\
 \hline
 
 \end{tabular}
@@ -1168,11 +1168,11 @@ Note: The time complexity associated with the Euclidean metric is \textbf{O}(N) 
 %In order to analyze a nonstationary signal, we need to determine its behavior at any individual event. Multiresolution analysis provides one means to do this. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales. T he procedure is recursive. After removing the first set of detail information from f we are left with a slightly smoothed version of f. Iteratively removing detail information progressively generates more andmore smoothed versions of f. We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire  
 \include{chap7}
 \chapter{Improving The Accuracy Of The Euclidean Metric  }
-In the last chapter,  we have seen that the 1 nearest neighbour classifier using single value decomposition achieves good performance in both accuracy and run time in  classifying sequences belonging to the  Cinc\_ECG\_TORSO. The Cinc\_ECG\_TORSO is a rare example of a time series data set where  the local and global trends of intra class sequences are nearly  aligned with respect to the time axis(see figure 7.1). This allows sequences to be fairly accurately classified based only on a linear match of their temporal dimensions. 
+In the last chapter,  we have seen that the 1 nearest neighbour classifier combined using  the Euclidean metric achieves good performance in both accuracy and run time in  classifying sequences belonging to the  Cinc\_ECG\_TORSO if applies single value decomposition as a preprocessing step. The Cinc\_ECG\_TORSO is a rare example of a time series data set where  the local and global trends of intra class sequences are nearly  aligned with respect to the time axis(see figure 7.2). This allows sequences to be fairly accurately classified based only on a linear match of their temporal dimensions. 
 
-For most time series data sets however, conducting linear matches of time series sequences presents a limitation. The intra class variances   will in general be very high  as sequences of the same class may vary in size, shape or speed. The InlineSkate dataset is a prime example of such a dataset. Figure 6.2 shows examples of two instances of class 2 in the InlineSkate dataset. The two  instances share the same  global trend but posses  different local trends: in the period between t= 400 to 600, the first sequence is experiencing an upward trend while the second sequence is seen to experience  a downward trend.  Performing comparison  through only a linear match of the temporal dimensions  is inappropriate in such cases as the differences in the local trends  increase the degree of dissimilarity between the two patterns. This creates the motivation to investigate feature extraction methodologies that map the sequences to a an appropriate feature space that captures information about common class  attributes such as global shape, trends etc.  In doing so we can  minimise the intra class variance of time series sequences by   allow the time series classification problem to be approached as  a general classification problem.
+For most time series data sets however, conducting linear matches of time series sequences presents a limitation. The intra class variances   will in general be very high  as sequences of the same class may vary in size, shape or speed. The InlineSkate dataset is a prime example of such a dataset. Figure 7.1 shows examples of two instances of class 2 in the InlineSkate dataset. The two  instances share the same  global trend but posses  different local trends: in the period between t= 400 to 600, the first sequence is experiencing an upward trend while the second sequence is seen to experience  a downward trend.  Performing comparison  through only a linear match of the temporal dimensions  is inappropriate in such cases as the differences in the local trends  increase the degree of dissimilarity between the two patterns. This creates the motivation to investigate feature extraction methodologies that map the sequences to a an appropriate feature space that captures information about common class  attributes such as global shape, trends etc.  In doing so we can  minimise the intra class variance of time series sequences and    allow the time series classification problem to be approached as  a general classification problem.
 
- The focus of this chapter is to explore  feature extraction techniques that can  capture information about the \textbf{global shape} of time series sequences. In the first half of this chapter, I will be exploring wavelet-based feature extraction techniques and will subsequently look into how they can be used alongside  SVD to improve the accuracy of the 1 nearest neighbour classifier for datasets that share the same time localised trends.  While, in the later half of this chapter, I will be investigating further feature extraction methodologies that  can be combined with SVD and  the wavelet transform to  capture information about the shape of the dominant trends of sequences.   This is intended to improve the accuracy of the 1NN classifier for time series datasets where intra class sequences share global trends that are not aligned with respect to the time axis.
+ The focus of this chapter is to explore  feature extraction techniques that can  capture information about the \textbf{global shape} of time series sequences. In the first half of this chapter, I will be exploring wavelet-based feature extraction techniques and will subsequently look into how they can be used alongside  SVD to improve the accuracy of the 1 nearest neighbour classifier for datasets that share the same time localised trends.  While, in the later half of this chapter, I will be investigating further feature extraction methodologies that  can be combined with SVD and  the wavelet transform to  capture information about the shape of the dominant trends of sequences.   This is intended to improve the accuracy of the 1NN classifier using the Euclidean metric for time series datasets where intra class sequences share global trends that are not aligned with respect to the time axis.
 
 \begin{figure}[H]
   \centering
@@ -1181,7 +1181,7 @@ For most time series data sets however, conducting linear matches of time series
   \end{figure}
 \section{Wavelet-based Feature Extraction}
 \subsection{Background}
-The inspiration for the wavelet transform came from the idea of  multiresolution analysis\citep{Chun-Lin2010}. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales.This type of decomposition is most easily understood by thinking of a picture (can be thought of as a two dimensional signal) and removing from the picture information that distinguishes the sharpest edges, leaving a new image  that is slightly blurred. This blurred version of the original picture is a rendering at a slightly coarser scale. We then recursively repeat the procedure. The wavelet transform specifies such a  multiresolution decomposition, with the wavelet functions defining the bandpass filter that determines the detail information. and associated with each wavelet is a smoothing function, which defines the complementary lowpass filter.
+The inspiration for the wavelet transform came from the idea of  multiresolution analysis\citep{Chun-Lin2010}. A multiresolution analysis decomposes a signal into a smoothed version of the original signal and a set of detail information at different scales. This type of decomposition is most easily understood by thinking of a picture (can be thought of as a two dimensional signal) and removing from the picture information that distinguishes the sharpest edges, leaving a new image  that is slightly blurred. This blurred version of the original picture is a rendering at a slightly coarser scale. We then recursively repeat the procedure on the smoothed signal. The wavelet transform specifies such a  multiresolution decomposition, with the wavelet functions defining the bandpass filter that determines the detail information and associated with each wavelet is a smoothing function, which defines the complementary lowpass filter.
 
 Mathematically, we can motivate the definition of  the wavelet transform  as follows:
 
@@ -1194,26 +1194,48 @@ Let  $L^2(R)$ be the set of all  discrete functions with finite energy. Any  dis
 		\end{cases}\]	
  Under this representation, the following facts hold.
  \begin{enumerate}[label=\roman{*}]
-\item The scaling function is orthogonal to its integer translates.
+\item The scaling function is orthogonal to its integer translates i.e
+\[  <\phi(st-k),\phi(st-j)>= \begin{cases} 
+		1 & \mbox{ if } j==k\\
+		0 & \mbox {otherwise}
+		\end{cases}\]	
+
 \item As we increase the scale, the support of the function decreases.
 \item The subspaces spanned by the scaling function at low scales are nested within those spanned at higher scales. For example if represent $s$ as powers of 2 then: $\phi_{-1}(t)= \phi(2^{-1}t)=\phi_0(t) +\phi_0(t-1)$. 
 \end{enumerate}
 
-Before proceeding any further, it is necessary to define the concept of the wavelet. A wavelet \citep{Mallet1998,Zhang2006,Chan1999} is a smooth and quickly oscillating function with good localisation in both  frequency and time. To perform wavelet transformation the Haar function is commonly chosen as the mother wavelet $\psi$. For any scale $s$, the function $\psi(st)$ is orthogonal to  $\phi(st)$ defined at the same scale  but can be expressed in terms of higher order scaling functions $\phi(s't)$ where $s'>s$. Using this knowledge alongside (iii),  the wavelet transformation is applied to  decompose a finite signal $f$  by projecting  $f$  onto  two orthogonal subspaces  $W_1$  and $V_1$of $L^2(R)$ where $L^2(R) = V_1\oplus W_1$. If   $f(t) = \sum_{n=0}^N \alpha_n\phi(st-n)$  then $W_1$ is spanned by  $\{\psi(s't-n)| n\in[1,.. N] \}$ and  $V_1$ is spanned by $\{\phi(s't)| n\in[1,,,N]\}$ where $s'<s$ .
+Before proceeding any further, it is necessary to define the concept of the wavelet. A wavelet \citep{Mallet1998,Zhang2006,Chan1999} is a smooth and quickly oscillating function with good localisation in both  frequency and time. To perform wavelet transformation the Haar function is commonly chosen as the mother wavelet $\psi$. For any scale $s$, the function $\psi(st)$ is orthogonal to  $\phi(st)$.  But like $\phi(st)$, $\psi(st)$  can be expressed in terms of higher order scaling functions $\phi(s't)$ where $s'>s$. Using this knowledge alongside (iii),  the wavelet transformation is applied to  decompose a finite signal $f$  by projecting  $f$  onto  two orthogonal subspaces  $D_1$  and $A_1$of $L^2(R)$ where $L^2(R) = A_1\oplus D_1$. If   $f(t) = \sum_{n=0}^N \alpha_n\phi(st-n)$  then $D_1$ is spanned by  $\{\psi(s't-n)| n\in[1,.. N] \}$ and  $A_1$ is spanned by $\{\phi(s't)| n\in[1,,,N]\}$ where $s'<s$ .
 
-\textbf{Note} :To ensure that $\{\psi(s't-n)| n\in[1,.. N] \}$ forms an  orthogonal basis, the scales are restricted to powers of 2\citep{Daubechies1988,Mallet1998}.
-
-
- The process is recursive.  After removing the first set of detail information from $f$, we are left with a slightly smoothed version of $f$. We  iteratively remove detail information by applying the transform on the smoothed versions at each scale to progressively extract coarser details of $f$ . We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire. Thus the subspaces $\{V_m\}|_{m=1}^M $ satisfy $V_{j+1}\subset V_j$ . The details of $f$ at any scale \textbf{m} is a projection of  $f$ onto the subspace $W_M$.  The projection is represented by the map  $Q_M : L^2(R) \to W_M$ where $Q_M f =\sum_{n=1}^{K} <f,\psi_{Mn}>\psi_{Mn}$( the subspaces $W_m$  are spanned by dilations and translations of the mother wavelet $\psi$). 
+\textbf{Note} :To ensure that $\{\psi(s't-n)| n\in[1,.. N] \}$ forms an  orthogonal basis, the scales are restricted to negative powers of 2\citep{Daubechies1988,Mallet1998}.
 
 
+ The process is recursive.  After removing the first set of detail information from $f$, we are left with a slightly smoothed version of $f$. We  iteratively remove detail information by applying the transform on the smoothed versions at each scale to progressively extract coarser details of $f$ . We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire. Therefore for given any signal $X$, the wavelet coefficients $H_j(X)$ at any  scale j  can be represented by the series of coefficients  $\{A'_j,D'_j,D'_{j-1}...D'_1\}$.  $A'_j$ represents the coefficients of the scaling function at scale j or in other words it corresponds to the coordinates of  the signal when it projected in the subspace $A_j$. Similarly,  $D'_j...D'_1$ represent the coefficients of Haar wavelet at different scales or in simpler terms, they correspond to the coordinates of the signal when it is projected to  each of the orthogonal subspaces $D_j...,D_1$. 
+ To see how this works, lets consider the following example:
 
-Furthermore there exists another operator $P_M$ that maps $f$ to its approximation at scale \textbf{m}:   $P_M: L^2(R) \to V_M\subseteq L^2(R)$. The functional space $L^2(R)$ can therefore be expressed as  $L^2(R)=  \oplus_{m=1}^{M} W_m \oplus V_M$.  where any finite  signal $f \in L^2(R)$ can be expressed as :
-\[f(t) = \sum_{n=0}^N \alpha_n\phi(t-n) =P_Mf + \sum_{m=1}Q_mf\]
+Let $f(x)$ be a discrete signal given by $f(x)=\{ 9, 7, 3. 5\}$. This function can be represented as linear combination of the scaling function $\phi(st)$ where s=1. As we have seen in the previous sub section, the wavelet decomposition is a recursive process where at each level j, we project the signal in the two orthogonal subspaces $A_j$ and $D_j$. Since $A_j$ is constructed using the basis $\{\phi (2^{-j}t -n) |n \in [1,..N]\}$  and $D_j$ is constructed using the basis $\{\psi (2^{-j}t- n)|n \in [1,..N]\}$, the wavelet  transform can hence be seen as a series of averaging and differencing operations on a discrete time function. We compute the average and difference between every two adjacent values of the discrete signal $f(x)$.  The recursive procedure to find the wavelet  transform of a discrete function  is shown below.
+ 
+ \begin{tabular}{|c|c|c|}
+ \hline \\
+ Decomposition Level & Averages & Coefficients\\  0 &(9 7 3 5) & \\
+ 1  & (8 4) &(1 -1) \\ 2    &(6)& (2)\\
+ \hline\\
+ \end{tabular}
+ The level  0  is the full resolution of the discrete function. At the first level of decomposition, (8 4) are obtained by taking the average of (9 7) and (3 5) and  (1 -1) are the differences of (9 7) and (3 5) divided by two respectively. The procedure is repeated on the approximated coefficients (8 4) to obtain (6) and (2) in the next level.
+
+
+
+
+
+The subspaces $\{A_m\}|_{m=1}^M $ hence satisfy $A_{j+1}\subset A_j$. The details of $f$ at any scale \textbf{m} is a projection of  $f$ onto the subspace $D_M$ and is captured by the coefficients l $D'_M$.  The projection can be represented by the map  $Q_M : L^2(R) \to D_M$ where $Q_M f =\sum_{n=1}^{K} <f,\psi_{Mn}>\psi_{Mn}$( the subspaces $D_M$  are spanned by dilations and translations of the mother wavelet $\psi$). 
+
+
+
+Furthermore there exists another operator $P_M$ that maps $f$ to its approximation at scale \textbf{m}:   $P_M: L^2(R) \to V_M\subseteq L^2(R)$. The functional space $L^2(R)$ can therefore be expressed as  $L^2(R)=  \oplus_{m=1}^{M} D_m \oplus A_M$.  where any finite  signal $f \in L^2(R)$ can be expressed as :
+\[f(t) = \sum_{n=0}^N \alpha_n\phi(t-n) =P_Mf + \sum_{m=1}^M Q_mf\]
 
 %The wavelet transform is a recursive process. After removing the first set of detail information from $f$ we are left with a slightly smoothed version of $f$. We  iteratively remove detail information by applying the transform on the smoothed versions at each scale to progressively extract coarser details of $f$ . We stop the process once we have enough detail information or a smooth enough version to do the analysis we desire.   Once we have decomposed a signal this way, we may analyse the behaviour of the detail information across the different scales(frequency bands). We can extract informations  concerning about the regularity of a singularity which characterises the behaviour of the non-stationary signal at particular point in time. Unlike the fourier transform which is localised only  in frequency, the wavelet transform is localised in both time and frequently(we will see shortly). Furthermore, noise has a specific behaviour across different scales(frequencies). this allows us to  make a clean separation  of the  signal from the noise. 
 \subsection{Wavelet-based Features }
-The wavelet transformation allows a time series sequence to be described in terms of an approximation of the original sequence plus a set of details ranging from fine to coarse. For given any  time series $X$, the wavelet coefficients $H_j(X)$ at any  scale j  can be represented by the series $\{A_j,D_j,D_{j-1}...D_1\} \mbox{ where } A_j$ are the coefficients of the scaling function at scale j and $D_j...D_1$ are the  coefficients of Haar wavelet at different scales . The broad trends of the sequence such as global shape are \textbf{preserved} in the approximation part of the signal i.e $A_j(X)$ while the\textbf{ localised} changes are kept in the detail parts i.e $\{D_j...,D_1\}$\citep{Zhang2006}.  .The decomposition presents \textbf{no loss} of information. The original signal can be fully reconstructed from the approximation part and the detail parts. 
+The wavelet transformation allows a time series sequence to be described in terms of an approximation of the original sequence plus a set of details ranging from fine to coarse. Thus, for given any  time series $X$, the wavelet coefficients $H_j(X)$ at any  scale j  can be represented by the series $\{A'_j,D'_j,D'_{j-1}...D'_1\} \mbox{ where } A'_j$ are the coefficients of the scaling function at scale j and $D'_j...D'_1$ are the  coefficients of Haar wavelet at different scales. The sequence $A'_j$ corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients  $A'_j$ are the \textbf{amplitude} values of the smoothed signal. These coefficients  can be  considered as  global trend descriptors when intra class sequences share the same time aligned global trends. The\textbf{ localised} changes o the other hand are captured in the series of coefficients   $\{D'_j...,D'_1\}$\citep{Zhang2006} where the level of details  captured at each $D_j$ becomes coarser as we move to lower scales.  The decomposition presents \textbf{no loss} of information. Since the wavelet transform is a one to one linear map, the original signal can be fully reconstructed from the approximation part and the detail parts.
 
 The wavelet transformation achieves both time and frequency localisation of a time series. This allows us to analyse singularities specific to both times and frequency bands. The singularities at different frequency ranges are captured by coefficients of  the details and the approximation signals at different scales.  Whereas for signals that are nonzero only during finite spans of time, the wavelet transform has nonzero elements that are concentrated around that time for all scales. This allows us to analyse singularities  localised in different time intervals.  Thus as a feature extraction step, performing wavelet decomposition can be highly advantageous as it allows us to decompose a signal and provide a richer description of its behaviour.  
 
@@ -1221,7 +1243,7 @@ As we have discussed in the previous section, the intra class sequences in the C
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.5]{712.jpg}
-  \caption{The top two plots corresponds to instances of class `3' while the bottom two plots correspond to instances of class `4'}
+  \caption{The top two plots corresponds to instances of class `3'  and the bottom two plots correspond to instances of class `4' of the Cinc\_ECG\_TORSO dataset }
   \end{figure}
 
 However, for the the InlineSkate dataset, the global shape is  the only commonality between sequences in the same class. Here intra class sequences  share only  global  similar trends. Figure 7.3 shows examples of samples belonging to the class `2'. The red lines represent smoothed curves fitted to the time sequences to  to capture the overall shape. Both instances share trends that are roughly cubic in nature.
@@ -1236,36 +1258,58 @@ To investigate whether applying wavelet decomposition prior to SVD as preprocess
  
  \textbf{Datasets}: Cinc\_ECG\_TORSO and InlineSkate
  
+ \textbf{Distance metric used}: Euclidean distance
+ 
+ \textbf{Objective}: Compare the performance of 1NN classifier using SVD and wavelet transform as preprocessing step VS the performance of 1NN classifier using SVD as a preprocessing step VS 1NN classifier.
+ 
  \textbf{Preprocessing}: Wavelet decomposition followed by the single value decomposition procedure discussed in 6.3. 
  
- \begin{itemize}
- \item  For  sequences in the Cinc\_ECG\_TORSO dataset, I have applied wavelet decomposition up to the lowest possible scale. Applying the transformation on the smoothed versions at each scale progressively extracts coarser details from the signal. The  local trends will be  captured by the detail  coefficients in the upper levels while the coarser details such as global trends will be captured by the detail coefficients in the lower levels. For this analysis, I have omitted the detail coefficients corresponding to scale 1 i.e $D_1$. The reason being  regions in high frequency tend to have a lot of noise embedded in them. Since the first level details capture information about the behaviour of the signal in the highest frequency bands, discarding those details achieves reduction in both the noise  and  the dimensionality of the sequence.
+ \begin{enumerate}
+ \item Step 1: Feature Extraction by applying wavelet decomposition
  
- \item  For sequences in the InLineSkate  dataset,  I have applied wavelet decomposition  up to a depth of  4 levels. Since the commonality of the classes is captured by the global shape. I have only considered the approximation coefficients $\phi$ at scale 4. 
+  \textbf{  Cinc\_ECG\_TORSO dataset}: To capture information about both local and global trends with respect to various frequencies and time, I have applied wavelet decomposition up to scale 17. Through experimental testing, I have found that stopping the recursive decomposition at scale 17  is enough to capture the all the  information about the behaviour of  global and local trends at different frequency bands.
+  
+  Thus, each sequence X is decomposed into the series of coefficients $\{A'_{17},D'_{17}.....D'_1\}$ where  $A'_{17}$ represents the amplitudes of the smoothed signal and $D'_j$ represents the amplitudes of Haar wavelet at scale j. The coefficients of $D'_j$ capture the time localised behaviour of the signal at the frequency band associated with scale \emph{j}. Since the wavelet transform is  a linear one to one mapping, each sequence X is hence mapped to a series of subsequences   $\{A'_{17},D'_{17}.....D'_1\}$ where the sum of the length of the subsequences  is equal to the length of X . The series can be thought of as a sequence of discrete orthogonal signals  where the signal corresponding to index j is constructed by composing the integer translates of the Haar wavelet at scale j i.e $\sum_{n=1}^{K} <f,\psi_{jn}>\psi_{jn}$ with the exception of $A'_{17}$.
+
+ For this analysis, I have omitted the detail coefficients corresponding to scale 1 i.e $D_1$. The reason being  regions in high frequency tend to have a lot of noise embedded in them. Since the first level details capture information about the behaviour of the signal at the highest frequency bands, discarding those details achieves reduction in both the noise  and  the dimensionality of the sequence. Since all sequences in the dataset share the same length and  can be decomposed into the series $\{A'_{17},D'_{17}.....D'_1\}$, discarding $D_1$ reduces the dimension of the time series sequences by half.  
  
- \end{itemize}
- The results of the experiments are as follows:
+ \textbf{ InLineSkate  dataset}: For this dataset,  I have applied wavelet decomposition  up to a depth of  4 levels. Since the commonality of the classes is captured by the global shape. I have only considered the approximation coefficients $\phi$ at scale 4 i.e. the coefficients $A'_4$ . 
  
+
+ \item Step 2: Extracting latent features from wavelet coefficients
+ 
+ As I have mentioned in the previous section, the wavelet  transform can be seen as a series of averaging and differencing operations on a discrete time function.  At the first level, the discrete function is decomposed into  two subsequences \{$A_1$\} and \{$D_1$\} of equal length. The  coefficients of $A_1$ represent the amplitudes of the smoothed signal obtained by averaging every two adjacent values of the original signal. The process is recursive and decomposition is applied again on the approximated signal to separate even more coarser details . Thus after level  j of the wavelet decomposition, we obtain a smooth  signal that is $2^{-j}$ smaller than the original sequences. 
+ 
+ For the InlineSkate and Cinc\_ECG\_TORSO datasets, the sequences within each dataset share the same length. Thus the resultant data matrix constructed using the coefficients extracted from the wavelet decomposition will be full but however in the case of Cinc\_ECG\_TORSO dataset,  the number of columns(this corresponds to the dimension of the data) will be reduced to half, while for the InlineSkate dataset, the number of columns will reduced to $2^{-4}$.  SVD is then applied to each of the data matrix to extract latent features that capture 95\% variation of the data in  the constructed wavelet feature space. 
+ 
+ 
+ 
+ \end{enumerate}
+ 
+\textbf{Results} 
+ 
+ The accuracy  and the run time results incurred by 1 NN classifier at each of the 3 situations are as follows:  
  \begin{figure}[H]
   \centering
       \includegraphics[scale=0.9]{714.jpg}
   \caption{Accuracy}
   \end{figure}
 \begin{table}[H]
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline \\
-      & SVD & Wavelet-feature extraction +SVD \\
+     Dataset  &1NN&1NN+ SVD &1NN+ Wavelet-feature extraction +SVD \\
 \hline\\
-Cinc\_ECG\_TORSO & 0.24s & 9.22s\\
-InlineSkate &  0.21s & 2.22s \\
+Cinc\_ECG\_TORSO & 0.88s & 0.77s&0.74s\\
+InlineSkate &  1.03s &0.48s &0.45s \\
 \hline
 \end{tabular}
-\caption{Run time}
+\caption{Run time in seconds}
 \end{table}
 
 \textbf{Observation}
 \begin{itemize}
-\item As evident from the run time results, applying the  wavelet feature extraction as prior step to SVD does increase the run time but this increase is minimal  since the run time is only increased by few seconds.
+\item As evident from the run time results, applying the  wavelet feature extraction as prior step to SVD reduces the run time of the 1NN classifier even further.
+
 \item For the  Cinc\_ECG\_TORSO data set, removing the detail coefficients of scale 1 i.e $D_1$ leads to a fractional improvement in the accuracy of the 1 nearest neighbour classifier. From this observation, we can deduce two facts:  
 \begin{enumerate}
 \item Because  the accuracy has not decreased, we can conclude that the information contained in the finer details of sequences present redundant information.
@@ -1294,9 +1338,11 @@ InlineSkate &  33.82 \%&34.18\%  & 34.18\%\\
 
 \end{itemize}
 
-The sequence $A_j$ corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients of $A_j$ are the amplitude values of the smoothed signal. These coefficients  can be  considered as  global trend descriptors when intra class sequences share the same time aligned global trends. The fact that using the coefficients of the approximation $A_4$ in the case of  the InlineSkate dataset has  resulted in no change in the accuracy of the 1NN classifier, we can conclude  that the global trends shared by intra class sequences are not localised with in the same intervals of time.  Metrics such as the euclidean will thus be  inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences
+The sequence $A_j$ as I have mentioned before corresponds to an approximation(smoothed version) of the signal at scale j. The coefficients of $A_j$ are the amplitude values of the smoothed signal. These coefficients   are constructed by averaging every two adjacent values of the approximated signal corresponding to j-1 and  can be  considered as  global trend descriptors when intra class sequences share the \textbf{same} time aligned global trends. 
 
-However, for datasets in which sequences of the same class  share the same time localised/aligned global trends, we can expect that applying the wavelet decomposition as prior feature extraction step to performing SVD can yield high accuracies as we have seen for the Cinc\_ECG\_TORSO dataset. To further verify this assertion, I performed an additional experiment where I ran the baseline 1NN classifier using our two step feature extraction approach on the UCR dataset `Synthetic Control'\citep{UCR} and compared the classifier's accuracy against the accuracy of the baseline 1NN classifier and the  best accuracy of 1NN classifier using the DTW algorithm\citep{Xie2010}. The 'Synthetic Control' dataset have been chosen because experiments have shown\citep{Xie2010} that the intra class sequences of the dataset are linked with each other through time aligned global trends.
+From our analysis above, we have seen that  the coefficients of the approximated signal $A_j$ in the case of  the InlineSkate dataset doesn't improve  the accuracy of the 1NN classifier and in fact lowers the accuracy of the classifier when j $>$4. Thus, we can conclude  that the global trends shared by intra class sequences are not localised with in the same intervals of time.  Metrics such as the euclidean will  be hence inept in utilising the embedded information about the global shape as they are  constrained to conducting  only linear matches between  temporal dimensions of sequences
+
+However, for datasets in which sequences of the same class  share the same time localised/aligned global trends, we can expect that applying the wavelet decomposition as prior feature extraction step to performing SVD can yield high accuracies when we conduct 1 NN classification. To  verify this assertion, I performed an additional experiment where I ran the baseline 1NN classifier using our two step feature extraction approach on the UCR dataset `Synthetic Control'\citep{UCR} and compared the classifier's accuracy against the accuracy of the baseline 1NN classifier and the  best accuracy of 1NN classifier using the DTW algorithm\citep{Xie2010}. The 'Synthetic Control' dataset have been chosen because experiments have shown\citep{Xie2010} that the intra class sequences of the dataset are linked with each other through time aligned global trends.
 
 \textbf{Summary of the results are as follows:}
 

@@ -18,29 +18,29 @@ trainData=train(:,2:end);
 function result=wavedecom(data)
   %% performs wavelet decomposition 
   [samp ,dim]=size(data);
-  result=zeros(samp,1+ fix(dim/32));
+  result=zeros(samp,1+fix(dim/2));
   %result=zeros(samp,1+52);
  
   for k=1 :samp
     sample= data(k,:);
     %%for speech data extract envelope
-    y= abs(hilbert(sample(sample>0)));
-    y1= abs(hilbert(sample(sample<=0)));
-    envelope=[y -1*y1];
+   % y= abs(hilbert(sample(sample>0)));
+    %y1= abs(hilbert(sample(sample<=0)));
+    %envelope=[y -1*y1];
+    [C,L] =wavedec(sample,17,'Haar');
+    %[C,L] =wavedec(envelope,14,'Haar');
+    %signal= C(1:L(1));
+    %figure(4)
+    %subplot(4,1,1)
+    %plot(sample)
+    %subplot(4,1,2)
+    %plot(envelope)
+    %subplot(4,1,3)
+    %plot(signal)
+    %subplot(4,1,4)
     
-    [C,L] =wavedec(envelope,8,'Haar');
-    signal= C(1:L(1));
-    figure(4)
-    subplot(4,1,1)
-    plot(sample)
-    subplot(4,1,2)
-    plot(envelope)
-    subplot(4,1,3)
-    plot(signal)
-    subplot(4,1,4)
-    
-    %result(k,1:L(1))=C(1:L(1));
-    result(k,1:L(1)) = compute_curvature([1:L(1)],signal);
+    result(k,1:L(end-1))=C(1:L(end-1));
+    %result(k,1:L(1)) = compute_curvature([1:L(1)],signal);
     %result(k,2:end)=C(1:dim);
   end
 end
@@ -60,30 +60,50 @@ for k=1 :samp
     %result(k,2:length(fouriercoeff)+1)=fouriercoeff;
 end
 end
-time=toc
-tic
+
+
 %%perform wavelet decomposition: feature extraction
-%testData=wavedecom(testData);
-%trainData=wavedecom(trainData);
+testData=wavedecom(testData);
+trainData=wavedecom(trainData);
 
 %% perform fourier transfor,
 %testData=fourierdecom(testData);
 %trainData=fourierdecom(trainData);
 
-time=time+toc;
+
 DATA=[trainData;testData];
 fingerprintSpace = principalcomponents(DATA);
 
 %% projection to principal subspace
 trainDataR= (fingerprintSpace'* trainData')';
 testDataR= (fingerprintSpace'* testData')';
-testDataR=testData;
-trainDataR=trainData;
+testDataR=test(:,2:end);
+trainDataR=train(:,2:end);
 
 output=zeros(1,length(test_labels));
-time=time+toc
+
 tic
 
+    function cost=dtw(sample1,sample2)
+        cost_matrix=zeros(length(sample1),length(sample2));
+        
+        for i=1:length(sample1)
+           cost_matrix(i,1)=Inf;
+        end
+        for j=1:length(sample2)
+            cost_matrix(1,j)=Inf;
+        end
+        cost_matrix(1,1)=0;
+        for i=2:length(sample1)+1
+        for j=2:length(sample2)+1
+            cost_matrix(i,j)= (sample1(i)-sample2(j)).^2 + min([cost_matrix(i-1,j),cost_matrix(i-1,j-1),cost_matrix(i,j-1)]);
+        end
+        end
+        cost = cost_matrix(end,end)/(length(sample1)+length(sample2));
+    end
+        
+        
+    end
 
 
 
@@ -103,12 +123,11 @@ function match= nearest_neighbours(sample,data,train_labels)
     match =nearestN;
 end
 
-time =time+toc
-tic
+
 %perform 1 nearest neighbour
 for i=1 :length(test_labels)
     if toc>300
-        time=time+toc
+        time=time+toc;
         tic
     end
     match =nearest_neighbours(testDataR(i,:),trainDataR,train_labels);
@@ -120,7 +139,7 @@ end
 
 
 
-time=time+toc
+time=toc
 end
     
     
