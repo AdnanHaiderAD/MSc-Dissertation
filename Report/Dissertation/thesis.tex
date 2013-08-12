@@ -1606,7 +1606,7 @@ Observation
   
   In chapter 1, we have seen that one of the main limitations of applying the Euclidean metric in time series domains  is its inability  to handle sequences that vary in length. For time series sequences such as speech utterances, sequences belonging to the same class may vary in terms of speed, time duration and scale as a result of different speakers, the spoken context  etc. Hence, classifying sequences based only on a linear match of their  temporal dimensions wont work in such scenarios.  To address this issue, in this  chapter, I primarily focus in  exploring feature extraction methods that identifies and extract useful features that can be used to distinguish sequences of different classes. Mapping each sequence to the well chosen  constructed  K  dimensional feature space can increase the inter class variances of sequences and at the same time ensure that  all sequences share the same length. This provides  the context for the Euclidean metric to be applied on classifying the data sequences.  
   
- \section{Identifying the acoustic signature of a digit}
+ \section{Identifying the acoustic signature of individual digits}
  Speech utterances associated with the same lexical identity  will  fundamentally  share strong  acoustic  properties that allows a listener to recognise them to be part of the same class. With the exception of homophonic word pairs, individual words can be purely differentiated in the way they sound.  For example, the word `and'  and the word `the' have totally different sounds even if they are spoken in different contexts or by different speakers. Therefore, for datasets such as the TIDIGITS corpus where the vocabulary doesn't consist of any homophonic word pairs, we can hypothesize that each lexical identity will have a unique acoustic signature.
  
  To verify this hypothesis, I conducted exploratory data analysis to identify visual commonalities between  intra class sequences.  Figure 8.1 shows examples of utterances corresponding to digit 7. Both plots differ in their behaviour with respect to time localised events. The left hand plot has a region with low amplitudes between t=4000 and  t=5000 but this property  is absent in the right hand plot.  However, even though the signals tend to posses different acoustic properties they share very  similar envelopes.   From visually comparing the plots of instances of other classes, I have observed that the shape of the envelope is indeed the key attribute that helps us to identify plots of the same lexical identity. Thus, for the remaining part of this chapter, I will concentrate on constructing feature extraction that capture information about the shape of the envelope of the signals.  
@@ -1619,16 +1619,51 @@ Observation
   \end{figure}
 
 \section{Homogenising the dimensionality of speech utterances}
- Since speech utterances do not share the same length, their respective envelopes will also differ in sizes. This makes it impossible for metrics such as the Euclidean distance to compare  envelopes of different utterances just by a linear match of their temporal dimensions. This provides the motivation to explore mappings that preserves the shape of the envelopes while restricting them to share the same size.
+ Since speech utterances do not share the same length, their respective envelopes will also differ in sizes. This makes it impossible for metrics such as the Euclidean distance to compare  envelopes of different utterances just by a linear match of their temporal dimensions. Hence, this provides the motivation to explore mappings that preserves the shape of the envelopes while restricting them to share the same size.
  
- An obvious strategy will be to scale all the speech utterances to share the same length. To rescale the speech utterances, I have applied the \emph{matlab} function \emph{resample} that ate  that resamples each sequence  P times the length of the  original sample rate using a polyphase implementation\citep{Shahana2007}.
+ An obvious strategy will be to scale all the speech utterances to share the same length. To rescale the speech utterances, I have applied the \emph{matlab} function \emph{resample}   that resamples each sequence  $\frac{P}{Q}$ times the length of the  original sample rate using a polyphase implementation\citep{Shahana2007}. Figure 8.2 shows the plots of an instance of class `1' and its resampled version. From the observation of the figure, we can clearly see that the envelope of the speech utterance is preserved after the signal has been rescaled to a fixed length. For my analysis I have chosen P to be mean length of the utterances in the training set and Q to be an adaptive parameter which is set to the length of each individual sequence. This ensures that all utterances are rescaled to share the same length which in this case is the mean length of the utterances. Having  now resolved the dimensionality issue  that previously prevented the Euclidean metric from acting on speech datasets, the next step is to investigate feature extraction methods that can capture information about the shape of the envelopes.
   
-   
-  \begin{figure}[H]
+   \begin{figure}[H]
   
       \includegraphics[scale=0.5]{82.jpg}
- \caption{The top corresponds to a raw signal corresponding to digit 1 while  the bottom plot corresponds to a rescaled version of the raw signal  }
+ \caption{The top plot represents  to a  raw utterance belonging to  digit 1 while  the bottom plot corresponds to a rescaled version of the raw signal  }
   \end{figure}
+
+\section{ Feature extraction methods to construct acoustic fingerprints}
+
+The objective now is to construct a feature extraction scheme that captures information about the shape of the envelopes corresponding to speech utterances. This problem is very similar to the problem we addressed in the previous chapter. To remind the reader, in the previous chapter we explored curvature-based feature extraction methods that capture information about the global shape of time series sequences.   In comparison, the current problem only differs in the fact that instead of looking at the entire signal, we are only interested  in the shape of the envelope of the signal. Thus, if we find a procedure to extract the envelope of a signal, then we can use the 4 step methodology proposed in section 7.2 to extract the curvature based features that capture the shape of the envelopes.
+
+\subsection{Extracting the envelope of a speech utterance}
+To separate the envelopes from their respective  speech utterances, I have applied the Hilbert transform\citep{Feldman1997}. 
+
+\textbf{Brief description of the Hilbert Transform:}
+
+The Hilbert transform of a function f(x) is defined by:
+
+\[f(t)=\frac{1}{\pi} * \int_{-\infty}^ {\infty} \frac{f(x)}{(t-x)} dx\]
+Theoretically, the integral is evaluated as a Cauchy principal value\citep{RamP.Kanwal1996}. The above integral corresponds to  the  convolution of the function $\frac{1}{\pi t}$ with the function f(x) :
+\[F(t) = \frac{1}{(\pi*t)} * f(t)\]
+which by the convolution theorem of Fourier transforms, can be also evaluated  as the product of the transform of f(x) with $-i*sgn(x)$ where
+\[ sgn(x) =\begin{cases}
+		-1 & x<0\\
+		0  & x=0 \\
+		1 & x>1 \\
+		\end{cases}\]
+The Hilbert transform can be considered to be a filter which simply shifts phases of all frequency components of its input by -¹/2 radians.
+
+An "analytic" (complex time) signal Y(t) can be constructed from a real-valued input signal y(t)and its Hilbert transform h(t):
+
+\[Y(t) = y(t) + j h(t)\]
+
+To extract the envelope e(t) of a signal x(t) , we hence consider only  the magnitude of the analytic signal as shown by the following equation.
+
+$$e(t) = \sqrt{x({t})^{2} + \hat{x}(t)^{2}}$$
+
+where $\hat{x}(t)$ is the Hilbert transform of x(t).
+
+
+ \chapter{Discussion}
+
 
 % To be precise, each lexical identity has a acoustic signature that allows a listener to identify utterances of that word even if the utterances correspond to samples of different speakers, 
  
@@ -1664,6 +1699,7 @@ Observation
 %% Any appendices should go here. The appendix files should look just like the
 %% chapter files.
 %\appendix
+
 
 \bibliographystyle{ieeetr}
  \bibliography{../../../../../Documents/mendeley/library.bib}

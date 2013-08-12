@@ -32,6 +32,9 @@
 \contentsline {subsection}{\numberline {7.2.3}Experiments}{73}
 \contentsline {section}{\numberline {7.3}Conclusion}{77}
 \contentsline {chapter}{\numberline {8}Things to do}{78}
-\contentsline {section}{\numberline {8.1}Identifying the acoustic signature of a digit}{78}
+\contentsline {section}{\numberline {8.1}Identifying the acoustic signature of individual digits}{78}
 \contentsline {section}{\numberline {8.2}Homogenising the dimensionality of speech utterances}{79}
-\contentsline {chapter}{Bibliography}{81}
+\contentsline {section}{\numberline {8.3} Feature extraction methods to construct acoustic fingerprints}{81}
+\contentsline {subsection}{\numberline {8.3.1}Extracting the envelope of a speech utterance}{81}
+\contentsline {chapter}{\numberline {9}Discussion}{83}
+\contentsline {chapter}{Bibliography}{84}

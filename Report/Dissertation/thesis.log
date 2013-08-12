@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  12 AUG 2013 17:39
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  12 AUG 2013 23:21
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -974,31 +974,37 @@ Overfull \hbox (54.67952pt too wide) in paragraph at lines 1617--1618
 [79 <./81.jpg>] <82.jpg, id=322, 967.615pt x 484.81125pt>
 File: 82.jpg Graphic file (type jpg)
  <use 82.jpg>
-Package pdftex.def Info: 82.jpg used on input line 1629.
+Package pdftex.def Info: 82.jpg used on input line 1628.
 (pdftex.def)             Requested size: 483.80632pt x 242.40503pt.
 
-Overfull \hbox (71.24135pt too wide) in paragraph at lines 1629--1630
+Overfull \hbox (71.24135pt too wide) in paragraph at lines 1628--1629
 [][] 
  []
 
-(./thesis.bbl [80 <./82.jpg>] [81
+[80 <./82.jpg>] [81]
+Missing character: There is no ¹ in font pplr9t!
+ [82]
+Chapter 9.
+(./thesis.bbl [83
 
-] [82]
+] [84
+
+] [85]
 Missing character: There is no â in font pplr9t!
 Missing character: There is no € in font pplr9t!
 Missing character: There is no ” in font pplr9t!
- [83]) [84] (./thesis.aux
-(./chapter1.aux) (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux)
-(./chap5.aux) (./chap7.aux))
+ [86]) [87] (./thesis.aux (./chapter1.aux)
+(./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux) (./chap5.aux)
+(./chap7.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 7784 strings out of 493633
- 115141 string characters out of 3143377
- 205057 words of memory out of 3000000
- 10523 multiletter control sequences out of 15000+200000
+ 7791 strings out of 493633
+ 115275 string characters out of 3143377
+ 205089 words of memory out of 3000000
+ 10530 multiletter control sequences out of 15000+200000
  65190 words of font info for 322 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  43i,12n,40p,1682b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1016,10 +1022,10 @@ rw/helvetic/uhvro8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/pal
 atino/uplb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/u
 plr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/uplri8a.
 pfb>
-Output written on thesis.pdf (90 pages, 2987371 bytes).
+Output written on thesis.pdf (93 pages, 2992921 bytes).
 PDF statistics:
- 385 PDF objects out of 1000 (max. 8388607)
- 240 compressed objects within 3 object streams
+ 395 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  53434 words of extra memory for PDF output out of 61914 (max. 10000000)
 
