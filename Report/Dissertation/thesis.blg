@@ -21,42 +21,42 @@ Warning--empty journal in Sakoe1990
 Warning--empty journal in Xie2010
 Warning--empty journal in Cadzow1983
 Warning--empty publisher in Morchen2006
+Warning--empty journal in Carlin
+Warning--empty year in Carlin
 Warning--empty booktitle in Marchette1999
 Warning--can't use both volume and number fields in Marchette1999
 Warning--empty publisher in Marchette1999
 Warning--can't use both volume and number fields in Korn1997
-Warning--empty journal in Carlin
-Warning--empty year in Carlin
 Warning--empty booktitle in Chun-Lin2010
 Warning--empty publisher in Chun-Lin2010
 Warning--empty publisher in Boor1978
 Warning--empty publisher in Bracewell1986
 You've used 36 entries,
             1876 wiz_defined-function locations,
-            711 strings with 9252 characters,
-and the built_in function-call counts, 9241 in all, are:
+            711 strings with 9341 characters,
+and the built_in function-call counts, 9293 in all, are:
 = -- 930
-> -- 302
+> -- 308
 < -- 0
-+ -- 117
-- -- 81
-* -- 645
-:= -- 1260
++ -- 119
+- -- 83
+* -- 647
+:= -- 1266
 add.period$ -- 40
 call.type$ -- 36
 change.case$ -- 31
 chr.to.int$ -- 0
 cite$ -- 53
-duplicate$ -- 485
-empty$ -- 914
-format.name$ -- 81
-if$ -- 2249
+duplicate$ -- 490
+empty$ -- 923
+format.name$ -- 83
+if$ -- 2262
 int.to.chr$ -- 0
 int.to.str$ -- 36
 missing$ -- 38
 newline$ -- 117
 num.names$ -- 36
-pop$ -- 147
+pop$ -- 152
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0

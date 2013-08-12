@@ -119,7 +119,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.25}
+ \begin{spacing}{1.2}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -1604,27 +1604,57 @@ Observation
      \end{spacing}
   \chapter{Things to do}
   
-  In chapter 1, we have seen that one of the main limitations of applying the Euclidean metric in time series domains  is its inability  to handle sequences that vary in length. For time series sequences such as speech utterances, sequences belonging to the same class may vary in terms of speed, time duration and scale as a result of different speakers, the spoken context  etc. Hence, classifying sequences based only on a linear match of their  temporal dimensions wont work in such scenarios.  To address this issue, in the first part of this  chapter, I primarily focus in exploring preprocessing techniques that can map the speech utterances  to a K dimensional space where all sequences share the same length. The construction of such maps will provide the context for the Euclidean metric to be applied on classifying the data sequences. In the 2nd half of the chapter, I will be exploring further feature extraction methods that can be augmented with the techniques discussed in the previous chapter to  improve the accuracy of the baseline 1NN classifier  on speech utterances.
+  In chapter 1, we have seen that one of the main limitations of applying the Euclidean metric in time series domains  is its inability  to handle sequences that vary in length. For time series sequences such as speech utterances, sequences belonging to the same class may vary in terms of speed, time duration and scale as a result of different speakers, the spoken context  etc. Hence, classifying sequences based only on a linear match of their  temporal dimensions wont work in such scenarios.  To address this issue, in this  chapter, I primarily focus in  exploring feature extraction methods that identifies and extract useful features that can be used to distinguish sequences of different classes. Mapping each sequence to the well chosen  constructed  K  dimensional feature space can increase the inter class variances of sequences and at the same time ensure that  all sequences share the same length. This provides  the context for the Euclidean metric to be applied on classifying the data sequences.  
   
-  \section{Homogenising the dimensionality of speech utterances}
+ \section{Identifying the acoustic signature of a digit}
+ Speech utterances associated with the same lexical identity  will  fundamentally  share strong  acoustic  properties that allows a listener to recognise them to be part of the same class. With the exception of homophonic word pairs, individual words can be purely differentiated in the way they sound.  For example, the word `and'  and the word `the' have totally different sounds even if they are spoken in different contexts or by different speakers. Therefore, for datasets such as the TIDIGITS corpus where the vocabulary doesn't consist of any homophonic word pairs, we can hypothesize that each lexical identity will have a unique acoustic signature.
+ 
+ To verify this hypothesis, I conducted exploratory data analysis to identify visual commonalities between  intra class sequences.  Figure 8.1 shows examples of utterances corresponding to digit 7. Both plots differ in their behaviour with respect to time localised events. The left hand plot has a region with low amplitudes between t=4000 and  t=5000 but this property  is absent in the right hand plot.  However, even though the signals tend to posses different acoustic properties they share very  similar envelopes.   From visually comparing the plots of instances of other classes, I have observed that the shape of the envelope is indeed the key attribute that helps us to identify plots of the same lexical identity. Thus, for the remaining part of this chapter, I will concentrate on constructing feature extraction that capture information about the shape of the envelope of the signals.  
+  
+ 
+  \begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.5]{81.jpg}
+ \caption{Instances of class 7 }
+  \end{figure}
+
+\section{Homogenising the dimensionality of speech utterances}
+ Since speech utterances do not share the same length, their respective envelopes will also differ in sizes. This makes it impossible for metrics such as the Euclidean distance to compare  envelopes of different utterances just by a linear match of their temporal dimensions. This provides the motivation to explore mappings that preserves the shape of the envelopes while restricting them to share the same size.
+ 
+ An obvious strategy will be to scale all the speech utterances to share the same length. To rescale the speech utterances, I have applied the \emph{matlab} function \emph{resample} that ate  that resamples each sequence  P times the length of the  original sample rate using a polyphase implementation\citep{Shahana2007}.
+  
+   
+  \begin{figure}[H]
+  
+      \includegraphics[scale=0.5]{82.jpg}
+ \caption{The top corresponds to a raw signal corresponding to digit 1 while  the bottom plot corresponds to a rescaled version of the raw signal  }
+  \end{figure}
+
+% To be precise, each lexical identity has a acoustic signature that allows a listener to identify utterances of that word even if the utterances correspond to samples of different speakers, 
+ 
+  
+ %datasets such as the TIDIGITS where  there exists no homophonic  words, every word has a an acoustic signature that allows For example, the utterance of word `and' has different acoustic properties  than the utterance of the word 'people'.
+ 
+ 
+ 
+     %irrespective of the fact that utterances were spoken by different speakers or in different context or both.
   
   
-  
-  In this chapter, I will address this issues and will primarily focus 
-  \begin{itemize}
-  \item apply the proposed preprocessing method on the Tidigits data sets . However there are some issues:   \begin {enumerate}
-  \item  sequences are not of the same length
-  probable fix : i) rescale the sequences to share the same length
+  %In this chapter, I will address this issues and will primarily focus 
+%  \begin{itemize}
+  %\item apply the proposed preprocessing method on the Tidigits data sets . However there are some issues:   \begin {enumerate}
+  %\item  sequences are not of the same length
+  %probable fix : i) rescale the sequences to share the same length
   			   
-			   ii)embed 0 at the end of each sequence to make as long as the longest sequence
-  \item  the frequency is too high..hard to capture the shape of the wave due to much varation  
-  Prob fix: translate the problem to a 2D problem. Map each signal to an image and compute the shape of the image using the 4 steps as before
-  \end{enumerate}
+	%		   ii)embed 0 at the end of each sequence to make as long as the longest sequence
+  %\item  the frequency is too high..hard to capture the shape of the wave due to much varation  
+  %Prob fix: translate the problem to a 2D problem. Map each signal to an image and compute the shape of the image using the 4 steps as before
+  %\end{enumerate}
   
-  \item Discussion---need to discuss with you on that
+  %\item Discussion---need to discuss with you on that
   
-  \item If i get time which I doubt i want to try to the test the 4 step preprocessing methodology on a different UCR dataset.
-  \end{itemize}   
+  %\item If i get time which I doubt i want to try to the test the 4 step preprocessing methodology on a different UCR dataset.
+  %\end{itemize}   
      
      
      

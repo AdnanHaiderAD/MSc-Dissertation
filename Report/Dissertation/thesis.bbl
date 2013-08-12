@@ -78,16 +78,6 @@ M.~Vlachos, G.~Kollios, and D.~Gunopulos, ``{Discovering similar
   multidimensional trajectories},'' in {\em Proceedings 18th International
   Conference on Data Engineering}, pp.~673--684, IEEE Comput. Soc, 2002.
 
-\bibitem{Marchette1999}
-D.~J. Marchette, ``{Local dimensionality reduction},'' vol.~14, ch.~Dimensiona,
-  p.~469, 1999.
-
-\bibitem{Korn1997}
-F.~Korn, H.~V. Jagadish, and C.~Faloutsos, ``{Efficiently supporting ad hoc
-  queries in large datasets of time sequences},'' in {\em Proceedings of the
-  1997 ACM SIGMOD international conference on Management of data - SIGMOD '97},
-  vol.~26, (New York, New York, USA), pp.~289--300, ACM Press, June 1997.
-
 \bibitem{ChotiratAnnRatanamahatana}
 E.~K. {Chotirat Ann Ratanamahatana}, ``{Three Myths about Dynamic Time Warping
   Data},'' {\em Mining, in the Proceedings of SIAM International Conference on
@@ -118,6 +108,20 @@ C.~M. Bishop and N.~M. Nasrabadi, {\em {Pattern recognition and machine
   learning}}, vol.~1.
 \newblock springer New York, 2006.
 
+\bibitem{Marchette1999}
+D.~J. Marchette, ``{Local dimensionality reduction},'' vol.~14, ch.~Dimensiona,
+  p.~469, 1999.
+
+\bibitem{Korn1997}
+F.~Korn, H.~V. Jagadish, and C.~Faloutsos, ``{Efficiently supporting ad hoc
+  queries in large datasets of time sequences},'' in {\em Proceedings of the
+  1997 ACM SIGMOD international conference on Management of data - SIGMOD '97},
+  vol.~26, (New York, New York, USA), pp.~289--300, ACM Press, June 1997.
+
+\bibitem{UCR}
+L.~.~R. {Keogh, E., Zhu, Q., Hu, B., Hao. Y., Xi, X., Wei}, ``{UCR Time Series
+  Data sets},'' 2011.
+
 \bibitem{Chun-Lin2010}
 L.~Chun-Lin, ``{Chapter 1 Overview},'' ch.~wavelets I, 2010.
 
@@ -140,11 +144,6 @@ I.~Daubechies, ``{Orthonormal bases of compactly supported wavelets},'' {\em
   Communications on Pure and Applied Mathematics}, vol.~41, pp.~909--996, Oct.
   1988.
 
-\bibitem{Gorman1988}
-J.~Gorman, O.~Mitchell, and F.~Kuhl, ``{Partial shape recognition using dynamic
-  programming},'' {\em IEEE Transactions on Pattern Analysis and Machine
-  Intelligence}, vol.~10, pp.~257--266, Mar. 1988.
-
 \bibitem{Adnan}
 M.~A. Haider, {\em {Morphometric analysis of temporally varying shapes in 3
   dimensions}}.
@@ -163,8 +162,10 @@ S.~Osowski and D.~D. Nghia, ``{Fourier and wavelet descriptors for shape
 R.~Bracewell, {\em {The Fourier transform and its applications}}.
 \newblock 1986.
 
-\bibitem{UCR}
-L.~.~R. {Keogh, E., Zhu, Q., Hu, B., Hao. Y., Xi, X., Wei}, ``{UCR Time Series
-  Data sets},'' 2011.
+\bibitem{Shahana2007}
+T.~K. Shahana, R.~K. James, B.~R. Jose, K.~P. Jacob, and S.~Sasi, ``{Polyphase
+  Implementation of Non-recursive Comb Decimators for Sigma-Delta A/D
+  Converters},'' in {\em 2007 IEEE Conference on Electron Devices and
+  Solid-State Circuits}, pp.~825--828, IEEE, 2007.
 
 \end{thebibliography}
