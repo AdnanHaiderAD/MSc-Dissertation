@@ -1216,11 +1216,14 @@ Let $f(x)$ be a discrete signal given by $f(x)=\{ 9, 7, 3. 5\}$. This function c
  
  \begin{tabular}{|c|c|c|}
  \hline \\
- Decomposition Level & Averages & Coefficients\\  0 &(9 7 3 5) & \\
- 1  & (8 4) &(1 -1) \\ 2    &(6)& (2)\\
+ Decomposition Level & Averages & Coefficients\\
+  0 &(9 7 3 5) & \\
+ 1  & (8 4) &(1 -1) \\
+ 2    &(6)& (2)\\
  \hline\\
  \end{tabular}
- The level  0  is the full resolution of the discrete function. At the first level of decomposition, (8 4) are obtained by taking the average of (9 7) and (3 5) and  (1 -1) are the differences of (9 7) and (3 5) divided by two respectively. The procedure is repeated on the approximated coefficients (8 4) to obtain (6) and (2) in the next level.
+ 
+The level  0  is the full resolution of the discrete function. At the first level of decomposition, (8 4) are obtained by taking the average of (9 7) and (3 5) and  (1 -1) are the differences of (9 7) and (3 5) divided by two respectively. The procedure is repeated on the approximated coefficients (8 4) to obtain (6) and (2) in the next level.
 
 
 
@@ -1601,6 +1604,13 @@ Observation
      \end{spacing}
   \chapter{Things to do}
   
+  In chapter 1, we have seen that one of the main limitations of applying the Euclidean metric in time series domains  is its inability  to handle sequences that vary in length. For time series sequences such as speech utterances, sequences belonging to the same class may vary in terms of speed, time duration and scale as a result of different speakers, the spoken context  etc. Hence, classifying sequences based only on a linear match of their  temporal dimensions wont work in such scenarios.  To address this issue, in the first part of this  chapter, I primarily focus in exploring preprocessing techniques that can map the speech utterances  to a K dimensional space where all sequences share the same length. The construction of such maps will provide the context for the Euclidean metric to be applied on classifying the data sequences. In the 2nd half of the chapter, I will be exploring further feature extraction methods that can be augmented with the techniques discussed in the previous chapter to  improve the accuracy of the baseline 1NN classifier  on speech utterances.
+  
+  \section{Homogenising the dimensionality of speech utterances}
+  
+  
+  
+  In this chapter, I will address this issues and will primarily focus 
   \begin{itemize}
   \item apply the proposed preprocessing method on the Tidigits data sets . However there are some issues:   \begin {enumerate}
   \item  sequences are not of the same length

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  11 AUG 2013 23:42
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  12 AUG 2013 12:27
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -953,15 +953,15 @@ Overfull \hbox (7.92694pt too wide) in paragraph at lines 1578--1586
 
 [80 <./726.jpg>] [81]
 Chapter 8.
-(./thesis.bbl [82
+[82
 
-] [83
+] (./thesis.bbl [83] [84
 
-] [84] [85]
+] [85] [86]
 Missing character: There is no â in font pplr9t!
 Missing character: There is no € in font pplr9t!
 Missing character: There is no ” in font pplr9t!
-) [86] (./thesis.aux (./chapter1.aux)
+) [87] (./thesis.aux (./chapter1.aux)
 (./chap3.aux) (./chap2.aux) (./chap3.aux) (./chap4.aux) (./chap5.aux)
 (./chap7.aux))
 
@@ -990,10 +990,10 @@ rw/helvetic/uhvro8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/pal
 atino/uplb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/u
 plr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/uplri8a.
 pfb>
-Output written on thesis.pdf (92 pages, 2867631 bytes).
+Output written on thesis.pdf (93 pages, 2869352 bytes).
 PDF statistics:
- 390 PDF objects out of 1000 (max. 8388607)
- 245 compressed objects within 3 object streams
+ 393 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  53424 words of extra memory for PDF output out of 61914 (max. 10000000)
 

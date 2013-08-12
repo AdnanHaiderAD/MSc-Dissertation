@@ -32,4 +32,5 @@
 \contentsline {subsection}{\numberline {7.2.3}Experiments}{77}
 \contentsline {section}{\numberline {7.3}Conclusion}{81}
 \contentsline {chapter}{\numberline {8}Things to do}{82}
-\contentsline {chapter}{Bibliography}{83}
+\contentsline {section}{\numberline {8.1}Homogenising the dimensionality of speech utterances}{82}
+\contentsline {chapter}{Bibliography}{84}
