@@ -1,6 +1,7 @@
 function kappa= compute_curvature(x,y)
 %s=spline(x,y);
- s= csaps(x,y,0.35);
+
+ s= csaps(x,y,0.2);
 % first derivative, pp form
 s1 = s;
 s1.order = s.order-1; 
@@ -28,5 +29,5 @@ kappa = A2./(1 + A1.^2).^(3/2);
 %kappa=ppval(x,s);
 %kappa=s;
 %subplot(1,2,2)
-%plot(x,kappa,'r');
+plot(x,kappa,'r');
 
