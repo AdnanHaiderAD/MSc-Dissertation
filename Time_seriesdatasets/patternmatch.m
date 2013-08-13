@@ -28,7 +28,7 @@ function result=wavedecom(data)
     y1= abs(hilbert(sample(sample<=0)));
     envelope=[y -1*y1];
     %[C,L] =wavedec(sample,7,'Haar');
-    [C,L] =wavedec(envelope,8,'Haar');
+    [C,L] =wavedec(envelope,7,'Haar');
     signal= C(1:L(1));
     C(L(1)+1:end)=0;
     signal =waverec(C,L,'Haar');
@@ -51,7 +51,7 @@ end
 function result=fourierdecom(data)
     
 [samp ,dim]=size(data);
-result=zeros(samp, fix(72));
+result=zeros(samp, fix(77));
 %result=zeros(samp,1+ dim);
   
 %result(:,1)=data(:,1);
@@ -59,7 +59,7 @@ for k=1 :samp
     sample= data(k,:);
     fouriercoeff = abs(fft(sample));
     
-    result(k,:) = fouriercoeff(1:72);
+    result(k,:) = fouriercoeff(1:77);
     %result(k,2:length(fouriercoeff)+1)=fouriercoeff;
 end
 end

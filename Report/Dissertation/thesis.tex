@@ -119,7 +119,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.2}
+ \begin{spacing}{1.1}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -1671,24 +1671,28 @@ Figure 8.3 provides an illustration of the envelope extraction process. The topm
   
   \textbf{Distance metric used}: Euclidean distance.
   
-  \textbf{Preprocessing techniques}:
+  \textbf{Preprocessing steps used}:
  
  For each utterance:  
   \begin{itemize}
- \item Apply the matlab function `resample' to rescale the utterance to the mean length $\mu$ of the sequences in the training dataset. This forces  all sequences to share the same length while at the same time preserving the shape of the envelopes associated with each utterance.  
-  \item  Apply the hilbert transform to extract the envelope associated with the speech signal.
-  \item The extracted envelopes   from step 2 have very high frequencies which is expected  since human speech is spoken at a very high frequency. Applying the wavelet transform can remove the  unnecessary details  from the extracted envelopes. For this problem, I stopped the wavelet decomposition at level 8 and considered only the approximated coefficients $A'_8$. Through exploratory data analysis, I have found this level is the minimum level of decomposition that needs to be applied to extract a curve that captures the envelope of the signal.
+ \item Apply the matlab function `resample' to rescale the utterance to the mean length of the sequences in the training dataset. This ensures that  all sequences to share the same length while at the same time preserving the shape of the envelopes associated with each utterance.  
+  \item  Apply the Hilbert transform to extract the envelope associated with the speech signal.
+  \item Apply the wavelet transform can remove the  unnecessary details  from the extracted envelopes.  The envelopes extracted through the Hilbert transform contain regions with very high frequencies.  This is expected  as human speech is spoken at a very high frequency . Using the wavelet transform, we can recover the global trend of the envelope by  smoothing away the regions with high frequencies.  For this problem, I stopped the wavelet decomposition at level 8 and considered only the approximated coefficients $A'_8$.  Through exploratory data analysis, I have found this level is in fact the minimum level of decomposition that needs to be applied to extract a curve that captures the envelope of the signal. The extracted envelope is hence replaced by the smoothed envelope corresponding to the  approximation coefficients $A'_8$.
+  \item Fit a smoothed spline to each extracted envelope  and replace the amplitude values associated with each point of the fitted spline with  the local curvatures associated with those points.  
+    
+  \item  The fourier  feature extraction phase along with SVD was deemed not necessary since the wavelet decomposition reduces the length of the signals by $2^7$. 
   
   
-  
-  \end{itemize}
-  
-  
-  
- To investigate whether the proposed feature extraction methodology improves the performance of the 1NN classifier, I have compared  the accuracy and the run time of the classifier against the performance achieved by  the  baseline 1NN classifier combined with SVD when its employed on the rescaled speech utterances. A summary of the results are as follows:
+  %The extracted sequences however, still suffer from very high dimensionality.  Since the  objective here is to extract the global shape of the envelope, by  following the methodology discussed in 7.2.2, I have taken the first k fourier coefficients from the fourier transform  of the signal.  As I have already mentioned in the section 7.2, the  information of the global shape is captured by the fourier coefficients of the lower frequencies\citep{Osowski2002}. For this dataset, by conducting multple experiments, I have found that taking the first 77 fourier coefficients yield the highest results.
+   \end{itemize}
+\textbf{Run time of preprocessing}  : The time taken to apply this above feature extraction methods is 106.5s. 
+
+
+To investigate whether the proposed feature extraction methodology improves the performance of the 1NN classifier, I have compared  the accuracy and the run time of the classifier against the performance achieved by  the  baseline 1NN classifier combined with SVD when its employed on the rescaled speech utterances. A summary of the results are as follows:
 \begin{figure}[H]
   \centering
       \includegraphics[scale=0.8]{84.jpg}
+  \caption{Accuracy of the 1NN classifier}
    \end{figure}
   
   \begin{table} [H]
@@ -1705,8 +1709,40 @@ Figure 8.3 provides an illustration of the envelope extraction process. The topm
 \end{table}
 
 \textbf{Observation}
+\begin{itemize}
+\item  Allowing the 1 NN classifier to exploit information about the shape of the envelopes improves the ability of  the classifier to classify intra class speech utterances more accurately by performing just a linear match between the  sequences. From figure 8.4, we can observe embedding the multi step feature extraction methodology improves the accuracy of the classifier by 6\%.
 
- \chapter{Discussion}
+\item Applying the multistep feature extraction  as a preprocessing step, reduces the run time of the 1NN classifier. However, the preprocessing step on its own is quite time consuming. In the next chapter, I will present a detailed discussion on the pros and cons of the proposed  multi-step feature extraction method.
+
+
+% One of the main drawbacks of this methodology is the fourier  feature extraction phase.  For problem domains where the use of fourier feature  extraction phase can not be avoided, the proposed multi-step feature extraction suffers from a essential drawback. While the decomposition level of applying the wavelet transform can be decided by conducting exploratory data analysis, to choose the appropriate number of fourier coefficients, we require a labelled training set.
+
+
+
+  \end{itemize}
+
+ \chapter{Discussion and Future Work}
+This project has primarily focussed  in addressing the drawbacks associated with applying the Dynamic time warping algorithm and the Euclidean metric in time-series problem domains where minimising the run time is as important as improving the accuracy. 
+
+In the first 5 chapters, the focus has been primarily in improving  the  speed and accuracy of the DTW algorithm  in handling sequences that have very long lengths. In Chapter 4, we explored   domain dependent feature extraction techniques  that can  improve the performance of the baseline DTW algorithm. From the results gathered from numerous experiments, we  have observed  the DTW favours domain dependent  multivariate  feature sequences, such as the MFCC feature vectors in the case  of the TIDIGITS dataset, in  constructing optimal paths for intra class sequences which are much closer  to the diagonal regions of the cost matrix. In Chapter 5, the focus has been to improve the DTW algorithm itself. Section 7.2 proposes an alternative adaptation to the DTW algorithm  than augmenting it with window constraints  when tackling problem domains where the time complexity is of high priority. From conducting  various experiments, we have seen that the proposed adaption yields higher performance in both accuracy and run time when combined with both univariate and multivariate  features sequences. Due to the lack of time, we didn't manage to test the proposed DTW implementation on detecting motifs from time series sequences. For future work, it will be thus  interesting to test the proposed implementation in a unsupervised context and  investigate how the proposed adapted version of the DTW algorithm compares to the  baseline version augmented with window constraints in identifying motifs from long time series sequences. 
+
+
+ 
+  The new methodology makes use a self proposed kernel that allows the algorithm to yield high irrespective if it is using multivariate or uni variate features. 
+
+From experimental results, we have seen that the proposed adaption allows DTW to achieve both higher accur
+
+through conducting several experiments, we have  observed that using domain dependent preprocessing techniques  prior to applying DTW can  improve its performance in terms of both accuracy and speed with out the need of any global constraints. The DTW algorithm can be applied to both univariate and multivariate feature sequences. However experimental results have shown that algorithm yields higher accuracies when it is applied to multivariate feature sequences. For the TIDIGITS dataset, in section 4.2, we have observed that replacing the raw values with the MFCC feature vectors improves the classification accuracy even 	window constraints are employed to reduce the search space. 
+
+
+In the second half of the project, we have observed how a mutlistep feature extraction procedure can help improve both the accuracy and the run time of 1NN classifier using the Euclidean metric. The multi step feature extraction procedure  discussed in section 7.2  has been designed to improve the  in problem domains where intra class sequences are distinguished by their global shapes.
+
+One of the main drawbacks of the proposed  multi step feature extraction methodology discussed in chapter 7 and 8 is the fourier  feature extraction phase. The fourier extraction phase is applied to extract the information about the global shape of the sequences. in scenarios where the resultant feature sequences extracted by performing wavelet decomposition followed by  the fourier extraction is applied as dimensionality reduction step to extract information about the global shape of the sequence from the sequence of extracted curvature values.  The UCT dataset InlineSkate is an example of a problem domain where the use of the feature extraction phase cannot be avoided.While the decomposition level of applying the wavelet transform can be decided by conducting exploratory data analysis, to choose the appropriate number of fourier coefficients, we require a labelled training set. 
+
+
+
+For problem domains where the use of fourier feature  extraction phase can not be avoided, the proposed multi-step feature extraction suffers from a essential drawback. While the decomposition level of applying the wavelet transform can be decided by conducting exploratory data analysis, to choose the appropriate number of fourier coefficients, we require a labelled training set.
+
 
 
 % To be precise, each lexical identity has a acoustic signature that allows a listener to identify utterances of that word even if the utterances correspond to samples of different speakers, 
