@@ -1,14 +1,14 @@
 function eigenvectors = principalcomponents(datamatrix)
 %% extracts  eigenvectors correponding to the principal subspace
-% datamatrix is N by D where N is the number of samples and D is the
+% datamatrix is D by N where N is the number of samples and D is the
 % dimension and D>>N
 
 
 
 
 
-%% computation of matrix XX'
-data =datamatrix*datamatrix';
+%% computation of matrix X'X
+data =datamatrix'*datamatrix;
 
 [U,S,V]= svd(data);
 clear V
@@ -34,7 +34,7 @@ singValueInv= diag(1./sqrt(singularvalues));
 
 
 % 1/(srqt(lambda)) * X'*U  
-eigenvectors=( datamatrix'*U*singValueInv);
+eigenvectors=( datamatrix*U*singValueInv);
 
 
 end

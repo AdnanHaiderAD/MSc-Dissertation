@@ -1631,7 +1631,7 @@ Observation
 
 \section{ Feature extraction methods to construct acoustic fingerprints}
 
-The objective now is to construct a feature extraction scheme that captures information about the shape of the envelopes corresponding to speech utterances. This problem is very similar to the problem we addressed in the previous chapter. To remind the reader, in the previous chapter we explored curvature-based feature extraction methods that capture information about the global shape of time series sequences.   In comparison, the current problem only differs in the fact that instead of looking at the entire signal, we are only interested  in the shape of the envelope of the signal. Thus, if we find a procedure to extract the envelope of a signal, then we can use the 4 step methodology proposed in section 7.2 to extract the curvature based features that capture the shape of the envelopes.
+The objective now is to construct a feature extraction scheme that captures information about the shape of the envelope  associated with each speech utterance. This problem is very similar to the problem we addressed in the previous chapter. To remind the reader, in the previous chapter we explored curvature-based feature extraction methods that capture information about the global shape of time series sequences.   In comparison, the current problem only differs in the fact that instead of looking at the entire signal, we are only interested  in the shape of the envelope of the signal. Thus, if we find a procedure to extract the envelope associated with a  signal, then we can use the multi step feature extraction methodology proposed in section 7.2 to extract the curvature based features that capture the shape of the envelopes.
 
 \subsection{Extracting the envelope of a speech utterance}
 To separate the envelopes from their respective  speech utterances, I have applied the Hilbert transform\citep{Feldman1997}. 
@@ -1640,33 +1640,27 @@ To separate the envelopes from their respective  speech utterances, I have appli
 
 The Hilbert transform of a function f(x) is defined by:
 
-\[f(t)=\frac{1}{\pi} * \int_{-\infty}^ {\infty} \frac{f(x)}{(t-x)} dx\]
-Theoretically, the integral is evaluated as a Cauchy principal value\citep{RamP.Kanwal1996}. The above integral corresponds to  the  convolution of the function $\frac{1}{\pi t}$ with the function f(x) :
-\[F(t) = \frac{1}{(\pi*t)} * f(t)\]
-which by the convolution theorem of Fourier transforms, can be also evaluated  as the product of the transform of f(x) with $-i*sgn(x)$ where
-\[ sgn(x) =\begin{cases}
-		-1 & x<0\\
-		0  & x=0 \\
-		1 & x>1 \\
-		\end{cases}\]
-The Hilbert  transform can  be intuitively considered to be a filter which simply shifts phases of all frequency components of its input by $\frac{-\pi}{2}$ radians. Using the transform, we can construct  an "analytic" (complex time) signal Y(t)  as follows:
+\[f(t)=\frac{1}{\pi}  \int_{-\infty}^ {\infty} \frac{f(x)}{(t-x)} dx\]
+Theoretically, the integral is evaluated as a Cauchy principal value\citep{RamP.Kanwal1996}. The above integral can be thought of as   the  convolution of the function $\frac{1}{\pi t}$ with the function f(t) :
+\[F(t) = \frac{1}{(\pi t)}  f(t)\]
+
+Intuitively speaking, the   transform can  be considered to be a filter which simply shifts phases of all frequency components of its input by $\frac{-\pi}{2}$ radians. Using the  Hilbert transform, we can construct  an "analytic (complex time) signal Y(t)  such that:
 \[Y(t) = y(t) + j h(t)\]
  where y(t) corresponds to the original signal and h(t) corresponds to the Hilbert transform of the original signal.
 
-To extract the envelope e(t) of a signal x(t) , we  consider only  the magnitude of the analytic signal as shown by the following equation.
+To extract the envelope e(t) of a signal x(t) , we  consider only  the magnitude of this analytic signal as shown by the following equation.
 
 $$e(t) = \sqrt{x({t})^{2} + \hat{x}(t)^{2}}$$
 
 
 where $\hat{x}(t)$ is the Hilbert transform of x(t).
 
-Figure 8.3 provides an illustration of the envelope extraction process. The topmost plot corresponds to an instance of digit `5' from the TIDIGITS corpus. The second plot corresponds to the envelope of the raw signal.  If we represent each raw signal as an image than the envelope of the signal will correspond to its perimeter which is an outline of the upper and lower parts of the signal. Hence, to capture the envelope of both the upper part and lower part  of the signal, I  applied the Hilbert transform twice: once on the positive part of the signal to extract the top envelope and second on the negative part of the signal to extract the bottom envelope. The second plot  represents the augmentation of the  upper and lower envelopes of the speech utterance. However, human speech is spoken at a very high frequency. Thus as evident from the figure, the extracted envelopes  have very high frequencies. To remove these unnecessary details, I performed wavelet decomposition to extract a curve that captures the envelope of the utterance as shown by the third plot.
-
+Figure 8.3 provides an illustration of the envelope extraction process. The topmost plot corresponds to an instance of digit `2' from the TIDIGITS corpus. The second plot corresponds to the envelope of the raw signal.  If we represent each raw signal as an image than the envelope of the signal will correspond to its perimeter of the image which is simply  the outline of the upper and lower parts of the signal. Hence, to capture the envelope, the outlines of both the upper part and lower part  of the signal must be captured. To achieve this, I  applied the Hilbert transform twice: once on the positive part of the signal to extract the top envelope and next on the negative part of the signal to extract the bottom envelope. The second plot in figure 8.3  represents the augmentation of the  upper and lower envelopes of the speech utterance. However this extraction procedure is not `clean'.  As evident from the figure, the extracted envelopes  have very high frequencies which is expected  since human speech is spoken at a very high frequency.   To remove these unnecessary details, I performed wavelet decomposition to extract a curve that captures the envelope of the utterance. The bottom plot corresponds to the envelope reconstructed  using just the coefficients of the approximated part of the wavelet transform. 
 
 \begin{figure}[H]
   
-      \includegraphics[scale=0.5]{83.jpg}
- \caption{The top plot corresponds to an utterance of digit 5. The second plot corresponds to the envelope of the signal extracted by the Hilbert transform. The third plot corresponds to a smoothed version of the envelope extracted by wavelet decomposition and the bottom plot corresponds to the curvatures associated with the smoothed envelope  }
+      \includegraphics[scale=0.4]{83.jpg}
+ \caption{The top plot corresponds to an utterance of digit 5. The second plot corresponds to the envelope of the signal extracted by the Hilbert transform. The third plot corresponds to a smoothed version of the envelope extracted by wavelet decomposition   }
   \end{figure}
   
   \section{Experimental Results}
@@ -1677,20 +1671,40 @@ Figure 8.3 provides an illustration of the envelope extraction process. The topm
   
   \textbf{Distance metric used}: Euclidean distance.
   
-  \textbf{Preprocessing technique}:
-  
+  \textbf{Preprocessing techniques}:
+ 
+ For each utterance:  
   \begin{itemize}
-  \item
-  \item
-  \item
+ \item Apply the matlab function `resample' to rescale the utterance to the mean length $\mu$ of the sequences in the training dataset. This forces  all sequences to share the same length while at the same time preserving the shape of the envelopes associated with each utterance.  
+  \item  Apply the hilbert transform to extract the envelope associated with the speech signal.
+  \item The extracted envelopes   from step 2 have very high frequencies which is expected  since human speech is spoken at a very high frequency. Applying the wavelet transform can remove the  unnecessary details  from the extracted envelopes. For this problem, I stopped the wavelet decomposition at level 8 and considered only the approximated coefficients $A'_8$. Through exploratory data analysis, I have found this level is the minimum level of decomposition that needs to be applied to extract a curve that captures the envelope of the signal.
+  
+  
   
   \end{itemize}
   
   
   
- To investigate whether the proposed feature extraction methodology improves the performance of the 1NN classifier, I have the accuracy and the run time of the classifier against the baseline 1NN classifier employed on the rescaled speech utterances. A summary of the results are as follows:
+ To investigate whether the proposed feature extraction methodology improves the performance of the 1NN classifier, I have compared  the accuracy and the run time of the classifier against the performance achieved by  the  baseline 1NN classifier combined with SVD when its employed on the rescaled speech utterances. A summary of the results are as follows:
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.8]{84.jpg}
+   \end{figure}
   
-  
+  \begin{table} [H]
+ \centering
+\begin{tabular}{|c|c|c|c|}
+
+\hline \\
+ baseline 1NN + SVD & 1NN + multi step feature extraction method \\\\
+\hline\\
+   56.5s & 5.23s\\
+\hline
+\end{tabular}
+\caption{Run time results}
+\end{table}
+
+\textbf{Observation}
 
  \chapter{Discussion}
 

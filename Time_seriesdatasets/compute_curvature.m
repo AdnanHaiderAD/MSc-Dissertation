@@ -29,5 +29,5 @@ kappa = A2./(1 + A1.^2).^(3/2);
 %kappa=ppval(x,s);
 %kappa=s;
 %subplot(1,2,2)
-plot(x,kappa,'r');
+%plot(x,kappa,'r');
 
