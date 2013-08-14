@@ -119,7 +119,7 @@ Igor, my faithful lab assistant.
 %%%%%%%%
 %% Include your chapter files here. See the sample chapter file for the basic
 %% format.
- \begin{spacing}{1.1}
+ \begin{spacing}{1.25}
 \include{chapter1}
 \chapter{Introduction}
 
@@ -950,7 +950,7 @@ k(x,z) represents the sum of all possible dot-products. Using smaller subsequenc
 
 \textbf{RESULTS}
 
-\begin{figure}[H]
+\begin{figure}
   \centering
       \includegraphics[scale=0.9]{525.jpg}
   \caption{Accuracy}
@@ -1394,15 +1394,15 @@ This proves  that by applying the  wavelet transform as a preprocessing step, th
 \section{Curvature-based Feature extraction}
 In the previous section, we have observed that for datasets such as  the InlineSkate dataset, the main commonality between intra class sequences is the global shape. Applying wavelet decomposition and considering only the approximation part of the signal $A_4$  allows us to achieve dimensionality reduction but without any improvement  in accuracy. The low accuracy achieved by the classifier  is primarily due to the limitations incurred in comparing sequences  using the euclidean metric. The individual amplitude values on their own are not reflective of the global shape of the sequence. This creates  the motivation to explore feature extraction methodologies that capture information about the shape of the sequence.
 
-To address this issue, I propose the following  4 step feature extraction methodology to extract useful features from the InlineSkate dataset:
+To address this issue, I propose the following  multi step feature extraction methodology to extract useful features from the InlineSkate dataset:
 \begin{enumerate}[label=\roman{*}]
 \item  Apply wavelet decomposition up to scale j and consider only the approximation part of the signal $A_j$. This achieves dimensionality reduction by  pruning away unwanted details while preserving information about global trends.
 \item  Replace the amplitude value associated with each point of the approximated signal with curvature value of the smoothed signal associated with the corresponding point(details to follow).
-\item  Apply fourier transform and consider only the first half of the fourier coefficients(details to follow).
+\item  In the scenario  where the  sequences extracted  using the wavelet transform still posses very high dimensionality,  apply the  fourier transform and consider only the first half of the fourier coefficients(details to follow).
 
 \textbf{Note}: This step should  only considered when we are working with time series datasets that have very high dimensionality.
  
-\item If the dimension/length of the sequences $\gg$ than the number of samples after the first 3 steps then apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the 95\% variation of the feature vectors in the fourier feature space.
+\item If the dimension of the extracted fourier feature space  $\gg$ than the number of samples after the first 3 steps then apply SVD on the result sequence of fourier feature descriptors to extract a smaller set of latent vectors that capture the 95\% variation of the feature vectors in the fourier feature space. 
 
 In the following sections, I  provide  a detail description of the procedures specified in step (ii) and step (iii) of my proposed methodology. 
 
@@ -1500,9 +1500,9 @@ The Fourier transform maps time into frequency and phase. For each frequency the
       \includegraphics[scale=0.8]{722.jpg}
  
   \end{figure}
-   \textbf{Note}: Dimensionality reduction occurs at step 1,3 and 4. Redundant features are pruned away at this steps to finally result a small set of latent factors that be used to cluster/classify inter class sequences that are distinguished by global trends.
+   \textbf{Note}: Dimensionality reduction occurs at step 1,3 and 4. Redundant features are pruned away at this steps to finally result a small set of latent factors that be used to cluster/classify inter class sequences that are distinguished by global trends. However, to choose the appropriate number of fourier coefficients, the experiment was repeated multiple to decide the optimum number of fourier coefficients that yields the highest accuracy. Thus as a result, the run time incurred during preprocessing was around 187s. I will discuss this issue further in the discussion section.
  
-The performance of 1NN classifier using  4 step feature extraction method as a preprocessing step was compared with  the performance of the baseline 1NN classifier and the performance of the  1NN classifier combined with the DTW metric. A summary of the results are as follows:
+After selecting the appropriate number of fourier coefficients to use, the experiment was  run  once again.  The run time and accuracy of the  1NN classifier  was compared with  the performance of the baseline 1NN classifier and the performance of the  1NN classifier combined with the DTW metric. A summary of the results are as follows:
 
 
 
@@ -1525,14 +1525,11 @@ InlineSkate & 1.03s & 0.199s & 3.290 $\times 10^6$ \\
 \caption{Run time}
 \end{table}
 
- \textbf{Observation}
+ \textbf{Observations}
  \begin{itemize}
-  \item Embedding the baseline 1NN classifier with the proposed feature extraction method reduces the run time of the  the baseline classifier by an order of 9. 
+  \item Embedding the baseline 1NN classifier with the proposed feature extraction method reduces the run time of the  the baseline classifier by an order of 9. This is expected as we achieve dimensionality reduction in step 1 and step 3 in the feature extraction phase.
   
-   \item The  global shape features extracted from the proposed feature extraction method are more successful in capturing information about the global shape than the raw amplitude values. From the table above, it can be seen that the 1NN classifier's accuracy has improved by  5.46\% when its employs the 3 step feature extraction method as a preprocessing step in comparison to using the raw values directly.
-   
-    
- \item Interestingly, for this dataset, conducting a linear match  of the latent features  allows the the 1 NN classifier to achieve accuracy  identical to the accuracy achieved when it  employs the  DTW algorithm as a similarity metric. Furthermore, the run time of 1NN classifier using the Euclidean metric is $10^7$ times smaller than the run time of  the 1NN classifier combined with the DTW metric.
+   \item The extracted   shape descriptors are more successful in capturing information about the global shape than the raw amplitude values. Embedding the baseline 1NN classifier with the proposed feature extraction method allows the Euclidean metric to be as effective as the DTW metric when the DTW is   employed on the raw sequences. From the table above, it can be seen that the 1NN classifier's accuracy has improved by  5.46\% and  is now identical to the accuracy of the classifier using   DTW algorithm on the raw sequences.. Furthermore, the run time of 1NN classifier using the Euclidean metric is $10^7$ times smaller than the run time of  the 1NN classifier combined with the DTW metric.
     \end{itemize}
     
     
@@ -1545,7 +1542,7 @@ To  verify that the proposed feature extraction method is not tailored for this 
 \item From examining the plots of the time series sequences, I have applied wavelet decomposition only up to level 3 and taken the coefficients of the approximated signal $A_3$.
 \item  The  value of $\lambda$ chosen for smoothed cubic spline fitting is 0.35. At this value, the classifier is seen to yield the best results.
 \item  Since the length of the sequences is only 128, the information of individual local trends  is almost pruned away in the early levels of the decomposition. Figure 7.9 shows the plot of a raw signal corresponding to an instance of class`3' from the CBF dataset  and the  signal constructed from approximation $A_1$ using the reverse wavelet transform \citep{Mallet1998}. From the figure, we can see that jagged portions of the signal are smoothed away when we stop the decomposition at the first level.
-Thus, when we repeat the wavelet decomposition 3 times and take $A_3$, we can expect the coefficients of $A_3$ to correspond to a smoothed signal where  all the local trends are pruned away. The length of the $A_3$ is now 8 times smaller than the original sequence, therefore, the fourier extraction step is deemed not necessary in this case as the extracted sequences are very small in length. 
+Thus, when we repeat the wavelet decomposition 3 times and take $A_3$, we can expect the coefficients of $A_3$ to correspond to a smoothed signal where  all the local trends are pruned away. The length of the $A_3$ is now 8 times smaller than the original sequence, therefore, the fourier extraction step was deemed not necessary in this case as the extracted sequences are very small in length. 
 
 \end{itemize}
   
@@ -1601,7 +1598,6 @@ Observation
   
   
   
-     \end{spacing}
   \chapter{Adapting The Euclidean Metric To Perform  Isolated Word Recognition}
   
   In chapter 1, we have seen that one of the main limitations of applying the Euclidean metric in time series domains  is its inability  to handle sequences that vary in length. For time series sequences such as speech utterances, sequences belonging to the same class may vary in terms of speed, time duration and scale as a result of different speakers, the spoken context  etc. Hence, classifying sequences based only on a linear match of their  temporal dimensions wont work in such scenarios.  To address this issue, in this  chapter, I primarily focus in  exploring feature extraction methods that identifies and extract useful features that can be used to distinguish sequences of different classes. Mapping each sequence to the well chosen  constructed  K  dimensional feature space can increase the inter class variances of sequences and at the same time ensure that  all sequences share the same length. This provides  the context for the Euclidean metric to be applied on classifying the data sequences.  
@@ -1724,31 +1720,39 @@ To investigate whether the proposed feature extraction methodology improves the 
  \chapter{Discussion and Future Work}
 This project has primarily focussed  in addressing the drawbacks associated with applying the Dynamic time warping algorithm and the Euclidean metric in time-series problem domains where minimising the run time is as important as improving the accuracy. 
 
-\section {Summary}
+\section {Summary and Future Work}
 
-In the first 5 chapters, the focus has been primarily in improving  the  speed and accuracy of the DTW algorithm  in handling sequences that have very long lengths. In Chapter 4, we explored   domain dependent feature extraction techniques  that can  improve the performance of the baseline DTW algorithm. From the results gathered from numerous experiments, we  have observed  the DTW favours domain dependent  multivariate  feature sequences, for example the MFCC feature vectors in the case  of the TIDIGITS dataset, in  constructing optimal paths for intra class sequences which are much closer  to the diagonal regions of the cost matrix. In Chapter 5, the focus has been to improve the DTW algorithm itself. Section 7.2 proposes an alternative adaptation to the DTW algorithm  than augmenting it with window constraints  to tackle problem domains where minimising the  time complexity is of high priority. From conducting  various experiments, we have seen that the proposed adaption yields higher performance in both accuracy and run time when combined with both univariate and multivariate  features sequences. 
+In the first 5 chapters, the focus has been primarily in improving  the  speed and accuracy of the DTW algorithm  in handling sequences that have very long lengths. In Chapter 4, we explored   domain dependent feature extraction techniques  that can  improve the performance of the baseline DTW algorithm. From the results gathered from numerous experiments, we  have observed  the DTW favours domain dependent  multivariate  feature sequences, for example the MFCC feature vectors in the case  of the TIDIGITS dataset, in  constructing optimal paths for intra class sequences which are much closer  to the diagonal regions of the cost matrix. In Chapter 5, the focus has been to improve the DTW algorithm itself. Section 7.2 proposes an alternative adaptation to the DTW algorithm  than augmenting it with window constraints  to tackle problem domains where minimising the  time complexity is of high priority. From conducting  various experiments, we have seen that the proposed adaption yields higher performance in both accuracy and run time when combined with both univariate and multivariate  features sequences. Due to the lack of time, we didn't manage to test the proposed DTW implementation in an unsupervised setting for  detecting motifs from time series sequences. For future work, it will be thus  interesting to test the proposed implementation in identifying motifs from long time series sequences  and  hence investigate how this proposed adapted version fairs against the baseline DTW algorithm augmented with the window constraint.
 
 
-In the later chapters, the focus has shifted in improving the accuracy and speed  associated with using the Euclidean metric in identifying intra class sequences.  Chapter 6, investigates how SVD can be used to minimise the run time of classifiers/clustering algorithms using the Euclidean metric without any side effects  by  constructing a compact representation of time series sequences . Chapter 7  focusses in improving the accuracy of the Euclidean metric for comparing time series sequences. In section 7.1, we introduce the concept of the wavelet analysis and investigate how  the wavelet transform  can be used as feature extraction method to remove unnecessary details and preserve the  common trends of intra class sequences.  From conducting experiments on the UCR datasets, we have observed that using the wavelet transform combined with SVD as a preprocessing step improves both the accuracy and run time in identifying intra sequences that share time localised global and local trends.  In Section 7.2, the methodology is extended to improve the accuracy in using the Euclidean distance to identify sequences distinguished by their global shape. In this section, we introduce  a multi-step feature extraction methodology that combines the wavelet feature extraction process and SVD with curvature extraction techniques to construct a time series `fingerprint' for each class.  Experimental results have shown  that augmenting the baseline 1NN classifier with the proposed multi-step feature extraction process allows the Euclidean metric to be as effective as the DTW metric. However there are few issues that must be addressed regarding the implementation of  this technique.
+
+
+In the later chapters, the focus has shifted in improving the accuracy and speed  associated with using the Euclidean metric in identifying intra class sequences.  Chapter 6, investigates how SVD can be used to minimise the run time of classifiers/clustering algorithms using the Euclidean metric without any side effects  by  constructing a compact representation of time series sequences . Chapter 7  focusses in improving the accuracy of the Euclidean metric for comparing time series sequences. In section 7.1, we introduce the concept of the wavelet analysis and investigate how  the wavelet transform  can be used as feature extraction method to remove unnecessary details and preserve the  common trends of intra class sequences.  From conducting experiments on the UCR datasets, we have observed that using the wavelet transform combined with SVD as a preprocessing step improves both the accuracy and run time in identifying intra sequences that share time localised global and local trends.  In Section 7.2, the methodology is extended to improve the accuracy in using the Euclidean distance to identify sequences distinguished by their global shape. In this section, we introduce  a multi-step feature extraction methodology that combines the wavelet feature extraction process and SVD with curvature extraction techniques to construct a time series `fingerprint' for each class.  Experimental results have shown  that augmenting the baseline 1NN classifier with the proposed multi-step feature extraction process allows the Euclidean metric to be as effective as the DTW metric. However there are few issues that must be addressed regarding the implementation of  this technique:
 
 \begin{itemize}
-\item Parameter selection: When implementing the wavelet transform, it is necessary to decide on when to stop the wavelet decomposition. For this project, I have used exploratory data analysis to decide when to stop the wavelet decomposition and which wavelet  coefficients to consider for the problem dataset. To find an automated way to choose the appropriate wavelet coefficients,  recent works have been conducted \citep{Zhang2006,Qu2003} to address this issue.
+\item Parameter selection
 
-For the curve fitting phase, the smoothing parameter $\lambda$ must be set to an appropriate value to achieve a good fit.  While conducting my analysis, I have found that by visually comparing the corresponding fits, the value of  $\lambda$ can be chosen to an appropriate value that allows us to compute curvatures of the shapes of the dominant trends in the sequences.
+When implementing the wavelet transform, choosing the appropriate wavelet coefficients is not that straight forward. For this project, I have used exploratory data analysis to decide on which level should the  wavelet decomposition  should be stopped and which wavelet  coefficients should be  considered for the problem dataset. Thus,  the success of using this feature extraction technique lies on how well the user interprets  the data through exploratory data analysis. To  automatically choose the appropriate wavelet coefficients, recently methods have been proposed \citep{Zhang2006,Qu2003} that uses the energy associated with the coefficients to choose appropriate features. For future work, it will  interesting to augment these automated methods to the wavelet feature extraction process and compare  the performance of the 1NN classifier against our current results  on the datasets we have considered so far. By comparing these new experimental results  with our current results, we can determine the usefulness of such automated wavelet feature extraction methodologies. 
 
-For problem domains where sequences still possess very long lengths even after the wavelet feature extraction process, the fourier extraction phase is used to extract the global shape of the sequences.  Using the fourier extraction phase however provides a significant limitation. To  decide on  the correct number of fourier coefficients `k' , the 1NN classification was performed multiple times and the  fourier coefficients that have yielded the highest accuracy were chosen. This provides a significant limitation as we need labelled training instances to choose k.  Thus,  the use of the fourier extraction phase reduces the applicability of the method to domains that are supervised and semi-supervised.
 
- \item Run time : For problem domains, where the multi-step feature extraction process involves the use of  the fourier feature extraction step, the entire preprocessing phase must be repeated multiple times to choose the appropriate number of coefficients. Hence, although the run time during classification is lower, the overall run time will now be much higher due to the high run time incurred during preprocessing. Thus in terms of run time, the proposed methodology is only efficient in problem scenarios where the fourier feature extraction phase is deemed not necessary.   
-\end{itemize}
- And lastly in the  last chapter, we investigate how this multistep feature extraction process can be extended to identify speech utterances corresponding to the same lexical identity and thus allow the euclidean metric to work on sequences that have variable lengths.
+
+Secondly, for the curve fitting phase, the smoothing parameter $\lambda$ must be set to an appropriate value to achieve a good fit.  While conducting my analysis, I have found that by visually comparing the corresponding fits, the value of  $\lambda$ can be chosen to an appropriate value that allows us to compute curvatures of the shapes of the dominant trends in the sequences.
+
+For time series datasets where sequences  possess  long lengths even after the wavelet feature extraction process, the fourier extraction phase is used to extract the global shape of the sequences.  As I have mentioned in section 7.2, the global shape of sequence is associated with the fourier coefficients at the lower frequencies.  Hence taking the first k fourier coefficients allows the Euclidean metric to make comparisons based on the global shape of the sequences.  However, using the fourier extraction phase  provides a significant limitation. To  decide on  the correct number of fourier coefficients `k' , the 1NN classification is needed to  performed multiple times and  to choose the value k that  yields the highest accuracy. This provides a significant limitation as we need to have labelled training instances to choose k.  Hence, when we include the  fourier extraction phase  in the multi step feature extraction process,  the applicability of the multi-step  method  is reduced to  domains that are either supervised and semi-supervised.
+
+ \item Run time :
  
-
+ In chapter 7, we have seen that for time series classification problems where we need to include the fourier feature extraction phase in the   the multi-step method,  the overall run time incurred is much higher than the baseline method. Thus, in terms of run time, the proposed methodology is only efficient in problem scenarios where the fourier feature extraction phase is deemed not necessary.   
+\end{itemize}
+ And lastly in chapter 9, we investigate how this multistep feature extraction process can be extended to  extract latent features that identify speech utterances corresponding to the same lexical identity using information about the shape of their respective envelopes. The methodology proposed here also allows the Euclidean metric to be successfully applied on time series  sequences that of different lengths.
+  
 \section{Contributions}
-
-\section{Future Work}
-
-Due to the lack of time, we didn't manage to test the proposed DTW implementation in an unsupervised setting for  detecting motifs from time series sequences. For future work, it will be thus  interesting to test the proposed implementation in identifying motifs from long time series sequences  and  hence investigate how this proposed adapted version fairs against the baseline DTW algorithm augmented with the window constraint.
-
+This project makes two significant contributions:
+\begin{itemize}
+\item I have successfully developed an adaptation of the DTW algorithm that uses a specially designed kernel function to identify intra class sequences with greater accuracy and with  lesser run time in comparison to  the baseline DTW algorithm augmented with the most rigid window constraint. Thus in doing so, I have succeeded in improving the performance of the DTW algorithm in time series problem domains where minimising the run time is as equally important and improving accuracy.
+\item I have successfully constructed a multi-step feature extraction scheme  that extracts  global shape descriptors of time series  sequences. Experimental results have shown that this proposed feature extraction method allows the the Euclidean metric to be as effective as the DTW metric in time series problem domains where intra class sequences  are distinguished by their global shape.
+\end{itemize}
+      \end{spacing}
 
 % To be precise, each lexical identity has a acoustic signature that allows a listener to identify utterances of that word even if the utterances correspond to samples of different speakers, 
  
