@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  14 AUG 2013 21:49
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.13)  14 AUG 2013 23:40
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -376,25 +376,25 @@ Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS)
 (./chap4.aux) (./chap5.aux) (./chap7.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 89.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 89
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 91.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 91
 .
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Try loading font information for OT1+pplx on input line 89.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 91.
 
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pplx.fd
@@ -451,7 +451,7 @@ File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 89.
+LaTeX Info: Redefining \microtypecontext on input line 91.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -465,88 +465,92 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 95.
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 97.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 95.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 97.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 95.
+(Font)              scaled to size 18.66588pt on input line 97.
  [1
 
 {/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 95.
+(Font)              scaled to size 10.79993pt on input line 97.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 95.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 97.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 95.
- [1
-
-] [2]
-[3]
-LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 111.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 111.
-LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 111.
- (./thesis.toc
-LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 1.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 3.
+(Font)              scaled to size 10.79993pt on input line 97.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 97.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 3.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 97.
+
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 3.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 97.
+
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 3.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 97.
+
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 3.
+(Font)              scaled to size 12.50409pt on input line 97.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 3.
+(Font)              scaled to size 9.37807pt on input line 97.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 3.
+(Font)              scaled to size 7.29405pt on input line 97.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 3.
+(Font)              scaled to size 12.50409pt on input line 97.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 3.
+(Font)              scaled to size 9.37807pt on input line 97.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 3.
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 3.
+(Font)              scaled to size 7.29405pt on input line 97.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 97.
+
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-) [4
+) [1
+
+] [2]
+[3]
+LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 113.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 113.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 22.39185pt on input line 113.
+ (./thesis.toc
+LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <12> not available
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 1.
+ [4
 
 ])
 \tf@toc=\write3
@@ -558,13 +562,13 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 No file chapter1.tex.
 Chapter 1.
-LaTeX Font Info:    Try loading font information for OMS+pplx on input line 134
+LaTeX Font Info:    Try loading font information for OMS+pplx on input line 136
 .
-LaTeX Font Info:    No file OMSpplx.fd. on input line 134.
+LaTeX Font Info:    No file OMSpplx.fd. on input line 136.
 
 LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
 (Font)              using `OMS/pzccm/m/n' instead
-(Font)              for symbol `textbullet' on input line 134.
+(Font)              for symbol `textbullet' on input line 136.
 
 [1
 
@@ -573,9 +577,9 @@ LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
 
 ]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 148.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 150.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 10.79993pt on input line 148.
+(Font)              scaled to size 10.79993pt on input line 150.
  [2] [3] [4]
 \openout2 = `chap3.aux'.
 
@@ -588,11 +592,11 @@ Chapter 2.
 
 ]
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 193.
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 195.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 193.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 195.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 15.55188pt on input line 193.
+(Font)              scaled to size 15.55188pt on input line 195.
  [6] [7] [8] [9]
 \openout2 = `chap2.aux'.
 
@@ -604,7 +608,7 @@ Chapter 3.
 
 
 ]
-Overfull \hbox (6.70589pt too wide) in paragraph at lines 292--293
+Overfull \hbox (6.70589pt too wide) in paragraph at lines 294--295
 \OT1/pplx/m/n/12 (-20) align-ment be-tween two se-quences $\OML/zplm/m/it/12 X 
 \OT1/zplm/m/n/12 = (\OML/zplm/m/it/12 x[]\OT1/ppl/m/n/12 , \OML/zplm/m/it/12 x[
 ]\OT1/ppl/m/n/12 , ..., \OML/zplm/m/it/12 x[]\OT1/zplm/m/n/12 )$ \OT1/pplx/m/n/
@@ -616,7 +620,7 @@ Overfull \hbox (6.70589pt too wide) in paragraph at lines 292--293
 [11] <DTWpicture.jpg, id=65, 239.4546pt x 241.8636pt>
 File: DTWpicture.jpg Graphic file (type jpg)
  <use DTWpicture.jpg>
-Package pdftex.def Info: DTWpicture.jpg used on input line 311.
+Package pdftex.def Info: DTWpicture.jpg used on input line 313.
 (pdftex.def)             Requested size: 191.56393pt x 193.49113pt.
 Package microtype Info: Character `013' is missing
 (microtype)             in font `OT1/pplx/m/sc/12'.
@@ -626,7 +630,7 @@ Package microtype Info: Character `013' is missing
 File: windowconstraint.jpg Graphic file (type jpg)
 
 <use windowconstraint.jpg>
-Package pdftex.def Info: windowconstraint.jpg used on input line 347.
+Package pdftex.def Info: windowconstraint.jpg used on input line 349.
 (pdftex.def)             Requested size: 196.18922pt x 94.81834pt.
  [13 <./windowconstraint.jpg>] [14]
 \openout2 = `chap3.aux'.
@@ -642,29 +646,29 @@ Chapter 4.
 File: featuremapping.jpg Graphic file (type jpg)
 
 <use featuremapping.jpg>
-Package pdftex.def Info: featuremapping.jpg used on input line 378.
+Package pdftex.def Info: featuremapping.jpg used on input line 380.
 (pdftex.def)             Requested size: 254.39073pt x 122.9555pt.
  [16] [17 <./featuremapping.jpg>]
 <Rawsample.jpg, id=90, 552.0625pt x 272.01625pt>
 File: Rawsample.jpg Graphic file (type jpg)
  <use Rawsample.jpg>
-Package pdftex.def Info: Rawsample.jpg used on input line 397.
+Package pdftex.def Info: Rawsample.jpg used on input line 399.
 (pdftex.def)             Requested size: 331.24005pt x 163.211pt.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 401.
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 403.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 401.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 403.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 401.
+(Font)              scaled to size 12.9599pt on input line 403.
 
 <Feature_selection.jpg, id=91, 900.36375pt x 305.14pt>
 File: Feature_selection.jpg Graphic file (type jpg)
 
 <use Feature_selection.jpg>
-Package pdftex.def Info: Feature_selection.jpg used on input line 425.
+Package pdftex.def Info: Feature_selection.jpg used on input line 427.
 (pdftex.def)             Requested size: 450.18077pt x 152.56961pt.
 
-Overfull \hbox (37.6158pt too wide) in paragraph at lines 425--426
+Overfull \hbox (37.6158pt too wide) in paragraph at lines 427--428
  [][] 
  []
 
@@ -672,23 +676,23 @@ Overfull \hbox (37.6158pt too wide) in paragraph at lines 425--426
 <4111.jpg, id=102, 450.9648pt x 277.035pt>
 File: 4111.jpg Graphic file (type jpg)
  <use 4111.jpg>
-Package pdftex.def Info: 4111.jpg used on input line 501.
+Package pdftex.def Info: 4111.jpg used on input line 503.
 (pdftex.def)             Requested size: 360.77231pt x 221.6283pt.
 
 <4112.jpg, id=103, 444.7014pt x 223.5552pt>
 File: 4112.jpg Graphic file (type jpg)
  <use 4112.jpg>
-Package pdftex.def Info: 4112.jpg used on input line 508.
+Package pdftex.def Info: 4112.jpg used on input line 510.
 (pdftex.def)             Requested size: 311.28886pt x 156.48756pt.
  [21 <./4111.jpg>]
 [22 <./4112.jpg>] <Feature_selection2.jpg, id=110, 813.0375pt x 427.5975pt>
 File: Feature_selection2.jpg Graphic file (type jpg)
 
 <use Feature_selection2.jpg>
-Package pdftex.def Info: Feature_selection2.jpg used on input line 533.
+Package pdftex.def Info: Feature_selection2.jpg used on input line 535.
 (pdftex.def)             Requested size: 325.20924pt x 171.03596pt.
 
-Overfull \hbox (8.96463pt too wide) in paragraph at lines 538--541
+Overfull \hbox (8.96463pt too wide) in paragraph at lines 540--543
 \OT1/pplx/b/n/12 Algorithm \OT1/pplx/m/n/12 (-20) : base-line DTW aug-mented wi
 th an adap-tive win-dow con-straint(4.1.1)
  []
@@ -696,30 +700,30 @@ th an adap-tive win-dow con-straint(4.1.1)
 <4121.jpg, id=111, 460.119pt x 273.1806pt>
 File: 4121.jpg Graphic file (type jpg)
  <use 4121.jpg>
-Package pdftex.def Info: 4121.jpg used on input line 544.
+Package pdftex.def Info: 4121.jpg used on input line 546.
 (pdftex.def)             Requested size: 322.0811pt x 191.2251pt.
  [23 <./Feature_selection2.jpg>] <4122.jpg, id=115, 417.2388pt x 302.0886pt>
 File: 4122.jpg Graphic file (type jpg)
  <use 4122.jpg>
-Package pdftex.def Info: 4122.jpg used on input line 552.
+Package pdftex.def Info: 4122.jpg used on input line 554.
 (pdftex.def)             Requested size: 292.06517pt x 211.46056pt.
  [24 <./4121.jpg>] [25 <./4122.jpg>] <mfcc.jpg, id=123, 490.4724pt x 65.043pt>
 File: mfcc.jpg Graphic file (type jpg)
 
 <use mfcc.jpg>
-Package pdftex.def Info: mfcc.jpg used on input line 574.
+Package pdftex.def Info: mfcc.jpg used on input line 576.
 (pdftex.def)             Requested size: 392.37845pt x 52.03445pt.
  [26 <./mfcc.jpg>] [27] [28]
 <421.jpg, id=133, 470.2368pt x 380.1402pt>
 File: 421.jpg Graphic file (type jpg)
  <use 421.jpg>
-Package pdftex.def Info: 421.jpg used on input line 611.
+Package pdftex.def Info: 421.jpg used on input line 613.
 (pdftex.def)             Requested size: 329.16351pt x 266.09631pt.
 
 <422.jpg, id=134, 488.5452pt x 397.9668pt>
 File: 422.jpg Graphic file (type jpg)
  <use 422.jpg>
-Package pdftex.def Info: 422.jpg used on input line 618.
+Package pdftex.def Info: 422.jpg used on input line 620.
 (pdftex.def)             Requested size: 341.97931pt x 278.57486pt.
  [29 <./421.jpg>]
 [30 <./422.jpg>] [31] [32]
@@ -735,41 +739,41 @@ Chapter 5.
 ] [34] [35] <425.jpg, id=157, 435.0654pt x 277.9986pt>
 File: 425.jpg Graphic file (type jpg)
  <use 425.jpg>
-Package pdftex.def Info: 425.jpg used on input line 717.
+Package pdftex.def Info: 425.jpg used on input line 719.
 (pdftex.def)             Requested size: 304.54369pt x 194.59769pt.
 
 <426.jpg, id=158, 466.8642pt x 341.5962pt>
 File: 426.jpg Graphic file (type jpg)
  <use 426.jpg>
-Package pdftex.def Info: 426.jpg used on input line 722.
+Package pdftex.def Info: 426.jpg used on input line 724.
 (pdftex.def)             Requested size: 326.8027pt x 239.11569pt.
  [36 <./425.jpg>]
 [37 <./426.jpg>] <427.jpg, id=166, 388.8126pt x 247.6452pt>
 File: 427.jpg Graphic file (type jpg)
  <use 427.jpg>
-Package pdftex.def Info: 427.jpg used on input line 747.
+Package pdftex.def Info: 427.jpg used on input line 749.
 (pdftex.def)             Requested size: 272.16696pt x 173.35043pt.
 
 <428.jpg, id=167, 450.0012pt x 232.7094pt>
 File: 428.jpg Graphic file (type jpg)
  <use 428.jpg>
-Package pdftex.def Info: 428.jpg used on input line 753.
+Package pdftex.def Info: 428.jpg used on input line 755.
 (pdftex.def)             Requested size: 314.99869pt x 162.89545pt.
  [38 <./427.jpg> <./428.jpg>] [39] <Example1.jpg, id=174, 549.05125pt x 566.115
 pt>
 File: Example1.jpg Graphic file (type jpg)
  <use Example1.jpg>
-Package pdftex.def Info: Example1.jpg used on input line 789.
+Package pdftex.def Info: Example1.jpg used on input line 791.
 (pdftex.def)             Requested size: 164.71664pt x 169.8358pt.
 
 [40] <Cross-section.jpg, id=178, 562.1pt x 420.57124pt>
 File: Cross-section.jpg Graphic file (type jpg)
 
 <use Cross-section.jpg>
-Package pdftex.def Info: Cross-section.jpg used on input line 795.
+Package pdftex.def Info: Cross-section.jpg used on input line 797.
 (pdftex.def)             Requested size: 224.83601pt x 168.22551pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 792--797
+Underfull \hbox (badness 10000) in paragraph at lines 794--799
 
  []
 
@@ -778,25 +782,25 @@ Missing character: There is no Ã in font pplr7t!
 Missing character: There is no Ã in font pplr7t!
 Missing character: There is no Ã in font pplr7t!
 
-Overfull \hbox (1.31384pt too wide) in alignment at lines 812--816
+Overfull \hbox (1.31384pt too wide) in alignment at lines 814--818
  [][][] []
  []
 
 [42] [43] [44] <521.jpg, id=192, 418.6842pt x 295.8252pt>
 File: 521.jpg Graphic file (type jpg)
  <use 521.jpg>
-Package pdftex.def Info: 521.jpg used on input line 886.
+Package pdftex.def Info: 521.jpg used on input line 888.
 (pdftex.def)             Requested size: 376.8123pt x 266.2402pt.
 
 <522.jpg, id=193, 413.3844pt x 264.5082pt>
 File: 522.jpg Graphic file (type jpg)
  <use 522.jpg>
-Package pdftex.def Info: 522.jpg used on input line 892.
+Package pdftex.def Info: 522.jpg used on input line 894.
 (pdftex.def)             Requested size: 289.3671pt x 185.15446pt.
  [45 <./521.jpg> <./522.jpg>] <523.jpg, id=198, 477.9456pt x 276.0714pt>
 File: 523.jpg Graphic file (type jpg)
  <use 523.jpg>
-Package pdftex.def Info: 523.jpg used on input line 924.
+Package pdftex.def Info: 523.jpg used on input line 926.
 (pdftex.def)             Requested size: 382.357pt x 220.8574pt.
 
 
@@ -805,18 +809,18 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <524.jpg, id=199, 450.483pt x 234.1548pt>
 File: 524.jpg Graphic file (type jpg)
  <use 524.jpg>
-Package pdftex.def Info: 524.jpg used on input line 930.
+Package pdftex.def Info: 524.jpg used on input line 932.
 (pdftex.def)             Requested size: 360.38687pt x 187.32408pt.
  [46] [47 <./523.jpg> <./524.jpg>] <525.jpg, id=206, 401.8212pt x 294.3798pt>
 File: 525.jpg Graphic file (type jpg)
  <use 525.jpg>
-Package pdftex.def Info: 525.jpg used on input line 955.
+Package pdftex.def Info: 525.jpg used on input line 957.
 (pdftex.def)             Requested size: 361.63573pt x 264.93936pt.
  [48]
 <526.jpg, id=210, 425.9112pt x 326.6604pt>
 File: 526.jpg Graphic file (type jpg)
  <use 526.jpg>
-Package pdftex.def Info: 526.jpg used on input line 961.
+Package pdftex.def Info: 526.jpg used on input line 963.
 (pdftex.def)             Requested size: 383.31651pt x 293.99164pt.
  [49 <./525.jpg> <./526.jpg>] [50]
 \openout2 = `chap5.aux'.
@@ -829,7 +833,7 @@ Chapter 6.
 
 
 ] [52] [53] [54] [55] [56] [57]
-Overfull \hbox (18.3766pt too wide) in paragraph at lines 1165--1166
+Overfull \hbox (18.3766pt too wide) in paragraph at lines 1167--1168
 \OT1/pplx/m/n/12 (-20) ac-cu-racy for In-li-neSkate dataset.This shows that un-
 like the Cinc[]TORSO[]ECG
  []
@@ -841,7 +845,7 @@ like the Cinc[]TORSO[]ECG
 No file chap7.tex.
 Chapter 7.
 
-Overfull \hbox (3.57907pt too wide) in paragraph at lines 1171--1172
+Overfull \hbox (3.57907pt too wide) in paragraph at lines 1173--1174
 \OT1/pplx/m/n/12 (-20) plies sin-gle value de-com-po-si-tion as a pre-pro-cess-
 ing step. The Cinc[]ECG[]TORSO
  []
@@ -853,22 +857,22 @@ ing step. The Cinc[]ECG[]TORSO
 ] <631.jpg, id=247, 813.0375pt x 646.415pt>
 File: 631.jpg Graphic file (type jpg)
  <use 631.jpg>
-Package pdftex.def Info: 631.jpg used on input line 1179.
+Package pdftex.def Info: 631.jpg used on input line 1181.
 (pdftex.def)             Requested size: 406.51776pt x 323.20671pt.
  [60 <./631.jpg>]
 [61] [62] [63] <712.jpg, id=261, 813.0375pt x 463.7325pt>
 File: 712.jpg Graphic file (type jpg)
  <use 712.jpg>
-Package pdftex.def Info: 712.jpg used on input line 1248.
+Package pdftex.def Info: 712.jpg used on input line 1250.
 (pdftex.def)             Requested size: 406.51776pt x 231.86568pt.
 
 [64] <713.jpg, id=265, 1276.77pt x 482.80376pt>
 File: 713.jpg Graphic file (type jpg)
  <use 713.jpg>
-Package pdftex.def Info: 713.jpg used on input line 1255.
+Package pdftex.def Info: 713.jpg used on input line 1257.
 (pdftex.def)             Requested size: 446.87619pt x 168.98384pt.
 
-Overfull \hbox (34.31122pt too wide) in paragraph at lines 1255--1256
+Overfull \hbox (34.31122pt too wide) in paragraph at lines 1257--1258
  [][] 
  []
 
@@ -876,52 +880,52 @@ Overfull \hbox (34.31122pt too wide) in paragraph at lines 1255--1256
 File: 714.jpg Graphic file (type jpg)
 
 <use 714.jpg>
-Package pdftex.def Info: 714.jpg used on input line 1299.
+Package pdftex.def Info: 714.jpg used on input line 1301.
 (pdftex.def)             Requested size: 378.54677pt x 290.95631pt.
 
-Overfull \hbox (31.78288pt too wide) in paragraph at lines 1303--1311
+Overfull \hbox (31.78288pt too wide) in paragraph at lines 1305--1313
 [][] 
  []
 
 [67] [68 <./714.jpg>] [69]
-Overfull \hbox (33.24695pt too wide) in paragraph at lines 1365--1372
+Overfull \hbox (33.24695pt too wide) in paragraph at lines 1367--1374
  [][] 
  []
 
 <724.jpg, id=283, 417.7206pt x 344.0052pt>
 File: 724.jpg Graphic file (type jpg)
  <use 724.jpg>
-Package pdftex.def Info: 724.jpg used on input line 1378.
+Package pdftex.def Info: 724.jpg used on input line 1380.
 (pdftex.def)             Requested size: 292.40242pt x 240.80199pt.
  [70] [71 <./724.jpg>]
 [72] [73] <725.jpg, id=297, 454.69875pt x 419.5675pt>
 File: 725.jpg Graphic file (type jpg)
  <use 725.jpg>
-Package pdftex.def Info: 725.jpg used on input line 1446.
+Package pdftex.def Info: 725.jpg used on input line 1448.
 (pdftex.def)             Requested size: 272.82135pt x 251.74243pt.
  [74 <./725.jpg>] <721.jpg, id=301, 967.615pt x 457.71pt>
 File: 721.jpg Graphic file (type jpg)
  <use 721.jpg>
-Package pdftex.def Info: 721.jpg used on input line 1469.
+Package pdftex.def Info: 721.jpg used on input line 1471.
 (pdftex.def)             Requested size: 483.80632pt x 228.85445pt.
 
-Overfull \hbox (71.24135pt too wide) in paragraph at lines 1469--1470
+Overfull \hbox (71.24135pt too wide) in paragraph at lines 1471--1472
  [][] 
  []
 
 [75 <./721.jpg>] [76] <722.jpg, id=308, 389.2944pt x 179.7114pt>
 File: 722.jpg Graphic file (type jpg)
  <use 722.jpg>
-Package pdftex.def Info: 722.jpg used on input line 1500.
+Package pdftex.def Info: 722.jpg used on input line 1502.
 (pdftex.def)             Requested size: 311.43593pt x 143.76929pt.
 
 <723.jpg, id=309, 451.4466pt x 378.213pt>
 File: 723.jpg Graphic file (type jpg)
  <use 723.jpg>
-Package pdftex.def Info: 723.jpg used on input line 1512.
+Package pdftex.def Info: 723.jpg used on input line 1514.
 (pdftex.def)             Requested size: 316.01045pt x 264.74728pt.
  [77 <./722.jpg>]
-Overfull \hbox (3.80798pt too wide) in paragraph at lines 1524--1525
+Overfull \hbox (3.80798pt too wide) in paragraph at lines 1526--1527
 [][] 
  []
 
@@ -931,20 +935,20 @@ Missing character: There is no Õ in font pplr9t!
  [79] <726.jpg, id=320, 967.615pt x 439.6425pt>
 File: 726.jpg Graphic file (type jpg)
  <use 726.jpg>
-Package pdftex.def Info: 726.jpg used on input line 1553.
+Package pdftex.def Info: 726.jpg used on input line 1555.
 (pdftex.def)             Requested size: 483.80632pt x 219.82071pt.
 
-Overfull \hbox (71.24135pt too wide) in paragraph at lines 1553--1554
+Overfull \hbox (71.24135pt too wide) in paragraph at lines 1555--1556
  [][] 
  []
 
 
-Overfull \hbox (7.92694pt too wide) in paragraph at lines 1563--1571
+Overfull \hbox (7.92694pt too wide) in paragraph at lines 1565--1573
  [][] 
  []
 
 
-Overfull \hbox (7.92694pt too wide) in paragraph at lines 1576--1584
+Overfull \hbox (7.92694pt too wide) in paragraph at lines 1578--1586
  [][] 
  []
 
@@ -955,37 +959,37 @@ Chapter 8.
 ] <81.jpg, id=330, 934.49126pt x 224.84pt>
 File: 81.jpg Graphic file (type jpg)
  <use 81.jpg>
-Package pdftex.def Info: 81.jpg used on input line 1614.
+Package pdftex.def Info: 81.jpg used on input line 1616.
 (pdftex.def)             Requested size: 467.24449pt x 112.41972pt.
 
-Overfull \hbox (54.67952pt too wide) in paragraph at lines 1614--1615
+Overfull \hbox (54.67952pt too wide) in paragraph at lines 1616--1617
  [][] 
  []
 
 [83 <./81.jpg>] <82.jpg, id=334, 967.615pt x 484.81125pt>
 File: 82.jpg Graphic file (type jpg)
  <use 82.jpg>
-Package pdftex.def Info: 82.jpg used on input line 1625.
+Package pdftex.def Info: 82.jpg used on input line 1627.
 (pdftex.def)             Requested size: 483.80632pt x 242.40503pt.
 
-Overfull \hbox (71.24135pt too wide) in paragraph at lines 1625--1626
+Overfull \hbox (71.24135pt too wide) in paragraph at lines 1627--1628
 [][] 
  []
 
 [84 <./82.jpg>] [85] <83.jpg, id=342, 1152.305pt x 494.84875pt>
 File: 83.jpg Graphic file (type jpg)
  <use 83.jpg>
-Package pdftex.def Info: 83.jpg used on input line 1659.
+Package pdftex.def Info: 83.jpg used on input line 1661.
 (pdftex.def)             Requested size: 460.91383pt x 197.93599pt.
 
-Overfull \hbox (48.34886pt too wide) in paragraph at lines 1659--1660
+Overfull \hbox (48.34886pt too wide) in paragraph at lines 1661--1662
 [][] 
  []
 
 [86] [87 <./83.jpg>] <84.jpg, id=349, 396.0396pt x 253.9086pt>
 File: 84.jpg Graphic file (type jpg)
  <use 84.jpg>
-Package pdftex.def Info: 84.jpg used on input line 1704.
+Package pdftex.def Info: 84.jpg used on input line 1706.
 (pdftex.def)             Requested size: 316.83209pt x 203.12715pt.
 
 [88] [89 <./84.jpg>]
@@ -1008,11 +1012,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  7811 strings out of 493633
  115559 string characters out of 3143377
- 206122 words of memory out of 3000000
+ 207988 words of memory out of 3000000
  10544 multiletter control sequences out of 15000+200000
  65384 words of font info for 325 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 43i,12n,40p,1801b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,12n,40p,1890b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1027,7 +1031,7 @@ rw/helvetic/uhvro8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/pal
 atino/uplb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/u
 plr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/palatino/uplri8a.
 pfb>
-Output written on thesis.pdf (103 pages, 3141075 bytes).
+Output written on thesis.pdf (103 pages, 3142839 bytes).
 PDF statistics:
  429 PDF objects out of 1000 (max. 8388607)
  269 compressed objects within 3 object streams

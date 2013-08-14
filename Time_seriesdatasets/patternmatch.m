@@ -28,10 +28,10 @@ function result=wavedecom(data)
     y1= abs(hilbert(sample(sample<=0)));
     envelope=[y -1*y1];
     %[C,L] =wavedec(sample,7,'Haar');
-    [C,L] =wavedec(envelope,7,'Haar');
+    [C,L] =wavedec(envelope,8,'Haar');
     signal= C(1:L(1));
     C(L(1)+1:end)=0;
-    signal =waverec(C,L,'Haar');
+    %signal =waverec(C,L,'Haar');
     %figure(4)
     %subplot(4,1,1)
     %plot(sample)
@@ -42,7 +42,7 @@ function result=wavedecom(data)
     %subplot(4,1,4)
     
     %result(k,1:L(1))=C(1:L(1));
-    result(k,1:L(end)) = compute_curvature([1:L(end)],signal);
+    result(k,1:L(1)) = compute_curvature([1:L(1)],signal);
     %result(k,2:end)=C(1:dim);
   end
   
@@ -70,16 +70,16 @@ testDataR=wavedecom(testData);
 trainDataR=wavedecom(trainData);
 
 %% perform fourier transfor,
-testData=fourierdecom(testData);
-trainData=fourierdecom(trainData);
+%testData=fourierdecom(testData);
+%trainData=fourierdecom(trainData);
 
 
 DATA=[trainData;testData];
 fingerprintSpace = principalcomponents(DATA');
 
 %% projection to principal subspace
-trainDataR= (fingerprintSpace'* trainData')';
-testDataR= (fingerprintSpace'* testData')';
+%trainDataR= (fingerprintSpace'* trainData')';
+%testDataR= (fingerprintSpace'* testData')';
 size(trainDataR)
 size(testDataR)
 
@@ -118,8 +118,8 @@ function match= nearest_neighbours(sample,data,train_labels)
     nearestN=NaN;
     min_dist=Inf;
     for j=1 :samp
-        dist= sum ((sample-data(j,:)).^2);
-        %dist= dtw(sample,data(j,:));
+        %dist= sum ((sample-data(j,:)).^2);
+        dist= dtw(sample,data(j,:));
         if dist<min_dist
             nearestN = train_labels(j);
             min_dist=dist;
