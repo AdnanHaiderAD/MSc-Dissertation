@@ -1,43 +1,43 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {chapter}{\numberline {2}Datasets Used}{5}
 \contentsline {section}{\numberline {2.1} Brief description of TIDIGITS dataset}{6}
-\contentsline {section}{\numberline {2.2}Brief description CinC\_ECG\_torso and InLineSkate dataset}{7}
+\contentsline {section}{\numberline {2.2}Brief description CinC\_ECG\_torso and InLineSkate dataset}{8}
 \contentsline {section}{\numberline {2.3}Evaluation}{8}
 \contentsline {chapter}{\numberline {3}Background}{10}
 \contentsline {section}{\numberline {3.1}Dynamic Time Warping Algorithm}{10}
 \contentsline {chapter}{\numberline {4}Domain-dependent methods for improving DTW}{15}
 \contentsline {section}{\numberline {4.1}Feature Selection}{17}
 \contentsline {subsection}{\numberline {4.1.1}Signal Filter}{18}
-\contentsline {subsection}{\numberline {4.1.2}Downsampling}{22}
-\contentsline {section}{\numberline {4.2}Domain Dependent Feature extraction}{24}
-\contentsline {subsection}{\numberline {4.2.1}Mel Cepstrum Cepstral Coefficients}{25}
-\contentsline {chapter}{\numberline {5}Domain Independent methods for Improving DTW}{32}
-\contentsline {section}{\numberline {5.1} Domain-independent feature extraction}{32}
-\contentsline {section}{\numberline {5.2}Extending DTW}{38}
-\contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{43}
-\contentsline {subsection}{\numberline {5.2.2}Conclusion}{48}
-\contentsline {chapter}{\numberline {6}SVD For Time Series Feature Extraction }{50}
-\contentsline {subsection}{\numberline {6.0.3}Motivation}{50}
-\contentsline {section}{\numberline {6.1} Background}{51}
-\contentsline {section}{\numberline {6.2}Motivation for applying SVD to time series datasets}{52}
-\contentsline {section}{\numberline {6.3}Improving Time Complexity}{54}
-\contentsline {subsection}{\numberline {6.3.1}Experimental results}{55}
-\contentsline {chapter}{\numberline {7}Improving The Accuracy Of The Euclidean Metric }{58}
-\contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{60}
-\contentsline {subsection}{\numberline {7.1.1}Background}{60}
-\contentsline {subsection}{\numberline {7.1.2}Wavelet-based Features }{62}
-\contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{70}
-\contentsline {subsection}{\numberline {7.2.1}Motivation for curvature based features}{71}
-\contentsline {subsection}{\numberline {7.2.2}Extracting curvature based features}{72}
-\contentsline {subsection}{\numberline {7.2.3}Experiments}{76}
-\contentsline {section}{\numberline {7.3}Conclusion}{80}
-\contentsline {chapter}{\numberline {8}Adapting The Euclidean Metric To Perform Isolated Word Recognition}{81}
-\contentsline {section}{\numberline {8.1}Identifying the acoustic signature of individual digits}{81}
-\contentsline {section}{\numberline {8.2}Homogenising the dimensionality of speech utterances}{82}
-\contentsline {section}{\numberline {8.3} Feature extraction methods to construct acoustic fingerprints}{84}
-\contentsline {subsection}{\numberline {8.3.1}Extracting the envelope of a speech utterance}{84}
-\contentsline {section}{\numberline {8.4}Experimental Results}{86}
-\contentsline {chapter}{\numberline {9}Discussion and Future Work}{89}
-\contentsline {section}{\numberline {9.1}Summary and Future Work}{89}
-\contentsline {section}{\numberline {9.2}Contributions}{92}
-\contentsline {chapter}{Bibliography}{93}
+\contentsline {subsection}{\numberline {4.1.2}Downsampling}{23}
+\contentsline {section}{\numberline {4.2}Domain Dependent Feature extraction}{25}
+\contentsline {subsection}{\numberline {4.2.1}Mel Cepstrum Cepstral Coefficients}{26}
+\contentsline {chapter}{\numberline {5}Domain Independent methods for Improving DTW}{33}
+\contentsline {section}{\numberline {5.1} Domain-independent feature extraction}{33}
+\contentsline {section}{\numberline {5.2}Extending DTW}{39}
+\contentsline {subsection}{\numberline {5.2.1}Testing the methodology}{44}
+\contentsline {subsection}{\numberline {5.2.2}Conclusion}{50}
+\contentsline {chapter}{\numberline {6}SVD For Time Series Feature Extraction }{51}
+\contentsline {subsection}{\numberline {6.0.3}Motivation}{51}
+\contentsline {section}{\numberline {6.1} Background}{52}
+\contentsline {section}{\numberline {6.2}Motivation for applying SVD to time series datasets}{53}
+\contentsline {section}{\numberline {6.3}Improving Time Complexity}{55}
+\contentsline {subsection}{\numberline {6.3.1}Experimental results}{56}
+\contentsline {chapter}{\numberline {7}Improving The Accuracy Of The Euclidean Metric }{59}
+\contentsline {section}{\numberline {7.1}Wavelet-based Feature Extraction}{61}
+\contentsline {subsection}{\numberline {7.1.1}Background}{61}
+\contentsline {subsection}{\numberline {7.1.2}Wavelet-based Features }{63}
+\contentsline {section}{\numberline {7.2}Curvature-based Feature extraction}{71}
+\contentsline {subsection}{\numberline {7.2.1}Motivation for curvature based features}{72}
+\contentsline {subsection}{\numberline {7.2.2}Extracting curvature based features}{73}
+\contentsline {subsection}{\numberline {7.2.3}Experiments}{77}
+\contentsline {section}{\numberline {7.3}Conclusion}{81}
+\contentsline {chapter}{\numberline {8}Adapting The Euclidean Metric To Perform Isolated Word Recognition}{82}
+\contentsline {section}{\numberline {8.1}Identifying the acoustic signature of individual digits}{82}
+\contentsline {section}{\numberline {8.2}Homogenising the dimensionality of speech utterances}{83}
+\contentsline {section}{\numberline {8.3} Feature extraction methods to construct acoustic fingerprints}{85}
+\contentsline {subsection}{\numberline {8.3.1}Extracting the envelope of a speech utterance}{85}
+\contentsline {section}{\numberline {8.4}Experimental Results}{87}
+\contentsline {chapter}{\numberline {9}Discussion and Future Work}{90}
+\contentsline {section}{\numberline {9.1}Summary and Future Work}{90}
+\contentsline {section}{\numberline {9.2}Contributions}{93}
+\contentsline {chapter}{Bibliography}{94}
