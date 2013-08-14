@@ -785,13 +785,13 @@ The problem can now be shifted to finding  an appropriate kernel that can be use
 %.  
 \begin{figure}[H]
   \centering
-   \includegraphics[scale=0.4]{Example1.jpg}
+   \includegraphics[scale=0.3]{Example1.jpg}
   \caption{Two signals separated by translation}
  \end{figure}
 The signal denoted by the `red' color is a `slower' version of the signal denoted by the `blue' color. Consider the frames  corresponding to the subsequences annotated by the double arrows(see figure 5.5), in each of the two signals, in this scenario  using  the Euclidean metric to perform a linear comparison of the two frames is inappropriate. The Euclidean metric  in this context is identical to  linear time warping where the  two subsequences/frames will be compared based on a linear match of the  temporal dimensions of the two sequences/frames.  In our context, we need a kernel that computes the similarity between two sub-sequences by warping the time axis. Intuitively speaking, the kernel must behave like a DTW algorithm that compares the global and local properties associated with a point in one frame with the global and local properties of all points in the second frame as illustrated by the figure below.\\
 \begin{figure}[H]
   \centering
-   \includegraphics[scale=0.6]{Cross-section.jpg}
+   \includegraphics[scale=0.4]{Cross-section.jpg}
   \caption{Two identical subsequences varying in time }
   \end{figure}
 
@@ -888,7 +888,7 @@ RESULTS:
 
 \begin{figure}[H]
   \centering
-     \includegraphics[scale=0.9]{522.jpg}
+     \includegraphics[scale=0.7]{522.jpg}
   \caption{ln of the run time(measured in seconds): $log_e(time)$}
   \end{figure}
 
@@ -943,14 +943,13 @@ The results are consistent with the findings in the previous experiment. The acc
 
 Method used : The  preprocessing method discussed in 5.1 i.e \textbf{M6}: the  framework consists of a two stage preprocessing step that involves feature selection process consisting of `silence' removal  followed  by the domain  independent feature extraction methodology proposed in \citep{Xie2010}.
 
-In the  proposed approach,  the width of the time slices has been kept fixed at a default value of 50 so far. In this experiment, I also investigate the influence of this parameter on the performance of the DTW. Decreasing its value reduces  the size of the time slices which in  principal should increase both accuracy and time-complexity .
-The core kernel used by the new algorithm is based on the function: 
+In the  proposed approach,  the width of the time slices has been kept fixed at a default value of 50 so far. In this experiment, I also investigate the influence of this parameter on the performance of the DTW. Decreasing its value reduces  the size of the time slices which in  principal should increase both accuracy and time-complexity. This is because  the core kernel used by the new algorithm is : 
 \[ k(x,z) = <\sum_{i=1}^{n}x_i, \sum_{j=1}^{n}z_j>\]
-k(x,z) represents the sum of all possible dot-products. Using smaller subsequences allow the similarity measure to be dominated by the dot products of points whose local and global features are most alike. However,  this suffers from the drawback of achieving lesser dimensionality reduction. Thus the time and computational complexity suffers.
+ where k(x,z) represents the sum of all possible dot-products. Using smaller subsequences allow the similarity measure to be dominated by the dot products of points whose local and global features are most alike. However,  this suffers from the drawback of achieving lesser dimensionality reduction. Thus the time and computational complexity suffers.
 
 \textbf{RESULTS}
 
-\begin{figure}
+\begin{figure}[H]
   \centering
       \includegraphics[scale=0.9]{525.jpg}
   \caption{Accuracy}
@@ -1360,15 +1359,7 @@ The dimension i.e the length of the time series sequences is 60 which is very sm
 The performance of 1NN classifier using  wavelet transform as a preprocessing step was compared with  the performance of the baseline 1NN classifier and the performance of the  1NN classifier combined with the DTW metric. A summary of the results are as follows:
 
 
-
-
-\begin{figure}[H]
-  \centering
-      \includegraphics[scale=0.7]{724.jpg}
-  \caption{Accuracy}
-  \end{figure}
-  
-  \begin{table} [H]
+ \begin{table} [H]
  \centering
 \begin{tabular}{|c|c|c|c|}
 \hline \\
@@ -1380,6 +1371,14 @@ Synthetic control &  0.32s & 0.30s  & 777.3s\\
 \caption{The run time}
 \end{table}
 
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.7]{724.jpg}
+  \caption{Accuracy}
+  \end{figure}
+  
+ 
 \textbf{Observation}
 \begin{itemize}
 \item Removing unnecessary details by smoothing the signals improves the accuracy of the 1NN classifier by 10\%. The resultant accuracy is  identical to the best accuracy achieved by combining 1NN classifier with the DTW algorithm. Furthermore, the run time of 1NN classifier using the Euclidean metric is $10^4$ times smaller than the run time of the 1NN classifier combined with the DTW metric.
@@ -1539,9 +1538,10 @@ To  verify that the proposed feature extraction method is not tailored for this 
 
 \textbf{Setup}:
 \begin{itemize}
-\item From examining the plots of the time series sequences, I have applied wavelet decomposition only up to level 3 and taken the coefficients of the approximated signal $A_3$.
-\item  The  value of $\lambda$ chosen for smoothed cubic spline fitting is 0.35. At this value, the classifier is seen to yield the best results.
-\item  Since the length of the sequences is only 128, the information of individual local trends  is almost pruned away in the early levels of the decomposition. Figure 7.9 shows the plot of a raw signal corresponding to an instance of class`3' from the CBF dataset  and the  signal constructed from approximation $A_1$ using the reverse wavelet transform \citep{Mallet1998}. From the figure, we can see that jagged portions of the signal are smoothed away when we stop the decomposition at the first level.
+\item From examining the plots of the time series sequences, I have observed that appyling wavelet decomposition only up to level 3 is enough to remove the local trends. Thus, I have   taken the coefficients of the approximated signal $A_3$.
+\item  For the curve fitting phase, by visually comparing the corresponding fits,  I have observed that setting $\lambda$ to 0.35 gives the best  smoothed fit without interpolating the jagged regions of the sequences .
+ 
+\item  Since the length of the sequences is only 128, the information of individual local trends  is almost pruned away in the early levels of the decomposition. Figure 7.9 shows the plot of a raw signal corresponding to an instance of class`3' from the CBF dataset  and the  signal constructed from approximation $A_1$ using the reverse wavelet transform \citep{Mallet1998}. From the figure, we can see that  almost the jagged portions of the signal are smoothed away when we stop the decomposition at the first level.
 Thus, when we repeat the wavelet decomposition 3 times and take $A_3$, we can expect the coefficients of $A_3$ to correspond to a smoothed signal where  all the local trends are pruned away. The length of the $A_3$ is now 8 times smaller than the original sequence, therefore, the fourier extraction step was deemed not necessary in this case as the extracted sequences are very small in length. 
 
 \end{itemize}
@@ -1685,13 +1685,7 @@ Figure 8.3 provides an illustration of the envelope extraction process. The topm
 
 
 To investigate whether the proposed feature extraction methodology improves the performance of the 1NN classifier, I have compared  the accuracy and the run time of the classifier against the performance achieved by  the  baseline 1NN classifier combined with SVD when its employed on the rescaled speech utterances. A summary of the results are as follows:
-\begin{figure}[H]
-  \centering
-      \includegraphics[scale=0.8]{84.jpg}
-  \caption{Accuracy of the 1NN classifier}
-   \end{figure}
-  
-  \begin{table} [H]
+ \begin{table} [H]
  \centering
 \begin{tabular}{|c|c|c|c|}
 
@@ -1704,6 +1698,13 @@ To investigate whether the proposed feature extraction methodology improves the 
 \caption{Run time results}
 \end{table}
 
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.8]{84.jpg}
+  \caption{Accuracy of the 1NN classifier}
+   \end{figure}
+  
+ 
 \textbf{Observation}
 \begin{itemize}
 \item  Allowing the 1 NN classifier to exploit information about the shape of the envelopes improves the ability of  the classifier to classify intra class speech utterances more accurately by performing just a linear match between the  sequences. From figure 8.4, we can observe embedding the multi step feature extraction methodology improves the accuracy of the classifier by 6\%.
