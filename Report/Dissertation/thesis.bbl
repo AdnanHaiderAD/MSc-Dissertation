@@ -177,4 +177,11 @@ M.~Feldman, ``{Non-linear free vibration identification via the Hilbert
   technique}}.
 \newblock Boston: Birkh\"{a}user, 1996.
 
+\bibitem{Qu2003}
+Y.~Qu, B.-L. Adam, M.~Thornquist, J.~D. Potter, M.~L. Thompson, Y.~Yasui,
+  J.~Davis, P.~F. Schellhammer, L.~Cazares, M.~Clements, G.~L. Wright, and
+  Z.~Feng, ``{Data reduction using a discrete wavelet transform in discriminant
+  analysis of very high dimensionality data.},'' {\em Biometrics}, vol.~59,
+  pp.~143--51, Mar. 2003.
+
 \end{thebibliography}
