@@ -31,7 +31,7 @@
 \contentsline {subsection}{\numberline {7.2.2}Extracting curvature based features}{73}
 \contentsline {subsection}{\numberline {7.2.3}Experiments}{77}
 \contentsline {section}{\numberline {7.3}Conclusion}{81}
-\contentsline {chapter}{\numberline {8}Adapting The Euclidean Metric To Perform Isolated Word Recognition}{82}
+\contentsline {chapter}{\numberline {8}Preliminary work}{82}
 \contentsline {section}{\numberline {8.1}Identifying the acoustic signature of individual digits}{82}
 \contentsline {section}{\numberline {8.2}Homogenising the dimensionality of speech utterances}{83}
 \contentsline {section}{\numberline {8.3} Feature extraction methods to construct acoustic fingerprints}{85}
