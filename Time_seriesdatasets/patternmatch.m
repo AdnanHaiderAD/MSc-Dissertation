@@ -118,8 +118,8 @@ function match= nearest_neighbours(sample,data,train_labels)
     nearestN=NaN;
     min_dist=Inf;
     for j=1 :samp
-        %dist= sum ((sample-data(j,:)).^2);
-        dist= dtw(sample,data(j,:));
+        dist= sum ((sample-data(j,:)).^2);
+        %dist= dtw(sample,data(j,:));
         if dist<min_dist
             nearestN = train_labels(j);
             min_dist=dist;

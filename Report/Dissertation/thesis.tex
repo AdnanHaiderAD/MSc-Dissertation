@@ -83,7 +83,7 @@
 \abstract{%
     %This doctoral thesis will present the results of my work into the
     %reanimation of lifeless human tissues.
- The mining of time-series data has received considerable attention within the  data mining and machine learning community in the last decade. Time series analysis is used in many applications ranging from  sales forecasting, budgetary analysis to stock market prediction and many more. To identify and compare frequently occurring patterns,  a popular metric that is frequently used is the Dynamic Time Warping(DTW) algorithm. Unlike normal datasets, time series sequences are very hard to compare. Intra class sequences  vary in terms of size, scale and speed thus making the use of  standard metrics such as the Euclidean distance  very limited in scope.  The DTW algorithm on the other hand is not restricted to performing just a linear match of the temporal dimensions of sequences. By warping the time axis, the algorithm compares events localised in different regions of time. However, one of the fundamental drawbacks of using this algorithm is its high time complexity. The time complexity of the DTW is O($n^2$) where n is the length of sequences. For long time series sequences, the run time incurred in using the DTW algorithm is  thus quite high, hence making the algorithm  an unattractive choice in comparing high dimensional time series sequences. In such scenarios, the Euclidean distance however is a more attractive choice since it has a time complexity of O(n).  To address the drawbacks associated with both metrics, in this project, we present procedures to improve both  the accuracy and speed of both metrics  in handling high dimensional time series sequences. We present an adaptation of the DTW that is faster and yet more accurate than the standard DTW algorithms using the most rigid window constraints. We also present a feature extraction procedure that allows the Euclidean metric to be as accurate as the DTW algorithm applied on raw sequences.
+ The mining of time-series data has received considerable attention within the  data mining and machine learning community in the last decade. Time series analysis is used in many applications ranging from  sales forecasting, budgetary analysis to stock market prediction and many more. To identify and compare frequently occurring patterns,  a popular metric that is frequently used is the Dynamic Time Warping(DTW) algorithm. Unlike normal datasets, time series sequences are very hard to compare. Intra class sequences  vary in terms of size, scale and speed thus making the use of  standard metrics such as the Euclidean distance  very limited in scope.  The DTW algorithm on the other hand is not restricted to performing just a linear match of the temporal dimensions of sequences. By warping the time axis, the algorithm compares events localised in different regions of time. However, one of the fundamental drawbacks of using this algorithm is its high time complexity. The time complexity of the DTW is O($n^2$) where n is the length of sequences. For long time series sequences, the run time incurred in using the DTW algorithm is  thus quite high which makes  the algorithm  an unattractive choice in comparing high dimensional time series sequences. In such scenarios, the Euclidean distance however is a more attractive choice since it has a time complexity of O(n).  To address the drawbacks associated with both metrics, in this project, we present procedures to improve both  the accuracy and speed of both metrics  in handling high dimensional time series sequences. We present an adaptation of the DTW that is faster and yet more accurate than the standard DTW algorithms using the most rigid window constraints. We also present a feature extraction procedure that allows the Euclidean metric to be as accurate as the DTW algorithm applied on raw sequences.
 
 }
 
@@ -1386,7 +1386,7 @@ Synthetic control &  0.32s & 0.30s  & 777.3s\\
 \begin{itemize}
 \item Removing unnecessary details by smoothing the signals improves the accuracy of the 1NN classifier by 10\%. The resultant accuracy is  identical to the best accuracy achieved by combining 1NN classifier with the DTW algorithm. Furthermore, the run time of 1NN classifier using the Euclidean metric is $10^4$ times smaller than the run time of the 1NN classifier combined with the DTW metric.
 
-This proves  that by applying the  wavelet transform as a preprocessing step, the 1NN equipped with the Euclidean metric can identify intra class sequences that  roughly share the same time aligned global trends with  high accuracy without being subjected to high run times.
+This proves  that by applying the  wavelet transform as a preprocessing step, the 1NN classifier equipped with the Euclidean metric can identify intra class sequences that  roughly share the same time aligned global trends with  high accuracy without being subjected to high run times.
 
  
 \end{itemize}
@@ -1489,7 +1489,7 @@ The Fourier transform maps time into frequency and phase. For each frequency the
  
 
  
- To investigate whether using  the 3 step feature extraction method  improves the accuracy of the 1 nearest neighbour classifier, I re-ran the experiment again on the InlineSkate  dataset but using the proposed feature extraction method as a prior preprocessing step. The details of the conducted experiment are as follows:
+ To investigate whether using  the 3 step feature extraction method  improves the ability of the Euclidean metric to identify intra class sequences, I re-ran the experiment again on the InlineSkate  dataset but using the proposed feature extraction method as a prior preprocessing step. The details of the conducted experiment are as follows:
  
  \subsection{Experiments}
  
@@ -1555,7 +1555,7 @@ Thus, when we repeat the wavelet decomposition 3 times and take $A_3$, we can ex
       \includegraphics[scale=0.5]{726.jpg}
  \caption{The green plot corresponds to signal constructed from $A_1$ and the blue plot presents the original signal }
   \end{figure}
- The accuracy of the model was compared against the accuracy of the baseline 1NN classifier and the  best accuracy of 1NN classifier using the DTW algorithm\citep{Xie2010}.
+ The accuracy of the model was compared against the accuracy of the baseline 1NN classifier using the Euclidean metric and the  accuracy of 1NN classifier using the DTW algorithm\citep{Xie2010}.
  
 A summary of the results are as follows:
 
@@ -1674,6 +1674,7 @@ Figure 8.3 provides an illustration of the envelope extraction process. The topm
  
  For each utterance:  
   \begin{itemize}
+  \item Remove the regions that correspond to silence. In section 4.1, through exploratory data analysis we have identified that the silence regions correspond to redundant features that play no part in distinguishing intra class sequences. Thus removing such parts from the signal achieves dimensionality reduction with out any loss of information. We can to refer to this phase of the feature extraction process as the data cleaning step.
  \item Apply the matlab function `resample' to rescale the utterance to the mean length of the sequences in the training dataset. This ensures that  all sequences to share the same length while at the same time preserving the shape of the envelopes associated with each utterance.  
   \item  Apply the Hilbert transform to extract the envelope associated with the speech signal.
   \item Apply the wavelet transform can remove the  unnecessary details  from the extracted envelopes.  The envelopes extracted through the Hilbert transform contain regions with very high frequencies.  This is expected  as human speech is spoken at a very high frequency . Using the wavelet transform, we can recover the global trend of the envelope by  smoothing away the regions with high frequencies.  For this problem, I stopped the wavelet decomposition at level 8 and considered only the approximated coefficients $A'_8$.  Through exploratory data analysis, I have found this level is in fact the minimum level of decomposition that needs to be applied to extract a curve that captures the envelope of the signal. The extracted envelope is hence replaced by the smoothed envelope corresponding to the  approximation coefficients $A'_8$.
@@ -1684,10 +1685,10 @@ Figure 8.3 provides an illustration of the envelope extraction process. The topm
   
   %The extracted sequences however, still suffer from very high dimensionality.  Since the  objective here is to extract the global shape of the envelope, by  following the methodology discussed in 7.2.2, I have taken the first k fourier coefficients from the fourier transform  of the signal.  As I have already mentioned in the section 7.2, the  information of the global shape is captured by the fourier coefficients of the lower frequencies\citep{Osowski2002}. For this dataset, by conducting multple experiments, I have found that taking the first 77 fourier coefficients yield the highest results.
    \end{itemize}
-\textbf{Run time of preprocessing}  : The time taken to apply this above feature extraction methods is 106.5s. 
+\textbf{Run time of preprocessing}  : The time taken to apply this above feature extraction methods is 63.5s. 
 
 
-To investigate whether the proposed feature extraction methodology improves the performance of the 1NN classifier, I have compared  the accuracy and the run time of the classifier against the performance achieved by  the  baseline 1NN classifier combined with SVD when its employed on the rescaled speech utterances. A summary of the results are as follows:
+To investigate whether the proposed feature extraction methodology improves the ability of the Euclidean metric to identify intra class sequences, I have compared  the accuracy and the run time of the classifier against the performance achieved by  the  baseline 1NN classifier combined with SVD employed on the rescaled speech utterances. A summary of the results are as follows:
  \begin{table} [H]
  \centering
 \begin{tabular}{|c|c|c|c|}
@@ -1710,16 +1711,47 @@ To investigate whether the proposed feature extraction methodology improves the 
  
 \textbf{Observation}
 \begin{itemize}
-\item  Allowing the 1 NN classifier to exploit information about the shape of the envelopes improves the ability of  the classifier to classify intra class speech utterances more accurately by performing just a linear match between the  sequences. From figure 8.4, we can observe embedding the multi step feature extraction methodology improves the accuracy of the classifier by 6\%.
+\item  Allowing the 1 NN classifier to exploit information about the shape of the envelopes improves the ability of  the Euclidean metric to idetify intra class speech utterances more accurately by performing just a linear match between the  sequences. From figure 8.4, we can observe embedding the multi step feature extraction methodology improves the accuracy of the classifier by 6\%.
 
-\item Applying the multistep feature extraction  as a preprocessing step, reduces the run time of the 1NN classifier. However, the preprocessing step on its own is quite time consuming. In the next chapter, I will present a detailed discussion on the pros and cons of the proposed  multi-step feature extraction method.
+\item Applying the multistep feature extraction  as a preprocessing step, reduces the run time of the 1NN classifier. However, the preprocessing step on its own is a bit time consuming as we applying multi level wavelet decomposition following by curvature fitting on each utterance at a time.
+
+  \end{itemize}
+As a  final experiment, I replaced the Euclidean metric and re-ran the whole experiment  again using the DTW metric. The results were compared with the  accuracy and run time of the DTW algorithm using the standard MFCC features. This allows us to analyse  how well does the proposed feature extraction methodology  do in capturing common attributes from the intra class utterances in comparison to the MFCC vectors.  A summary of the results are as follows:
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|}
+
+\hline \\
+Proposed feature extraction  + DTW & MFFC features + DTW\\\\
+\hline\\
+   3023s & 171283s\\
+\hline
+\end{tabular}
+\caption{Run time results}
+\end{table}
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.8]{9.jpg}
+  \caption{Accuracy of the 1NN classifier}
+   \end{figure}
+
+
+\begin{itemize}
+\item Judging from the run times, we can conclude that the proposed multi step feature extraction process achieves greater dimensionality reduction than the MFCC feature vectors. 
+
+\item  The  1 NN classifier  achieves almost near perfect accuracy when it uses the domain dependent MFCC features.  This shows that when employing the DTW metric to match speech utterances, the MFCC feature vectors are the ideal features to use to distinguish utterances of different lexical identities.
+
+
+
+ intra class speech utterances, the MFCC feature vectors are in fact the ideal feature vectors to use if we are aiming to minimise the classification error rate.   
+\item By comparing the experimental results with the results of the previous experiment, it can be  observed  that the multi-step feature extraction method  favours the Euclidean metric over the DTW.  Under the proposed extraction method, the accuracy of the 1NN classifier using the DTW metric is almost 9\% less than the accuracy achieved by the classifier when it uses the Euclidean distance.
+
+\end{itemize}
 
 
 % One of the main drawbacks of this methodology is the fourier  feature extraction phase.  For problem domains where the use of fourier feature  extraction phase can not be avoided, the proposed multi-step feature extraction suffers from a essential drawback. While the decomposition level of applying the wavelet transform can be decided by conducting exploratory data analysis, to choose the appropriate number of fourier coefficients, we require a labelled training set.
 
 
 
-  \end{itemize}
 
  \chapter{Discussion and Future Work}
 This project has primarily focussed  in addressing the drawbacks associated with applying the Dynamic time warping algorithm and the Euclidean metric in time-series problem domains where minimising the run time is as important as improving the accuracy. 
@@ -1754,7 +1786,7 @@ For time series datasets where sequences  possess  long lengths even after the w
 This project makes two significant contributions:
 \begin{itemize}
 \item I have successfully developed an adaptation of the DTW algorithm that uses a specially designed kernel function to identify intra class sequences with greater accuracy and with  lesser run time in comparison to  the baseline DTW algorithm augmented with the most rigid window constraint. Thus in doing so, I have succeeded in improving the performance of the DTW algorithm in time series problem domains where minimising the run time is as equally important and improving accuracy.
-\item I have successfully constructed a multi-step feature extraction scheme  that extracts  global shape descriptors of time series  sequences. Experimental results have shown that this proposed feature extraction method allows the the Euclidean metric to be as effective as the DTW metric in time series problem domains where intra class sequences  are distinguished by their global shape.
+\item I have successfully constructed a multi-step feature extraction scheme  that extracts  global shape descriptors of time series  sequences. Experimental results have shown that this proposed feature extraction method allows the  Euclidean metric to be as effective as the DTW metric applied on raw sequences in time series problem domains where intra class sequences  are distinguished by their global shape.
 \end{itemize}
       \end{spacing}
 
