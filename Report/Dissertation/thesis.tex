@@ -1780,8 +1780,9 @@ For time series datasets where sequences  possess  long lengths even after the w
  
  In chapter 7, we have seen that for time series classification problems where we need to include the fourier feature extraction phase in the   the multi-step method,  the overall run time incurred is much higher than the baseline method. Thus, in terms of run time, the proposed methodology is only efficient in problem scenarios where the fourier feature extraction phase is deemed not necessary.   
 \end{itemize}
- And lastly in chapter 9, we investigate how this multistep feature extraction process can be extended to  extract latent features that identify speech utterances corresponding to the same lexical identity using information about the shape of their respective envelopes. The methodology proposed here also allows the Euclidean metric to be successfully applied on time series  sequences that of different lengths.
-  
+ And finally  in chapter 9, we investigate how this multistep feature extraction process can be extended to exploit information about the shape of envelopes to help the Euclidean metric to identify speech utterances corresponding to the same lexical identity with greater accuracy. The constructed method also allows the Euclidean metric to be successfully applied to time series datasets where  sequences  have different lengths. One of the main drawbacks associated with this approach is its inability to scale to speech datasets with larger vocabularies. The approach assumes that  the utterances associated with each lexical identity share a unique envelope but this assumption doesn't necessarily hold for large vocabulary speech datasets. In a large vocabulary setting,   words even if they are not homophones may possess  similar envelopes as a result of sharing  similar patterns of vowels and consonants. This reduces the ability  of the Euclidean metric to identify intra class sequences with good accuracy. 
+ 
+    
 \section{Contributions}
 This project makes two significant contributions:
 \begin{itemize}
