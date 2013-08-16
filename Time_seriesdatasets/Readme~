@@ -1,0 +1,16 @@
+The folder 
+CinC_ECG_torso : contains raw time series data of the ECG of people's torso
+
+InLineSkate: contains raw time series data of InlineSkate
+
+LocalGlobalFeat: contains the extracted local and global features of the ECG_torso and InlineSkate data sets
+
+Rawdata: containds the same information as CinC_ECG_torso and InLineSkate but in the form of mat files
+
+
+LocalGlobalkernR : contains the result of applying DTW augmented with the proposed metric on the sequences of extracted features of Cinc_ECG and  InlineSkate  but using different time slices
+
+
+LocGloR: contains the result of applying DTW augmented with a euclidean metric and window on the sequences of extracted features of Cinc_ECG and  InlineSkate  
+
+basline: contains the result of applying value-based DTW augmented with a euclidean metric and window on the sequences of  Cinc_ECG and  InlineSkate 
